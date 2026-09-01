@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WSJF Calculator | Agile Orbit</title>
+<meta name="description" content="Rank work using Cost of Delay divided by Job Size.">
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/universe-pages.css"></head>
+<body>
+<div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div>
+<main>
+<section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="../">Home</a><span>/</span><a href="../tools/">Tools</a><span>/</span><span>WSJF</span></div><span class="eyebrow">PRIORITISATION TOOL</span><h1>WSJF Calculator</h1><p class="muted" style="max-width:760px;font-size:1.08rem">Compare features using Weighted Shortest Job First: Cost of Delay ÷ Job Size.</p></div></section>
+<section class="section"><div class="container">
+<div class="tool-layout">
+<div class="panel">
+<div class="actions"><button type="button" class="btn btn-primary" id="addWsjf">+ Add item</button><button type="button" class="btn btn-secondary" id="resetWsjf">Reset</button></div>
+<div id="wsjfError" class="callout" role="alert" aria-live="polite" style="display:none;margin-top:14px"></div>
+<div class="table-wrap" style="margin-top:16px"><table class="data-table"><thead><tr><th>Feature</th><th>BV</th><th>TC</th><th>RR/OE</th><th>Job Size</th><th>Cost of Delay</th><th>WSJF</th><th>Rank</th></tr></thead><tbody id="wsjfRows"></tbody></table></div>
+<div class="actions" style="margin-top:16px"><button type="button" class="btn btn-secondary" id="exportWsjf">Export CSV</button><button type="button" class="btn btn-secondary" id="printWsjf">Print</button></div>
+</div>
+<div class="panel"><span class="eyebrow">HOW IT WORKS</span><h2>Transparent by design.</h2>
+<p class="muted">WSJF prioritises work by considering the economic value of delaying it relative to its size.</p>
+<div class="callout"><strong>Cost of Delay</strong><br>Business Value + Time Criticality + Risk Reduction / Opportunity Enablement</div>
+<div class="callout" style="margin-top:12px"><strong>WSJF</strong><br>Cost of Delay ÷ Job Size</div>
+<p class="note" style="margin-top:12px">Higher WSJF scores indicate items that may deserve earlier consideration. Use consistent scales across all items.</p>
+</div>
+</div></div></section>
+</main><div id="site-footer"></div>
+<script src="../js/config.js"></script><script src="../js/utilities.js"></script><script src="../js/navigation.js"></script><script src="../js/main.js"></script><script src="../js/tools.js"></script><script src="../js/calculators.js"></script>
+<script>
+(function(){
+  'use strict';
+  const rows = document.getElementById('wsjfRows');
+  const error = document.getElementById('wsjfError');
+  if (!rows) return;
+
+  function number(value){
+    const n = parseFloat(value);
+    return Number.isFinite(n) ? n : 0;
+  }
+  function showError(message){
+    error.textContent = message || '';
+    error.style.display = message ? 'block' : 'none';
+  }
+  function calculate(){
+    showError('');
+    const data = [];
+    Array.from(rows.children).forEach(function(tr){
+      const inputs = tr.querySelectorAll('input');
+      const bv = Math.max(0, number(inputs[1].value));
+      const tc = Math.max(0, number(inputs[2].value));
+      const rr = Math.max(0, number(inputs[3].value));
+      const size = number(inputs[4].value);
+      const cod = bv + tc + rr;
+      const score = size > 0 ? cod / size : 0;
+      data.push({tr:tr, cod:cod, score:score, valid:size > 0});
+    });
+    data.sort(function(a,b){ return b.score - a.score; });
+    data.forEach(function(item,index){
+      rows.appendChild(item.tr);
+      item.tr.querySelector('.cod').textContent = item.cod.toFixed(2).replace(/\\.00$/,'');
+      item.tr.querySelector('.score').textContent = item.valid ? item.score.toFixed(2) : '—';
+      item.tr.querySelector('.rank').textContent = item.valid ? String(index + 1) : '—';
+    });
+    if (data.some(function(x){return !x.valid;})) showError('Job Size must be greater than 0 for a WSJF score.');
+  }
+  function addRow(){
+    const tr=document.createElement('tr');
+    const count=rows.children.length+1;
+    tr.innerHTML =
+      '<td><input aria-label="Feature name" value="Feature ' + count + '"></td>' +
+      '<td><input aria-label="Business Value" type="number" min="0" step="0.1" value="8"></td>' +
+      '<td><input aria-label="Time Criticality" type="number" min="0" step="0.1" value="5"></td>' +
+      '<td><input aria-label="Risk Reduction or Opportunity Enablement" type="number" min="0" step="0.1" value="5"></td>' +
+      '<td><input aria-label="Job Size" type="number" min="0.1" step="0.1" value="5"></td>' +
+      '<td class="cod">18</td><td class="score">3.60</td><td class="rank">1</td>';
+    rows.appendChild(tr);
+    tr.querySelectorAll('input').forEach(function(input){ input.addEventListener('input',calculate); });
+    calculate();
+  }
+  function reset(){ rows.innerHTML=''; addRow(); }
+  function csvEscape(value){ return '"'+String(value).replace(/"/g,'""')+'"'; }
+  function exportCsv(){
+    calculate();
+    let csv='Rank,Feature,Business Value,Time Criticality,Risk Reduction/Opportunity Enablement,Job Size,Cost of Delay,WSJF\\n';
+    Array.from(rows.children).forEach(function(tr){
+      const v=tr.querySelectorAll('input');
+      csv += [tr.querySelector('.rank').textContent,v[0].value,v[1].value,v[2].value,v[3].value,v[4].value,tr.querySelector('.cod').textContent,tr.querySelector('.score').textContent].map(csvEscape).join(',')+'\\n';
+    });
+    if(window.AO && AO.download) AO.download('wsjf-ranking.csv',csv,'text/csv;charset=utf-8');
+    else { const blob=new Blob([csv],{type:'text/csv'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='wsjf-ranking.csv'; a.click(); }
+  }
+  document.getElementById('addWsjf').addEventListener('click',addRow);
+  document.getElementById('resetWsjf').addEventListener('click',reset);
+  document.getElementById('exportWsjf').addEventListener('click',exportCsv);
+  document.getElementById('printWsjf').addEventListener('click',function(){window.print();});
+  addRow(); addRow(); addRow();
+})();
+</script>
+<script src="../js/universe-pages.js"></script></body></html>

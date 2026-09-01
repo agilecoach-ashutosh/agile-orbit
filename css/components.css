@@ -1,0 +1,2 @@
+/* Component-specific extensions live here. Keep shared primitives in style.css. */
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid var(--border);border-radius:999px;background:var(--surface-soft);font-size:.76rem;font-weight:800;color:var(--text-secondary)}
