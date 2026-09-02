@@ -5,3 +5,6 @@
 @media(max-width:760px){.ai-system-grid,.framework-grid,.usecase-grid,.ai-principle-grid{grid-template-columns:1fr}.ai-flow{display:block}.ai-flow>div{margin:9px 0}.ai-flow i{display:block;text-align:center;transform:rotate(90deg)}.event-tabs{position:static}.event-heading{align-items:flex-start;display:block}.event-count{display:block;margin-top:8px}.ai-next{display:block}.ai-next .btn{margin-top:18px}}
 
 @media(max-width:760px){.ai-flow{grid-template-columns:1fr;gap:10px}.ai-flow i{display:none}.ai-system-grid,.framework-grid,.usecase-grid,.ai-principle-grid{grid-template-columns:1fr}.event-tabs{position:static}.event-heading{align-items:flex-start;gap:12px;flex-direction:column}.ai-system-card{min-height:0;padding:24px}}
+
+/* Full IT Role Example Prompt display */
+.framework-example{margin:14px 0 0;padding:15px 16px;border:1px solid rgba(105,220,255,.12);border-radius:12px;background:rgba(2,6,13,.72);color:#dce8f5;font:500 .76rem/1.65 ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;white-space:normal;overflow:auto}.framework-card details summary{cursor:pointer;color:#8ce4ff;font-weight:800;font-size:.78rem}.framework-card details[open] summary{margin-bottom:2px}
