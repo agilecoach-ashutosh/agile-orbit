@@ -1,0 +1,57 @@
+/* Agile Orbit — reference hero styling */
+body.universe-home{background:#02050d;color:#f7f8ff}
+body.universe-home .site-header{background:linear-gradient(180deg,rgba(1,4,12,.86),rgba(1,4,12,.42));border-bottom:1px solid rgba(255,255,255,.035);backdrop-filter:blur(12px)}
+body.universe-home .site-header .nav{height:78px}
+body.universe-home .brand{font-size:1.12rem;letter-spacing:-.02em}
+body.universe-home .brand-mark{width:36px;height:36px;border:2px solid #a98bff;border-right-color:#49dfff;border-radius:50%;position:relative;box-shadow:0 0 18px rgba(125,111,255,.3)}
+body.universe-home .brand-mark:before{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:#fff;right:-4px;top:5px;box-shadow:0 0 12px #fff}
+body.universe-home .nav-links{gap:30px}
+body.universe-home .nav-link,.universe-home .nav-trigger{font-size:.88rem;color:rgba(255,255,255,.9)}
+body.universe-home .nav-trigger span{display:none}
+body.universe-home .dropdown{display:none!important}
+body.universe-home .icon-btn{border-color:rgba(255,255,255,.08);background:rgba(255,255,255,.025);color:#fff}
+body.universe-home .nav-actions .btn-primary{display:inline-flex;background:linear-gradient(100deg,#713cff,#148df7);border:0;color:#fff;border-radius:17px;padding:14px 24px;box-shadow:0 12px 38px rgba(68,65,255,.28)}
+body.universe-home .universe-shell{min-height:100vh;background:radial-gradient(ellipse at 75% 42%,rgba(37,68,155,.16),transparent 28%),radial-gradient(ellipse at 87% 5%,rgba(98,41,181,.13),transparent 25%),#02050d}
+body.universe-home .universe-hero{min-height:calc(100vh - 78px);padding:36px 0 88px;align-items:center}
+body.universe-home .universe-hero-grid{grid-template-columns:minmax(430px,.72fr) minmax(650px,1.28fr);gap:0;max-width:1480px}
+body.universe-home .u-copy{z-index:10;padding-left:4px;margin-top:-12px}
+body.universe-home .u-eyebrow{color:#8c63ff;font-size:.73rem;letter-spacing:.14em;font-weight:800}
+body.universe-home .u-eyebrow:before{display:none}
+body.universe-home .u-copy h1{font-size:clamp(4rem,5.8vw,6.7rem);line-height:.96;letter-spacing:-.07em;margin:25px 0 27px;max-width:680px}
+body.universe-home .u-copy h1 span{display:block;color:#f7f7fb}
+body.universe-home .u-copy h1 span:nth-child(3){background:linear-gradient(90deg,#1aa8ff 0%,#5c5cff 48%,#b14bff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+body.universe-home .u-copy p{font-size:1.04rem;line-height:1.7;color:#c2c5d1;max-width:520px;margin-bottom:31px}
+body.universe-home .u-actions{gap:15px}
+body.universe-home .u-btn{padding:15px 22px;border-radius:13px;font-size:.9rem}
+body.universe-home .u-btn.primary{background:linear-gradient(105deg,#4d5cff,#7b24ff);border:0;color:#fff;box-shadow:0 16px 45px rgba(83,55,255,.3)}
+body.universe-home .u-btn.secondary{border-color:rgba(215,225,255,.38);background:rgba(3,7,17,.45);color:#f3f5fb}
+body.universe-home .u-btn.secondary span:first-child{display:inline-grid;place-items:center;width:20px;height:20px;border:1px solid rgba(255,255,255,.55);border-radius:50%;font-size:.55rem}
+body.universe-home .u-3d-wrap{height:min(720px,78vh);min-height:610px;margin-left:-30px;overflow:visible}
+body.universe-home .u-3d-wrap:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 53% 49%,transparent 0 36%,rgba(2,5,13,.16) 57%,rgba(2,5,13,.82) 100%);pointer-events:none;z-index:2}
+body.universe-home #universe3d{z-index:1}
+body.universe-home .u-3d-core-glow{width:270px;height:270px;background:radial-gradient(circle,rgba(255,198,81,.25),rgba(255,120,20,.09) 36%,transparent 72%);filter:blur(10px)}
+body.universe-home .u-3d-center{font-size:1rem;text-shadow:0 2px 18px rgba(0,0,0,.5)}
+body.universe-home .u-3d-center strong{font-size:1.65rem;letter-spacing:.04em;color:#25160b;text-shadow:none}
+body.universe-home .u-3d-center span{font-size:1.05rem;letter-spacing:.1em;color:#2b1a0c;margin-top:0}
+body.universe-home .u-3d-label{min-width:128px;padding:11px 14px;border-radius:13px;border-color:rgba(171,214,255,.25);background:rgba(5,10,24,.72);box-shadow:0 15px 45px rgba(0,0,0,.4),inset 0 0 22px rgba(255,255,255,.025)}
+body.universe-home .u-3d-label strong{font-size:.76rem}
+body.universe-home .u-3d-label span{font-size:.66rem;color:#d2d8e8}
+body.universe-home .u-3d-label.learn{transform-origin:left center}.u-3d-label.tools{transform-origin:left center}
+body.universe-home .u-3d-label.learn strong{color:#d18bff}.u-3d-label.tools strong{color:#54d9ff}.u-3d-label.practice strong{color:#70f080}.u-3d-label.insights strong{color:#ffd36b}.u-3d-label.coaching strong{color:#ff72c9}.u-3d-label.think strong{color:#ff6e91}
+body.universe-home .u-3d-hint{display:none}
+body.universe-home .hero-stats{position:absolute;left:0;right:0;bottom:16px;z-index:12}
+body.universe-home .hero-stats-inner{display:grid;grid-template-columns:repeat(6,1fr);padding:17px 18px;border:1px solid rgba(181,203,255,.2);border-radius:22px;background:rgba(4,9,21,.68);backdrop-filter:blur(20px);box-shadow:0 25px 80px rgba(0,0,0,.4)}
+body.universe-home .hero-stat{display:flex;align-items:center;gap:14px;padding:4px 24px;border-right:1px solid rgba(255,255,255,.1)}
+body.universe-home .hero-stat:last-child{border-right:0}
+body.universe-home .hero-stat-icon{width:45px;height:45px;border-radius:15px;display:grid;place-items:center;border:1px solid rgba(126,177,255,.25);background:rgba(38,76,180,.13);font-size:1.25rem;flex:0 0 auto}
+body.universe-home .hero-stat:nth-child(1) .hero-stat-icon{color:#a96bff}.hero-stat:nth-child(2) .hero-stat-icon{color:#46cfff}.hero-stat:nth-child(3) .hero-stat-icon{color:#54ed83}.hero-stat:nth-child(4) .hero-stat-icon{color:#ffbf39}.hero-stat:nth-child(5) .hero-stat-icon{color:#ff63ba}.hero-stat:nth-child(6) .hero-stat-icon{color:#559dff}
+body.universe-home .hero-stat strong{display:block;font-size:1.25rem;line-height:1.1}.hero-stat span{display:block;color:#c3c7d5;font-size:.72rem;line-height:1.25;margin-top:5px;white-space:nowrap}
+body.universe-home .scroll-explore{position:absolute;bottom:-76px;left:50%;transform:translateX(-50%);z-index:12;text-align:center;color:#b9bdcb;font-size:.68rem;letter-spacing:.27em;white-space:nowrap}
+body.universe-home .scroll-explore .mouse{width:20px;height:31px;border:1px solid #fff;border-radius:10px;margin:0 auto 12px;position:relative}.scroll-explore .mouse:after{content:"";position:absolute;width:2px;height:6px;border-radius:2px;background:#fff;left:8px;top:6px;animation:scrollDot 1.8s infinite}.scroll-explore .chevron{font-size:1rem;letter-spacing:0;display:block;margin-top:7px}
+@keyframes scrollDot{0%{transform:translateY(0);opacity:1}70%,100%{transform:translateY(9px);opacity:.1}}
+body.universe-home .u-section{padding-top:120px}
+@media(max-width:1200px){body.universe-home .universe-hero-grid{grid-template-columns:minmax(360px,.78fr) minmax(560px,1.22fr)}body.universe-home .u-copy h1{font-size:clamp(3.7rem,6vw,5.5rem)}body.universe-home .u-3d-wrap{margin-left:-60px}.hero-stat{padding-inline:12px!important}}
+@media(max-width:980px){body.universe-home .universe-hero{padding-top:30px}.universe-home .universe-hero-grid{grid-template-columns:1fr}.universe-home .u-copy{text-align:center;padding:0;margin:0}.universe-home .u-copy p{margin-inline:auto}.universe-home .u-actions{justify-content:center}.universe-home .u-3d-wrap{margin:0;height:600px;min-height:540px}.universe-home .hero-stats{position:relative;bottom:auto;margin-top:-12px}.universe-home .hero-stats-inner{grid-template-columns:repeat(3,1fr)}.universe-home .hero-stat:nth-child(3){border-right:0}.universe-home .hero-stat:nth-child(n+4){margin-top:8px}.universe-home .scroll-explore{display:none}}
+@media(max-width:620px){body.universe-home .site-header .nav{height:68px}.universe-home .u-copy h1{font-size:3.35rem}.universe-home .u-copy p{font-size:.94rem}.universe-home .u-3d-wrap{height:470px;min-height:430px}.universe-home .hero-stats-inner{grid-template-columns:repeat(2,1fr);padding:12px}.universe-home .hero-stat{border-right:0!important;border-bottom:1px solid rgba(255,255,255,.08);padding:11px 8px}.universe-home .hero-stat:nth-last-child(-n+2){border-bottom:0}.universe-home .hero-stat-icon{width:37px;height:37px;border-radius:11px;font-size:1rem}.universe-home .hero-stat strong{font-size:1rem}.universe-home .hero-stat span{font-size:.62rem}.universe-home .u-3d-label{min-width:94px;padding:8px 10px}.universe-home .u-3d-label strong{font-size:.62rem}.universe-home .u-3d-label span{font-size:.55rem}.universe-home .u-3d-center strong{font-size:1rem}.universe-home .u-3d-center span{font-size:.65rem}}
+
+@media(max-width:620px){body.universe-home .u-3d-label{min-width:88px}.universe-home .u-3d-label{font-size:.6rem}}
