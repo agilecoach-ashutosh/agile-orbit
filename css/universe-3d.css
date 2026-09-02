@@ -1,0 +1,27 @@
+/* Agile Orbit — 3D hero layer */
+.universe-home .universe-hero{min-height:calc(100vh - 76px);display:flex;align-items:center;position:relative;overflow:hidden}
+.universe-home .universe-hero-grid{position:relative;z-index:2;min-height:calc(100vh - 76px);align-items:center}
+.u-3d-wrap{position:relative;height:min(760px,78vh);min-height:560px;width:100%;isolation:isolate}
+#universe3d{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+#universe3d:active{cursor:grabbing}
+.u-3d-vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 54% 49%,transparent 0 34%,rgba(3,5,11,.06) 56%,rgba(3,5,11,.72) 100%);z-index:2}
+.u-3d-core-glow{position:absolute;left:50%;top:50%;width:190px;height:190px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,214,112,.16),rgba(151,91,255,.08) 38%,transparent 72%);filter:blur(8px);pointer-events:none;z-index:1}
+.u-3d-labels{position:absolute;inset:0;z-index:4;pointer-events:none}
+.u-3d-label{position:absolute;left:0;top:0;transform:translate(-50%,-50%);min-width:118px;padding:10px 13px;border:1px solid rgba(150,205,255,.22);border-radius:14px;background:rgba(4,8,18,.68);backdrop-filter:blur(12px);box-shadow:0 12px 34px rgba(0,0,0,.32),0 0 28px rgba(100,180,255,.06);color:#fff;text-align:left;opacity:0;transition:opacity .25s ease,transform .25s ease,border-color .25s ease,background .25s ease}
+.u-3d-label strong{display:block;font-size:.75rem;letter-spacing:.13em;font-weight:800}
+.u-3d-label span{display:block;margin-top:3px;font-size:.68rem;color:rgba(230,240,255,.66);white-space:nowrap}
+.u-3d-label.is-visible{opacity:1}
+.u-3d-label.is-hovered{border-color:rgba(123,217,255,.55);background:rgba(9,16,31,.84);transform:translate(-50%,-50%) scale(1.06);box-shadow:0 16px 42px rgba(0,0,0,.42),0 0 34px rgba(107,190,255,.16)}
+.u-3d-label.learn strong{color:#c19cff}.u-3d-label.tools strong{color:#6fd6ff}.u-3d-label.practice strong{color:#7df29b}.u-3d-label.insights strong{color:#ffd36e}.u-3d-label.coaching strong{color:#ff8dd5}.u-3d-label.think strong{color:#ff8a73}
+.u-3d-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;pointer-events:none;text-align:center;mix-blend-mode:screen}
+.u-3d-center strong{display:block;font-size:1.2rem;letter-spacing:.16em;color:#fff;text-shadow:0 0 24px rgba(255,211,115,.55)}
+.u-3d-center span{display:block;margin-top:2px;font-size:.7rem;letter-spacing:.28em;color:rgba(255,236,182,.82)}
+.u-3d-hint{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:5;display:flex;align-items:center;gap:9px;padding:9px 13px;border:1px solid rgba(148,201,255,.16);border-radius:999px;background:rgba(4,8,18,.55);backdrop-filter:blur(10px);font-size:.68rem;letter-spacing:.05em;color:rgba(224,237,255,.65);white-space:nowrap;pointer-events:none}
+.u-3d-hint::before{content:"";width:6px;height:6px;border-radius:50%;background:#79dfff;box-shadow:0 0 12px #79dfff}
+.u-3d-fallback{display:none}
+.u-3d-status{position:absolute;inset:auto 20px 20px 20px;z-index:6;display:none;padding:14px 16px;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(6,10,20,.85);color:rgba(255,255,255,.78);font-size:.82rem;text-align:center}
+.u-3d-wrap.webgl-failed .u-3d-status{display:block}
+@media (max-width:1100px){.u-3d-wrap{height:620px;min-height:500px}.u-3d-label{min-width:102px;padding:8px 10px}.u-3d-label span{font-size:.62rem}}
+@media (max-width:820px){.universe-home .universe-hero{padding-top:40px}.u-3d-wrap{height:520px;min-height:440px}.u-3d-label{min-width:92px;padding:7px 9px;border-radius:11px}.u-3d-label strong{font-size:.65rem}.u-3d-label span{font-size:.56rem}.u-3d-center strong{font-size:.95rem}.u-3d-hint{bottom:8px;font-size:.58rem}}
+@media (max-width:560px){.u-3d-wrap{height:430px;min-height:380px}.u-3d-label{min-width:78px;padding:6px 8px}.u-3d-label span{display:none}.u-3d-center strong{font-size:.78rem}.u-3d-center span{font-size:.55rem}.u-3d-hint{max-width:90%;justify-content:center;white-space:normal;text-align:center}}
+@media (prefers-reduced-motion:reduce){.u-3d-hint::before{animation:none}.u-3d-label{transition:none}}

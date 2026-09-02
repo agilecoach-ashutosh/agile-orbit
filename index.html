@@ -6,7 +6,7 @@
 <meta name="description" content="Agile Orbit is a practical universe of Agile knowledge, tools, practice, coaching and leadership ideas.">
 <meta name="theme-color" content="#03040a"><meta property="og:title" content="Agile Orbit — Your Universe of Agile Knowledge"><meta property="og:description" content="Learn, practice, use and think differently about Agile.">
 <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/components.css"><link rel="stylesheet" href="css/animations.css"><link rel="stylesheet" href="css/responsive.css"><link rel="stylesheet" href="css/universe-home.css">
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/components.css"><link rel="stylesheet" href="css/animations.css"><link rel="stylesheet" href="css/responsive.css"><link rel="stylesheet" href="css/universe-home.css"><link rel="stylesheet" href="css/universe-3d.css">
 </head>
 <body class="universe-home">
 <div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div>
@@ -15,17 +15,15 @@
 <main>
 <section class="universe-hero"><div class="container universe-hero-grid">
 <div class="u-copy reveal"><span class="u-eyebrow">AGILE • COACHING • LEADERSHIP • PSYCHOLOGY</span><h1><span>Learn Agile.</span><span>Think Better.</span><span class="dim">Lead Differently.</span></h1><p>Welcome to Agile Orbit — a practical universe of knowledge, tools, experiments and ideas for people who help teams and organisations work better.</p><div class="u-actions"><a class="u-btn primary" href="tools/">Explore the Tools <span>↗</span></a><a class="u-btn secondary" href="learn/">Enter the Knowledge Orbit <span>→</span></a></div></div>
-<div class="hero-orbit reveal" aria-label="Interactive Agile knowledge orbit">
-<div class="orbit-system">
-<div class="orbit-ring ring4"></div><div class="orbit-ring ring3"></div><div class="orbit-ring ring2"></div><div class="orbit-ring ring1"></div>
-<div class="planet-orbit"><div class="planet-track track1" style="--distance:125px;--speed:24s"><a class="planet learn" href="learn/" aria-label="Explore Learn"><span class="planet-label">LEARN</span></a></div></div>
-<div class="planet-orbit"><div class="planet-track track2" style="--distance:215px;--speed:34s"><a class="planet tools" href="tools/" aria-label="Explore Tools"><span class="planet-label" data-side="left">TOOLS</span></a></div></div>
-<div class="planet-orbit"><div class="planet-track track3" style="--distance:310px;--speed:48s"><a class="planet practice" href="practice/" aria-label="Explore Practice"><span class="planet-label">PRACTICE</span></a></div></div>
-<div class="planet-orbit"><div class="planet-track track4" style="--distance:215px;--speed:31s"><a class="planet think" href="insights/" aria-label="Explore Think and Insights"><span class="planet-label" data-side="left">THINK</span></a></div></div>
-<div class="planet-orbit"><div class="planet-track track5" style="--distance:310px;--speed:55s"><a class="planet coaching" href="coaching/" aria-label="Explore Coaching"><span class="planet-label">COACHING</span></a></div></div>
-<div class="planet-orbit"><div class="planet-track track6" style="--distance:145px;--speed:27s"><a class="planet insights" href="insights/" aria-label="Explore Insights"><span class="planet-label">INSIGHTS</span></a></div></div>
-<div class="sun"><span>AGILE</span></div></div><div class="orbit-info"><i></i><span>Hover a planet to pause its orbit · Click to explore</span></div>
-</div></div></section>
+<div class="u-3d-wrap reveal" aria-label="Interactive 3D Agile knowledge universe">
+<div class="u-3d-core-glow" aria-hidden="true"></div>
+<canvas id="universe3d" aria-hidden="true"></canvas>
+<div class="u-3d-vignette" aria-hidden="true"></div>
+<div class="u-3d-labels" aria-label="Agile Orbit destinations"></div>
+<div class="u-3d-center" aria-hidden="true"><strong>AGILE</strong><span>ORBIT</span></div>
+<div class="u-3d-hint">Move your cursor through the universe · hover to focus · click a planet to explore</div>
+<div class="u-3d-status">Your browser could not start the 3D universe. The rest of Agile Orbit is still available through the navigation above.</div>
+</div></div></div></section>
 
 <section class="u-section"><div class="container"><div class="u-section-head"><div><span class="u-kicker">THE AGILE UNIVERSE</span><h2>Everything is connected.</h2></div><p>Agile rarely lives in one framework. People, product, flow, leadership and behaviour continuously influence one another.</p></div>
 <div class="constellation reveal"><svg viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="rgba(125,214,255,.18)" stroke-width="1"><path d="M500 260L190 130L80 330L350 430L690 390L900 180L500 260"/><path d="M190 130L690 390M80 330L900 180M350 430L500 260"/></g><g fill="rgba(102,232,255,.55)"><circle cx="500" cy="260" r="3"/><circle cx="190" cy="130" r="2"/><circle cx="80" cy="330" r="2"/><circle cx="350" cy="430" r="2"/><circle cx="690" cy="390" r="2"/><circle cx="900" cy="180" r="2"/></g></svg>
@@ -39,6 +37,6 @@
 <section class="u-footer-cta"><div class="container"><span class="u-eyebrow">YOUR NEXT ORBIT STARTS HERE</span><h2>Explore. Experiment. Evolve.</h2><p>Build your own path through the Agile universe — one idea, one conversation and one experiment at a time.</p><a class="u-btn primary" href="tools/">Enter Agile Orbit ↗</a></div></section>
 </main></div>
 <div id="site-footer"></div>
-<script src="js/config.js"></script><script src="js/utilities.js"></script><script src="js/navigation.js"></script><script src="js/main.js"></script><script src="js/tools.js"></script><script src="js/quizzes.js"></script><script src="js/universe-home.js"></script>
+<script src="js/config.js"></script><script src="js/utilities.js"></script><script src="js/navigation.js"></script><script src="js/main.js"></script><script src="js/tools.js"></script><script src="js/quizzes.js"></script><script src="js/universe-home.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.min.js"></script><script src="js/universe-3d.js"></script>
 <script>document.addEventListener('DOMContentLoaded',()=>{const thoughts=['Agile is not about doing more work faster. It is about learning faster.','A good process makes problems visible before they become expensive.','The goal of a retrospective is not a better conversation. It is a better next experiment.','Leadership creates the conditions in which good decisions become easier.','The fastest path to better delivery is often better feedback.'];let i=0;const b=document.getElementById('thoughtBtn'),t=document.getElementById('thoughtText');b?.addEventListener('click',()=>{i=(i+1)%thoughts.length;t.textContent='“'+thoughts[i]+'”';});});</script>
 </body></html>
