@@ -13,7 +13,7 @@
 .u-3d-label.is-visible{opacity:1}
 .u-3d-label.is-hovered{border-color:rgba(123,217,255,.55);background:rgba(9,16,31,.84);transform:translate(-50%,-50%) scale(1.06);box-shadow:0 16px 42px rgba(0,0,0,.42),0 0 34px rgba(107,190,255,.16)}
 .u-3d-label.learn strong{color:#c19cff}.u-3d-label.tools strong{color:#6fd6ff}.u-3d-label.practice strong{color:#7df29b}.u-3d-label.insights strong{color:#ffd36e}.u-3d-label.coaching strong{color:#ff8dd5}.u-3d-label.think strong{color:#ff8a73}
-.u-3d-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;pointer-events:none;text-align:center;mix-blend-mode:screen}
+.u-3d-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;pointer-events:none;text-align:center;mix-blend-mode:normal;background:transparent}
 .u-3d-center strong{display:block;font-size:1.2rem;letter-spacing:.16em;color:#fff;text-shadow:0 0 24px rgba(255,211,115,.55)}
 .u-3d-center span{display:block;margin-top:2px;font-size:.7rem;letter-spacing:.28em;color:rgba(255,236,182,.82)}
 .u-3d-hint{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:5;display:flex;align-items:center;gap:9px;padding:9px 13px;border:1px solid rgba(148,201,255,.16);border-radius:999px;background:rgba(4,8,18,.55);backdrop-filter:blur(10px);font-size:.68rem;letter-spacing:.05em;color:rgba(224,237,255,.65);white-space:nowrap;pointer-events:none}

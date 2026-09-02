@@ -32,8 +32,8 @@
   const SG=`precision mediump float;varying vec3 vC;void main(){float d=distance(gl_PointCoord,vec2(.5));float a=smoothstep(.5,0.0,d);gl_FragColor=vec4(vC,a);}`;
   const OF=`precision mediump float;uniform vec3 uColor;varying float vA;void main(){gl_FragColor=vec4(uColor,vA);}`;
   const OV=`attribute vec3 aPosition;uniform mat4 uProj,uView,uModel;varying float vA;void main(){gl_Position=uProj*uView*uModel*vec4(aPosition,1.0);vA=.22;}`;
-  const USV=`attribute vec3 aPosition;uniform mat4 uProj,uView,uModel;varying vec3 vP;void main(){vec4 p=uModel*vec4(aPosition,1.0);vP=p.xyz;gl_Position=uProj*uView*p;}`;
-  const USF=`precision mediump float;varying vec3 vP;uniform vec3 uColor;void main(){vec3 n=normalize(vP);float pulse=.55+.45*sin(vP.x*7.0+vP.y*8.0+vP.z*5.0);float edge=pow(1.0-max(dot(n,vec3(.1,.35,1.0)),0.0),1.7);vec3 c=uColor*(.55+pulse*.5)+vec3(1.0,.7,.25)*(.3+edge*1.6);gl_FragColor=vec4(c,1.0);}`;
+  const USV=`attribute vec3 aPosition;attribute vec3 aNormal;uniform mat4 uProj,uView,uModel;varying vec3 vN;void main(){vec4 p=uModel*vec4(aPosition,1.0);vN=normalize(mat3(uModel)*aNormal);gl_Position=uProj*uView*p;}`;
+  const USF=`precision mediump float;varying vec3 vN;uniform vec3 uColor;void main(){vec3 n=normalize(vN);float pulse=.55+.45*sin(n.x*7.0+n.y*8.0+n.z*5.0);float facing=max(dot(n,normalize(vec3(.15,.35,1.0))),0.0);float rim=pow(1.0-facing,1.7);vec3 c=uColor*(.72+.48*facing+.10*pulse)+vec3(1.0,.72,.22)*(.24+rim*.95);c=max(c,vec3(.035,.012,.002));gl_FragColor=vec4(c,1.0);}`;
 
   function mat4(){return new Float32Array([1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1])}
   function mul(a,b){const o=new Float32Array(16);for(let c=0;c<4;c++)for(let r=0;r<4;r++)o[c*4+r]=a[r]*b[c*4]+a[4+r]*b[c*4+1]+a[8+r]*b[c*4+2]+a[12+r]*b[c*4+3];return o}
@@ -76,7 +76,7 @@
     nodes.forEach((n,i)=>{const a=n.phase+time*n.speed;const x=Math.cos(a)*n.r,y=Math.sin(a)*n.r*.53,z=Math.sin(a)*n.r*.32;const m=mul(mul(mul(translate(x,y,z),rotateZ(n.tilt)),rotateY(time*.25+i)),scale(n.size));drawSphere(m,n.color,[n.color[0]*.05,n.color[1]*.05,n.color[2]*.05]);const pr=project([x,y,z],currentProj,currentView);planetScreen[i].x=pr[0];planetScreen[i].y=pr[1];planetScreen[i].r=n.size*(viewH/17);planetScreen[i].visible=pr[2]>0;positionLabel(i)});
     requestAnimationFrame(frame);
   }
-  function bindSun(){gl.bindBuffer(gl.ARRAY_BUFFER,sphere.pb);let a=gl.getAttribLocation(sunProg,'aPosition');gl.enableVertexAttribArray(a);gl.vertexAttribPointer(a,3,gl.FLOAT,false,0,0);gl.drawElements(gl.TRIANGLES,sphere.i.length,gl.UNSIGNED_SHORT,0);}
+  function bindSun(){gl.bindBuffer(gl.ARRAY_BUFFER,sphere.pb);let a=gl.getAttribLocation(sunProg,'aPosition');gl.enableVertexAttribArray(a);gl.vertexAttribPointer(a,3,gl.FLOAT,false,0,0);gl.bindBuffer(gl.ARRAY_BUFFER,sphere.nb);a=gl.getAttribLocation(sunProg,'aNormal');gl.enableVertexAttribArray(a);gl.vertexAttribPointer(a,3,gl.FLOAT,false,0,0);gl.drawElements(gl.TRIANGLES,sphere.i.length,gl.UNSIGNED_SHORT,0);}
   function positionLabel(i){const p=planetScreen[i],el=labels[i];if(!el)return;const ox=Math.max(42,Math.min(72,viewW*.065)), oy=(i===0?-10:i===1?-6:2);el.style.transform=`translate(${p.x+ox}px,${p.y+oy}px) translate(0,-50%)`;el.style.opacity=p.visible?'1':'0';el.classList.toggle('is-hovered',i===hover)}
   function pointer(e){const r=canvas.getBoundingClientRect();const x=e.clientX-r.left,y=e.clientY-r.top;tx=(x/r.width-.5)*1.7;ty=(y/r.height-.5)*-1.0;let hit=-1,best=1e9;nodes.forEach((n,i)=>{const p=planetScreen[i],d=Math.hypot(x-p.x,y-p.y);if(d<p.r*1.25&&d<best){best=d;hit=i}});hover=hit;canvas.style.cursor=hit>=0?'pointer':'grab'}
   canvas.addEventListener('pointermove',pointer,{passive:true});canvas.addEventListener('pointerleave',()=>{hover=-1;tx=ty=0;canvas.style.cursor='grab'});canvas.addEventListener('pointerdown',e=>{pointer(e);if(hover>=0&&e.pointerType!=='touch')location.href=nodes[hover].href});window.addEventListener('resize',resize);

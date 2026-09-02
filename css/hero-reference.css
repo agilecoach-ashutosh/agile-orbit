@@ -30,9 +30,9 @@ body.universe-home .u-3d-wrap{height:min(720px,78vh);min-height:610px;margin-lef
 body.universe-home .u-3d-wrap:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 53% 49%,transparent 0 36%,rgba(2,5,13,.16) 57%,rgba(2,5,13,.82) 100%);pointer-events:none;z-index:2}
 body.universe-home #universe3d{z-index:1}
 body.universe-home .u-3d-core-glow{width:270px;height:270px;background:radial-gradient(circle,rgba(255,198,81,.25),rgba(255,120,20,.09) 36%,transparent 72%);filter:blur(10px)}
-body.universe-home .u-3d-center{font-size:1rem;text-shadow:0 2px 18px rgba(0,0,0,.5)}
-body.universe-home .u-3d-center strong{font-size:1.65rem;letter-spacing:.04em;color:#25160b;text-shadow:none}
-body.universe-home .u-3d-center span{font-size:1.05rem;letter-spacing:.1em;color:#2b1a0c;margin-top:0}
+body.universe-home .u-3d-center{font-size:1rem;text-shadow:0 2px 18px rgba(0,0,0,.22);mix-blend-mode:normal}
+body.universe-home .u-3d-center strong{font-size:1.65rem;letter-spacing:.04em;color:#4a2607;text-shadow:0 1px 4px rgba(255,239,160,.28)}
+body.universe-home .u-3d-center span{font-size:1.05rem;letter-spacing:.1em;color:#5b320d;margin-top:0;text-shadow:0 1px 3px rgba(255,239,160,.22)}
 body.universe-home .u-3d-label{min-width:128px;padding:11px 14px;border-radius:13px;border-color:rgba(171,214,255,.25);background:rgba(5,10,24,.72);box-shadow:0 15px 45px rgba(0,0,0,.4),inset 0 0 22px rgba(255,255,255,.025)}
 body.universe-home .u-3d-label strong{font-size:.76rem}
 body.universe-home .u-3d-label span{font-size:.66rem;color:#d2d8e8}
