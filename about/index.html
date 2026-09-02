@@ -1,1 +1,79 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Behind Agile Orbit | Agile Orbit</title><meta name="description" content="A practitioner-oriented platform. Keep biography, credentials and links configurable rather than hard-coded."><meta name="theme-color" content="#071019"><link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/responsive.css"></head><body><div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div><main><section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="../">Home</a><span>/</span><span>About</span></div><span class="eyebrow">AGILE ORBIT</span><h1>Behind Agile Orbit</h1><p class="muted" style="max-width:760px;font-size:1.08rem">A practitioner-oriented platform. Keep biography, credentials and links configurable rather than hard-coded.</p></div></section><section class="section"><div class="container"><div class="grid-3"><a class="card" href="journey.html"><span class="tag">JOURNEY</span><h3>My Agile Journey</h3><p>A timeline structure ready for your real milestones and dates.</p></a><a class="card" href="mindmap.html"><span class="tag">MINDMAP</span><h3>Agile Mindmap</h3><p>A place to connect frameworks, coaching, leadership and systems thinking.</p></a><a class="card" href="credly.html"><span class="tag">CREDENTIALS</span><h3>Certifications</h3><p>Verified credentials can be linked here without inventing details.</p></a></div></div></section></main><div id="site-footer"></div><script src="../js/config.js"></script><script src="../js/utilities.js"></script><script src="../js/navigation.js"></script><script src="../js/main.js"></script><script src="../js/tools.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About Ashutosh Mishra | Agile Orbit</title>
+<meta name="description" content="About Ashutosh Mishra, Agile Coach and technology leader, and the purpose behind Agile Orbit.">
+<meta name="theme-color" content="#03040a">
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/animations.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/universe-pages.css">
+<link rel="stylesheet" href="../css/reference-nav.css">
+<style>
+.about-wrap{max-width:1050px;margin:0 auto;padding-bottom:100px}
+.about-intro{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:stretch}
+.about-card{background:linear-gradient(145deg,rgba(13,25,43,.76),rgba(5,12,23,.78));border:1px solid rgba(140,180,255,.14);border-radius:24px;padding:34px;box-shadow:0 20px 70px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.025);position:relative;overflow:hidden}
+.about-card:before{content:"";position:absolute;width:260px;height:260px;right:-100px;top:-130px;border-radius:50%;background:radial-gradient(circle,rgba(105,220,255,.12),transparent 68%);pointer-events:none}
+.about-card h2{font:800 clamp(1.7rem,3vw,2.35rem)/1.08 Manrope;margin:0 0 15px;letter-spacing:-.035em}
+.about-card p{color:#aab7c8;line-height:1.8;margin:0 0 17px}
+.about-card p:last-child{margin-bottom:0}
+.about-quote{display:flex;flex-direction:column;justify-content:center;min-height:100%}
+.about-quote .u-kicker{color:#69dcff;font-size:.75rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.about-quote blockquote{font:700 clamp(1.55rem,3vw,2.2rem)/1.25 Manrope;margin:20px 0;color:#f5f8ff;letter-spacing:-.025em}
+.about-quote .quote-line{height:1px;width:90px;background:linear-gradient(90deg,#69dcff,#9a86ff,transparent);box-shadow:0 0 18px rgba(105,220,255,.35)}
+.about-links{margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.about-link{display:flex;flex-direction:column;min-height:170px;padding:24px;border:1px solid rgba(140,180,255,.14);border-radius:20px;background:linear-gradient(145deg,rgba(13,25,43,.72),rgba(5,12,23,.76));transition:.3s;position:relative;overflow:hidden}
+.about-link:hover{transform:translateY(-6px);border-color:rgba(105,220,255,.36);box-shadow:0 22px 60px rgba(0,0,0,.28),0 0 30px rgba(105,220,255,.07)}
+.about-link .link-kicker{color:#91a2b7;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.about-link h3{margin:13px 0 8px;font:800 1.2rem Manrope;color:#f5f8ff}
+.about-link p{margin:0;color:#9aa9bd;font-size:.9rem;line-height:1.65}
+.about-link .link-arrow{margin-top:auto;padding-top:20px;color:#69dcff;font-weight:800}
+.about-link.linkedin .link-arrow{color:#72aaff}.about-link.mindmap .link-arrow{color:#b28cff}.about-link.cert .link-arrow{color:#69f0b0}
+.about-orbit{position:relative;height:100%;min-height:330px;border-radius:24px;border:1px solid rgba(140,180,255,.12);background:radial-gradient(circle at 50% 50%,rgba(105,220,255,.08),transparent 42%),rgba(4,10,19,.45);overflow:hidden}
+.about-orbit:before,.about-orbit:after{content:"";position:absolute;left:50%;top:50%;border:1px solid rgba(105,220,255,.16);border-radius:50%;transform:translate(-50%,-50%) rotate(-18deg)}
+.about-orbit:before{width:230px;height:125px}.about-orbit:after{width:290px;height:165px;border-color:rgba(154,134,255,.14);transform:translate(-50%,-50%) rotate(35deg)}
+.about-sun{position:absolute;left:50%;top:50%;width:92px;height:92px;transform:translate(-50%,-50%);display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#8feaff 20%,#4bb8ff 48%,rgba(75,184,255,.05) 72%,transparent 74%);box-shadow:0 0 30px rgba(105,220,255,.6),0 0 90px rgba(105,220,255,.16)}
+.about-sun span{font:800 .7rem/1.1 Manrope;letter-spacing:.1em;text-align:center;color:#041018}
+.about-dot{position:absolute;left:50%;top:50%;width:14px;height:14px;border-radius:50%;background:#9a86ff;box-shadow:0 0 20px rgba(154,134,255,.85);animation:aboutOrbit 9s linear infinite}
+.about-dot.d2{width:10px;height:10px;background:#69f0b0;animation-duration:13s;animation-direction:reverse}
+@keyframes aboutOrbit{from{transform:rotate(0deg) translateX(135px) rotate(0)}to{transform:rotate(360deg) translateX(135px) rotate(-360deg)}}
+@media(max-width:800px){.about-intro{grid-template-columns:1fr}.about-links{grid-template-columns:1fr}.about-orbit{min-height:270px}}
+@media(prefers-reduced-motion:reduce){.about-dot{animation:none}}
+</style>
+</head>
+<body class="universe-inner">
+<div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div>
+<main>
+<section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="../">Home</a><span>/</span><span>About</span></div><span class="eyebrow">ABOUT ASHUTOSH MISHRA</span><h1>Helping people, teams and organisations navigate complexity.</h1><p class="muted" style="max-width:800px;font-size:1.08rem">The thinking, coaching philosophy and purpose behind Agile Orbit.</p></div></section>
+<section class="section"><div class="container about-wrap">
+  <div class="about-intro">
+    <article class="about-card">
+      <span class="u-kicker">ABOUT ME</span>
+      <h2>Agile coaching beyond frameworks.</h2>
+      <p>I'm <strong>Ashutosh Mishra</strong>, an Agile Coach and technology leader passionate about helping people, teams, and organisations navigate complexity, improve continuously, and create meaningful outcomes.</p>
+      <p>I’m known for <strong>building high-performing teams, fostering psychological safety, and embedding an Agile mindset through ICF-aligned coaching</strong>.</p>
+      <p>My journey across Agile, product development, leadership, coaching, and organisational change has reinforced a simple belief: Agile is much more than frameworks, processes, or events. It is about <strong>how we think, how we collaborate, how we learn, and how we continuously improve.</strong></p>
+      <p>I also bring a <strong>Lean mindset and behavioural-psychology perspective</strong> to coaching—observing team behavioural patterns, identifying the habits and interactions that influence performance, and helping teams consciously improve the behaviours that enable better collaboration, flow, and outcomes.</p>
+    </article>
+    <aside class="about-card about-quote">
+      <span class="u-kicker">WHY AGILE ORBIT?</span>
+      <blockquote>“Make practical Agile knowledge easier to discover, understand, practice, and apply.”</blockquote>
+      <div class="quote-line"></div>
+      <p style="margin-top:22px">I created Agile Orbit as an open space to bring together the knowledge, tools, practices, and ideas that have helped me throughout my Agile journey.</p>
+      <p>Whether you're a Scrum Master, Agile Coach, Product Owner, leader, practitioner, or someone beginning your Agile journey, Agile Orbit is designed to help you learn something useful, challenge your thinking, and take something practical back to your team.</p>
+    </aside>
+  </div>
+  <div class="about-links">
+    <a class="about-link linkedin" href="https://www.linkedin.com/in/ashutosh-mishra-1089/" target="_blank" rel="noopener noreferrer"><span class="link-kicker">CONNECT</span><h3>LinkedIn</h3><p>Connect with me and follow my professional journey.</p><span class="link-arrow">Open profile ↗</span></a>
+    <a class="about-link mindmap" href="https://coggle.it/diagram/ZGhqWp-I6DjyU6Pb/t/skills-of-scrum-master-agile-coach-by-ashutosh-mishra" target="_blank" rel="noopener noreferrer"><span class="link-kicker">EXPLORE</span><h3>Skills Mindmap</h3><p>Explore my skills and capabilities as a Scrum Master and Agile Coach.</p><span class="link-arrow">View mindmap ↗</span></a>
+    <a class="about-link cert" href="https://www.credly.com/users/ashutosh.mishra.agile.coach/badges#credly" target="_blank" rel="noopener noreferrer"><span class="link-kicker">VERIFY</span><h3>Certifications</h3><p>View my verified professional certifications and credentials.</p><span class="link-arrow">View credentials ↗</span></a>
+  </div>
+</div></section>
+</main>
+<div id="site-footer"></div>
+<script src="../js/config.js"></script><script src="../js/utilities.js"></script><script src="../js/navigation.js"></script><script src="../js/main.js"></script><script src="../js/tools.js"></script><script src="../js/universe-pages.js"></script>
+</body></html>

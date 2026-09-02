@@ -1,0 +1,22 @@
+/* AGILE ORBIT — shared reference navigation
+   The homepage header is the single source of truth for every page. */
+.site-header{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,rgba(1,4,12,.86),rgba(1,4,12,.42));border-bottom:1px solid rgba(255,255,255,.035);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:background .3s,border-color .3s,box-shadow .3s}
+.site-header.scrolled{background:rgba(1,4,12,.84);border-bottom-color:rgba(140,180,255,.12);box-shadow:0 10px 36px rgba(0,0,0,.2)}
+.site-header .nav{height:78px;display:flex;align-items:center;gap:24px}
+.site-header .brand{display:flex;align-items:center;gap:10px;color:#f7f9ff;font-weight:800;letter-spacing:.045em;white-space:nowrap}
+.site-header .brand-mark{width:36px;height:36px;border:2px solid #a98bff;border-right-color:#49dfff;border-radius:50%;position:relative;box-shadow:0 0 18px rgba(125,111,255,.3);flex:0 0 auto}
+.site-header .brand-mark:before{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:#fff;right:-4px;top:5px;box-shadow:0 0 12px #fff}
+.site-header .brand-mark:after{content:"";position:absolute;inset:-6px 5px;border:1px solid #49dfff;border-radius:50%;transform:rotate(-24deg);opacity:.7}
+.site-header .nav-links{display:flex;align-items:center;justify-content:center;gap:30px;flex:1}
+.site-header .nav-link{border:0;background:none;color:rgba(245,248,255,.82);padding:10px 0;border-radius:0;display:inline-flex;align-items:center;font-size:.94rem;font-weight:500;transition:color .25s,text-shadow .25s}
+.site-header .nav-link:hover,.site-header .nav-link.active{color:#fff;text-shadow:0 0 18px rgba(120,217,255,.3)}
+.site-header .nav-actions{display:flex;align-items:center;gap:10px;margin-left:auto}
+.site-header .icon-btn{width:42px;height:42px;border:1px solid rgba(255,255,255,.11);background:rgba(255,255,255,.025);color:#f7f9ff;border-radius:50%;display:grid;place-items:center;line-height:1;font-size:1.25rem;transition:.25s}
+.site-header .icon-btn:hover{border-color:rgba(120,217,255,.38);background:rgba(120,217,255,.07);transform:translateY(-1px)}
+.site-header .nav-orbit-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(100deg,#713cff,#148df7);border:0;color:#fff;border-radius:17px;padding:14px 24px;box-shadow:0 12px 38px rgba(68,65,255,.28);font-weight:700;white-space:nowrap}
+.site-header .nav-orbit-btn:hover{transform:translateY(-2px);box-shadow:0 15px 44px rgba(68,65,255,.35)}
+.site-header .mobile-toggle{display:none}
+@media(max-width:1100px){.site-header .nav-links{gap:18px}.site-header .nav-orbit-btn{padding:13px 18px}.site-header .nav{gap:16px}}
+@media(max-width:900px){.site-header .nav-links{display:none}.site-header .mobile-toggle{display:grid}.site-header .nav-actions .search-icon,.site-header .nav-actions .theme-icon{display:none}.site-header .nav{height:72px}}
+@media(max-width:620px){.site-header .nav{height:68px}.site-header .brand{font-size:.9rem}.site-header .brand-mark{width:33px;height:33px}.site-header .nav-orbit-btn{display:none}}
+@media(prefers-reduced-motion:reduce){.site-header,.site-header .icon-btn,.site-header .nav-link{transition:none!important}}

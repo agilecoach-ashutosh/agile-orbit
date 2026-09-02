@@ -1,2 +1,2 @@
-const SITE_CONFIG={name:"Agile Orbit",tagline:"Learn Agile. Think Better. Lead Differently.",email:"agilecoach.ashutosh@gmail.com",linkedin:"https://www.linkedin.com/in/ashutosh-mishra-1089/",coggle:"https://coggle.it/diagram/ZGhqWp-I6DjyU6Pb/t/skills-of-scrum-master-agile-coach-by-ashutosh-mishra",credly:"https://www.credly.com/users/ashutosh.mishra.agile.coach/badges#credly",year:2026};
+const SITE_CONFIG={name:"Agile Orbit",tagline:"Learn Agile. Think Better. Lead Differently.",email:"YOUR_EMAIL@example.com",linkedin:"YOUR_LINKEDIN_URL",coggle:"YOUR_COGGLE_URL",credly:"YOUR_CREDLY_URL",year:2026};
 window.SITE_CONFIG=SITE_CONFIG;
