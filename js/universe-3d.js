@@ -7,13 +7,10 @@
 
   const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isTouch=window.matchMedia('(pointer:coarse)').matches;
-  const THREE=window.THREE;
-  if(!THREE){wrap.classList.add('webgl-failed');return;}
+  let THREE=null;
 
   let renderer,scene,camera,starField,core,halo,raf;
-  const clock=new THREE.Clock();
-  const raycaster=new THREE.Raycaster();
-  const pointer=new THREE.Vector2(9,9);
+  let clock,raycaster,pointer;
   const planets=[];
   const labels=[];
   const orbitGroups=[];
@@ -47,7 +44,10 @@
   }
 
   function init(){
-    try{renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'high-performance'});}catch(e){wrap.classList.add('webgl-failed');return;}
+    clock=new THREE.Clock();
+    raycaster=new THREE.Raycaster();
+    pointer=new THREE.Vector2(9,9);
+    try{renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'high-performance'});}catch(e){throw e;}
     renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.6));renderer.setSize(wrap.clientWidth,wrap.clientHeight,false);renderer.outputColorSpace=THREE.SRGBColorSpace;
     scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x03050b,.012);
     camera=new THREE.PerspectiveCamera(44,wrap.clientWidth/wrap.clientHeight,.1,100);camera.position.set(0,1.1,17);
@@ -102,5 +102,27 @@
     updateLabels();renderer.render(scene,camera);
   }
 
-  init();
+  async function start(){
+    try{
+      const mod=await import('https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.min.js');
+      THREE=mod;
+      init();
+    }catch(error){
+      console.warn('[Agile Orbit] 3D universe unavailable; using fallback.',error);
+      showFallback();
+    }
+  }
+
+  function showFallback(){
+    wrap.classList.add('webgl-failed');
+    const labelsHost=wrap.querySelector('.u-3d-labels');
+    if(labelsHost) labelsHost.innerHTML='';
+    const fallback=document.createElement('div');
+    fallback.className='u-3d-fallback-scene';
+    fallback.setAttribute('aria-label','Agile Orbit navigation fallback');
+    fallback.innerHTML='<div class="fallback-sun"><span>AGILE</span><small>ORBIT</small></div>'+nodes.map((d,i)=>`<a class="fallback-planet p${i}" href="${d.href}" style="--planet:#${d.color.toString(16).padStart(6,'0')};--i:${i}"><i></i><span><b>${d.name}</b><small>${d.sub}</small></span></a>`).join('');
+    wrap.appendChild(fallback);
+  }
+
+  start();
 })();

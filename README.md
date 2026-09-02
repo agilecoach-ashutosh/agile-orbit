@@ -91,3 +91,7 @@ The site uses semantic HTML, labels, visible focus styles, keyboard-friendly con
 ## Performance
 
 The project avoids framework bundles and large media. The visual system is CSS-first; JavaScript is used for interaction and calculations.
+
+## 3D Hero — CDN-safe implementation
+
+The homepage 3D hero loads Three.js as an ES module from jsDelivr at runtime. This avoids the legacy `three.min.js` global build path that can disappear between Three.js releases. If the CDN is unavailable or WebGL cannot start, the homepage automatically switches to a lightweight orbital navigation fallback instead of displaying a startup error.
