@@ -1,0 +1,85 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Backlog Prioritization + Story Point Context | Agile Orbit</title><meta name="description" content="Create a first-pass MoSCoW view and relative Story Point context while keeping final decisions with the team."><meta name="theme-color" content="#071019"><link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../css/style.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/animations.css"><link rel="stylesheet" href="../../css/responsive.css"><link rel="stylesheet" href="../../css/universe-pages.css"><link rel="stylesheet" href="../../css/reference-nav.css"><link rel="stylesheet" href="../../css/ai-prompts.css"></head><body class="universe-inner"><div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div><main class="prompt-detail"><section class="page-hero prompt-detail-hero"><div class="container"><div class="breadcrumbs"><a href="../../">Home</a><span>/</span><a href="../">Resources</a><span>/</span><a href="index.html">AI Prompt Library</a><span>/</span><span>Backlog Prioritization + Story Point Context</span></div><span class="eyebrow">AI PROMPT • Prioritize + Compare</span><h1>Backlog Prioritization + Story Point Context</h1><p class="prompt-lead">Create a first-pass MoSCoW view and relative Story Point context while keeping final decisions with the team.</p><div class="prompt-tags"><span class="tag">Product Owner / Agile Business Analyst</span><span class="tag">Backlog Refinement / Sprint Planning</span><span class="tag">Prioritize + Compare</span></div></div></section><section class="section prompt-detail-section"><div class="container prompt-detail-layout"><article><section class="prompt-info-card reveal"><span class="section-kicker">PURPOSE</span><h2>Why use this prompt?</h2><p>Analyze a backlog using available business value, dependencies and reference stories. AI can provide a first-pass MoSCoW recommendation and relative Story Point context, but prioritization and estimates remain human team decisions.</p></section><section class="prompt-code-section reveal"><div class="prompt-section-head"><div><span class="section-kicker">COPY-READY PROMPT</span><h2>Prompt</h2></div><button class="copy-prompt" data-copy-target="promptCode" type="button"><span>▣</span> Copy Prompt</button></div><div class="prompt-code-wrap"><div class="code-bar"><span class="traffic-dot"></span><span class="traffic-dot"></span><span class="traffic-dot"></span><span class="code-label">AGILE ORBIT / PROMPT</span></div><pre id="promptCode" tabindex="0"><code>CONTEXT:
+
+You are an Agile Product Owner working with a Scrum Team during backlog refinement and sprint planning.
+
+The team uses:
+- Scrum
+- MoSCoW prioritization
+- Fibonacci Story Points: 1, 2, 3, 5, 8, 13, 21
+
+You have been provided with two input files:
+
+1. user_stories_backlog.csv
+   Contains:
+   Story ID, Title, Description, Business Value, Dependencies
+
+2. reference_stories.csv
+   Contains previously completed stories and their agreed Story Point estimates.
+
+OBJECTIVE:
+
+Analyze the backlog and provide:
+
+A. A first-pass MoSCoW prioritization based on business value, dependencies, and the information provided.
+
+B. A relative Story Point recommendation by comparing each new story with similar reference stories.
+
+C. Identify dependencies, risks, assumptions, and areas where the available information is insufficient.
+
+ROLE:
+
+Act as an experienced Agile Product Owner and Agile Business Analyst. 
+Use Agile best practices and make your reasoning transparent.
+
+ANALYSIS RULES:
+
+For MoSCoW:
+- Must Have = essential for the intended business outcome, release objective, regulatory need, or critical dependency.
+- Should Have = important but the solution can still deliver value without it.
+- Could Have = desirable enhancement with lower business impact.
+- Won&#x27;t Have = explicitly deferred from the current scope.
+
+Do not classify a story as Must Have solely because it has high business value. Consider dependencies and the stated business context.
+
+For Story Points:
+- Use relative estimation, not hours or days.
+- Compare the story against the closest reference stories.
+- Consider complexity, effort, uncertainty, dependencies, integration, testing, and technical unknowns.
+- Use only the Fibonacci scale: 1, 2, 3, 5, 8, 13, 21.
+- If there is insufficient information to make a meaningful comparison, state that clearly rather than inventing an estimate.
+- Do not present AI&#x27;s estimate as the team&#x27;s final estimate.
+
+OUTPUT:
+
+Create a comprehensive table containing:
+
+Story ID
+Title
+MoSCoW Category
+Suggested Story Points
+Comparison Reference
+Key Complexity Drivers
+Dependencies/Risks
+Rationale
+Confidence
+
+Then provide a summary containing:
+
+1. Number of stories in each MoSCoW category
+2. Total Story Points for Must Have stories
+3. Total Story Points for Must + Should Have stories
+4. Stories with significant dependencies
+5. Stories with high uncertainty
+6. Stories where additional clarification is required
+7. Any assumptions made during the analysis
+
+IMPORTANT:
+
+Clearly distinguish between:
+- AI recommendation
+- Available evidence
+- Team decision
+
+Do not claim that the AI-generated prioritization or Story Points are final.
+
+The Product Owner should make the final prioritization decision, while the Development Team should validate and own the f</code></pre></div><p class="copy-note">Copy the prompt as-is, then replace the input placeholders with your own context.</p></section><section class="prompt-final-card reveal"><div class="final-orbit">✦</div><div><span class="section-kicker">Decision Guardrail</span><p>Clearly distinguish AI recommendation, available evidence and team decision. Treat MoSCoW as a recommendation and Story Points as Development Team-owned decisions.</p></div></section></article><aside class="prompt-side"><div class="prompt-side-card reveal"><span class="section-kicker">PROMPT AT A GLANCE</span><div class="side-row"><span>Role</span><strong>Product Owner / Agile Business Analyst</strong></div><div class="side-row"><span>Use in</span><strong>Backlog Refinement / Sprint Planning</strong></div><div class="side-row"><span>AI task</span><strong>Prioritize + Compare</strong></div></div><a class="prompt-side-link" href="index.html">← Back to AI Prompt Library</a></aside></div></section></main><div id="site-footer"></div><script src="../../js/config.js"></script><script src="../../js/utilities.js"></script><script src="../../js/navigation.js"></script><script src="../../js/main.js"></script><script src="../../js/universe-pages.js"></script><script src="../../js/ai-prompts.js"></script></body></html>

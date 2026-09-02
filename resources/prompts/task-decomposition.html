@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Task Decomposition | Agile Orbit</title><meta name="description" content="Turn a user story into a structured set of implementation-ready technical tasks for sprint planning."><meta name="theme-color" content="#071019"><link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../css/style.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/animations.css"><link rel="stylesheet" href="../../css/responsive.css"><link rel="stylesheet" href="../../css/universe-pages.css"><link rel="stylesheet" href="../../css/reference-nav.css"><link rel="stylesheet" href="../../css/ai-prompts.css"></head><body class="universe-inner"><div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div><main class="prompt-detail"><section class="page-hero prompt-detail-hero"><div class="container"><div class="breadcrumbs"><a href="../../">Home</a><span>/</span><a href="../">Resources</a><span>/</span><a href="index.html">AI Prompt Library</a><span>/</span><span>AI Task Decomposition</span></div><span class="eyebrow">AI PROMPT • Decompose + Analyze</span><h1>AI Task Decomposition</h1><p class="prompt-lead">Turn a user story into a structured set of implementation-ready technical tasks for sprint planning.</p><div class="prompt-tags"><span class="tag">Development Team / Technical Lead</span><span class="tag">Sprint Planning</span><span class="tag">Decompose + Analyze</span></div></div></section><section class="section prompt-detail-section"><div class="container prompt-detail-layout"><article><section class="prompt-info-card reveal"><span class="section-kicker">PURPOSE</span><h2>Why use this prompt?</h2><p>Large user stories can hide significant implementation work. AI can help identify potential tasks across frontend, backend, database, APIs, infrastructure, security, testing and deployment.</p></section><section class="prompt-code-section reveal"><div class="prompt-section-head"><div><span class="section-kicker">COPY-READY PROMPT</span><h2>Prompt</h2></div><button class="copy-prompt" data-copy-target="promptCode" type="button"><span>▣</span> Copy Prompt</button></div><div class="prompt-code-wrap"><div class="code-bar"><span class="traffic-dot"></span><span class="traffic-dot"></span><span class="traffic-dot"></span><span class="code-label">AGILE ORBIT / PROMPT</span></div><pre id="promptCode" tabindex="0"><code>ROLE:
+Act as a senior full-stack software engineer and Agile technical lead.
+
+CONTEXT:
+We are preparing the following user story for sprint planning:
+
+User Story:
+&quot;As a user, I want to upload a profile picture to my account so that I can personalize my profile.&quot;
+
+OBJECTIVE:
+Decompose this user story into granular, implementation-ready technical tasks that a Development Team could add to a sprint backlog.
+
+CONSIDER:
+- Frontend/UI
+- Backend/API
+- Database and data model
+- File storage
+- Authentication and authorization
+- File validation and security
+- Error handling
+- Automated testing
+- Monitoring/logging
+- Deployment/configuration
+
+For each task, identify:
+1. Task name
+2. Layer/component
+3. Brief description
+4. Primary technology involved
+5. Dependencies or prerequisites
+6. Key acceptance/validation consideration
+
+TECHNOLOGY CONTEXT:
+Assume the application uses React for the frontend, Node.js/Express for the backend, PostgreSQL for the database, and AWS S3 for image storage.
+
+OUTPUT:
+Present the result as a structured table.
+
+IMPORTANT:
+Do not invent unnecessary architecture. If an implementation decision depends on information not provided, explicitly flag it as an assumption or question for the Development Team.</code></pre></div><p class="copy-note">Copy the prompt as-is, then replace the input placeholders with your own context.</p></section><section class="prompt-final-card reveal"><div class="final-orbit">✦</div><div><span class="section-kicker">Facilitation Tip</span><p>Ask the team: “What did AI identify that we might have missed?” Then reverse it: “What did AI assume incorrectly?” This turns AI output into a conversation starter rather than an answer.</p></div></section></article><aside class="prompt-side"><div class="prompt-side-card reveal"><span class="section-kicker">PROMPT AT A GLANCE</span><div class="side-row"><span>Role</span><strong>Development Team / Technical Lead</strong></div><div class="side-row"><span>Use in</span><strong>Sprint Planning</strong></div><div class="side-row"><span>AI task</span><strong>Decompose + Analyze</strong></div></div><a class="prompt-side-link" href="index.html">← Back to AI Prompt Library</a></aside></div></section></main><div id="site-footer"></div><script src="../../js/config.js"></script><script src="../../js/utilities.js"></script><script src="../../js/navigation.js"></script><script src="../../js/main.js"></script><script src="../../js/universe-pages.js"></script><script src="../../js/ai-prompts.js"></script></body></html>
