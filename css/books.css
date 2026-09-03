@@ -10,12 +10,6 @@
 .books-search{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
 .books-search input{width:100%;padding:14px 16px;border:1px solid rgba(140,180,255,.14);background:rgba(1,7,16,.72);color:#f5f8ff;border-radius:13px;outline:none}
 .books-search input:focus{border-color:rgba(105,220,255,.55);box-shadow:0 0 0 3px rgba(105,220,255,.08)}
-.books-result{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:10px;color:#8495aa;font-size:.8rem}
-.books-filters{display:flex;gap:8px;overflow:auto;padding-top:12px;scrollbar-width:thin}
-.books-filter{flex:0 0 auto;padding:8px 11px;border:1px solid rgba(140,180,255,.12);border-radius:999px;background:rgba(255,255,255,.025);color:#92a3b8;font:700 .72rem/1 inherit;cursor:pointer;transition:.2s}
-.books-filter:hover{border-color:rgba(105,220,255,.3);color:#d9f5ff}
-.books-filter.active{background:linear-gradient(135deg,rgba(105,220,255,.18),rgba(154,134,255,.16));border-color:rgba(105,220,255,.45);color:#fff}
-.books-toolbar-note{color:#718198;font-size:.78rem}
 .books-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .book-card{display:flex;flex-direction:column;min-width:0;padding:0;overflow:hidden}
 .book-visual{position:relative;padding:22px 22px 12px;display:flex;justify-content:center;background:radial-gradient(circle at 50% 0%,rgba(105,220,255,.10),transparent 58%)}
@@ -45,4 +39,4 @@
 .books-cta h3{margin:0 0 8px;font:800 1.5rem Manrope}
 .books-cta p{margin:0;color:#9aa9bd}
 @media(max-width:1050px){.books-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.books-controls{top:66px}}
-@media(max-width:700px){.books-grid{grid-template-columns:1fr}.books-stats{grid-template-columns:1fr}.books-result{align-items:flex-start;flex-direction:column}.books-controls{position:relative;top:auto}.book-visual{padding-inline:28px}.book-cover-frame{width:min(100%,220px)}}
+@media(max-width:700px){.books-grid{grid-template-columns:1fr}.books-stats{grid-template-columns:1fr}.books-controls{position:relative;top:auto}.book-visual{padding-inline:28px}.book-cover-frame{width:min(100%,220px)}}

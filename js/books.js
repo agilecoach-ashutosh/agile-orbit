@@ -2,28 +2,13 @@
 "use strict";
 const books=Array.isArray(window.AGILE_ORBIT_BOOKS)?window.AGILE_ORBIT_BOOKS:[];
 const grid=document.getElementById("books-grid"), empty=document.getElementById("books-empty");
-const search=document.getElementById("book-search"), result=document.getElementById("books-result");
-const roleFilters=document.getElementById("role-filters"), topicFilters=document.getElementById("topic-filters");
-let activeRole="All Roles", activeTopic="All Topics";
+const search=document.getElementById("book-search");
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const allRoles=[...new Set(books.flatMap(b=>b.roles))].sort((a,b)=>a.localeCompare(b));
-const allTopics=[...new Set(books.flatMap(b=>b.topics))].sort((a,b)=>a.localeCompare(b));
 document.getElementById("books-total").textContent=books.length;
 document.getElementById("books-role-count").textContent=allRoles.length;
-function makeBtn(label,type){
- const b=document.createElement("button"); b.type="button"; b.className="books-filter";
- if((type==="role"&&label===activeRole)||(type==="topic"&&label===activeTopic)) b.classList.add("active");
- b.textContent=label; b.addEventListener("click",()=>{type==="role"?activeRole=label:activeTopic=label;buildFilters();render();}); return b;
-}
-function buildFilters(){
- roleFilters.innerHTML=""; topicFilters.innerHTML="";
- roleFilters.appendChild(makeBtn("All Roles","role")); allRoles.forEach(x=>roleFilters.appendChild(makeBtn(x,"role")));
- topicFilters.appendChild(makeBtn("All Topics","topic")); allTopics.forEach(x=>topicFilters.appendChild(makeBtn(x,"topic")));
-}
 function matches(b){
  const q=(search.value||"").trim().toLowerCase();
- if(activeRole!=="All Roles"&&!b.roles.includes(activeRole)) return false;
- if(activeTopic!=="All Topics"&&!b.topics.includes(activeTopic)) return false;
  if(!q) return true;
  return [b.title,b.author,b.sourceSummary,b.enhancedSummary,...b.roles,...b.topics].join(" ").toLowerCase().includes(q);
 }
@@ -52,7 +37,6 @@ function render(){
   </div>
  </article>`).join("");
  empty.style.display=visible.length?"none":"block";
- result.textContent=`${visible.length} ${visible.length===1?"book":"books"} shown`;
 }
-search.addEventListener("input",render); buildFilters(); render();
+search.addEventListener("input",render); render();
 })();
