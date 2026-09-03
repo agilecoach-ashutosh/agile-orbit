@@ -34,97 +34,18 @@
 <section class="page-hero"><div class="container">
 <div class="breadcrumbs"><a href="../">Home</a><span>/</span><span>Resources / Templates</span></div>
 <span class="eyebrow">TEMPLATE · CAPACITY PLANNING</span>
-<h1>Capacity Planning</h1>
-<p class="muted" style="max-width:780px;font-size:1.08rem">Plan realistic Sprint capacity by accounting for working days, holidays, leave, out-of-sprint events and other deductions — then compare available capacity with historical velocity.</p>
+<h1>Capacity Planning Excel Template</h1>
+<p class="muted" style="max-width:780px;font-size:1.08rem">Download the editable Excel workbook for Sprint capacity, team availability, deductions and predictable velocity planning.</p>
 </div></section>
 <section class="section"><div class="container">
-<div class="capacity-story card">
-<div class="story-icon">☁️</div>
-<h2>Yesterday's Weather, Tomorrow's Forecast</h2>
-<p>Weather forecasting starts with what has already been observed and combines it with the current conditions to create a view of what may happen next. It is useful for decisions, but it is never a guarantee — forecasts carry uncertainty.</p>
-<p><strong>Agile works in a similar way.</strong> Completed Sprint velocity gives us historical evidence. Current team availability gives us today's conditions. Together, they help us create a more realistic forecast for the next Sprint.</p>
-<div class="forecast-message">🌦️ A forecast informs a decision. It doesn't guarantee the future.</div>
+<div class="template-download card" style="max-width:900px;margin:0 auto">
+<span class="eyebrow">DOWNLOADABLE TEMPLATE</span>
+<h2>Sprint Predictability &amp; Capacity Calculator</h2>
+<p class="muted">Use the Excel workbook when you need a team-level capacity model with member-by-member working days, deductions, historical velocity and predictable velocity.</p>
+<div class="template-file"><div class="template-file-icon">📊</div><div><strong>Agile-Orbit-Capacity-Planning.xlsx</strong><small>Full Excel workbook · editable team-level capacity model</small></div><a class="btn btn-primary" style="margin-left:auto" href="../../assets/downloads/Agile-Orbit-Capacity-Planning.xlsx" download>Download Excel</a></div>
+<div class="callout"><strong>Agile Orbit principle:</strong> Capacity is an input to Sprint planning, not a promise of delivery.</div>
 </div>
 </div></section>
-
-<section class="section" id="capacity-calculator"><div class="container">
-<div class="section-heading"><span class="eyebrow">INTERACTIVE CALCULATOR</span><h2>Velocity + Capacity → Prediction</h2><p class="muted">Enter only the values you know. The remaining numbers are calculated automatically.</p></div>
-<div class="capacity-grid">
-<article class="capacity-box">
-<div class="capacity-box-head"><div><span class="step">01 · HISTORICAL VELOCITY</span><h2>What did the team deliver?</h2><p class="hint">Use completed Sprint velocities only.</p></div></div>
-<div class="capacity-inputs">
-<div class="capacity-field"><label for="velocity-n">Velocity of Last Sprint (N)</label><input id="velocity-n" type="number" min="0" step="0.1" placeholder="e.g. 42"></div>
-<div class="capacity-field"><label for="velocity-n1">Velocity of Last Sprint (N-1)</label><input id="velocity-n1" type="number" min="0" step="0.1" placeholder="e.g. 38"></div>
-<div class="capacity-field"><label for="velocity-n2">Velocity of Last Sprint (N-2)</label><input id="velocity-n2" type="number" min="0" step="0.1" placeholder="e.g. 40"></div>
-</div>
-<div class="capacity-result primary"><span class="label">Average Velocity</span><span class="value" id="average-velocity-display">0</span></div>
-<input id="average-velocity" type="hidden" value="0">
-</article>
-
-<article class="capacity-box">
-<div class="capacity-box-head"><div><span class="step">02 · CURRENT SPRINT CAPACITY</span><h2>What capacity do we have?</h2><p class="hint">Defaults reflect a 10-day Sprint with 7 developers.</p></div></div>
-<div class="capacity-inputs">
-<div class="capacity-field"><label for="rolling-average">Rolling Average Velocity</label><input id="rolling-average" type="text" value="0" readonly><small>Linked to Box 1</small></div>
-<div class="capacity-field"><label for="sprint-days">Number of days in Sprint</label><input id="sprint-days" type="number" min="1" step="1" value="10"><small>Default: 10</small></div>
-<div class="capacity-field"><label for="developers">Number of Developers in Sprint</label><input id="developers" type="number" min="1" step="1" value="7"><small>Default: 7</small></div>
-<div class="capacity-field"><label for="allocated-days">Total Allocated Days</label><input id="allocated-days" type="text" value="70" readonly><small>Developers × Sprint Days</small></div>
-<div class="capacity-field"><label for="available-days">Total Available Days</label><input id="available-days" type="number" min="0" step="0.5" placeholder="e.g. 65"><small>Manual entry after holidays, leave, etc.</small></div>
-</div>
-<div class="capacity-result"><span class="label">Available Headcount</span><span class="value" id="available-headcount">0</span></div>
-<div class="capacity-result"><span class="label">Capacity Factor</span><span class="value" id="capacity-factor">0.0%</span></div>
-</article>
-</div>
-
-<div class="formula-flow" aria-label="Calculation flow"><span class="formula-pill">Historical Average Velocity</span><span class="formula-arrow">→</span><span class="formula-pill">Current Capacity</span><span class="formula-arrow">→</span><span class="formula-pill">Capacity Factor</span><span class="formula-arrow">→</span><span class="formula-pill">Prediction</span></div>
-<div class="formula-card"><code>Prediction = Average Velocity × (Headcount Available ÷ Headcount Allocated)</code><br><span class="muted">Equivalent: Average Velocity × (Available Person-Days ÷ Allocated Person-Days)</span></div>
-<div class="calc-validation" id="capacity-validation" aria-live="polite"></div>
-</div></section>
-
-<section class="section"><div class="container">
-<div class="prediction-card">
-<span class="eyebrow">03 · SPRINT FORECAST</span><h2>How many points to commit?</h2>
-<div class="prediction-number" id="prediction-number">0</div><div class="prediction-unit">story points as a capacity-adjusted forecast</div>
-<div class="prediction-subgrid">
-<div class="prediction-stat"><strong id="prediction-history">0</strong><span>Average velocity</span></div>
-<div class="prediction-stat"><strong id="prediction-capacity">0.0%</strong><span>Capacity available</span></div>
-<div class="prediction-stat"><strong id="prediction-raw">0.00</strong><span>Raw prediction</span></div>
-</div>
-<div class="calculator-actions"><button class="btn calc-reset" id="capacity-reset" type="button">Reset Calculator</button><a class="btn btn-primary" href="../../assets/downloads/Agile-Orbit-Capacity-Planning.xlsx" download>⬇ Download Excel Template</a></div>
-</div>
-</div></section>
-
-<section class="section"><div class="container">
-<div class="section-heading"><span class="eyebrow">READ THE NUMBER CORRECTLY</span><h2>A forecast is not a commitment</h2></div>
-<div class="interpret-grid">
-<div class="interpret-card"><div class="icon">📈</div><h3>Use history as evidence</h3><p>The last three completed Sprint velocities provide a simple historical baseline. The calculator deliberately uses their average rather than assuming the latest Sprint will repeat.</p></div>
-<div class="interpret-card"><div class="icon">👥</div><h3>Adjust for today's capacity</h3><p>Available person-days are converted into an equivalent available headcount and compared with the allocated team capacity.</p></div>
-<div class="interpret-card"><div class="icon">🧭</div><h3>Let the team decide</h3><p>Dependencies, complexity, unplanned work and uncertainty still matter. Use the prediction to support a Sprint conversation, not to replace team judgement.</p></div>
-</div>
-<div class="callout" style="margin-top:20px"><strong>Agile Orbit principle:</strong> Capacity is an input to Sprint planning, not a promise of delivery.</div>
-</div></section>
-
-<section class="section"><div class="container"><div class="article">
-<h2>How to use the Excel template</h2>
-<ol>
-<li>Set the <strong>Sprint Start Date</strong> and <strong>Sprint End Date</strong>.</li>
-<li>Enter each team member's <strong>allocated days</strong> and expected deductions.</li>
-<li>Review <strong>Actual Working Days</strong> and the team capacity summary.</li>
-<li>Enter the last three Sprint velocities under <strong>N-2, N-1 and N</strong>.</li>
-<li>Use the calculated <strong>Predictable Velocity</strong> as a planning input — not as a commitment.</li>
-</ol>
-<div class="template-file" style="margin-top:20px"><div class="template-file-icon">📊</div><div><strong>Agile-Orbit-Capacity-Planning.xlsx</strong><small>Full Excel workbook · editable team-level capacity model</small></div><a class="btn btn-primary" style="margin-left:auto" href="../../assets/downloads/Agile-Orbit-Capacity-Planning.xlsx" download>Download</a></div>
-</div></div></section>
-<section class="section"><div class="container"><div class="article">
-<h2>How to use it</h2>
-<ol>
-<li>Set the <strong>Sprint Start Date</strong> and <strong>Sprint End Date</strong>.</li>
-<li>Enter each team member's <strong>allocated days</strong> and expected deductions.</li>
-<li>Review <strong>Actual Working Days</strong> and the team capacity summary.</li>
-<li>Enter the last three Sprint velocities under <strong>N-2, N-1 and N</strong>.</li>
-<li>Use the calculated <strong>Predictable Velocity</strong> as a planning input — not as a commitment.</li>
-</ol>
-<div class="callout"><strong>Agile Orbit principle:</strong> Capacity is an input to Sprint planning, not a promise of delivery. Use the numbers to support a team conversation about realistic scope.</div>
-</div></div></section>
 </main>
 <div id="site-footer"></div>
 <script src="../../js/config.js"></script><script src="../../js/utilities.js"></script><script src="../../js/navigation.js"></script><script src="../../js/main.js"></script><script src="../../js/tools.js"></script><script src="../../js/universe-pages.js"></script>
