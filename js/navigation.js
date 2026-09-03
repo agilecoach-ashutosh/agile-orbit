@@ -18,7 +18,6 @@
       </nav>
       <div class="nav-actions">
         <button class="icon-btn search-icon" id="searchBtn" aria-label="Search">⌕</button>
-        <button class="icon-btn theme-icon" id="themeBtn" aria-label="Toggle theme">◐</button>
         <a class="btn btn-primary nav-orbit-btn" href="${b}tools/">Enter the Orbit <span aria-hidden="true">🚀</span></a>
         <button class="icon-btn mobile-toggle" id="mobileBtn" aria-label="Open menu">☰</button>
       </div>
