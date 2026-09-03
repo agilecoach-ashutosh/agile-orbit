@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Requirement Template | Agile Orbit</title>
+<meta name="description" content="Practical requirement templates: User Story with examples and powerful questions, plus a SAFe-aligned Epic template.">
+<meta name="theme-color" content="#071019"><link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../css/style.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/animations.css"><link rel="stylesheet" href="../../css/responsive.css"><link rel="stylesheet" href="../../css/universe-pages.css"><link rel="stylesheet" href="../../css/reference-nav.css"><link rel="stylesheet" href="../../css/requirement-template.css">
+</head>
+<body class="universe-inner">
+<div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div>
+<main>
+<section class="page-hero requirement-hero"><div class="container">
+<div class="breadcrumbs"><a href="./">Home</a><span>/</span><span>Resources / Templates</span></div>
+<span class="eyebrow">TEMPLATE · REQUIREMENTS</span>
+<h1>Requirement Template</h1>
+<p class="muted requirement-lead">From a customer outcome at story level to a strategic investment hypothesis at Epic level.</p>
+<div class="req-hero-actions"><a class="btn btn-primary" href="#user-story">Start with User Story ↓</a><a class="btn btn-secondary" href="#safe-epic">Jump to SAFe Epic ↓</a></div>
+</div></section>
+
+<section class="section req-overview"><div class="container"><div class="req-levels">
+<div class="req-level"><span class="req-number">01</span><div><strong>User Story</strong><span>Small, valuable, testable slice of user outcome</span></div></div>
+<div class="req-connector">→</div>
+<div class="req-level"><span class="req-number">02</span><div><strong>Epic</strong><span>Significant initiative expressed as a hypothesis</span></div></div>
+</div><div class="callout req-callout"><strong>Think at the right altitude.</strong> A User Story helps a team decide what can be delivered in a Sprint. An Epic helps the organisation decide whether a significant investment is worth pursuing and how it will be validated.</div></div></section>
+
+<section class="section" id="user-story"><div class="container">
+<div class="section-heading"><span class="eyebrow">01 · USER STORY</span><h2>User Story Template</h2><p class="muted">Capture a user outcome, the value behind it, and observable acceptance criteria. Use the template as a conversation starter—not as a substitute for collaboration.</p></div>
+<div class="req-grid">
+<article class="req-card"><div class="req-card-head"><div><span class="tag">TEMPLATE</span><h3>The Story</h3></div><button class="copy-btn" data-copy-target="story-template">Copy template</button></div>
+<pre id="story-template" class="template-code">## [Short, outcome-focused title]
+
+As a &lt;real user / persona&gt;
+I want to &lt;goal / outcome&gt;
+So that I can &lt;benefit / value&gt;
+
+### Acceptance Criteria
+- [ ] The system/application/service &lt;observable behaviour&gt;
+- [ ] The system/application/service &lt;validation or constraint&gt;
+- [ ] The system/application/service &lt;error / edge-case behaviour&gt;
+
+### Notes / Context
+- Business context: &lt;why this matters&gt;
+- Dependencies: &lt;if known&gt;
+- Out of scope: &lt;what this story does not cover&gt;
+- Open questions: &lt;TBD if unresolved&gt;</pre></article>
+
+<article class="req-card example-card"><div class="req-card-head"><div><span class="tag">EXAMPLE</span><h3>Password Reset</h3></div></div>
+<div class="story-example"><p><strong>As a</strong> customer</p><p><strong>I want to</strong> reset my forgotten password</p><p><strong>So that I can</strong> regain access to my account without contacting support</p><h4>Acceptance Criteria</h4><ul class="check-list"><li>The system sends a password-reset email when a registered email address is submitted.</li><li>The system rejects an invalid or expired reset token.</li><li>The system prevents a reset token from being reused after a successful password change.</li><li>The system confirms successful password reset without exposing the user's password.</li></ul></div></article>
+</div>
+
+<div class="req-two-col">
+<article class="insight-panel"><span class="panel-label">💡 TIPS</span><h3>Make the story stronger</h3><ul><li><strong>Start with the user.</strong> Name a real persona or stakeholder who receives the value.</li><li><strong>Describe an outcome.</strong> Avoid turning “I want to” into a technical solution.</li><li><strong>Keep it small.</strong> If the story needs several independent outcomes, split it.</li><li><strong>Make acceptance criteria observable.</strong> Describe what the system does, permits, prevents, calculates, stores, or displays.</li><li><strong>Keep process items out.</strong> Code review, testing completed, and deployment tasks are not acceptance criteria.</li><li><strong>Use TBD deliberately.</strong> Surface an unknown instead of inventing a requirement.</li></ul></article>
+<article class="insight-panel question-panel"><span class="panel-label">🧠 POWERFUL QUESTIONS</span><h3>Use these in refinement</h3><ol><li><strong>Who actually benefits from this?</strong></li><li><strong>What outcome changes for that person?</strong></li><li><strong>What problem are we solving—not what feature are we building?</strong></li><li><strong>How would we know the story works?</strong></li><li><strong>What is the smallest valuable slice?</strong></li><li><strong>What could make this story fail or behave differently?</strong></li><li><strong>What assumption are we making that we should make visible?</strong></li></ol></article>
+</div>
+
+<div class="invest-strip"><span>INVEST</span><div><b>Independent</b><b>Negotiable</b><b>Valuable</b><b>Estimable</b><b>Small</b><b>Testable</b></div></div>
+</div></section>
+
+<section class="section section-alt" id="safe-epic"><div class="container">
+<div class="section-heading"><span class="eyebrow">02 · SAFE</span><h2>SAFe Epic Template</h2><p class="muted">Use an Epic Hypothesis Statement and Lean Business Case thinking to frame a significant initiative as a testable investment—not simply a large User Story.</p></div>
+<div class="safe-note"><strong>SAFe alignment:</strong> SAFe describes an Epic as a significant solution development initiative. The Epic Hypothesis Statement captures critical information and assumptions; the Epic Owner guides the Epic through the Portfolio Kanban lifecycle, and the MVP is used to test the hypothesis with evidence.</div>
+
+<article class="epic-template">
+<div class="epic-header"><div><span class="tag">SAFe-ALIGNED TEMPLATE</span><h3>Epic Hypothesis Statement</h3></div><button class="copy-btn" data-copy-target="epic-template">Copy template</button></div>
+<pre id="epic-template" class="template-code">EPIC TITLE
+&lt;Clear outcome-oriented name&gt;
+
+EPIC OWNER
+&lt;Named owner&gt;
+
+STRATEGIC CONTEXT / OPPORTUNITY
+&lt;What strategic theme, business objective, customer need, risk or opportunity makes this important now?&gt;
+
+PROBLEM / OPPORTUNITY
+&lt;Who has the problem or opportunity, and what evidence do we have?&gt;
+
+TARGET USERS / CUSTOMERS
+&lt;Primary user/customer segment(s)&gt;
+
+EPIC HYPOTHESIS
+For &lt;target customer/user&gt;,
+who &lt;has this problem / need / opportunity&gt;,
+the &lt;solution / capability&gt;
+is a &lt;solution category&gt;
+that &lt;delivers the expected benefit&gt;.
+Unlike &lt;current alternative / competing approach&gt;,
+our solution &lt;key differentiator / advantage&gt;.
+
+EXPECTED BUSINESS OUTCOMES
+• &lt;Outcome 1 — measurable if possible&gt;
+• &lt;Outcome 2&gt;
+• &lt;Outcome 3&gt;
+
+MINIMUM VIABLE PRODUCT (MVP)
+&lt;Smallest solution / experiment that can test the riskiest assumption and generate evidence&gt;
+
+LEADING INDICATORS / SUCCESS CRITERIA
+Metric | Baseline | Target / Threshold | Evidence Source
+&lt;metric&gt; | &lt;baseline&gt; | &lt;threshold&gt; | &lt;source&gt;
+
+ASSUMPTIONS TO TEST
+• Desirability: &lt;Do customers/users want this?&gt;
+• Feasibility: &lt;Can we build/operate it?&gt;
+• Viability: &lt;Can it create sustainable business value?&gt;
+• Sustainability / risk: &lt;Compliance, security, scalability, ethics, etc.&gt;
+
+SCOPE
+In scope: &lt;boundaries&gt;
+Out of scope: &lt;explicit exclusions&gt;
+
+DEPENDENCIES / RISKS / CONSTRAINTS
+&lt;Key dependencies, technical/business risks, regulatory constraints, assumptions&gt;
+
+LEAN BUSINESS CASE SNAPSHOT
+Value: &lt;expected value / outcomes&gt;
+MVP: &lt;what will be tested first&gt;
+Effort / cost: &lt;coarse estimate / range&gt;
+Time horizon: &lt;expected duration / learning horizon&gt;
+WSJF inputs: &lt;business value, time criticality, risk reduction/opportunity enablement, job size&gt;
+
+DECISION TRIGGERS
+Persevere when: &lt;evidence threshold&gt;
+Pivot when: &lt;evidence suggests a different direction&gt;
+Stop when: &lt;expected value is no longer supported&gt;
+
+VALIDATED LEARNING / STATUS
+&lt;What have we learned? What evidence supports or challenges the hypothesis?&gt;
+
+PORTFOLIO DECISION
+&lt;Decision, date, decision maker / forum, next action&gt;</pre>
+</article>
+
+<div class="epic-example"><div class="example-label">EXAMPLE · DIGITAL CLAIMS PORTAL</div><h3>From initiative to testable hypothesis</h3><div class="hypothesis-box"><p><strong>We believe</strong> a mobile-first claims portal will reduce claim-processing time and improve customer experience for customers submitting simple claims.</p><p><strong>We will know we are moving in the right direction when</strong> the MVP shows the agreed leading indicators crossing their defined thresholds for the target customer segment.</p></div><div class="mvp-grid"><div><span>MVP</span><p>Simple mobile claim submission for a defined claim type.</p></div><div><span>LEADING INDICATOR</span><p>Submission completion rate, processing-time trend and customer feedback.</p></div><div><span>DECISION</span><p>Use evidence to decide whether to persevere, pivot or stop further investment.</p></div></div></div>
+
+<div class="req-two-col epic-guidance">
+<article class="insight-panel"><span class="panel-label">🔭 EPIC THINKING</span><h3>Ask before funding the work</h3><ul><li>What problem or opportunity is important enough to justify an Epic?</li><li>What do we believe will change for customers or the business?</li><li>What is the riskiest assumption?</li><li>What is the smallest MVP that can test it?</li><li>Which leading indicator would tell us early that we are on the right track?</li><li>What evidence would cause us to pivot, persevere or stop?</li></ul></article>
+<article class="insight-panel"><span class="panel-label">⚠️ AVOID</span><h3>Don't turn an Epic into a project plan</h3><ul><li>Don't define the entire solution before testing the core hypothesis.</li><li>Don't confuse an Epic with a collection of unrelated Stories.</li><li>Don't rely only on output measures or vanity metrics.</li><li>Don't treat the Lean Business Case as a one-time document.</li><li>Don't keep investing simply because work has already started.</li></ul></article>
+</div>
+</div></section>
+
+<section class="section"><div class="container"><div class="closing-card"><span class="eyebrow">THE REQUIREMENT LADDER</span><h2>Outcome → Evidence → Value</h2><p>A good requirement makes the conversation clearer. A strong Epic makes the investment hypothesis testable.</p><div class="ladder"><span>USER NEED</span><b>→</b><span>USER STORY</span><b>→</b><span>FEATURE / SOLUTION</span><b>→</b><span>EPIC HYPOTHESIS</span><b>→</b><span>VALIDATED OUTCOME</span></div></div></div></section>
+</main>
+<div id="site-footer"></div>
+<script src="../../js/config.js"></script><script src="../../js/utilities.js"></script><script src="../../js/navigation.js"></script><script src="../../js/main.js"></script><script src="../../js/tools.js"></script><script src="../../js/universe-pages.js"></script><script src="../../js/requirement-template.js"></script>
+</body></html>
