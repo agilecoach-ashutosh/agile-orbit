@@ -10,7 +10,7 @@
 
   if (!Object.values(stats).some(Boolean)) return;
 
-  const fallback = { learn: 19, tools: 12, practice: 7, prompts: 11, jql: 40, books: 35 };
+  const fallback = { learn: 10, tools: 5, practice: 7, prompts: 11, jql: 40, books: 35 };
 
   function setStat(key, value) {
     if (!stats[key] || !Number.isFinite(value)) return;
@@ -69,7 +69,12 @@
       const tree = await fetchRepoTree();
       if (!tree) return;
       setStat('learn', countHtml(tree, 'learn'));
-      setStat('tools', countHtml(tree, 'tools'));
+      const configuredTools = window.SITE_CONFIG?.toolPages;
+      const toolPaths = new Set(tree.filter(item => item.type === 'blob').map(item => item.path));
+      const toolCount = Array.isArray(configuredTools)
+        ? configuredTools.filter(name => toolPaths.has('tools/' + name)).length
+        : countHtml(tree, 'tools');
+      setStat('tools', toolCount);
       setStat('practice', countHtml(tree, 'practice'));
       setStat('prompts', countHtml(tree, 'resources/prompts'));
     } catch (_) {

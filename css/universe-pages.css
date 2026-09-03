@@ -69,14 +69,6 @@ body.universe-inner:after{content:"";position:fixed;inset:-20%;z-index:-4;pointe
 .page-orbit-visual .u-planet.p2{animation-name:uOrbitPage2}@keyframes uOrbitPage2{from{transform:rotate(140deg) translateX(148px) rotate(-140deg)}to{transform:rotate(500deg) translateX(148px) rotate(-500deg)}}
 .page-orbit-visual .u-planet.p3{animation-name:uOrbitPage3}@keyframes uOrbitPage3{from{transform:rotate(250deg) translateX(76px) rotate(-250deg)}to{transform:rotate(610deg) translateX(76px) rotate(-610deg)}}
 .universe-inner .page-hero .container{padding-right:300px}
-/* Hub constellation */
-.universe-constellation{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:12px 0 24px}
-.universe-constellation .card{min-height:190px}
-.universe-constellation .card:nth-child(3n+1){transform-origin:left center}
-.universe-constellation .card:nth-child(3n+2){transform-origin:center center}
-.universe-constellation .card:nth-child(3n){transform-origin:right center}
-.universe-orbit-label{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;color:#91a2b7;font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
-.universe-orbit-label:before{content:"";width:28px;height:1px;background:linear-gradient(90deg,var(--u-cyan),transparent);box-shadow:0 0 10px rgba(105,220,255,.35)}
-@media(max-width:1100px){.page-orbit-visual{right:1vw;opacity:.55}.universe-inner .page-hero .container{padding-right:230px}.universe-constellation{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:760px){.page-orbit-visual{position:relative;right:auto;top:auto;transform:none;width:260px;height:260px;margin:30px auto 0;opacity:.9}.universe-inner .page-hero .container{padding-right:0}.universe-inner .page-hero{padding-top:52px}.universe-inner .page-hero h1{font-size:clamp(2.5rem,12vw,4rem)}.universe-constellation{grid-template-columns:1fr}.universe-inner .section:before{width:82%}}
+@media(max-width:1100px){.page-orbit-visual{right:1vw;opacity:.55}.universe-inner .page-hero .container{padding-right:230px}}
+@media(max-width:760px){.page-orbit-visual{position:relative;right:auto;top:auto;transform:none;width:260px;height:260px;margin:30px auto 0;opacity:.9}.universe-inner .page-hero .container{padding-right:0}.universe-inner .page-hero{padding-top:52px}.universe-inner .page-hero h1{font-size:clamp(2.5rem,12vw,4rem)}.universe-inner .section:before{width:82%}}
 @media(prefers-reduced-motion:reduce){body.universe-inner:after,.universe-stars span,.page-orbit-visual .u-planet{animation:none!important}.universe-inner .card:hover{transform:none}}

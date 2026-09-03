@@ -1,0 +1,56 @@
+/* Agile Orbit — WSJF calculator */
+.wsjf-stack{display:grid;gap:22px}
+.wsjf-how,.wsjf-input-panel,.wsjf-results-panel{padding:26px}
+.wsjf-section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:12px}
+.wsjf-section-heading h2{margin:5px 0 0;font-size:clamp(1.45rem,2.5vw,2rem);letter-spacing:-.03em}
+.wsjf-formula{padding:9px 13px;border:1px solid rgba(105,220,255,.16);border-radius:10px;background:rgba(105,220,255,.05);color:#bfefff;font-size:.82rem;font-weight:800;white-space:nowrap}
+.wsjf-how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.wsjf-how-grid .callout{margin:0;min-height:86px}
+.wsjf-table-shell{width:100%;overflow:visible;margin-top:16px}
+.wsjf-table{width:100%;table-layout:fixed;border-collapse:collapse}
+.wsjf-table th,.wsjf-table td{padding:11px 9px;vertical-align:middle;word-break:normal;overflow-wrap:anywhere}
+.wsjf-table th{font-size:.72rem;line-height:1.3;text-transform:none;letter-spacing:.01em;color:#b8c7d9!important}
+.wsjf-table td{font-size:.82rem}
+.wsjf-input-table th:nth-child(1){width:14%}
+.wsjf-input-table th:nth-child(2){width:10%}
+.wsjf-input-table th:nth-child(3){width:10%}
+.wsjf-input-table th:nth-child(4){width:17%}
+.wsjf-input-table th:nth-child(5){width:9%}
+.wsjf-input-table th:nth-child(6){width:11%}
+.wsjf-input-table th:nth-child(7){width:11%}
+.wsjf-input-table th:nth-child(8){width:7%}
+.wsjf-results-table th:nth-child(1){width:6%}
+.wsjf-results-table th:nth-child(2){width:14%}
+.wsjf-results-table th:nth-child(3){width:10%}
+.wsjf-results-table th:nth-child(4){width:10%}
+.wsjf-results-table th:nth-child(5){width:20%}
+.wsjf-results-table th:nth-child(6){width:9%}
+.wsjf-results-table th:nth-child(7){width:11%}
+.wsjf-results-table th:nth-child(8){width:10%}
+.wsjf-table input{display:block;width:100%;min-width:0;padding:9px 8px;border-radius:8px;border:1px solid rgba(140,180,255,.17);background:rgba(1,7,16,.58);color:#f5f8ff;outline:none}
+.wsjf-table input:focus{border-color:var(--u-cyan);box-shadow:0 0 0 3px rgba(105,220,255,.08)}
+.wsjf-error{margin-top:14px}
+.wsjf-actions{justify-content:flex-end}
+@media(max-width:1000px){
+  .wsjf-how-grid{grid-template-columns:1fr}
+  .wsjf-table th,.wsjf-table td{padding:9px 6px;font-size:.74rem}
+  .wsjf-table input{padding:8px 5px;font-size:.78rem}
+}
+@media(max-width:720px){
+  .wsjf-how,.wsjf-input-panel,.wsjf-results-panel{padding:20px 16px}
+  .wsjf-section-heading{align-items:flex-start;flex-direction:column}
+  .wsjf-formula{white-space:normal}
+  .wsjf-table-shell{overflow:visible}
+  .wsjf-table,.wsjf-table thead,.wsjf-table tbody,.wsjf-table tr,.wsjf-table th,.wsjf-table td{display:block}
+  .wsjf-table thead{display:none}
+  .wsjf-table tr{padding:12px 0;border-bottom:1px solid rgba(140,180,255,.12)}
+  .wsjf-table td{display:grid;grid-template-columns:minmax(0,48%) minmax(0,52%);gap:8px;align-items:center;border:0;padding:6px 0;font-size:.82rem}
+  .wsjf-table td::before{content:attr(data-label);font-weight:700;color:#8ea1b8}
+  .wsjf-table input{font-size:.84rem}
+  .wsjf-actions{justify-content:flex-start}
+}
+@media print{
+  .site-header,#site-nav,#mobile-drawer,.page-hero,.wsjf-how,.wsjf-actions,.wsjf-input-panel .actions,.scroll-explore{display:none!important}
+  body.universe-inner{background:#fff!important;color:#111!important}
+  .wsjf-results-panel{box-shadow:none!important;border:1px solid #ccc!important}
+}

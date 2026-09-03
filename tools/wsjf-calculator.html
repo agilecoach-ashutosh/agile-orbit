@@ -3,50 +3,72 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>WSJF Calculator | Agile Orbit</title>
-<meta name="description" content="Rank work using Cost of Delay divided by Job Size.">
+<meta name="description" content="Rank features using Weighted Shortest Job First: Cost of Delay divided by Job Size.">
 <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/responsive.css">
-<link rel="stylesheet" href="../css/universe-pages.css"><link rel="stylesheet" href="../css/reference-nav.css"></head>
+<link rel="stylesheet" href="../css/universe-pages.css"><link rel="stylesheet" href="../css/reference-nav.css"><link rel="stylesheet" href="../css/wsjf.css">
+</head>
 <body class="universe-inner">
 <div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div>
 <main>
 <section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="../">Home</a><span>/</span><a href="../tools/">Tools</a><span>/</span><span>WSJF</span></div><span class="eyebrow">PRIORITISATION TOOL</span><h1>WSJF Calculator</h1><p class="muted" style="max-width:760px;font-size:1.08rem">Compare features using Weighted Shortest Job First: Cost of Delay ÷ Job Size.</p></div></section>
-<section class="section"><div class="container">
-<div class="tool-layout">
-<div class="panel">
-<div class="actions"><button type="button" class="btn btn-primary" id="addWsjf">+ Add item</button><button type="button" class="btn btn-secondary" id="resetWsjf">Reset</button></div>
-<div id="wsjfError" class="callout" role="alert" aria-live="polite" style="display:none;margin-top:14px"></div>
-<div class="table-wrap" style="margin-top:16px"><table class="data-table"><thead><tr><th>Feature</th><th>BV</th><th>TC</th><th>RR/OE</th><th>Job Size</th><th>Cost of Delay</th><th>WSJF</th><th>Rank</th></tr></thead><tbody id="wsjfRows"></tbody></table></div>
-<div class="actions" style="margin-top:16px"><button type="button" class="btn btn-secondary" id="exportWsjf">Export CSV</button><button type="button" class="btn btn-secondary" id="printWsjf">Print</button></div>
-</div>
-<div class="panel"><span class="eyebrow">HOW IT WORKS</span><h2>Transparent by design.</h2>
-<p class="muted">WSJF prioritises work by considering the economic value of delaying it relative to its size.</p>
-<div class="callout"><strong>Cost of Delay</strong><br>Business Value + Time Criticality + Risk Reduction / Opportunity Enablement</div>
-<div class="callout" style="margin-top:12px"><strong>WSJF</strong><br>Cost of Delay ÷ Job Size</div>
-<p class="note" style="margin-top:12px">Higher WSJF scores indicate items that may deserve earlier consideration. Use consistent scales across all items.</p>
-</div>
-</div></div></section>
+<section class="section"><div class="container wsjf-stack">
+  <div class="panel wsjf-how">
+    <div class="wsjf-section-heading"><div><span class="eyebrow">HOW IT WORKS</span><h2>Make the economic trade-off visible.</h2></div><span class="wsjf-formula">WSJF = Cost of Delay ÷ Job Size</span></div>
+    <p class="muted">WSJF helps compare the relative economic value of delivering work sooner against the effort or size required. Use the same scoring scale across all features.</p>
+    <div class="wsjf-how-grid">
+      <div class="callout"><strong>Cost of Delay</strong><br>Business Value + Time Criticality + Risk Reduction / Opportunity Enablement</div>
+      <div class="callout"><strong>WSJF</strong><br>Cost of Delay ÷ Job Size</div>
+      <div class="callout"><strong>Interpretation</strong><br>Higher WSJF indicates work that may deserve earlier consideration.</div>
+    </div>
+  </div>
+
+  <div class="panel wsjf-input-panel">
+    <div class="wsjf-section-heading"><div><span class="eyebrow">1 · INPUT</span><h2>Enter feature inputs</h2></div><div class="actions"><button type="button" class="btn btn-primary" id="addWsjf">+ Add feature</button><button type="button" class="btn btn-secondary" id="resetWsjf">Reset</button></div></div>
+    <p class="note">Enter the five inputs for each feature. Cost of Delay, WSJF Score and Rank are calculated automatically.</p>
+    <div class="wsjf-table-shell">
+      <table class="data-table wsjf-table wsjf-input-table"><thead><tr>
+        <th>Feature</th><th>Business Value</th><th>Time Criticality</th><th>Risk Reduction / Opportunity Enablement</th><th>Job Size</th><th>Cost of Delay</th><th>WSJF Score</th><th>Rank</th>
+      </tr></thead><tbody id="wsjfRows"></tbody></table>
+    </div>
+    <div id="wsjfError" class="callout wsjf-error" role="alert" aria-live="polite" style="display:none"></div>
+  </div>
+
+  <div class="panel wsjf-results-panel">
+    <div class="wsjf-section-heading"><div><span class="eyebrow">2 · RANKING</span><h2>Sorted features by rank</h2></div></div>
+    <p class="note">This is a separate ranked view. Your input rows above stay in the order you entered them.</p>
+    <div class="wsjf-table-shell">
+      <table class="data-table wsjf-table wsjf-results-table"><thead><tr>
+        <th>Rank</th><th>Feature</th><th>Business Value</th><th>Time Criticality</th><th>Risk Reduction / Opportunity Enablement</th><th>Job Size</th><th>Cost of Delay</th><th>WSJF Score</th>
+      </tr></thead><tbody id="wsjfRankedRows"></tbody></table>
+    </div>
+  </div>
+
+  <div class="actions wsjf-actions"><button type="button" class="btn btn-secondary" id="exportWsjf">Export CSV</button><button type="button" class="btn btn-secondary" id="printWsjf">Print</button></div>
+</div></section>
 </main><div id="site-footer"></div>
 <script src="../js/config.js"></script><script src="../js/utilities.js"></script><script src="../js/navigation.js"></script><script src="../js/main.js"></script><script src="../js/tools.js"></script><script src="../js/calculators.js"></script>
 <script>
 (function(){
   'use strict';
   const rows = document.getElementById('wsjfRows');
+  const rankedRows = document.getElementById('wsjfRankedRows');
   const error = document.getElementById('wsjfError');
-  if (!rows) return;
+  if (!rows || !rankedRows) return;
 
   function number(value){
     const n = parseFloat(value);
     return Number.isFinite(n) ? n : 0;
   }
+  function formatNumber(value){
+    return Number.isInteger(value) ? String(value) : value.toFixed(2).replace(/\.00$/,'');
+  }
   function showError(message){
     error.textContent = message || '';
     error.style.display = message ? 'block' : 'none';
   }
-  function calculate(){
-    showError('');
-    const data = [];
-    Array.from(rows.children).forEach(function(tr){
+  function collectData(){
+    return Array.from(rows.children).map(function(tr, index){
       const inputs = tr.querySelectorAll('input');
       const bv = Math.max(0, number(inputs[1].value));
       const tc = Math.max(0, number(inputs[2].value));
@@ -54,39 +76,67 @@
       const size = number(inputs[4].value);
       const cod = bv + tc + rr;
       const score = size > 0 ? cod / size : 0;
-      data.push({tr:tr, cod:cod, score:score, valid:size > 0});
+      return {index, tr, feature:inputs[0].value.trim() || 'Unnamed feature', bv, tc, rr, size, cod, score, valid:size > 0};
     });
-    data.sort(function(a,b){ return b.score - a.score; });
-    data.forEach(function(item,index){
-      rows.appendChild(item.tr);
-      item.tr.querySelector('.cod').textContent = item.cod.toFixed(2).replace(/\\.00$/,'');
+  }
+  function calculate(){
+    const data = collectData();
+    showError(data.some(function(x){return !x.valid;}) ? 'Job Size must be greater than 0 for a WSJF score.' : '');
+
+    data.forEach(function(item){
+      item.tr.querySelector('.cod').textContent = formatNumber(item.cod);
       item.tr.querySelector('.score').textContent = item.valid ? item.score.toFixed(2) : '—';
-      item.tr.querySelector('.rank').textContent = item.valid ? String(index + 1) : '—';
+      item.tr.querySelector('.rank').textContent = '—';
     });
-    if (data.some(function(x){return !x.valid;})) showError('Job Size must be greater than 0 for a WSJF score.');
+
+    const ranked = data.filter(function(item){return item.valid;}).sort(function(a,b){
+      if (b.score !== a.score) return b.score - a.score;
+      return a.index - b.index;
+    });
+
+    rankedRows.innerHTML = '';
+    ranked.forEach(function(item,index){
+      const tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td data-label="Rank"><strong>' + (index + 1) + '</strong></td>' +
+        '<td data-label="Feature">' + escapeHtml(item.feature) + '</td>' +
+        '<td data-label="Business Value">' + formatNumber(item.bv) + '</td>' +
+        '<td data-label="Time Criticality">' + formatNumber(item.tc) + '</td>' +
+        '<td data-label="Risk Reduction / Opportunity Enablement">' + formatNumber(item.rr) + '</td>' +
+        '<td data-label="Job Size">' + formatNumber(item.size) + '</td>' +
+        '<td data-label="Cost of Delay">' + formatNumber(item.cod) + '</td>' +
+        '<td data-label="WSJF Score"><strong>' + item.score.toFixed(2) + '</strong></td>';
+      rankedRows.appendChild(tr);
+    });
+
+    // Keep rank visible in the input table without reordering the input rows.
+    ranked.forEach(function(item,index){ item.tr.querySelector('.rank').textContent = String(index + 1); });
+  }
+  function escapeHtml(value){
+    return String(value).replace(/[&<>"']/g,function(ch){return {'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[ch];});
   }
   function addRow(){
     const tr=document.createElement('tr');
     const count=rows.children.length+1;
     tr.innerHTML =
-      '<td><input aria-label="Feature name" value="Feature ' + count + '"></td>' +
-      '<td><input aria-label="Business Value" type="number" min="0" step="0.1" value="8"></td>' +
-      '<td><input aria-label="Time Criticality" type="number" min="0" step="0.1" value="5"></td>' +
-      '<td><input aria-label="Risk Reduction or Opportunity Enablement" type="number" min="0" step="0.1" value="5"></td>' +
-      '<td><input aria-label="Job Size" type="number" min="0.1" step="0.1" value="5"></td>' +
-      '<td class="cod">18</td><td class="score">3.60</td><td class="rank">1</td>';
+      '<td data-label="Feature"><input aria-label="Feature name" value="Feature ' + count + '"></td>' +
+      '<td data-label="Business Value"><input aria-label="Business Value" type="number" min="0" step="0.1" value="8"></td>' +
+      '<td data-label="Time Criticality"><input aria-label="Time Criticality" type="number" min="0" step="0.1" value="5"></td>' +
+      '<td data-label="Risk Reduction / Opportunity Enablement"><input aria-label="Risk Reduction or Opportunity Enablement" type="number" min="0" step="0.1" value="5"></td>' +
+      '<td data-label="Job Size"><input aria-label="Job Size" type="number" min="0.1" step="0.1" value="5"></td>' +
+      '<td data-label="Cost of Delay" class="cod">18</td><td data-label="WSJF Score" class="score">3.60</td><td data-label="Rank" class="rank">—</td>';
     rows.appendChild(tr);
     tr.querySelectorAll('input').forEach(function(input){ input.addEventListener('input',calculate); });
     calculate();
   }
-  function reset(){ rows.innerHTML=''; addRow(); }
+  function reset(){ rows.innerHTML=''; addRow(); addRow(); addRow(); }
   function csvEscape(value){ return '"'+String(value).replace(/"/g,'""')+'"'; }
   function exportCsv(){
-    calculate();
-    let csv='Rank,Feature,Business Value,Time Criticality,Risk Reduction/Opportunity Enablement,Job Size,Cost of Delay,WSJF\\n';
-    Array.from(rows.children).forEach(function(tr){
-      const v=tr.querySelectorAll('input');
-      csv += [tr.querySelector('.rank').textContent,v[0].value,v[1].value,v[2].value,v[3].value,v[4].value,tr.querySelector('.cod').textContent,tr.querySelector('.score').textContent].map(csvEscape).join(',')+'\\n';
+    const data=collectData();
+    const ranked=data.filter(function(item){return item.valid;}).sort(function(a,b){return b.score-a.score || a.index-b.index;});
+    let csv='Rank,Feature,Business Value,Time Criticality,Risk Reduction/Opportunity Enablement,Job Size,Cost of Delay,WSJF Score\n';
+    ranked.forEach(function(item,index){
+      csv += [index+1,item.feature,item.bv,item.tc,item.rr,item.size,item.cod,item.score.toFixed(2)].map(csvEscape).join(',')+'\n';
     });
     if(window.AO && AO.download) AO.download('wsjf-ranking.csv',csv,'text/csv;charset=utf-8');
     else { const blob=new Blob([csv],{type:'text/csv'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='wsjf-ranking.csv'; a.click(); }

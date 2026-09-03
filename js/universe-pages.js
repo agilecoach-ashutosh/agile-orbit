@@ -41,20 +41,4 @@
     });
   }
 
-  // Mark hub pages with a constellation treatment. Content remains untouched.
-  const path=location.pathname.toLowerCase();
-  const hubRoots=['/learn/','/tools/','/practice/','/resources/','/insights/','/coaching/'];
-  const isHub=hubRoots.some(root=>path.endsWith(root)||path.endsWith(root+'index.html'));
-  if(isHub){
-    const grid=document.querySelector('.grid-3, .grid-4, .grid-2');
-    if(grid) grid.classList.add('universe-constellation');
-    const firstSection=document.querySelector('main .section');
-    if(firstSection && !firstSection.querySelector('.universe-orbit-label')){
-      const label=document.createElement('div');
-      label.className='universe-orbit-label';
-      label.textContent='Navigate the knowledge universe';
-      const container=firstSection.querySelector('.container');
-      if(container) container.insertBefore(label,container.firstChild);
-    }
-  }
 })();
