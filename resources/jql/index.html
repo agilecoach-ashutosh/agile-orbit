@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Advanced JQL Cookbook | Agile Orbit</title>
+<meta name="description" content="A practical Advanced JQL cookbook with 40 Jira query examples, Scrum usage guidance and a quick JQL syntax reference.">
+<meta name="theme-color" content="#071019"><link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../css/style.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/animations.css"><link rel="stylesheet" href="../../css/responsive.css"><link rel="stylesheet" href="../../css/universe-pages.css"><link rel="stylesheet" href="../../css/reference-nav.css"><link rel="stylesheet" href="../../css/jql.css">
+</head>
+<body class="universe-inner jql-page">
+<div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div>
+<main>
+<section class="page-hero jql-hero"><div class="container">
+<div class="breadcrumbs"><a href="../../">Home</a><span>/</span><a href="../">Resources</a><span>/</span><span>Advanced JQL</span></div>
+<div class="jql-hero-grid"><div>
+<span class="eyebrow">AGILE ORBIT · JIRA QUERY LAB</span>
+<h1>Advanced JQL.<br><span>Query Jira like a pro.</span></h1>
+<p class="jql-hero-copy">Go beyond basic filters with practical JQL recipes for Scrum, backlog management, sprint health, dependencies, release readiness, reporting and Jira hygiene.</p>
+<div class="jql-stats"><div><strong>40</strong><span>JQL recipes</span></div><div><strong>8</strong><span>Agile activities</span></div><div><strong>1</strong><span>Quick syntax guide</span></div></div>
+</div><div class="jql-hero-orbit" aria-hidden="true"><span class="jql-ring r1"></span><span class="jql-ring r2"></span><span class="jql-ring r3"></span><span class="jql-core">JQL</span><span class="jql-dot d1"></span><span class="jql-dot d2"></span><span class="jql-dot d3"></span></div></div>
+</div></section>
+<section class="section jql-learning"><div class="container">
+<div class="section-head"><div><span class="universe-orbit-label">START HERE</span><h2>What is JQL?</h2></div><p class="muted">Learn the language, then use the recipes below as a practical Jira cookbook.</p></div>
+<div class="jql-explainer"><div class="jql-explainer-copy"><p><strong>Jira Query Language (JQL)</strong> is Jira's search language for finding issues using fields, operators, functions and logical conditions. It helps you create precise searches instead of relying only on basic filters.</p><p>Think of a JQL query as a small instruction: <strong>what to search</strong>, <strong>what conditions must match</strong>, and optionally <strong>how the results should be sorted</strong>.</p></div><div class="jql-code-demo"><div class="code-label">EXAMPLE QUERY</div><pre><code>project = ABC
+AND statusCategory != Done
+AND assignee IS EMPTY
+ORDER BY updated DESC</code></pre><div class="jql-token-row"><span>Field + value</span><span>Condition</span><span>Data quality</span><span>Sort</span></div></div></div>
+<div class="jql-building-blocks"><div><b>FIELDS</b><span>project · status · assignee · sprint</span></div><div><b>OPERATORS</b><span>= · != · IN · NOT IN · ~</span></div><div><b>FUNCTIONS</b><span>openSprints() · closedSprints() · startOfMonth()</span></div><div><b>HISTORY</b><span>WAS · CHANGED · DURING</span></div></div>
+</div></section>
+<section class="section jql-cookbook"><div class="container">
+<div class="section-head jql-cookbook-head"><div><span class="universe-orbit-label">THE QUERY COOKBOOK</span><h2>40 practical JQL recipes.</h2></div><p class="muted">Search by query number, purpose, category, Agile activity or JQL syntax. Open a recipe to see the query and how it can be used.</p></div>
+<div class="jql-search-wrap"><span aria-hidden="true">⌕</span><input id="jql-search" type="search" placeholder="Search JQL, purpose, category or keyword…" aria-label="Search JQL recipes"></div>
+<div class="jql-result-meta"><span id="jql-result-count">40 recipes</span><button id="jql-clear" type="button">Clear search</button></div>
+<div id="jql-grid" class="jql-grid"></div><div id="jql-empty" class="jql-empty" hidden>No JQL recipes match your search. Try a different keyword, function, category or purpose.</div>
+</div></section>
+<section class="section jql-agile-guide"><div class="container">
+<div class="section-head"><div><span class="universe-orbit-label">USE IT WITH SCRUM</span><h2>JQL for Agile activities.</h2></div><p class="muted">A practical map from the source guide to the queries most useful in common Scrum and delivery activities.</p></div>
+<div id="jql-usage" class="jql-usage-grid"></div>
+</div></section>
+<section class="section jql-reference"><div class="container">
+<div class="section-head"><div><span class="universe-orbit-label">QUICK REFERENCE</span><h2>JQL syntax at a glance.</h2></div><p class="muted">A compact reference for the operators and functions used throughout the cookbook.</p></div>
+<div id="jql-syntax" class="jql-syntax-grid"></div>
+<div class="jql-warning"><div class="jql-warning-icon">⚠</div><div><strong>Know your Jira configuration.</strong><p>Some advanced functions in this cookbook—such as <code>structure()</code>, <code>issuesWhere()</code>, <code>hasOpenPR()</code> and <code>inactiveUsers()</code>—may depend on installed Jira plugins/extensions and may not work in standard Jira. Custom field names such as Team, Story Points and Epic Link can also vary by Jira configuration.</p></div></div>
+</div></section>
+<section class="section jql-footer-cta"><div class="container"><div class="jql-cta"><span class="eyebrow">AGILE ORBIT PRACTICE</span><h2>Copy a query. Adapt it. Validate it.</h2><p>Replace example project keys such as <code>ABC</code> with your real project keys, standardize custom-field names, and validate every query in your Jira instance before using it in dashboards, automation or reporting.</p></div></div></section>
+</main><div id="site-footer"></div>
+<script src="../../js/config.js"></script><script src="../../js/utilities.js"></script><script src="../../js/navigation.js"></script><script src="../../js/main.js"></script><script src="../../js/tools.js"></script><script src="../../js/universe-pages.js"></script><script src="../../js/jql-data.js"></script><script src="../../js/jql.js"></script>
+</body></html>
