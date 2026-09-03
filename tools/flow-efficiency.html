@@ -1,1 +1,55 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Simple Flow Efficiency Calculator | Agile Orbit</title><meta name="description" content="Measure flow efficiency from active time and waiting time, then turn the result into a coaching conversation."><link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/responsive.css"><link rel="stylesheet" href="../css/universe-pages.css"><link rel="stylesheet" href="../css/reference-nav.css"><link rel="stylesheet" href="../css/advanced-calculators.css"></head><body class="universe-inner"><div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div><main><section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="../">Home</a><span>/</span><a href="index.html">Tools</a><span>/</span><span>Simple Flow Efficiency</span></div><span class="eyebrow">FLOW TOOL</span><h1>Simple Flow Efficiency Calculator</h1><p class="muted" style="max-width:780px;font-size:1.08rem">See how much of elapsed delivery time is active work versus waiting—and use the gap to guide improvement.</p></div></section><section class="section"><div class="container calc-stack"><div class="panel calc-panel"><div class="calc-heading"><div><span class="eyebrow">HOW IT WORKS</span><h2>Make waiting visible.</h2></div><span class="formula">Flow efficiency = Active time ÷ Lead/Cycle time × 100</span></div><div class="calc-grid three"><div class="calc-field"><label>Active time</label><input id="active" type="number" min="0" step="0.1" value="3"><small>Time when work is actively being progressed.</small></div><div class="calc-field"><label>Waiting time</label><input id="waiting" type="number" min="0" step="0.1" value="7"><small>Queueing, blocked, review, handoff or other waiting.</small></div><div class="calc-field"><label>Time unit</label><select id="unit"><option>days</option><option>hours</option><option>weeks</option></select></div></div></div><div class="panel calc-panel"><div class="calc-heading"><div><span class="eyebrow">RESULT</span><h2>Flow profile</h2></div></div><div class="calc-kpis"><div class="calc-kpi"><div class="label">Lead / Cycle time</div><div class="value" id="lead">—</div></div><div class="calc-kpi"><div class="label">Flow efficiency</div><div class="value" id="eff">—</div></div><div class="calc-kpi"><div class="label">Waiting share</div><div class="value" id="waitShare">—</div></div><div class="calc-kpi"><div class="label">Waiting : active</div><div class="value" id="ratio">—</div></div></div><div class="calc-insight"><div class="callout"><strong>Active work</strong><br><span id="activeText">—</span> of elapsed time is active.</div><div class="callout"><strong>Waiting work</strong><br><span id="waitingText">—</span> is spent waiting or queued.</div><div class="callout"><strong>Coaching interpretation</strong><br><span id="coach">—</span></div></div><div class="calc-callout"><strong>Remember:</strong> Low flow efficiency is not a performance score for individuals. It is a signal to investigate system constraints, queues, dependencies and handoffs.</div></div></div></section></main><div id="site-footer"></div><script src="../js/config.js"></script><script src="../js/utilities.js"></script><script src="../js/navigation.js"></script><script src="../js/main.js"></script><script src="../js/tools.js"></script><script src="../js/flow-efficiency.js"></script><script src="../js/universe-pages.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Value Stream Flow Efficiency Calculator | Agile Orbit</title>
+<meta name="description" content="Map a development value stream, capture active and waiting time at each step, and calculate end-to-end flow efficiency.">
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/responsive.css"><link rel="stylesheet" href="../css/universe-pages.css"><link rel="stylesheet" href="../css/reference-nav.css"><link rel="stylesheet" href="../css/advanced-calculators.css"><link rel="stylesheet" href="../css/value-stream-flow.css">
+</head>
+<body class="universe-inner">
+<div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div>
+<main>
+<section class="page-hero"><div class="container">
+<div class="breadcrumbs"><a href="../">Home</a><span>/</span><a href="index.html">Tools</a><span>/</span><span>Value Stream Flow Efficiency</span></div>
+<span class="eyebrow">VALUE STREAM · FLOW</span>
+<h1>Value Stream Flow Efficiency Calculator</h1>
+<p class="muted" style="max-width:820px;font-size:1.08rem">Map how a requirement moves through your system, separate active work from waiting, and see where lead time is being consumed.</p>
+</div></section>
+
+<section class="section vs-intro"><div class="container">
+<div class="panel vs-explain">
+<span class="eyebrow">WHAT IS A VALUE STREAM?</span>
+<h2>Follow the work from idea to delivered value.</h2>
+<p>A development value stream is the end-to-end path a requirement follows through the system until usable value is delivered. The exact steps differ by organisation, so this tool gives you a practical starting flow that you can change.</p>
+<div class="vs-mini-flow" aria-label="Example value stream">
+<span>Requirement</span><i>→</i><span>Analysis</span><i>→</i><span>Build</span><i>→</i><span>Test</span><i>→</i><span>Approval</span><i>→</i><span>Deploy</span><i>→</i><span>Value Delivered</span>
+</div>
+<div class="vs-definition"><strong>For each step, capture two things:</strong> <span>Active time</span> = work is being performed. <span>Waiting time</span> = the item is waiting in a queue, for a handoff, approval, dependency, environment, or other delay.</div>
+</div>
+</div></section>
+
+<section class="section"><div class="container">
+<div class="section-heading"><div><span class="eyebrow">MAP THE VALUE STREAM</span><h2>Build the flow with inputs inside each stage.</h2><p class="muted">Start with the default example, then rename, add, remove, or reorder stages to match your real flow.</p></div><div class="vs-actions"><button class="btn btn-secondary" id="resetFlow" type="button">Reset Example</button><button class="btn btn-primary" id="addStage" type="button">+ Add Stage</button></div></div>
+
+<div class="vs-flow-shell">
+<div class="vs-flow" id="flowMap" aria-live="polite"></div>
+</div>
+<div class="vs-flow-hint">Tip: Use the same time unit for every stage. The calculator will add all active and waiting time across the full flow.</div>
+</div></section>
+
+<section class="section"><div class="container">
+<div class="panel vs-results">
+<div class="calc-heading"><div><span class="eyebrow">RESULT</span><h2>End-to-end flow efficiency</h2></div><div class="formula">Flow efficiency = Total Active Time ÷ Total Lead Time × 100</div></div>
+<div class="vs-result-layout">
+<div class="vs-efficiency"><div class="vs-efficiency-label">FLOW EFFICIENCY</div><div class="vs-efficiency-value" id="eff">—</div><div class="vs-efficiency-note" id="effNote">—</div></div>
+<div class="vs-kpis"><div><span>Total Active Time</span><strong id="activeTotal">—</strong></div><div><span>Total Waiting Time</span><strong id="waitTotal">—</strong></div><div><span>Total Lead Time</span><strong id="leadTotal">—</strong></div><div><span>Waiting Share</span><strong id="waitShare">—</strong></div></div>
+</div>
+<div class="vs-insight"><strong>Coaching insight</strong><p id="coach">—</p></div>
+<div class="calc-callout"><strong>Use the number as a system signal.</strong> Flow efficiency is not an individual performance score. Use the map to investigate queues, approvals, handoffs, dependencies and rework that increase waiting time.</div>
+</div>
+</div></section>
+</main>
+<div id="site-footer"></div>
+<script src="../js/config.js"></script><script src="../js/utilities.js"></script><script src="../js/navigation.js"></script><script src="../js/main.js"></script><script src="../js/tools.js"></script><script src="../js/flow-efficiency.js"></script><script src="../js/universe-pages.js"></script>
+</body></html>
