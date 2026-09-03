@@ -16,6 +16,8 @@
   <div class="panel wsjf-how">
     <div class="wsjf-section-heading"><div><span class="eyebrow">HOW IT WORKS</span><h2>Make the economic trade-off visible.</h2></div><span class="wsjf-formula">WSJF = Cost of Delay ÷ Job Size</span></div>
     <p class="muted">WSJF helps compare the relative economic value of delivering work sooner against the effort or size required. Use the same scoring scale across all features.</p>
+    <div class="callout wsjf-scale-guidance" role="note"><strong>Use a relative 1–5 scale for every scoring item.</strong><br>Use the Fibonacci-style relative scale <strong>[1, 2, 3, 4, 5]</strong> for Business Value, Time Criticality, Risk Reduction / Opportunity Enablement, and Job Size. The numbers are relative to the other features being assessed—not absolute measurements. Keep the same interpretation of the scale across the whole comparison.</div>
+    <div class="callout wsjf-tie-guidance" role="note"><strong>If two features have the same rank:</strong> stakeholders should re-assess the scale for each column and challenge the relative scores. Revisit Business Value, Time Criticality, Risk Reduction / Opportunity Enablement, and Job Size rather than accepting the tie automatically.</div>
     <div class="wsjf-how-grid">
       <div class="callout"><strong>Cost of Delay</strong><br>Business Value + Time Criticality + Risk Reduction / Opportunity Enablement</div>
       <div class="callout"><strong>WSJF</strong><br>Cost of Delay ÷ Job Size</div>
@@ -25,7 +27,7 @@
 
   <div class="panel wsjf-input-panel">
     <div class="wsjf-section-heading"><div><span class="eyebrow">1 · INPUT</span><h2>Enter feature inputs</h2></div><div class="actions"><button type="button" class="btn btn-primary" id="addWsjf">+ Add feature</button><button type="button" class="btn btn-secondary" id="resetWsjf">Reset</button></div></div>
-    <p class="note">Enter the five inputs for each feature. Cost of Delay, WSJF Score and Rank are calculated automatically.</p>
+    <p class="note">Enter the five inputs for each feature using the relative 1–5 scale above. Cost of Delay, WSJF Score and Rank are calculated automatically.</p>
     <div class="wsjf-table-shell">
       <table class="data-table wsjf-table wsjf-input-table"><thead><tr>
         <th>Feature</th><th>Business Value</th><th>Time Criticality</th><th>Risk Reduction / Opportunity Enablement</th><th>Job Size</th><th>Cost of Delay</th><th>WSJF Score</th><th>Rank</th>
@@ -70,10 +72,10 @@
   function collectData(){
     return Array.from(rows.children).map(function(tr, index){
       const inputs = tr.querySelectorAll('input');
-      const bv = Math.max(0, number(inputs[1].value));
-      const tc = Math.max(0, number(inputs[2].value));
-      const rr = Math.max(0, number(inputs[3].value));
-      const size = number(inputs[4].value);
+      const bv = Math.min(5, Math.max(1, Math.round(number(inputs[1].value))));
+      const tc = Math.min(5, Math.max(1, Math.round(number(inputs[2].value))));
+      const rr = Math.min(5, Math.max(1, Math.round(number(inputs[3].value))));
+      const size = Math.min(5, Math.max(1, Math.round(number(inputs[4].value))));
       const cod = bv + tc + rr;
       const score = size > 0 ? cod / size : 0;
       return {index, tr, feature:inputs[0].value.trim() || 'Unnamed feature', bv, tc, rr, size, cod, score, valid:size > 0};
@@ -81,7 +83,7 @@
   }
   function calculate(){
     const data = collectData();
-    showError(data.some(function(x){return !x.valid;}) ? 'Job Size must be greater than 0 for a WSJF score.' : '');
+    showError(data.some(function(x){return !x.valid;}) ? 'Job Size must be between 1 and 5 on the relative scale.' : '');
 
     data.forEach(function(item){
       item.tr.querySelector('.cod').textContent = formatNumber(item.cod);
@@ -111,6 +113,11 @@
 
     // Keep rank visible in the input table without reordering the input rows.
     ranked.forEach(function(item,index){ item.tr.querySelector('.rank').textContent = String(index + 1); });
+    const tied = [];
+    ranked.forEach(function(item, i){
+      if (i > 0 && Math.abs(item.score - ranked[i - 1].score) < 0.000001) tied.push(item.feature + ' / ' + ranked[i - 1].feature);
+    });
+    if (tied.length) showError('Tie detected: ' + tied.join('; ') + '. Stakeholders should re-assess the relative 1–5 scale for each scoring column.');
   }
   function escapeHtml(value){
     return String(value).replace(/[&<>"']/g,function(ch){return {'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[ch];});
@@ -120,10 +127,10 @@
     const count=rows.children.length+1;
     tr.innerHTML =
       '<td data-label="Feature"><input aria-label="Feature name" value="Feature ' + count + '"></td>' +
-      '<td data-label="Business Value"><input aria-label="Business Value" type="number" min="0" step="0.1" value="8"></td>' +
-      '<td data-label="Time Criticality"><input aria-label="Time Criticality" type="number" min="0" step="0.1" value="5"></td>' +
-      '<td data-label="Risk Reduction / Opportunity Enablement"><input aria-label="Risk Reduction or Opportunity Enablement" type="number" min="0" step="0.1" value="5"></td>' +
-      '<td data-label="Job Size"><input aria-label="Job Size" type="number" min="0.1" step="0.1" value="5"></td>' +
+      '<td data-label="Business Value"><input aria-label="Business Value" type="number" min="1" max="5" step="1" value="5"></td>' +
+      '<td data-label="Time Criticality"><input aria-label="Time Criticality" type="number" min="1" max="5" step="1" value="3"></td>' +
+      '<td data-label="Risk Reduction / Opportunity Enablement"><input aria-label="Risk Reduction or Opportunity Enablement" type="number" min="1" max="5" step="1" value="3"></td>' +
+      '<td data-label="Job Size"><input aria-label="Job Size" type="number" min="1" max="5" step="1" value="3"></td>' +
       '<td data-label="Cost of Delay" class="cod">18</td><td data-label="WSJF Score" class="score">3.60</td><td data-label="Rank" class="rank">—</td>';
     rows.appendChild(tr);
     tr.querySelectorAll('input').forEach(function(input){ input.addEventListener('input',calculate); });

@@ -54,3 +54,6 @@
   body.universe-inner{background:#fff!important;color:#111!important}
   .wsjf-results-panel{box-shadow:none!important;border:1px solid #ccc!important}
 }
+
+.wsjf-scale-guidance,.wsjf-tie-guidance{margin-top:12px;line-height:1.55}
+.wsjf-scale-guidance strong:first-child,.wsjf-tie-guidance strong:first-child{color:#e7f8ff}
