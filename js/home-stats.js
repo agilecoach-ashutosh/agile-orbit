@@ -10,7 +10,7 @@
 
   if (!Object.values(stats).some(Boolean)) return;
 
-  const fallback = { learn: 10, tools: 5, practice: 7, prompts: 11, jql: 40, books: 35 };
+  const fallback = { learn: 10, tools: 9, practice: 7, prompts: 11, jql: 40, books: 35 };
 
   function setStat(key, value) {
     if (!stats[key] || !Number.isFinite(value)) return;
