@@ -1,7 +1,10 @@
 (function(){
 'use strict';
-const EXCLUDED_IDS=new Set(['Q-440FAE3F','Q-5AB227CA','Q-49A23550','Q-7D1F260D']);
-const Q=(window.PRACTICE_QUESTIONS||[]).filter(q=>!EXCLUDED_IDS.has(q.id)).map(q=>q.id==='Q-72214BA4'?{...q,options:['Transparency','Adaptation','Cross-functionality','Self-organization','Inspection'],correctAnswer:'A, B, E',correctOptionText:'Transparency | Adaptation | Inspection'}:q);
+const EXCLUDED_IDS=new Set(['Q-440FAE3F','Q-5AB227CA','Q-49A23550','Q-7D1F260D','Q-2DA36E3D']);
+const JUNK_PATTERNS=[/\b12\/18\/2019\s+PSM ITM Preparation Quiz\s*[–-]\s*Real Mode\s*[–-]\s*Mikhail Lapshin\b\s*/gi,/\b1\/4\/2020\s+PSM ITM Preparation Quiz\s*[–-]\s*Real Mode\s*[–-]\s*Mikhail Lapshin\b\s*/gi];
+function cleanText(v){if(typeof v!=='string')return v;let s=v;JUNK_PATTERNS.forEach(re=>{s=s.replace(re,'')});return s.replace(/\s{2,}/g,' ').trim()||null}
+function cleanQuestion(q){const options=(q.options||[]).map(cleanText);return {...q,question:cleanText(q.question),options,correctOptionText:cleanText(q.correctOptionText)}}
+const Q=(window.PRACTICE_QUESTIONS||[]).filter(q=>!EXCLUDED_IDS.has(q.id)).map(cleanQuestion).map(q=>q.id==='Q-72214BA4'?{...q,options:['Transparency','Adaptation','Cross-functionality','Self-organization','Inspection'],correctAnswer:'A, B, E',correctOptionText:'Transparency | Adaptation | Inspection'}:q);
 const panel=document.getElementById('quiz-panel'),grid=document.getElementById('themeGrid');
 const themes=[['Scrum Fundamentals','Build a strong foundation in Scrum accountabilities, artifacts, values and core concepts.'],['Scrum Events','Practice Sprint Planning, Daily Scrum, Sprint Review and Retrospective thinking.'],['Product Backlog & Refinement','Strengthen backlog ordering, refinement, slicing, clarity and readiness.'],['Product Owner & Product Management','Explore Product Owner decisions, value, stakeholders and product thinking.'],['Facilitation & Collaboration','Practice facilitation, collaboration, conflict and team interaction scenarios.'],['Agile Leadership','Test servant leadership, coaching, empowerment and organisational leadership thinking.'],['Evidence-Based Management & Metrics','Practice evidence, outcomes, metrics and Evidence-Based Management concepts.'],['Scaling Scrum','Explore Nexus and scaling Scrum concepts and coordination.'],['SAFe 6.0','Practice SAFe 6.0 concepts, Lean-Agile principles, roles, flow, PI Planning and portfolio thinking.']];
 const icons=['01','02','03','04','05','06','07','08','09'];
