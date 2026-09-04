@@ -26,42 +26,66 @@
       if(!desktop())return;
       const rect=stage.getBoundingClientRect();
       const travel=Math.max(1,stage.offsetHeight-window.innerHeight);
-      const endBuffer=Math.min(window.innerHeight*.85,Math.max(0,travel*.18));
-      const sceneTravel=Math.max(1,travel-endBuffer);
-      const scrollInStage=Math.max(0,-rect.top);
-      const p=Math.max(0,Math.min(1,scrollInStage/sceneTravel));
-      const scaled=p*(scenes.length-1);
-      const base=Math.min(scenes.length-1,Math.floor(scaled));
+      const p=Math.max(0,Math.min(1,-rect.top/travel));
+      const totalStates=scenes.length+1;
+      const scaled=p*(totalStates-1);
+      const base=Math.min(totalStates-1,Math.floor(scaled));
       const local=scaled-base;
-      const isFinalTransition=base===scenes.length-2;
-      const transitionStart=isFinalTransition?.55:.82;
-      const transitionT=base<scenes.length-1?Math.max(0,Math.min(1,(local-transitionStart)/(1-transitionStart))):0;
+      const transitionStart=.82;
+      const transitionT=base<totalStates-1?Math.max(0,Math.min(1,(local-transitionStart)/(1-transitionStart))):0;
       const fade=smoothstep(transitionT);
       const next=base+1;
-      if(base!==active){active=base;setActive(base);}
-      const closingProgress=Math.max(0,Math.min(1,(scrollInStage-sceneTravel)/Math.max(1,endBuffer)));
-      const closingFade=smoothstep(closingProgress);
+      if(base!==active){active=base;setActive(Math.min(base,dots.length-1));}
       scenes.forEach((s,n)=>{
-        if(n===base){
-          const finalFade=base===scenes.length-1?1-closingFade:1-fade;
-          setScene(n,finalFade,local,true,1,10);
-        }else if(n===next&&fade>0){
-          const incoming=Math.max(0,Math.min(1,isFinalTransition?transitionT:(transitionT-.35)/.65));
-          setScene(n,fade,local-1,true,incoming,11);
+        if(base<scenes.length){
+          if(n===base){setScene(n,1-fade,local,true,1,10);}
+          else if(n===next&&next<scenes.length&&fade>0){const incoming=Math.max(0,Math.min(1,(transitionT-.35)/.65));setScene(n,fade,local-1,true,incoming,11);}
+          else{setScene(n,0,0,false,0,1);}
         }else{
           setScene(n,0,0,false,0,1);
         }
       });
       if(closing){
-        closing.style.opacity=String(closingFade);
-        closing.style.visibility=closingFade>0?'visible':'hidden';
-        closing.style.transform=`translate3d(0,${(1-closingFade)*28}px,0)`;
-        closing.style.pointerEvents=closingFade>.5?'auto':'none';
+        const incomingClosing=base===scenes.length-1?fade:(base===scenes.length?1:0);
+        closing.style.opacity=String(incomingClosing);
+        closing.style.visibility=incomingClosing>0?'visible':'hidden';
+        closing.style.pointerEvents=incomingClosing>.5?'auto':'none';
+        if(incomingClosing>0&&base===scenes.length-1){
+          closing.style.position='fixed';
+          closing.style.left='0';
+          closing.style.top='0';
+          closing.style.width='100%';
+          closing.style.minHeight='100svh';
+          closing.style.zIndex='30';
+          closing.style.transform=`translate3d(0,${(1-incomingClosing)*28}px,0)`;
+        }else{
+          closing.style.position='relative';
+          closing.style.left='auto';
+          closing.style.top='auto';
+          closing.style.width='auto';
+          closing.style.minHeight='72vh';
+          closing.style.zIndex='';
+          closing.style.transform=base===scenes.length?'none':'translate3d(0,28px,0)';
+        }
       }
     }
     function onScroll(){if(!raf)raf=requestAnimationFrame(update);}
-    function setup(){if(!desktop())return;viewport.style.position='sticky';viewport.style.top='0';viewport.style.height='100svh';viewport.style.minHeight='640px';viewport.style.overflow='hidden';viewport.style.zIndex='1';scenes.forEach((s,i)=>{s.style.transition='none';s.style.visibility=i===0?'visible':'hidden';s.style.opacity=i===0?'1':'0';s.style.pointerEvents=i===0?'auto':'none';s.style.zIndex=i===0?'10':'1';});if(closing){closing.style.opacity='0';closing.style.visibility='hidden';closing.style.pointerEvents='none';closing.style.transform='translate3d(0,28px,0)';}update();}
-    function setupMobile(){if(desktop())return;viewport.style.position='relative';viewport.style.top='auto';viewport.style.height='auto';scenes.forEach(s=>{s.style.visibility='visible';s.style.opacity='1';s.style.transform='none';s.querySelectorAll('[data-reveal]').forEach(e=>{e.style.opacity='1';e.style.transform='none';});});if(closing){closing.style.opacity='1';closing.style.visibility='visible';closing.style.pointerEvents='auto';closing.style.transform='none';}}
-    window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',()=>{setup();setupMobile();onScroll();},{passive:true});setup();setupMobile();
+    function setup(){
+      if(!desktop())return;
+      viewport.style.position='sticky';
+      viewport.style.top='0';
+      viewport.style.height='100svh';
+      viewport.style.minHeight='640px';
+      viewport.style.overflow='hidden';
+      viewport.style.zIndex='1';
+      stage.style.height='600vh';
+      scenes.forEach((s,i)=>{s.style.transition='none';s.style.visibility=i===0?'visible':'hidden';s.style.opacity=i===0?'1':'0';s.style.pointerEvents=i===0?'auto':'none';s.style.zIndex=i===0?'10':'1';});
+      if(closing){closing.style.opacity='0';closing.style.visibility='hidden';closing.style.pointerEvents='none';closing.style.position='relative';closing.style.left='auto';closing.style.top='auto';closing.style.width='auto';closing.style.minHeight='72vh';closing.style.transform='translate3d(0,28px,0)';}
+      update();
+    }
+    function setupMobile(){if(desktop())return;viewport.style.position='relative';viewport.style.top='auto';viewport.style.height='auto';stage.style.height='auto';scenes.forEach(s=>{s.style.visibility='visible';s.style.opacity='1';s.style.transform='none';s.querySelectorAll('[data-reveal]').forEach(e=>{e.style.opacity='1';e.style.transform='none';});});if(closing){closing.style.opacity='1';closing.style.visibility='visible';closing.style.position='relative';closing.style.left='auto';closing.style.top='auto';closing.style.width='auto';closing.style.minHeight='100svh';closing.style.pointerEvents='auto';closing.style.transform='none';}}
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',()=>{setup();setupMobile();onScroll();},{passive:true});
+    setup();setupMobile();
   });
 })();
