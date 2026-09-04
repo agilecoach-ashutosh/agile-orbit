@@ -148,28 +148,57 @@
         trigger:stage,start:'top top',end:'bottom top',pin:true,scrub:1,anticipatePin:1,invalidateOnRefresh:true,
         onUpdate:self=>{
           const total=data.scenes.length;
-          // Four transitions for five scenes. The final scene remains fully visible
-          // until the pinned sequence ends, so there is never a blank interval.
-          const raw=self.progress*(total-1);
+          const raw=gsap.utils.clamp(0,total-1,self.progress*(total-1));
           const active=Math.min(total-1,Math.floor(raw));
+          const t=raw-active;
+          const isLast=active===total-1;
           setActive(active);
+
+          // Each viewport segment is a scene. Hold the current scene for the
+          // first 55%, then crossfade to the next scene over the final 45%.
+          // This guarantees there is no transparent/black gap between scenes.
+          const transitionStart=.55;
+          const cross=active<total-1?gsap.utils.clamp(0,1,(t-transitionStart)/(1-transitionStart)):0;
+
           scenes.forEach((scene,i)=>{
-            const local=gsap.utils.clamp(0,1,raw-i);
-            const enter=gsap.utils.clamp(0,1,local/.30);
-            const leave=gsap.utils.clamp(0,1,(local-.70)/.30);
-            const isLast=i===total-1;
-            const opacity=i===active?(isLast?1:1-leave*.9):(i===active+1?enter:0);
-            const scale=i===active?(isLast?1:1+leave*.045):(i===active+1?1.035-enter*.035:1.035);
-            const y=i===active?(isLast?0:-leave*12):(i===active+1?(1-enter)*22:0);
+            let opacity=0;
+            let scale=1.035;
+            let y=0;
+            let local=0;
+
+            if(i===active){
+              opacity=isLast?1:1-cross;
+              scale=isLast?1:1+cross*.045;
+              y=isLast?0:-cross*12;
+              local=t;
+            }else if(i===active+1){
+              opacity=cross;
+              scale=1.035-cross*.035;
+              y=(1-cross)*22;
+              local=t-1;
+            }
+
             gsap.set(scene,{autoAlpha:opacity,scale,y});
+
             scene.querySelectorAll('[data-reveal]').forEach((el,r)=>{
-              const start=.05+r*.05;
-              const rp=gsap.utils.clamp(0,1,(local-start)/.22);
-              const fadeOut=isLast?0:gsap.utils.clamp(0,1,(local-.84)/.16);
-              gsap.set(el,{autoAlpha:rp*(1-fadeOut),y:(1-rp)*24});
+              if(i===active){
+                const start=.04+r*.045;
+                const rp=gsap.utils.clamp(0,1,(t-start)/.22);
+                gsap.set(el,{autoAlpha:rp*(isLast?1:1),y:(1-rp)*24});
+              }else if(i===active+1){
+                const start=.02+r*.045;
+                const rp=gsap.utils.clamp(0,1,(t-start)/.22);
+                gsap.set(el,{autoAlpha:rp*cross,y:(1-rp)*24});
+              }else{
+                gsap.set(el,{autoAlpha:0,y:24});
+              }
             });
+
             const img=scene.querySelector('.hero-layer-main');
-            if(img) gsap.set(img,{xPercent:(local-.5)*-1.4,yPercent:(local-.5)*.7,scale:1.015+local*.028});
+            if(img){
+              const p=i===active?t:0;
+              gsap.set(img,{xPercent:(p-.5)*-1.4,yPercent:(p-.5)*.7,scale:1.015+p*.028});
+            }
           });
         }
       });
