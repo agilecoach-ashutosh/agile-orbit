@@ -1,8 +1,9 @@
 (function(){
   document.addEventListener('DOMContentLoaded',function(){
-    const scenes=gsap.utils.toArray('.story-scene');
-    if(!scenes.length||typeof gsap==='undefined'||typeof ScrollTrigger==='undefined') return;
+    if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined') return;
     gsap.registerPlugin(ScrollTrigger);
+    const scenes=gsap.utils.toArray('.story-scene');
+    if(!scenes.length) return;
     const rail=gsap.utils.toArray('.vertical-rail span');
 
     scenes.forEach((scene,index)=>{
@@ -30,10 +31,7 @@
       if(index===0 && copy) tl.fromTo(copy,{opacity:1,y:10},{opacity:1,y:-12,duration:.9,ease:'none'},.1);
     });
 
-    function setRail(active){
-      rail.forEach((item,i)=>item.classList.toggle('active',i===active));
-    }
-
+    function setRail(active){rail.forEach((item,i)=>item.classList.toggle('active',i===active));}
     ScrollTrigger.refresh();
   });
 })();
