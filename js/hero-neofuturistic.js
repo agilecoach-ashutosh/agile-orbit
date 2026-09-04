@@ -7,24 +7,32 @@
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const coarse=window.matchMedia('(pointer: coarse)').matches;
   let tx=0,ty=0,px=0,py=0;
+  const layers=[
+    {el:wrap.querySelector('.u-3d-core-glow'),x:10,y:8,rotate:0},
+    {el:wrap.querySelector('.u-3d-labels'),x:7,y:5,rotate:0},
+    {el:hero.querySelector('.nebula.one'),x:4,y:3,rotate:0},
+    {el:hero.querySelector('.nebula.two'),x:7,y:5,rotate:0},
+    {el:hero.querySelector('.nebula.three'),x:10,y:7,rotate:0}
+  ].filter(x=>x.el);
   function move(e){
     const r=hero.getBoundingClientRect();
     tx=((e.clientX-r.left)/r.width-.5);
     ty=((e.clientY-r.top)/r.height-.5);
-    hero.style.setProperty('--cursor-x',tx.toFixed(4));
-    hero.style.setProperty('--cursor-y',ty.toFixed(4));
   }
   function frame(){
     px+=(tx-px)*.045;py+=(ty-py)*.045;
-    hero.style.setProperty('--parallax-x',(px*18).toFixed(2)+'px');
-    hero.style.setProperty('--parallax-y',(py*14).toFixed(2)+'px');
-    hero.style.setProperty('--parallax-rx',(py*-1.15).toFixed(2)+'deg');
-    hero.style.setProperty('--parallax-ry',(px*1.15).toFixed(2)+'deg');
+    hero.style.setProperty('--cursor-x',tx.toFixed(4));
+    hero.style.setProperty('--cursor-y',ty.toFixed(4));
+    if(!reduce&&!coarse){
+      layers.forEach(layer=>{
+        layer.el.style.translate=(px*layer.x).toFixed(2)+'px '+(py*layer.y).toFixed(2)+'px';
+      });
+    }
     requestAnimationFrame(frame);
   }
   if(!reduce&&!coarse){
     window.addEventListener('pointermove',move,{passive:true});
+    hero.addEventListener('pointerleave',()=>{tx=0;ty=0;},{passive:true});
     requestAnimationFrame(frame);
   }
-  window.addEventListener('pointerleave',()=>{tx=0;ty=0;},{passive:true});
 })();
