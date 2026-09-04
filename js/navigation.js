@@ -17,14 +17,52 @@
         <a class="nav-link" data-section="about" href="${b}about/">About</a>
       </nav>
       <div class="nav-actions">
-        <button class="icon-btn search-icon" id="searchBtn" aria-label="Search">⌕</button>
-        <a class="btn btn-primary nav-orbit-btn" href="${b}tools/">Enter the Orbit <span aria-hidden="true">🚀</span></a>
+        <button class="icon-btn search-icon" id="searchBtn" aria-label="Search" aria-controls="siteSearch" aria-expanded="false">⌕</button>
         <button class="icon-btn mobile-toggle" id="mobileBtn" aria-label="Open menu">☰</button>
       </div>
     </div></header>`;
   }
   const drawer=document.getElementById('mobile-drawer');
   if(drawer){drawer.innerHTML=`<div class="mobile-drawer-inner"><div class="drawer-head"><strong>AGILE ORBIT</strong><button class="icon-btn" id="drawerClose" aria-label="Close menu">×</button></div><a href="${b}">Home</a><a href="${b}learn/">Learn</a><a href="${b}tools/">Tools</a><a href="${b}practice/">Practice</a><a href="${b}resources/">Resources</a><a href="${b}insights/">Insights</a><a href="${b}coaching/">Coaching</a><a href="${b}about/">About</a></div>`;}
+
+  const searchItems=[
+    {title:'Learn',url:'learn/',keywords:'agile scrum safe kanban learning courses concepts certification'},
+    {title:'Tools',url:'tools/',keywords:'calculators templates jira capacity planning metrics estimation wsjf'},
+    {title:'Practice',url:'practice/',keywords:'practice quiz mock test questions scrum safe psm agile'},
+    {title:'Resources',url:'resources/',keywords:'resources downloads templates playbooks guides books'},
+    {title:'Insights',url:'insights/',keywords:'insights articles blog agile coaching leadership transformation'},
+    {title:'Coaching',url:'coaching/',keywords:'agile coaching mentor coaching icf leadership team organizational'},
+    {title:'About',url:'about/',keywords:'about ashutosh profile journey linkedin credly mindmap'}
+  ];
+
+  function ensureSearch(){
+    if(document.getElementById('siteSearch')) return;
+    const overlay=document.createElement('div');
+    overlay.id='siteSearch';
+    overlay.className='site-search';
+    overlay.innerHTML=`<div class="site-search-backdrop" data-search-close></div><section class="site-search-panel" role="dialog" aria-modal="true" aria-labelledby="siteSearchTitle">
+      <div class="site-search-head"><div><span class="site-search-kicker">AGILE ORBIT</span><h2 id="siteSearchTitle">Search the Orbit</h2></div><button class="icon-btn" type="button" data-search-close aria-label="Close search">×</button></div>
+      <label class="site-search-field"><span aria-hidden="true">⌕</span><input id="siteSearchInput" type="search" autocomplete="off" placeholder="Search Agile, Scrum, SAFe, coaching…" aria-label="Search Agile Orbit"><kbd>ESC</kbd></label>
+      <div id="siteSearchResults" class="site-search-results" aria-live="polite"></div>
+    </section>`;
+    document.body.appendChild(overlay);
+
+    const input=overlay.querySelector('#siteSearchInput');
+    const results=overlay.querySelector('#siteSearchResults');
+    function render(query){
+      const q=query.trim().toLowerCase();
+      const matches=q?searchItems.filter(item=>(item.title+' '+item.keywords).toLowerCase().includes(q)):searchItems;
+      results.innerHTML=matches.length?matches.map(item=>`<a class="site-search-result" href="${b}${item.url}"><span class="site-search-result-mark" aria-hidden="true">✦</span><span><strong>${item.title}</strong><small>${item.keywords.split(' ').slice(0,7).join(' · ')}</small></span><span aria-hidden="true">→</span></a>`).join(''):`<div class="site-search-empty">No matching section found. Try <strong>Scrum</strong>, <strong>SAFe</strong>, <strong>coaching</strong>, <strong>tools</strong> or <strong>practice</strong>.</div>`;
+    }
+    function openSearch(){overlay.classList.add('open');document.getElementById('searchBtn')?.setAttribute('aria-expanded','true');render('');requestAnimationFrame(()=>input.focus());}
+    function closeSearch(){overlay.classList.remove('open');document.getElementById('searchBtn')?.setAttribute('aria-expanded','false');}
+    input.addEventListener('input',()=>render(input.value));
+    overlay.addEventListener('click',e=>{if(e.target.closest('[data-search-close]')) closeSearch();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape') closeSearch();});
+    document.addEventListener('click',e=>{if(e.target.closest('#searchBtn')) openSearch();});
+  }
+  ensureSearch();
+
   function markActive(){
     const path=location.pathname;
     document.querySelectorAll('[data-section]').forEach(el=>{
