@@ -13,12 +13,32 @@
     const visualHTML=scene=>`<div class="hero-visual-decor ${scene.type==='cards'?'cards':scene.type==='astronaut'?'astronaut':scene.type==='figure'?'figure':'hero'}" aria-hidden="true"><span class="hero-orbit-ring ring-a"></span><span class="hero-orbit-ring ring-b"></span><span class="hero-orbit-ring ring-c"></span><span class="hero-orb orb-a"></span><span class="hero-orb orb-b"></span></div>`;
     const closingHTML=`<section class="hero-scene hero-closing hero-closing-scene" aria-labelledby="hero-closing-title" data-scene-index="${data.scenes.length}"><div class="hero-closing-media" data-closing-media aria-hidden="true"></div><div class="hero-closing-content"><div class="hero-tag" data-reveal>${data.closing.tag}</div><h2 id="hero-closing-title" class="hero-title" data-reveal>${titleHTML(data.closing)}</h2><a class="hero-cta" href="${data.closing.href}" data-reveal>${data.closing.cta}</a><div class="hero-stats" data-reveal>${statsHTML()}</div></div><div class="hero-edge" data-reveal>${data.closing.edge}</div></section>`;
     root.innerHTML=`<div class="hero-index" aria-hidden="true">${Array.from({length:data.scenes.length+1},(_,i)=>`<span class="${i===0?'active':''}"></span>`).join('')}</div><div class="hero-scroll-stage" data-hero-stage><div class="hero-scenes">${data.scenes.map((s,i)=>`<section class="hero-scene hero-scene-${i+1} hero-type-${s.type}" data-scene-index="${i}" aria-labelledby="hero-title-${i}"><div class="hero-scene-inner" data-hero-media></div>${visualHTML(s)}<div class="hero-copy"><div class="hero-tag" data-reveal>${s.tag}</div><h1 id="hero-title-${i}" class="hero-title" data-reveal>${titleHTML(s)}</h1>${s.subtitle?`<p class="hero-subtitle" data-reveal>${s.subtitle}</p>`:''}<p class="hero-body" data-reveal>${s.body}</p><a class="hero-cta" href="${s.href}" data-reveal>${s.cta}</a>${i===0?`<div class="hero-stats" data-reveal>${statsHTML()}</div>`:''}</div>${s.cards?cardsHTML(s.cards):''}${s.quote?`<div class="hero-quote" data-reveal>${s.quote}</div>`:''}<div class="hero-edge" data-reveal>${s.edge}</div>${i===0?'<div class="hero-scroll-hint" data-reveal><span class="hero-mouse"></span><span>Scroll to explore</span></div>':''}</section>`).join('')}${closingHTML}</div></div>`;
-    const scenes=[...root.querySelectorAll('.hero-scene')],stage=root.querySelector('[data-hero-stage]'),viewport=root.querySelector('.hero-scenes'),dots=[...root.querySelectorAll('.hero-index span')];
+    const scenes=[...root.querySelectorAll('.hero-scene')],stage=root.querySelector('[data-hero-stage]'),viewport=root.querySelector('.hero-scenes'),closing=root.querySelector('.hero-closing-scene'),dots=[...root.querySelectorAll('.hero-index span')];
     const setActive=i=>dots.forEach((d,n)=>d.classList.toggle('active',n===i));
+
+    // The closing state is a real sixth scene. Keep its geometry identical to
+    // the other stacked hero scenes so the final crossfade cannot fall outside
+    // the viewport or be pushed below it by legacy .hero-closing CSS.
+    if(closing){
+      closing.style.position='absolute';
+      closing.style.inset='0';
+      closing.style.width='100%';
+      closing.style.height='100svh';
+      closing.style.minHeight='640px';
+      closing.style.marginTop='0';
+      closing.style.padding='110px clamp(32px,9vw,140px)';
+      closing.style.display='flex';
+      closing.style.alignItems='center';
+      closing.style.overflow='hidden';
+      closing.style.isolation='isolate';
+      closing.style.zIndex='1';
+    }
+
     function mountMedia(scene,index){const holder=scene.querySelector('[data-hero-media]');if(!holder||holder.dataset.loaded==='1'||!data.scenes[index])return;const img=document.createElement('img');img.className='hero-layer hero-layer-main';img.alt='';img.decoding='async';img.loading='eager';img.fetchPriority=index===0?'high':'auto';img.src=data.scenes[index].image||FALLBACK_IMAGE;img.style.objectPosition=data.scenes[index].position||'center center';img.onerror=()=>{if(!img.src.endsWith(FALLBACK_IMAGE))img.src=FALLBACK_IMAGE;};holder.appendChild(img);holder.dataset.loaded='1';}
     function mountClosingMedia(){const holder=root.querySelector('[data-closing-media]');if(!holder||holder.dataset.loaded==='1')return;const img=document.createElement('img');img.className='hero-closing-image';img.alt='';img.decoding='async';img.loading='eager';img.src=data.closing.image||data.scenes[data.scenes.length-1].image||FALLBACK_IMAGE;img.style.objectPosition=data.closing.position||'center center';holder.appendChild(img);holder.dataset.loaded='1';}
     scenes.slice(0,data.scenes.length).forEach((s,i)=>mountMedia(s,i));
     mountClosingMedia();
+
     if(reduced){scenes.forEach(s=>{s.style.opacity='1';s.style.visibility='visible';s.style.transform='none';s.querySelectorAll('[data-reveal]').forEach(e=>{e.style.opacity='1';e.style.transform='none';});});return;}
     const desktop=()=>window.innerWidth>760;let raf=0,active=-1;
     const smoothstep=t=>t*t*(3-2*t);
@@ -39,9 +59,14 @@
       const next=base+1;
       if(base!==active){active=base;setActive(base);}
       scenes.forEach((s,n)=>{
-        if(n===base){setScene(n,1-fade,local,true,1,10);}
-        else if(n===next&&fade>0){const incoming=(transitionT-.35)/.65;setScene(n,fade,local-1,true,Math.max(0,Math.min(1,incoming)),11);}
-        else{setScene(n,0,0,false,0,1);}
+        if(n===base){
+          setScene(n,1-fade,local,true,1,10);
+        }else if(n===next&&fade>0){
+          const incoming=Math.max(0,Math.min(1,(transitionT-.35)/.65));
+          setScene(n,fade,local-1,true,incoming,11);
+        }else{
+          setScene(n,0,0,false,0,1);
+        }
       });
     }
     function onScroll(){if(!raf)raf=requestAnimationFrame(update);}
@@ -55,12 +80,29 @@
       viewport.style.zIndex='1';
       stage.style.height=`${scenes.length*100}vh`;
       scenes.forEach((s,i)=>{s.style.transition='none';s.style.visibility=i===0?'visible':'hidden';s.style.opacity=i===0?'1':'0';s.style.pointerEvents=i===0?'auto':'none';s.style.zIndex=i===0?'10':'1';});
+      if(closing){
+        closing.style.position='absolute';
+        closing.style.inset='0';
+        closing.style.width='100%';
+        closing.style.height='100svh';
+        closing.style.minHeight='640px';
+        closing.style.marginTop='0';
+        closing.style.padding='110px clamp(32px,9vw,140px)';
+        closing.style.display='flex';
+        closing.style.alignItems='center';
+        closing.style.visibility='hidden';
+        closing.style.opacity='0';
+        closing.style.pointerEvents='none';
+        closing.style.transform='scale(1.02)';
+        closing.style.zIndex='1';
+      }
       update();
     }
     function setupMobile(){
       if(desktop())return;
       viewport.style.position='relative';viewport.style.top='auto';viewport.style.height='auto';stage.style.height='auto';
-      scenes.forEach(s=>{s.style.visibility='visible';s.style.opacity='1';s.style.transform='none';s.querySelectorAll('[data-reveal]').forEach(e=>{e.style.opacity='1';e.style.transform='none';});});
+      scenes.forEach(s=>{s.style.visibility='visible';s.style.opacity='1';s.style.transform='none';s.style.pointerEvents='auto';s.querySelectorAll('[data-reveal]').forEach(e=>{e.style.opacity='1';e.style.transform='none';});});
+      if(closing){closing.style.position='relative';closing.style.inset='auto';closing.style.width='100%';closing.style.height='auto';closing.style.minHeight='100svh';closing.style.marginTop='0';closing.style.padding='92px 25px 70px';closing.style.display='flex';closing.style.alignItems='flex-end';closing.style.visibility='visible';closing.style.opacity='1';closing.style.pointerEvents='auto';closing.style.transform='none';closing.style.zIndex='1';}
     }
     window.addEventListener('scroll',onScroll,{passive:true});
     window.addEventListener('resize',()=>{setup();setupMobile();onScroll();},{passive:true});
