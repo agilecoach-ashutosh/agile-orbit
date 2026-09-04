@@ -18,7 +18,7 @@ window.AGILE_ORBIT_HERO_SCENES = {
       body:'Ready-to-use templates, calculators, JQL examples and more to make your work easier.',
       cta:'Explore Tools →', href:'tools/', edge:'PRACTICAL TOOLS · REAL RESULTS',
       type:'cards', image:'assets/hero/04-tools.webp', position:'center center',
-      cards:[['Calculators','▦'],['Templates','▤'],['JQL Examples','⌕'],['Retrospectives','♙'],['Assessments','▥'],['Checklists','☑']]
+      cards:[['Sprint Capacity','◫'],['Value Stream Flow Efficiency','⇢'],['WSJF Calculator','⌘']]
     },
     {
       id:'practice', tag:'PRACTICE', title:'Turn Knowledge into Action', accent:'Action',
