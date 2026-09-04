@@ -76,9 +76,6 @@
       img.alt='';
       img.decoding='async';
       img.fetchPriority=index===0?'high':'auto';
-      // All five hero images are mounted immediately. This is intentional:
-      // the scenes are a pinned cinematic sequence, so lazy-loading a later
-      // scene can expose a black frame while ScrollTrigger crossfades to it.
       img.loading='eager';
       img.src=data.scenes[index].image||FALLBACK_IMAGE;
       img.style.objectPosition=data.scenes[index].position||'center center';
@@ -86,7 +83,7 @@
         if(img.src.endsWith(FALLBACK_IMAGE)) return;
         img.src=FALLBACK_IMAGE;
         img.classList.add('hero-image-fallback');
-      },{once:true});
+      });
       holder.appendChild(img);
       holder.dataset.loaded='1';
     }
@@ -105,25 +102,23 @@
         if(img.src.endsWith(FALLBACK_IMAGE)) return;
         img.src=FALLBACK_IMAGE;
         img.classList.add('hero-image-fallback');
-      },{once:true});
+      });
       holder.appendChild(img);
       holder.dataset.loaded='1';
     }
 
-    // Pre-mount every scene before ScrollTrigger starts. There are only five
-    // hero images, and this removes network-timing gaps during crossfades.
+    // Mount all images before any scroll logic. No lazy loading is used here.
     scenes.forEach((scene,i)=>mountMedia(scene,i));
     mountClosingMedia();
 
     if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){
-      scenes.forEach((scene,i)=>{mountMedia(scene,i);scene.classList.add('is-visible');});
+      scenes.forEach((scene,i)=>{scene.classList.add('is-visible');});
       return;
     }
 
     gsap.registerPlugin(ScrollTrigger);
     if(reduced){
-      scenes.forEach((scene,i)=>{
-        mountMedia(scene,i);
+      scenes.forEach(scene=>{
         gsap.set(scene,{autoAlpha:1,scale:1,clearProps:'transform'});
         gsap.set(scene.querySelectorAll('[data-reveal]'),{autoAlpha:1,y:0});
       });
@@ -133,76 +128,61 @@
     const mm=gsap.matchMedia();
 
     mm.add('(min-width: 761px)',()=>{
-      let heroTrigger;
+      // Important: scenes are switched deterministically rather than crossfaded.
+      // A crossfade can briefly make both layers transparent during fast wheel/
+      // trackpad movement. The active scene is always fully opaque, eliminating
+      // the black-frame problem while preserving zoom/parallax motion.
       scenes.forEach((scene,i)=>{
-        gsap.set(scene,{autoAlpha:i===0?1:0,scale:i===0?1:1.035});
-        gsap.set(scene.querySelectorAll('[data-reveal]'),{autoAlpha:i===0?1:0,y:i===0?0:26});
+        gsap.set(scene,{autoAlpha:i===0?1:0,scale:1});
+        gsap.set(scene.querySelectorAll('[data-reveal]'),{autoAlpha:i===0?1:0,y:i===0?0:24});
       });
 
-      heroTrigger=ScrollTrigger.create({
-        trigger:stage,start:'top top',end:'bottom top',pin:true,scrub:1,anticipatePin:1,invalidateOnRefresh:true,
+      const heroTrigger=ScrollTrigger.create({
+        trigger:stage,
+        start:'top top',
+        end:'bottom top',
+        pin:true,
+        scrub:0.15,
+        anticipatePin:1,
+        invalidateOnRefresh:true,
         onUpdate:self=>{
-          const total=data.scenes.length;
+          const total=scenes.length;
           const raw=gsap.utils.clamp(0,total-1,self.progress*(total-1));
-          const active=Math.min(total-1,Math.floor(raw));
-          const t=raw-active;
-          const isLast=active===total-1;
+          // Round to the nearest scene so every part of the scroll range has
+          // exactly one visible scene. Scene 5 remains visible through the end.
+          const active=Math.min(total-1,Math.round(raw));
+          const local=raw-active;
           setActive(active);
 
-          // Each viewport segment is a scene. Hold the current scene for the
-          // first 55%, then crossfade to the next scene over the final 45%.
-          // This guarantees there is no transparent/black gap between scenes.
-          const transitionStart=.55;
-          const cross=active<total-1?gsap.utils.clamp(0,1,(t-transitionStart)/(1-transitionStart)):0;
-
           scenes.forEach((scene,i)=>{
-            let opacity=0;
-            let scale=1.035;
-            let y=0;
-            let local=0;
+            const visible=i===active;
+            const reveal=scene.querySelectorAll('[data-reveal]');
+            gsap.set(scene,{autoAlpha:visible?1:0,scale:visible?1.015+Math.abs(local)*.025:1.035});
 
-            if(i===active){
-              opacity=isLast?1:1-cross;
-              scale=isLast?1:1+cross*.045;
-              y=isLast?0:-cross*12;
-              local=t;
-            }else if(i===active+1){
-              opacity=cross;
-              scale=1.035-cross*.035;
-              y=(1-cross)*22;
-              local=t-1;
-            }
-
-            gsap.set(scene,{autoAlpha:opacity,scale,y});
-
-            scene.querySelectorAll('[data-reveal]').forEach((el,r)=>{
-              if(i===active){
-                const start=.04+r*.045;
-                const rp=gsap.utils.clamp(0,1,(t-start)/.22);
-                gsap.set(el,{autoAlpha:rp*(isLast?1:1),y:(1-rp)*24});
-              }else if(i===active+1){
-                const start=.02+r*.045;
-                const rp=gsap.utils.clamp(0,1,(t-start)/.22);
-                gsap.set(el,{autoAlpha:rp*cross,y:(1-rp)*24});
-              }else{
+            reveal.forEach((el,r)=>{
+              if(!visible){
                 gsap.set(el,{autoAlpha:0,y:24});
+                return;
               }
+              const p=gsap.utils.clamp(0,1,(Math.abs(local)-.05-r*.035)/.16);
+              gsap.set(el,{autoAlpha:p,y:(1-p)*20});
             });
 
             const img=scene.querySelector('.hero-layer-main');
-            if(img){
-              const p=i===active?t:0;
-              gsap.set(img,{xPercent:(p-.5)*-1.4,yPercent:(p-.5)*.7,scale:1.015+p*.028});
+            if(img&&visible){
+              gsap.set(img,{xPercent:local*-1.4,yPercent:local*.7,scale:1.015+Math.abs(local)*.028});
             }
           });
         }
       });
-      return ()=>{if(heroTrigger) heroTrigger.kill();};
+
+      // Set a known initial state immediately, before the first scroll event.
+      setActive(0);
+      return ()=>heroTrigger.kill();
     });
 
     mm.add('(max-width: 760px)',()=>{
-      scenes.forEach((scene,i)=>{
-        mountMedia(scene,i);
+      scenes.forEach(scene=>{
         gsap.set(scene,{autoAlpha:1,scale:1});
         gsap.fromTo(scene.querySelectorAll('[data-reveal]'),{autoAlpha:0,y:20},{autoAlpha:1,y:0,stagger:.06,duration:.6,ease:'power2.out',scrollTrigger:{trigger:scene,start:'top 78%',once:true}});
       });
