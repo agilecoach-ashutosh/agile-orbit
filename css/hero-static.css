@@ -1,0 +1,53 @@
+/* Agile Orbit — static cinematic hero inspired by the supplied cosmic reference.
+   Intentionally no WebGL, canvas, JavaScript animation, or 3D engine. */
+body.universe-home{background:#02050a;color:#f6f8ff}
+body.universe-home .universe-shell{position:relative;overflow:hidden;background:
+  radial-gradient(900px 580px at 78% 35%,rgba(29,86,151,.20),transparent 58%),
+  radial-gradient(650px 500px at 75% 85%,rgba(90,50,154,.16),transparent 64%),
+  radial-gradient(480px 330px at 14% 16%,rgba(23,91,145,.10),transparent 68%),
+  #02050a}
+body.universe-home .universe-shell:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.52;background-image:radial-gradient(circle at 6% 15%,rgba(255,255,255,.8) 0 1px,transparent 1.7px),radial-gradient(circle at 24% 66%,rgba(181,218,255,.55) 0 1px,transparent 1.7px),radial-gradient(circle at 41% 22%,rgba(255,255,255,.45) 0 1px,transparent 1.6px),radial-gradient(circle at 72% 14%,rgba(169,215,255,.7) 0 1px,transparent 1.8px),radial-gradient(circle at 91% 68%,rgba(255,255,255,.55) 0 1px,transparent 1.7px),radial-gradient(circle at 83% 88%,rgba(181,218,255,.5) 0 1px,transparent 1.8px);background-size:230px 190px,360px 280px,300px 240px,410px 320px,340px 260px,290px 230px;mix-blend-mode:screen}
+body.universe-home .universe-hero{min-height:calc(100vh - 78px);padding:26px 0 74px;display:flex;align-items:center;position:relative;overflow:hidden}
+body.universe-home .universe-hero-grid{width:100%;max-width:1510px;grid-template-columns:minmax(480px,.92fr) minmax(700px,1.08fr);gap:0;align-items:center;position:relative;z-index:4}
+body.universe-home .u-copy{padding:22px 0 40px 8px;position:relative;z-index:8}
+body.universe-home .u-eyebrow{color:#b8c8dc;font-size:.69rem;letter-spacing:.42em;font-weight:700;text-transform:uppercase;display:inline-flex;align-items:center;gap:12px}
+body.universe-home .u-eyebrow:before{content:"";width:34px;height:1px;background:linear-gradient(90deg,#7ddaff,rgba(125,218,255,0))}
+body.universe-home .u-copy h1{font-size:clamp(4rem,6.3vw,6.85rem);line-height:.91;letter-spacing:-.073em;margin:25px 0 27px;max-width:720px}
+body.universe-home .u-copy h1 span{display:block;color:#fbfcff}
+body.universe-home .u-copy h1 span:nth-child(2){background:linear-gradient(92deg,#8ea7ff 0%,#52dcf2 48%,#6ee8ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+body.universe-home .u-copy p{max-width:590px;margin:0 0 31px;color:#b0c0d5;font-size:1.08rem;line-height:1.72}
+body.universe-home .u-actions{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+body.universe-home .u-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:15px 28px;border-radius:999px;font-size:.92rem;font-weight:800;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+body.universe-home .u-btn.primary{background:linear-gradient(100deg,#0b9dd9 0%,#23c9ff 54%,#68e7ff 100%);color:#031018;border:1px solid rgba(191,247,255,.8);box-shadow:0 12px 42px rgba(24,194,255,.28),inset 0 1px 0 rgba(255,255,255,.72)}
+body.universe-home .u-btn.primary:hover{transform:translateY(-3px);box-shadow:0 17px 52px rgba(24,194,255,.34),0 0 34px rgba(92,224,255,.18)}
+body.universe-home .hero-secondary-links{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+body.universe-home .hero-secondary-links a{color:#e0e7f2;font-size:.79rem;letter-spacing:.02em;text-decoration:none}
+body.universe-home .hero-secondary-links a:before{content:"↗";margin-right:6px;color:#72dfff}
+body.universe-home .hero-secondary-links a:hover{color:#73e7ff}
+body.universe-home .static-cosmos{position:relative;height:min(760px,79vh);min-height:630px;margin-left:-50px;overflow:visible}
+body.universe-home .static-cosmos:before{content:"";position:absolute;width:78%;height:88%;right:-2%;top:4%;border-radius:50%;background:radial-gradient(circle,rgba(65,182,255,.12),rgba(44,71,145,.07) 38%,transparent 69%);filter:blur(18px)}
+body.universe-home .cosmos-svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+body.universe-home .cosmos-card{position:absolute;min-width:176px;padding:15px 18px;border:1px solid rgba(174,211,255,.23);border-radius:14px;background:linear-gradient(135deg,rgba(26,44,68,.72),rgba(8,16,30,.58));box-shadow:0 17px 45px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(14px);z-index:3}
+body.universe-home .cosmos-card:after{content:"";position:absolute;height:1px;background:linear-gradient(90deg,rgba(119,227,255,.95),rgba(119,227,255,0));opacity:.8}
+body.universe-home .cosmos-card strong{display:block;font-size:.82rem;letter-spacing:.03em;color:#f6fbff}
+body.universe-home .cosmos-card span{display:block;margin-top:5px;color:#a4b5ca;font-size:.68rem}
+body.universe-home .cosmos-card .card-icon{display:inline-grid;place-items:center;width:28px;height:28px;margin-right:9px;border-radius:8px;border:1px solid rgba(112,215,255,.28);color:#8fe9ff;font-size:.88rem;vertical-align:-8px;background:rgba(71,166,255,.08)}
+body.universe-home .card-learn{left:8%;top:9%}.card-learn:after{width:106px;right:-106px;top:43px;transform:rotate(8deg);transform-origin:left center}
+body.universe-home .card-practice{right:4%;top:28%}.card-practice:after{width:94px;left:-94px;top:42px;transform:rotate(-9deg);transform-origin:right center}
+body.universe-home .card-tools{right:1%;bottom:16%}.card-tools:after{width:126px;left:-126px;top:32px;transform:rotate(8deg);transform-origin:right center}
+body.universe-home .card-coaching{left:11%;bottom:18%}.card-coaching:after{width:78px;right:-78px;top:39px;transform:rotate(-11deg);transform-origin:left center}
+body.universe-home .cosmos-quote{position:absolute;right:9%;bottom:2%;z-index:3;color:#d3e0ef;font:italic 500 1rem/1.35 Georgia,serif;text-align:left;max-width:175px}
+body.universe-home .cosmos-quote:after{content:"";display:block;width:48px;height:1px;background:#8de9ff;margin-top:17px;box-shadow:0 0 12px rgba(141,233,255,.5)}
+body.universe-home .hero-stats{position:absolute;left:0;right:0;bottom:15px;z-index:12}
+body.universe-home .hero-stats-inner{display:grid;grid-template-columns:repeat(3,1fr);max-width:660px;padding:0;background:transparent;border:0;box-shadow:none;backdrop-filter:none}
+body.universe-home .hero-stat{padding:5px 28px;border-right:1px solid rgba(155,190,223,.36);display:block}
+body.universe-home .hero-stat:last-child{border-right:0}
+body.universe-home .hero-stat-icon{display:none}
+body.universe-home .hero-stat strong{display:block;font-size:1.52rem;line-height:1;color:#a4caff;font-weight:700;letter-spacing:.02em}
+body.universe-home .hero-stat span{display:block;color:#aac0d8;font-size:.7rem;margin-top:8px;white-space:nowrap}
+body.universe-home .hero-scroll{position:absolute;left:8px;bottom:14px;z-index:12;display:flex;align-items:center;gap:10px;color:#9eb3c9;font-size:.65rem;letter-spacing:.06em}
+body.universe-home .hero-scroll .line{display:none}.hero-scroll .dot{width:40px;height:40px;border:1px solid rgba(147,184,218,.36);border-radius:50%;display:grid;place-items:center;position:relative}.hero-scroll .dot:before{content:"↓";font-size:1.1rem;color:#d9e8f7}
+@media(max-width:1180px){body.universe-home .universe-hero-grid{grid-template-columns:minmax(420px,.85fr) minmax(600px,1.15fr)}body.universe-home .static-cosmos{margin-left:-55px}.universe-home .cosmos-card{min-width:150px;padding:12px 14px}.universe-home .cosmos-card strong{font-size:.74rem}.universe-home .cosmos-card span{font-size:.61rem}}
+@media(max-width:960px){body.universe-home .universe-hero{padding:45px 0 36px}.universe-home .universe-hero-grid{grid-template-columns:1fr}.universe-home .u-copy{text-align:center;padding:20px 0 18px}.universe-home .u-eyebrow{justify-content:center}.universe-home .u-copy p{margin-inline:auto}.universe-home .u-actions{justify-content:center}.universe-home .static-cosmos{height:610px;min-height:560px;margin:0}.universe-home .hero-stats{position:relative;bottom:auto;margin-top:-8px}.universe-home .hero-stats-inner{max-width:none}.universe-home .hero-scroll{display:none}}
+@media(max-width:620px){body.universe-home .universe-hero{padding-top:24px}.universe-home .u-copy h1{font-size:3.25rem}.universe-home .u-copy p{font-size:.95rem}.universe-home .u-actions{gap:18px}.universe-home .hero-secondary-links{justify-content:center;gap:13px}.universe-home .u-btn{min-height:52px;padding:14px 22px}.universe-home .static-cosmos{height:445px;min-height:420px}.universe-home .cosmos-card{min-width:118px;padding:9px 10px;border-radius:10px}.universe-home .cosmos-card strong{font-size:.58rem}.universe-home .cosmos-card span{font-size:.5rem}.universe-home .card-learn{left:0;top:8%}.universe-home .card-practice{right:0;top:24%}.universe-home .card-tools{right:0;bottom:11%}.universe-home .card-coaching{left:0;bottom:13%}.universe-home .cosmos-quote{display:none}.universe-home .hero-stats-inner{grid-template-columns:repeat(3,1fr)}.universe-home .hero-stat{padding:3px 9px}.universe-home .hero-stat strong{font-size:1rem}.universe-home .hero-stat span{font-size:.53rem}.universe-home .hero-scroll{display:none}}
+@media(prefers-reduced-motion:reduce){body.universe-home .u-btn{transition:none!important}}
