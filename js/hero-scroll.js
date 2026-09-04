@@ -16,9 +16,6 @@
     const scenes=[...root.querySelectorAll('.hero-scene')],stage=root.querySelector('[data-hero-stage]'),viewport=root.querySelector('.hero-scenes'),closing=root.querySelector('.hero-closing-scene'),dots=[...root.querySelectorAll('.hero-index span')];
     const setActive=i=>dots.forEach((d,n)=>d.classList.toggle('active',n===i));
 
-    // The closing state is a real sixth scene. Keep its geometry identical to
-    // the other stacked hero scenes so the final crossfade cannot fall outside
-    // the viewport or be pushed below it by legacy .hero-closing CSS.
     if(closing){
       closing.style.position='absolute';
       closing.style.inset='0';
@@ -62,8 +59,12 @@
         if(n===base){
           setScene(n,1-fade,local,true,1,10);
         }else if(n===next&&fade>0){
-          const incoming=Math.max(0,Math.min(1,(transitionT-.35)/.65));
-          setScene(n,fade,local-1,true,incoming,11);
+          // The closing scene uses the same overall crossfade, but its content
+          // is already fully revealed so the scene opacity is not compounded
+          // by a second, delayed child opacity.
+          const isClosingScene=n===scenes.length-1;
+          const incomingReveal=isClosingScene?1:Math.max(0,Math.min(1,(transitionT-.35)/.65));
+          setScene(n,fade,local-1,true,incomingReveal,11);
         }else{
           setScene(n,0,0,false,0,1);
         }
