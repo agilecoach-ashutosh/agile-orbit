@@ -74,5 +74,6 @@ body.universe-home .hero-closing-content{position:relative;z-index:2;max-width:6
   body.universe-home .hero-card{min-height:84px}.hero-card-icon{font-size:1.35rem}
   body.universe-home .hero-edge{right:10px;font-size:.45rem}.hero-quote,.hero-scroll-hint{display:none}
   body.universe-home .hero-visual-decor .ring-a{width:82vw;height:42vw;right:-10vw;top:13%}.hero-visual-decor .ring-b{width:64vw;height:32vw;right:1vw;top:27%}.hero-visual-decor .ring-c{width:46vw;height:23vw;right:12vw;top:40%}.hero-visual-decor .orb-a{width:58px;height:58px;right:17%;top:20%}.hero-visual-decor .orb-b{width:22px;height:22px;right:34%;top:57%}
-  body.universe-home .hero-closing{margin-top:0;min-height:100svh;padding:92px 25px 70px;}
+  body.universe-home .hero-closing{margin-top:0;padding:80px 25px;min-height:100svh;display:flex;align-items:center}
+  body.universe-home .hero-closing-image{inset:-2%;width:104%;height:104%}
 }
