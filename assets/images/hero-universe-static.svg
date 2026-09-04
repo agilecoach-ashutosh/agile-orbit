@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Cosmic Agile Orbit illustration">
+<defs>
+  <radialGradient id="bg" cx="62%" cy="42%" r="70%"><stop offset="0" stop-color="#183152" stop-opacity=".35"/><stop offset=".45" stop-color="#0d1a32" stop-opacity=".16"/><stop offset="1" stop-color="#02050a" stop-opacity="0"/></radialGradient>
+  <radialGradient id="planet" cx="34%" cy="28%" r="70%"><stop offset="0" stop-color="#dff7ff"/><stop offset=".08" stop-color="#83d6ff"/><stop offset=".23" stop-color="#2b6ea5"/><stop offset=".53" stop-color="#0b1d3a"/><stop offset=".78" stop-color="#050a18"/><stop offset="1" stop-color="#01030a"/></radialGradient>
+  <radialGradient id="atmo" cx="47%" cy="44%" r="58%"><stop offset="65%" stop-color="#7ddfff" stop-opacity="0"/><stop offset="84%" stop-color="#69ddff" stop-opacity=".12"/><stop offset="94%" stop-color="#9ac8ff" stop-opacity=".28"/><stop offset="100%" stop-color="#8ea2ff" stop-opacity="0"/></radialGradient>
+  <linearGradient id="ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8be7ff" stop-opacity="0"/><stop offset=".2" stop-color="#81ddff" stop-opacity=".8"/><stop offset=".52" stop-color="#d9fbff" stop-opacity="1"/><stop offset=".82" stop-color="#7ca8ff" stop-opacity=".7"/><stop offset="1" stop-color="#8e79ff" stop-opacity="0"/></linearGradient>
+  <radialGradient id="light" cx="50%" cy="50%"><stop offset="0" stop-color="#fff"/><stop offset=".25" stop-color="#c7f6ff" stop-opacity=".96"/><stop offset=".5" stop-color="#70dcff" stop-opacity=".34"/><stop offset="1" stop-color="#70dcff" stop-opacity="0"/></radialGradient>
+  <filter id="blur20"><feGaussianBlur stdDeviation="20"/></filter>
+  <filter id="blur8"><feGaussianBlur stdDeviation="8"/></filter>
+  <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity=".5"/></filter>
+  <clipPath id="clipPlanet"><circle cx="760" cy="465" r="315"/></clipPath>
+</defs>
+<rect width="1200" height="900" fill="url(#bg)"/>
+<g opacity=".65" filter="url(#blur20)">
+  <path d="M610 190 C760 80 1070 130 1190 280 C1040 245 900 260 790 340 C700 405 640 430 520 394 C565 330 575 247 610 190Z" fill="#5c77d8" opacity=".16"/>
+  <path d="M690 500 C840 440 1030 520 1170 670 C1010 612 900 610 800 665 C710 715 625 700 550 650 C595 575 620 530 690 500Z" fill="#1e9bd1" opacity=".14"/>
+</g>
+<g fill="#fff">
+  <circle cx="114" cy="134" r="1.4"/><circle cx="222" cy="262" r="1"/><circle cx="310" cy="110" r="1.5"/><circle cx="420" cy="188" r=".9"/><circle cx="498" cy="90" r="1.2"/><circle cx="568" cy="150" r=".8"/><circle cx="1008" cy="96" r="1.5"/><circle cx="1120" cy="182" r="1"/><circle cx="1040" cy="402" r="1"/><circle cx="1150" cy="565" r="1.2"/><circle cx="106" cy="676" r="1"/><circle cx="310" cy="790" r="1.4"/><circle cx="440" cy="700" r="1"/><circle cx="1030" cy="785" r="1.2"/><circle cx="1140" cy="760" r=".9"/>
+</g>
+<g clip-path="url(#clipPlanet)" opacity=".55" fill="#4d9dd8">
+  <path d="M560 360 C605 330 650 322 690 340 C676 365 645 377 614 386 C592 392 572 381 560 360Z"/>
+  <path d="M690 275 C750 260 808 280 830 316 C802 330 778 347 758 372 C720 365 698 340 690 275Z"/>
+  <path d="M820 355 C880 328 932 340 964 382 C941 414 900 427 870 442 C845 428 826 397 820 355Z"/>
+  <path d="M604 470 C650 436 694 448 708 486 C688 512 646 521 612 510 C594 501 588 486 604 470Z"/>
+  <path d="M744 430 C789 405 830 418 844 457 C831 493 792 509 754 501 C733 487 726 458 744 430Z"/>
+  <path d="M880 470 C927 455 972 468 1000 501 C980 528 948 541 914 535 C885 528 867 504 880 470Z"/>
+  <path d="M686 565 C730 544 785 554 807 590 C790 625 744 642 704 625 C680 612 667 589 686 565Z"/>
+  <path d="M828 575 C870 555 913 570 930 602 C911 635 877 651 846 642 C821 630 811 604 828 575Z"/>
+</g>
+<circle cx="760" cy="465" r="330" fill="url(#atmo)"/>
+<circle cx="760" cy="465" r="315" fill="url(#planet)" filter="url(#shadow)"/>
+<g opacity=".28" fill="none" stroke="#8cdcff">
+  <ellipse cx="760" cy="465" rx="405" ry="150" transform="rotate(-16 760 465)"/>
+  <ellipse cx="760" cy="465" rx="375" ry="126" transform="rotate(13 760 465)"/>
+</g>
+<g fill="none" stroke="url(#ring)" stroke-width="3">
+  <ellipse cx="760" cy="465" rx="428" ry="164" transform="rotate(-14 760 465)"/>
+  <ellipse cx="760" cy="465" rx="398" ry="144" transform="rotate(16 760 465)" opacity=".75"/>
+</g>
+<circle cx="1047" cy="401" r="115" fill="url(#light)" opacity=".85" filter="url(#blur8)"/>
+<circle cx="1047" cy="401" r="7" fill="#fff"/>
+<g>
+  <circle cx="454" cy="214" r="54" fill="url(#planet)"/>
+  <circle cx="1018" cy="692" r="43" fill="url(#planet)"/>
+  <circle cx="1078" cy="242" r="26" fill="url(#planet)"/>
+  <circle cx="508" cy="635" r="28" fill="url(#planet)"/>
+</g>
+<g fill="#fff" opacity=".8">
+  <circle cx="100" cy="390" r="2"/><circle cx="1132" cy="320" r="1.8"/><circle cx="967" cy="146" r="2"/><circle cx="394" cy="566" r="1.7"/><circle cx="287" cy="501" r="1.2"/>
+</g>
+</svg>
