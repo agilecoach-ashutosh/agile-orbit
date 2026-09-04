@@ -3,6 +3,21 @@
   function base(){const p=location.pathname; const i=p.indexOf(rootName); return i>=0?p.slice(0,i)+rootName:'./';}
   window.siteBase=base;
   const b=base();
+
+  // The hero navigation skin is the single visual source of truth for both
+  // navigation and the sitewide search overlay. Load it on every page so
+  // pages such as Tools do not fall back to unstyled/default search markup.
+  function ensureNavStyles(){
+    const href=b+'css/hero-nav.css';
+    if(!Array.from(document.querySelectorAll('link[rel="stylesheet"]')).some(link=>link.href===new URL(href,location.href).href)){
+      const link=document.createElement('link');
+      link.rel='stylesheet';
+      link.href=href;
+      document.head.appendChild(link);
+    }
+  }
+  ensureNavStyles();
+
   const nav=document.getElementById('site-nav');
   if(nav){
     nav.innerHTML=`<header class="site-header" id="siteHeader"><div class="container nav">
