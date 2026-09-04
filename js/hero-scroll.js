@@ -9,7 +9,11 @@
     const FALLBACK_IMAGE='assets/images/hero-cosmic-reference.png';
     const titleHTML=item=>{if(!item.accent)return item.title;const idx=item.title.lastIndexOf(item.accent);return idx<0?item.title:item.title.slice(0,idx)+`<span class="accent">${item.accent}</span>`+item.title.slice(idx+item.accent.length);};
     const statsHTML=()=>data.stats.map(s=>`<div class="hero-stat"><strong>${s.value}</strong><span>${s.label}</span></div>`).join('');
-    const cardsHTML=cards=>`<div class="hero-cards">${cards.map(c=>`<div class="hero-card"><span class="hero-card-icon">${c[1]}</span><strong>${c[0]}</strong></div>`).join('')}</div>`;
+    const cardsHTML=cards=>`<div class="hero-cards">${cards.map(c=>{
+      const title=c[0]||'',icon=c[1]||'◈',href=c[2],tag=c[3]||'';
+      const inner=`<span class="hero-card-icon">${icon}</span>${tag?`<small class="hero-card-tag">${tag}</small>`:''}<strong>${title}</strong><span class="hero-card-arrow" aria-hidden="true">↗</span>`;
+      return href?`<a class="hero-card" href="${href}" aria-label="Open ${title}">${inner}</a>`:`<div class="hero-card">${inner}</div>`;
+    }).join('')}</div>`;
     const visualHTML=scene=>`<div class="hero-visual-decor ${scene.type==='cards'?'cards':scene.type==='astronaut'?'astronaut':scene.type==='figure'?'figure':'hero'}" aria-hidden="true"><span class="hero-orbit-ring ring-a"></span><span class="hero-orbit-ring ring-b"></span><span class="hero-orbit-ring ring-c"></span><span class="hero-orb orb-a"></span><span class="hero-orb orb-b"></span></div>`;
     const closingHTML=`<section class="hero-scene hero-closing hero-closing-scene" aria-labelledby="hero-closing-title" data-scene-index="${data.scenes.length}"><div class="hero-closing-media" data-closing-media aria-hidden="true"></div><div class="hero-closing-content"><div class="hero-tag" data-reveal>${data.closing.tag}</div><h2 id="hero-closing-title" class="hero-title" data-reveal>${titleHTML(data.closing)}</h2><a class="hero-cta" href="${data.closing.href}" data-reveal>${data.closing.cta}</a><div class="hero-stats" data-reveal>${statsHTML()}</div></div><div class="hero-edge" data-reveal>${data.closing.edge}</div></section>`;
     root.innerHTML=`<div class="hero-index" aria-hidden="true">${Array.from({length:data.scenes.length+1},(_,i)=>`<span class="${i===0?'active':''}"></span>`).join('')}</div><div class="hero-scroll-stage" data-hero-stage><div class="hero-scenes">${data.scenes.map((s,i)=>`<section class="hero-scene hero-scene-${i+1} hero-type-${s.type}" data-scene-index="${i}" aria-labelledby="hero-title-${i}"><div class="hero-scene-inner" data-hero-media></div>${visualHTML(s)}<div class="hero-copy"><div class="hero-tag" data-reveal>${s.tag}</div><h1 id="hero-title-${i}" class="hero-title" data-reveal>${titleHTML(s)}</h1>${s.subtitle?`<p class="hero-subtitle" data-reveal>${s.subtitle}</p>`:''}<p class="hero-body" data-reveal>${s.body}</p><a class="hero-cta" href="${s.href}" data-reveal>${s.cta}</a>${i===0?`<div class="hero-stats" data-reveal>${statsHTML()}</div>`:''}</div>${s.cards?cardsHTML(s.cards):''}${s.quote?`<div class="hero-quote" data-reveal>${s.quote}</div>`:''}<div class="hero-edge" data-reveal>${s.edge}</div>${i===0?'<div class="hero-scroll-hint" data-reveal><span class="hero-mouse"></span><span>Scroll to explore</span></div>':''}</section>`).join('')}${closingHTML}</div></div>`;
@@ -61,9 +65,6 @@
         if(n===base){
           setScene(n,1-fade,local,true,1,10);
         }else if(n===next&&fade>0){
-          // The closing scene uses the same overall crossfade, but its content
-          // is already fully revealed so the scene opacity is not compounded
-          // by a second, delayed child opacity.
           const isClosingScene=n===scenes.length-1;
           const incomingReveal=isClosingScene?1:Math.max(0,Math.min(1,(transitionT-.35)/.65));
           setScene(n,fade,local-1,true,incomingReveal,11);
