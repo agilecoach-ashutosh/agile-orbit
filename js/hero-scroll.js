@@ -2,22 +2,37 @@
 (function(){
   'use strict';
   function ready(fn){
-    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',fn,{once:true}); else fn();
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',fn,{once:true});
+    else fn();
   }
+
   ready(function(){
     const data=window.AGILE_ORBIT_HERO_SCENES;
     const root=document.querySelector('[data-agile-hero]');
     if(!data||!root) return;
+
     const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const assetVars=['ORBIT_SCENE_01','ORBIT_SCENE_02','ORBIT_SCENE_03','ORBIT_SCENE_04','ORBIT_SCENE_05'];
+    // Use the real high-resolution repository asset. The previous embedded WebP
+    // renders were only 480px wide and became visibly soft when cover-scaled.
+    const HERO_IMAGE='assets/images/hero-cosmic-reference.png';
 
     function titleHTML(item){
       if(!item.accent) return item.title;
       const idx=item.title.lastIndexOf(item.accent);
-      return idx<0?item.title:item.title.slice(0,idx)+`<span class="accent">${item.accent}</span>`;
+      return idx<0?item.title:item.title.slice(0,idx)+`<span class="accent">${item.accent}</span>`+item.title.slice(idx+item.accent.length);
     }
     function statsHTML(){return data.stats.map(s=>`<div class="hero-stat"><strong>${s.value}</strong><span>${s.label}</span></div>`).join('');}
     function cardsHTML(cards){return `<div class="hero-cards">${cards.map(c=>`<div class="hero-card"><span class="hero-card-icon">${c[1]}</span><strong>${c[0]}</strong></div>`).join('')}</div>`;}
+    function visualHTML(scene){
+      const visualClass=scene.type==='cards'?'cards':scene.type==='astronaut'?'astronaut':scene.type==='figure'?'figure':'hero';
+      return `<div class="hero-visual-decor ${visualClass}" aria-hidden="true">
+        <span class="hero-orbit-ring ring-a"></span>
+        <span class="hero-orbit-ring ring-b"></span>
+        <span class="hero-orbit-ring ring-c"></span>
+        <span class="hero-orb orb-a"></span>
+        <span class="hero-orb orb-b"></span>
+      </div>`;
+    }
 
     root.innerHTML=`
       <div class="hero-index" aria-hidden="true">${data.scenes.map((_,i)=>`<span class="${i===0?'active':''}"></span>`).join('')}</div>
@@ -26,6 +41,7 @@
           ${data.scenes.map((s,i)=>`
             <section class="hero-scene hero-scene-${i+1} hero-type-${s.type}" data-scene-index="${i}" aria-labelledby="hero-title-${i}">
               <div class="hero-scene-inner" data-hero-media></div>
+              ${visualHTML(s)}
               <div class="hero-copy">
                 <div class="hero-tag" data-reveal>${s.tag}</div>
                 <h1 id="hero-title-${i}" class="hero-title" data-reveal>${titleHTML(s)}</h1>
@@ -35,7 +51,6 @@
                 ${i===0?`<div class="hero-stats" data-reveal>${statsHTML()}</div>`:''}
               </div>
               ${s.cards?cardsHTML(s.cards):''}
-              ${s.type==='figure'?'<div class="hero-figure-glow" aria-hidden="true"></div>':''}
               ${s.quote?`<div class="hero-quote" data-reveal>${s.quote}</div>`:''}
               <div class="hero-edge" data-reveal>${s.edge}</div>
               ${i===0?'<div class="hero-scroll-hint" data-reveal><span class="hero-mouse"></span><span>Scroll to explore</span></div>':''}
@@ -56,26 +71,30 @@
     const stage=root.querySelector('[data-hero-stage]');
     const indexDots=[...root.querySelectorAll('.hero-index span')];
     const setActive=i=>indexDots.forEach((dot,n)=>dot.classList.toggle('active',n===i));
-    const sourceFor=i=>window[assetVars[i]]?'data:image/webp;base64,'+window[assetVars[i]]:'';
 
     function mountMedia(scene,index){
       const holder=scene.querySelector('[data-hero-media]');
       if(!holder||holder.dataset.loaded==='1') return;
-      const src=sourceFor(index);
-      if(!src){holder.dataset.loaded='1';return;}
-      ['back','mid','front'].forEach(depth=>{
-        const img=document.createElement('img');
-        img.className='hero-layer hero-layer-'+depth; img.alt=''; img.decoding='async';
-        if(index>0) img.loading='lazy'; img.src=src; holder.appendChild(img);
-      });
+      const img=document.createElement('img');
+      img.className='hero-layer hero-layer-main';
+      img.alt='';
+      img.decoding='async';
+      img.fetchPriority=index===0?'high':'auto';
+      if(index>0) img.loading='lazy';
+      img.src=HERO_IMAGE;
+      holder.appendChild(img);
       holder.dataset.loaded='1';
     }
 
     mountMedia(scenes[0],0);
     if('IntersectionObserver' in window){
       const io=new IntersectionObserver(entries=>entries.forEach(entry=>{
-        if(entry.isIntersecting){const scene=entry.target;mountMedia(scene,Number(scene.dataset.sceneIndex));io.unobserve(scene);}
-      }),{rootMargin:'60% 0px'});
+        if(entry.isIntersecting){
+          const scene=entry.target;
+          mountMedia(scene,Number(scene.dataset.sceneIndex));
+          io.unobserve(scene);
+        }
+      }),{rootMargin:'80% 0px'});
       scenes.slice(1).forEach(scene=>io.observe(scene));
     }else scenes.slice(1).forEach((scene,i)=>mountMedia(scene,i+1));
 
@@ -83,50 +102,83 @@
       scenes.forEach((scene,i)=>{mountMedia(scene,i);scene.classList.add('is-visible');});
       return;
     }
+
     gsap.registerPlugin(ScrollTrigger);
     if(reduced){
-      scenes.forEach((scene,i)=>{mountMedia(scene,i);gsap.set(scene,{autoAlpha:1,scale:1,clearProps:'transform'});gsap.set(scene.querySelectorAll('[data-reveal]'),{autoAlpha:1,y:0});});
+      scenes.forEach((scene,i)=>{
+        mountMedia(scene,i);
+        gsap.set(scene,{autoAlpha:1,scale:1,clearProps:'transform'});
+        gsap.set(scene.querySelectorAll('[data-reveal]'),{autoAlpha:1,y:0});
+      });
       return;
     }
 
     const mm=gsap.matchMedia();
+
     mm.add('(min-width: 761px)',()=>{
+      let heroTrigger;
       scenes.forEach((scene,i)=>{
-        gsap.set(scene,{autoAlpha:i===0?1:0,scale:i===0?1:1.055});
+        gsap.set(scene,{autoAlpha:i===0?1:0,scale:i===0?1:1.035});
         gsap.set(scene.querySelectorAll('[data-reveal]'),{autoAlpha:i===0?1:0,y:i===0?0:26});
       });
-      ScrollTrigger.create({
-        trigger:stage,start:'top top',end:'bottom top',pin:true,scrub:1,anticipatePin:1,invalidateOnRefresh:true,
+
+      heroTrigger=ScrollTrigger.create({
+        trigger:stage,
+        start:'top top',
+        end:'bottom top',
+        pin:true,
+        scrub:1,
+        anticipatePin:1,
+        invalidateOnRefresh:true,
         onUpdate:self=>{
-          const total=data.scenes.length,raw=self.progress*total,active=Math.min(total-1,Math.floor(raw));
+          const total=data.scenes.length;
+          const raw=self.progress*total;
+          const active=Math.min(total-1,Math.floor(raw));
           setActive(active);
+
           scenes.forEach((scene,i)=>{
             const local=gsap.utils.clamp(0,1,raw-i);
-            const enter=gsap.utils.clamp(0,1,local/.28),leave=gsap.utils.clamp(0,1,(local-.68)/.32);
+            const enter=gsap.utils.clamp(0,1,local/.30);
+            const leave=gsap.utils.clamp(0,1,(local-.70)/.30);
             const opacity=i===active?1-leave*.9:(i===active+1?enter:0);
-            const scale=i===active?1+leave*.07:(i===active+1?1.055-enter*.055:1.055);
-            const y=i===active?-leave*18:(i===active+1?(1-enter)*30:0);
+            const scale=i===active?1+leave*.045:(i===active+1?1.035-enter*.035:1.035);
+            const y=i===active?-leave*12:(i===active+1?(1-enter)*22:0);
             gsap.set(scene,{autoAlpha:opacity,scale,y});
+
             scene.querySelectorAll('[data-reveal]').forEach((el,r)=>{
-              const start=.07+r*.055,rp=gsap.utils.clamp(0,1,(local-start)/.22),fadeOut=gsap.utils.clamp(0,1,(local-.82)/.18);
-              gsap.set(el,{autoAlpha:rp*(1-fadeOut),y:(1-rp)*26});
+              const start=.05+r*.05;
+              const rp=gsap.utils.clamp(0,1,(local-start)/.22);
+              const fadeOut=gsap.utils.clamp(0,1,(local-.84)/.16);
+              gsap.set(el,{autoAlpha:rp*(1-fadeOut),y:(1-rp)*24});
             });
-            scene.querySelectorAll('.hero-layer').forEach((layer,li)=>{
-              const depth=[.35,.7,1][li];
-              gsap.set(layer,{xPercent:(local-.5)*depth*-2.2,yPercent:(local-.5)*depth*1.2,scale:1.01+local*.045*depth});
-            });
+
+            const img=scene.querySelector('.hero-layer-main');
+            if(img){
+              const depth=1;
+              gsap.set(img,{
+                xPercent:(local-.5)*-1.4,
+                yPercent:(local-.5)*.7,
+                scale:1.015+local*.028*depth
+              });
+            }
           });
         }
       });
-      return ()=>ScrollTrigger.getAll().forEach(t=>t.kill());
+
+      return ()=>{ if(heroTrigger) heroTrigger.kill(); };
     });
 
     mm.add('(max-width: 760px)',()=>{
       scenes.forEach((scene,i)=>{
-        mountMedia(scene,i); gsap.set(scene,{autoAlpha:1,scale:1});
-        gsap.fromTo(scene.querySelectorAll('[data-reveal]'),{autoAlpha:0,y:20},{autoAlpha:1,y:0,stagger:.06,duration:.6,ease:'power2.out',scrollTrigger:{trigger:scene,start:'top 78%',once:true}});
+        mountMedia(scene,i);
+        gsap.set(scene,{autoAlpha:1,scale:1});
+        gsap.fromTo(scene.querySelectorAll('[data-reveal]'),
+          {autoAlpha:0,y:20},
+          {autoAlpha:1,y:0,stagger:.06,duration:.6,ease:'power2.out',scrollTrigger:{trigger:scene,start:'top 78%',once:true}}
+        );
       });
     });
+
     window.addEventListener('load',()=>ScrollTrigger.refresh(),{once:true});
   });
 })();
