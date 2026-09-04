@@ -76,7 +76,10 @@
       img.alt='';
       img.decoding='async';
       img.fetchPriority=index===0?'high':'auto';
-      if(index>0) img.loading='lazy';
+      // All five hero images are mounted immediately. This is intentional:
+      // the scenes are a pinned cinematic sequence, so lazy-loading a later
+      // scene can expose a black frame while ScrollTrigger crossfades to it.
+      img.loading='eager';
       img.src=data.scenes[index].image||FALLBACK_IMAGE;
       img.style.objectPosition=data.scenes[index].position||'center center';
       img.addEventListener('error',function(){
@@ -95,7 +98,7 @@
       img.className='hero-closing-image';
       img.alt='';
       img.decoding='async';
-      img.loading='lazy';
+      img.loading='eager';
       img.src=data.closing.image||data.scenes[data.scenes.length-1].image||FALLBACK_IMAGE;
       img.style.objectPosition=data.closing.position||'center center';
       img.addEventListener('error',function(){
@@ -107,17 +110,9 @@
       holder.dataset.loaded='1';
     }
 
-    mountMedia(scenes[0],0);
-    if('IntersectionObserver' in window){
-      const io=new IntersectionObserver(entries=>entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          const scene=entry.target;
-          mountMedia(scene,Number(scene.dataset.sceneIndex));
-          io.unobserve(scene);
-        }
-      }),{rootMargin:'80% 0px'});
-      scenes.slice(1).forEach(scene=>io.observe(scene));
-    }else scenes.slice(1).forEach((scene,i)=>mountMedia(scene,i+1));
+    // Pre-mount every scene before ScrollTrigger starts. There are only five
+    // hero images, and this removes network-timing gaps during crossfades.
+    scenes.forEach((scene,i)=>mountMedia(scene,i));
     mountClosingMedia();
 
     if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){
