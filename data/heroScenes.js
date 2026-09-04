@@ -42,6 +42,7 @@ window.AGILE_ORBIT_HERO_SCENES = {
   ],
   closing:{
     tag:'READY TO EXPLORE?', title:'Your Agile Journey Starts Here.', accent:'Starts Here.',
-    cta:'Explore the Orbit →', href:'learn/', edge:'SAME UNIVERSE · NEW POSSIBILITIES'
+    cta:'Explore the Orbit →', href:'learn/', edge:'SAME UNIVERSE · NEW POSSIBILITIES',
+    image:'assets/hero/05-resources.webp', position:'center center'
   }
 };
