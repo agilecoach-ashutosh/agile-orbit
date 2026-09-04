@@ -25,19 +25,69 @@
   const drawer=document.getElementById('mobile-drawer');
   if(drawer){drawer.innerHTML=`<div class="mobile-drawer-inner"><div class="drawer-head"><strong>AGILE ORBIT</strong><button class="icon-btn" id="drawerClose" aria-label="Close menu">×</button></div><a href="${b}">Home</a><a href="${b}learn/">Learn</a><a href="${b}tools/">Tools</a><a href="${b}practice/">Practice</a><a href="${b}resources/">Resources</a><a href="${b}insights/">Insights</a><a href="${b}coaching/">Coaching</a><a href="${b}about/">About</a></div>`;}
 
-  const searchItems=[
-    {title:'AI for Agile',url:'resources/ai-for-agile/',keywords:'ai artificial intelligence agile scrum prompting prompt prompts use cases frameworks ai for agile'},
-    {title:'AI Prompt Library',url:'resources/prompts/',keywords:'prompt prompts prompt library ai ai for agile artificial intelligence copy ready reusable templates stories planning estimation prioritization review'},
-    {title:'Prompting Frameworks',url:'resources/ai-for-agile/prompting-frameworks/',keywords:'prompt prompting prompts framework frameworks ai generative ai llm techniques structure context role instructions examples'},
-    {title:'Scrum Event AI Use Cases',url:'resources/ai-for-agile/scrum-use-cases/',keywords:'ai scrum events use cases backlog refinement sprint planning daily scrum sprint review retrospective artificial intelligence'},
-    {title:'Learn',url:'learn/',keywords:'agile scrum safe kanban learning courses concepts certification'},
-    {title:'Tools',url:'tools/',keywords:'calculators templates jira capacity planning metrics estimation wsjf'},
-    {title:'Practice',url:'practice/',keywords:'practice quiz mock test questions scrum safe psm agile'},
-    {title:'Resources',url:'resources/',keywords:'resources downloads templates playbooks guides books ai prompts prompting'},
-    {title:'Insights',url:'insights/',keywords:'insights articles blog agile coaching leadership transformation'},
-    {title:'Coaching',url:'coaching/',keywords:'agile coaching mentor coaching icf leadership team organizational'},
-    {title:'About',url:'about/',keywords:'about ashutosh profile journey linkedin credly mindmap'}
-  ];
+  const seedPaths=['learn/','tools/','practice/','resources/','insights/','coaching/','about/'];
+  let searchIndex=null;
+  let searchBuilding=null;
+
+  function cleanText(el){return (el?.textContent||'').replace(/\s+/g,' ').trim();}
+  function absolutePath(href){
+    try{
+      const u=new URL(href,location.href);
+      if(u.origin!==location.origin) return null;
+      const root=new URL(b,location.href);
+      if(u.pathname!==root.pathname && !u.pathname.startsWith(root.pathname)) return null;
+      return u.pathname+u.search;
+    }catch{return null;}
+  }
+  function makeEntry(url,doc,card){
+    const title=cleanText(card?.querySelector('h1,h2,h3,h4')) || cleanText(doc.querySelector('h1')) || doc.title.replace(/\s*\|.*$/,'').trim();
+    if(!title) return null;
+    const text=cleanText(card||doc.querySelector('main')||doc.body).slice(0,1800);
+    const href=card?.getAttribute('href');
+    const target=href?absolutePath(href):url;
+    if(!target) return null;
+    return {title,url:target,keywords:text};
+  }
+  async function buildSearchIndex(){
+    if(searchIndex) return searchIndex;
+    if(searchBuilding) return searchBuilding;
+    searchBuilding=(async()=>{
+      const queue=seedPaths.map(p=>b+p);
+      const seen=new Set();
+      const entries=new Map();
+      const maxPages=180;
+      while(queue.length && seen.size<maxPages){
+        const batch=queue.splice(0,8).filter(u=>!seen.has(u));
+        if(!batch.length) continue;
+        const pages=await Promise.all(batch.map(async url=>{
+          seen.add(url);
+          try{
+            const res=await fetch(url,{cache:'no-store'});
+            if(!res.ok || !res.url.includes(rootName)) return null;
+            return {url,html:await res.text()};
+          }catch{return null;}
+        }));
+        pages.filter(Boolean).forEach(page=>{
+          const doc=new DOMParser().parseFromString(page.html,'text/html');
+          const main=doc.querySelector('main')||doc.body;
+          const pageEntry=makeEntry(page.url,doc,null);
+          if(pageEntry) entries.set(pageEntry.url,pageEntry);
+          main.querySelectorAll('a[href]').forEach(a=>{
+            const target=absolutePath(a.getAttribute('href'));
+            if(!target || target.startsWith(b+'assets/') || target.startsWith(b+'css/') || target.startsWith(b+'js/')) return;
+            const full=new URL(target,location.origin).href;
+            if(!seen.has(full) && !queue.includes(full) && queue.length+seen.size<maxPages) queue.push(full);
+            const card=a.matches('.card,.ai-system-card,.theme-card,[class*="card"]') ? a : (a.querySelector('h2,h3,h4') ? a : null);
+            const entry=makeEntry(target,doc,card);
+            if(entry) entries.set(entry.url,entry);
+          });
+        });
+      }
+      searchIndex=Array.from(entries.values()).filter((item,i,arr)=>arr.findIndex(x=>x.url===item.url && x.title===item.title)===i);
+      return searchIndex;
+    })();
+    return searchBuilding;
+  }
 
   function ensureSearch(){
     if(document.getElementById('siteSearch')) return;
@@ -46,25 +96,32 @@
     overlay.className='site-search';
     overlay.innerHTML=`<div class="site-search-backdrop" data-search-close></div><section class="site-search-panel" role="dialog" aria-modal="true" aria-labelledby="siteSearchTitle">
       <div class="site-search-head"><div><span class="site-search-kicker">AGILE ORBIT</span><h2 id="siteSearchTitle">Search the Orbit</h2></div><button class="icon-btn" type="button" data-search-close aria-label="Close search">×</button></div>
-      <label class="site-search-field"><span aria-hidden="true">⌕</span><input id="siteSearchInput" type="search" autocomplete="off" placeholder="Search Agile, Scrum, SAFe, prompts, coaching…" aria-label="Search Agile Orbit"><kbd>ESC</kbd></label>
+      <label class="site-search-field"><span aria-hidden="true">⌕</span><input id="siteSearchInput" type="search" autocomplete="off" placeholder="Search Agile, Scrum, SAFe, prompts, calculators…" aria-label="Search Agile Orbit"><kbd>ESC</kbd></label>
       <div id="siteSearchResults" class="site-search-results" aria-live="polite"></div>
     </section>`;
     document.body.appendChild(overlay);
 
     const input=overlay.querySelector('#siteSearchInput');
     const results=overlay.querySelector('#siteSearchResults');
-    function render(query){
+    function render(items,query){
       const q=query.trim().toLowerCase();
       const terms=q.split(/\s+/).filter(Boolean);
-      const matches=terms.length?searchItems.filter(item=>{
+      const matches=terms.length?items.filter(item=>{
         const haystack=(item.title+' '+item.keywords).toLowerCase();
         return terms.every(term=>haystack.includes(term));
-      }):searchItems;
-      results.innerHTML=matches.length?matches.map(item=>`<a class="site-search-result" href="${b}${item.url}"><span class="site-search-result-mark" aria-hidden="true">✦</span><span><strong>${item.title}</strong><small>${item.keywords.split(' ').slice(0,8).join(' · ')}</small></span><span aria-hidden="true">→</span></a>`).join(''):`<div class="site-search-empty">No matching content found. Try <strong>Prompt</strong>, <strong>AI</strong>, <strong>Scrum</strong>, <strong>SAFe</strong>, <strong>coaching</strong> or <strong>tools</strong>.</div>`;
+      }):items.slice(0,30);
+      results.innerHTML=matches.length?matches.slice(0,40).map(item=>`<a class="site-search-result" href="${item.url}"><span class="site-search-result-mark" aria-hidden="true">✦</span><span><strong>${item.title}</strong><small>${item.keywords.slice(0,150)}${item.keywords.length>150?'…':''}</small></span><span aria-hidden="true">→</span></a>`).join(''):`<div class="site-search-empty">No matching content found. Try a card title, topic, tool name, prompt, framework or Scrum event.</div>`;
     }
-    function openSearch(){overlay.classList.add('open');document.getElementById('searchBtn')?.setAttribute('aria-expanded','true');render('');requestAnimationFrame(()=>input.focus());}
+    async function openSearch(){
+      overlay.classList.add('open');
+      document.getElementById('searchBtn')?.setAttribute('aria-expanded','true');
+      results.innerHTML='<div class="site-search-empty">Indexing Agile Orbit content…</div>';
+      requestAnimationFrame(()=>input.focus());
+      const items=await buildSearchIndex();
+      render(items,input.value);
+    }
     function closeSearch(){overlay.classList.remove('open');document.getElementById('searchBtn')?.setAttribute('aria-expanded','false');}
-    input.addEventListener('input',()=>render(input.value));
+    input.addEventListener('input',async()=>render(await buildSearchIndex(),input.value));
     overlay.addEventListener('click',e=>{if(e.target.closest('[data-search-close]')) closeSearch();});
     document.addEventListener('keydown',e=>{if(e.key==='Escape') closeSearch();});
     document.addEventListener('click',e=>{if(e.target.closest('#searchBtn')) openSearch();});
