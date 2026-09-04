@@ -50,7 +50,8 @@
         closing.style.opacity=String(incomingClosing);
         closing.style.visibility=incomingClosing>0?'visible':'hidden';
         closing.style.pointerEvents=incomingClosing>.5?'auto':'none';
-        if(incomingClosing>0&&base===scenes.length-1){
+        const keepClosingPinned=incomingClosing>0 && (base===scenes.length-1 || stage.getBoundingClientRect().bottom>0);
+        if(keepClosingPinned){
           closing.style.position='fixed';
           closing.style.left='0';
           closing.style.top='0';
