@@ -1,4 +1,4 @@
-/* Agile Orbit — robust scroll-driven cinematic hero */
+/* Agile Orbit — deterministic scroll-driven cinematic hero */
 (function(){
   'use strict';
   function ready(fn){if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fn,{once:true});else fn();}
@@ -18,76 +18,90 @@
     function mountClosingMedia(){const holder=root.querySelector('[data-closing-media]');if(!holder||holder.dataset.loaded==='1')return;const img=document.createElement('img');img.className='hero-closing-image';img.alt='';img.decoding='async';img.loading='eager';img.src=data.closing.image||data.scenes[data.scenes.length-1].image||FALLBACK_IMAGE;holder.appendChild(img);holder.dataset.loaded='1';}
     scenes.forEach((s,i)=>mountMedia(s,i));mountClosingMedia();
     if(reduced){scenes.forEach(s=>{s.style.opacity='1';s.style.visibility='visible';s.style.transform='none';s.querySelectorAll('[data-reveal]').forEach(e=>{e.style.opacity='1';e.style.transform='none';});});return;}
-    const desktop=()=>window.innerWidth>760;let raf=0,active=-1;
-    const smoothstep=t=>t*t*(3-2*t);
-
-    function setScene(i,opacity,progress,visible,z){
+    const desktop=()=>window.innerWidth>760;
+    let raf=0,active=-1;
+    const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+    const smoothstep=t=>{t=clamp(t);return t*t*(3-2*t);};
+    // Each boundary gets one explicit overlap window. Scene 4 -> 5 is therefore
+    // the exact same crossfade as every other scene transition.
+    const TRANSITION_WIDTH=.80;
+    const HALF=TRANSITION_WIDTH/2;
+    function setScene(i,opacity,visible,z,local){
       const scene=scenes[i];
-      scene.style.opacity=String(Math.max(0,Math.min(1,opacity)));
+      scene.style.opacity=String(opacity);
       scene.style.visibility=visible?'visible':'hidden';
       scene.style.zIndex=String(z);
       scene.style.pointerEvents=opacity>.5?'auto':'none';
-      scene.style.transform=visible?`scale(${1.01+Math.abs(progress)*.012})`:'scale(1.02)';
-
-      // Content enters independently from the image. For an incoming scene,
-      // progress runs 0 -> 1. This avoids the old reversed reveal on scene 5.
-      const incoming=Math.max(0,Math.min(1,progress));
-      scene.querySelectorAll('[data-reveal]').forEach((el,n)=>{
-        if(!visible){el.style.opacity='0';el.style.transform='translateY(20px)';return;}
-        const stagger=Math.max(0,Math.min(1,(incoming-.02-n*.025)/.16));
-        el.style.opacity=String(stagger);
-        el.style.transform=`translateY(${(1-stagger)*20}px)`;
+      scene.style.transform='none';
+      scene.querySelectorAll('[data-reveal]').forEach(el=>{
+        el.style.opacity=visible?String(opacity):'0';
+        el.style.transform='none';
       });
       const img=scene.querySelector('.hero-layer-main');
-      if(img&&visible){img.style.transform=`translate3d(${progress*-1.2}%,${progress*.5}%,0) scale(${1.01+Math.abs(progress)*.012})`;}
+      if(img&&visible){
+        const drift=(local||0)*1.1;
+        img.style.transform=`translate3d(${drift*-1.0}%,${drift*.35}%,0) scale(1.025)`;
+      }
     }
-
+    function pairFor(x){
+      const max=scenes.length-1;
+      if(x<=0)return {left:0,right:-1,t:0};
+      if(x>=max)return {left:max,right:-1,t:0};
+      const left=Math.floor(x);
+      const boundary=left+1;
+      const start=boundary-HALF;
+      const t=smoothstep(clamp((x-start)/TRANSITION_WIDTH));
+      return {left,right:boundary,t};
+    }
     function update(){
       raf=0;
       if(!desktop())return;
-
       const rect=stage.getBoundingClientRect();
       const travel=Math.max(1,stage.offsetHeight-window.innerHeight);
-      const p=Math.max(0,Math.min(1,-rect.top/travel));
-      const count=scenes.length;
-      const scaled=p*(count-1);
-      const base=Math.min(count-1,Math.floor(scaled));
-      const local=scaled-base;
-
-      // Explicit adjacent-scene overlap. The incoming scene begins well before
-      // the outgoing scene disappears, with a long 55% blend window.
-      const next=Math.min(count-1,base+1);
-      const blend=base===count-1?1:smoothstep(Math.max(0,Math.min(1,(local-.25)/.75)));
-
-      if(base!==active){active=base;setActive(base);}
-
-      scenes.forEach((scene,n)=>{
-        if(base===count-1){
-          // Scene 5 remains fully present through the end of the pinned sequence.
-          setScene(n,n===count-1?1:0,n===count-1?1:0,n===count-1,20-n);
-        }else if(n===base){
-          setScene(n,1-blend,local,true,20);
-        }else if(n===next){
-          // IMPORTANT: incoming scene opacity is driven directly by blend.
-          // Scene 5 therefore fades in continuously while scene 4 fades out.
-          setScene(n,blend,blend,true,21);
+      const p=clamp(-rect.top/travel);
+      const scaled=p*(scenes.length-1);
+      const pair=pairFor(scaled);
+      const left=pair.left,right=pair.right,t=pair.t;
+      if(active!==left){active=left;setActive(left);}
+      scenes.forEach((scene,i)=>{
+        if(i===left&&right>=0){
+          setScene(i,1-t,true,10,scaled-left);
+        }else if(i===right){
+          setScene(i,t,true,11,scaled-right);
+        }else if(i===left){
+          setScene(i,1,true,10,scaled-left);
         }else{
-          setScene(n,0,0,false,1);
+          setScene(i,0,false,1,0);
         }
       });
     }
-
     function onScroll(){if(!raf)raf=requestAnimationFrame(update);}
     function setup(){
       if(!desktop())return;
-      viewport.style.position='sticky';viewport.style.top='0';viewport.style.height='100svh';viewport.style.minHeight='640px';viewport.style.overflow='hidden';viewport.style.zIndex='1';
-      scenes.forEach((s,i)=>{s.style.transition='none';s.style.visibility=i===0?'visible':'hidden';s.style.opacity=i===0?'1':'0';s.style.pointerEvents=i===0?'auto':'none';s.style.zIndex=i===0?'20':'1';});
+      viewport.style.position='sticky';
+      viewport.style.top='0';
+      viewport.style.height='100svh';
+      viewport.style.minHeight='640px';
+      viewport.style.overflow='hidden';
+      viewport.style.zIndex='1';
+      scenes.forEach((s,i)=>{
+        s.style.transition='none';
+        s.style.visibility=i===0?'visible':'hidden';
+        s.style.opacity=i===0?'1':'0';
+        s.style.pointerEvents=i===0?'auto':'none';
+        s.style.zIndex=i===0?'10':'1';
+      });
       update();
     }
     function setupMobile(){
       if(desktop())return;
-      viewport.style.position='relative';viewport.style.top='auto';viewport.style.height='auto';
-      scenes.forEach(s=>{s.style.visibility='visible';s.style.opacity='1';s.style.transform='none';s.querySelectorAll('[data-reveal]').forEach(e=>{e.style.opacity='1';e.style.transform='none';});});
+      viewport.style.position='relative';
+      viewport.style.top='auto';
+      viewport.style.height='auto';
+      scenes.forEach(s=>{
+        s.style.visibility='visible';s.style.opacity='1';s.style.transform='none';
+        s.querySelectorAll('[data-reveal]').forEach(e=>{e.style.opacity='1';e.style.transform='none';});
+      });
     }
     window.addEventListener('scroll',onScroll,{passive:true});
     window.addEventListener('resize',()=>{setup();setupMobile();onScroll();},{passive:true});
