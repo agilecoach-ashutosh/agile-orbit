@@ -29,6 +29,8 @@
       closing.style.overflow='hidden';
       closing.style.isolation='isolate';
       closing.style.zIndex='1';
+      const closingContent=closing.querySelector('.hero-closing-content');
+      if(closingContent)closingContent.style.zIndex='10';
     }
 
     function mountMedia(scene,index){const holder=scene.querySelector('[data-hero-media]');if(!holder||holder.dataset.loaded==='1'||!data.scenes[index])return;const img=document.createElement('img');img.className='hero-layer hero-layer-main';img.alt='';img.decoding='async';img.loading='eager';img.fetchPriority=index===0?'high':'auto';img.src=data.scenes[index].image||FALLBACK_IMAGE;img.style.objectPosition=data.scenes[index].position||'center center';img.onerror=()=>{if(!img.src.endsWith(FALLBACK_IMAGE))img.src=FALLBACK_IMAGE;};holder.appendChild(img);holder.dataset.loaded='1';}
@@ -96,6 +98,8 @@
         closing.style.pointerEvents='none';
         closing.style.transform='scale(1.02)';
         closing.style.zIndex='1';
+        const closingContent=closing.querySelector('.hero-closing-content');
+        if(closingContent)closingContent.style.zIndex='10';
       }
       update();
     }
@@ -103,7 +107,7 @@
       if(desktop())return;
       viewport.style.position='relative';viewport.style.top='auto';viewport.style.height='auto';stage.style.height='auto';
       scenes.forEach(s=>{s.style.visibility='visible';s.style.opacity='1';s.style.transform='none';s.style.pointerEvents='auto';s.querySelectorAll('[data-reveal]').forEach(e=>{e.style.opacity='1';e.style.transform='none';});});
-      if(closing){closing.style.position='relative';closing.style.inset='auto';closing.style.width='100%';closing.style.height='auto';closing.style.minHeight='100svh';closing.style.marginTop='0';closing.style.padding='92px 25px 70px';closing.style.display='flex';closing.style.alignItems='flex-end';closing.style.visibility='visible';closing.style.opacity='1';closing.style.pointerEvents='auto';closing.style.transform='none';closing.style.zIndex='1';}
+      if(closing){closing.style.position='relative';closing.style.inset='auto';closing.style.width='100%';closing.style.height='auto';closing.style.minHeight='100svh';closing.style.marginTop='0';closing.style.padding='92px 25px 70px';closing.style.display='flex';closing.style.alignItems='flex-end';closing.style.visibility='visible';closing.style.opacity='1';closing.style.pointerEvents='auto';closing.style.transform='none';closing.style.zIndex='1';const closingContent=closing.querySelector('.hero-closing-content');if(closingContent)closingContent.style.zIndex='10';}
     }
     window.addEventListener('scroll',onScroll,{passive:true});
     window.addEventListener('resize',()=>{setup();setupMobile();onScroll();},{passive:true});
