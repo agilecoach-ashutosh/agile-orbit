@@ -5,13 +5,19 @@ body.universe-home .orbit-hero{position:relative;background:var(--hero-bg);isola
 body.universe-home .hero-scroll-stage{position:relative;height:500vh}
 body.universe-home .hero-scenes{position:absolute;inset:0;overflow:hidden}
 body.universe-home .hero-scene{position:absolute;inset:0;width:100%;height:100svh;min-height:640px;overflow:hidden;isolation:isolate;background:#02060d}
-body.universe-home .hero-scene-inner{position:absolute;inset:0;overflow:hidden}
-body.universe-home .hero-layer{position:absolute;inset:-6%;width:112%;height:112%;object-fit:cover;object-position:center;will-change:transform,opacity,filter;pointer-events:none;user-select:none}
-body.universe-home .hero-layer-back{filter:saturate(.92) brightness(.55) blur(.2px);opacity:.72}
-body.universe-home .hero-layer-mid{filter:saturate(1.05) contrast(1.03) brightness(.76);opacity:.9}
-body.universe-home .hero-layer-front{filter:saturate(1.12) contrast(1.05) brightness(.88);opacity:.96}
-body.universe-home .hero-scene::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(90deg,rgba(1,5,11,.95) 0%,rgba(1,5,11,.78) 27%,rgba(1,5,11,.18) 58%,rgba(1,5,11,.08) 100%),linear-gradient(180deg,rgba(0,0,0,.22),transparent 25%,transparent 72%,rgba(0,0,0,.62))}
-body.universe-home .hero-scene::before{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:radial-gradient(circle at 72% 48%,rgba(72,198,255,.11),transparent 30%),radial-gradient(circle at 88% 18%,rgba(255,197,113,.13),transparent 19%)}
+body.universe-home .hero-scene-inner{position:absolute;inset:0;overflow:hidden;background:#02060d}
+body.universe-home .hero-layer-main{position:absolute;inset:-3%;width:106%;height:106%;object-fit:cover;object-position:center;will-change:transform;pointer-events:none;user-select:none;display:block;image-rendering:auto}
+body.universe-home .hero-scene-1 .hero-layer-main{object-position:center center}
+body.universe-home .hero-scene-2 .hero-layer-main{object-position:62% center;filter:saturate(1.05) contrast(1.04) brightness(.9)}
+body.universe-home .hero-scene-3 .hero-layer-main{object-position:50% 58%;filter:saturate(1.12) contrast(1.06) brightness(.86)}
+body.universe-home .hero-scene-4 .hero-layer-main{object-position:42% center;filter:saturate(1.08) contrast(1.05) brightness(.9)}
+body.universe-home .hero-scene-5 .hero-layer-main{object-position:70% 42%;filter:saturate(.95) contrast(1.06) brightness(.84)}
+body.universe-home .hero-scene::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(90deg,rgba(1,5,11,.88) 0%,rgba(1,5,11,.68) 27%,rgba(1,5,11,.15) 60%,rgba(1,5,11,.08) 100%),linear-gradient(180deg,rgba(0,0,0,.18),transparent 25%,transparent 72%,rgba(0,0,0,.58))}
+body.universe-home .hero-scene::before{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:radial-gradient(circle at 72% 48%,rgba(72,198,255,.12),transparent 30%),radial-gradient(circle at 88% 18%,rgba(255,197,113,.12),transparent 19%)}
+body.universe-home .hero-scene-2::before{background:radial-gradient(circle at 78% 48%,rgba(82,180,255,.24),transparent 23%),radial-gradient(circle at 68% 72%,rgba(118,92,255,.16),transparent 25%)}
+body.universe-home .hero-scene-3::before{background:radial-gradient(circle at 74% 44%,rgba(75,216,255,.22),transparent 22%),radial-gradient(circle at 30% 25%,rgba(128,94,255,.16),transparent 24%)}
+body.universe-home .hero-scene-4::before{background:radial-gradient(circle at 82% 52%,rgba(80,209,255,.25),transparent 24%),radial-gradient(circle at 62% 20%,rgba(92,108,255,.16),transparent 25%)}
+body.universe-home .hero-scene-5::before{background:radial-gradient(circle at 76% 42%,rgba(105,175,255,.2),transparent 24%),radial-gradient(circle at 88% 76%,rgba(185,108,255,.14),transparent 23%)}
 body.universe-home .hero-copy{position:absolute;z-index:10;left:clamp(32px,9.1vw,140px);top:50%;width:min(520px,43vw);transform:translateY(-50%)}
 body.universe-home .hero-tag{display:flex;align-items:center;gap:12px;margin-bottom:22px;color:#b7c9db;font-size:.62rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase}
 body.universe-home .hero-tag::before{content:"";width:30px;height:1px;background:var(--hero-cyan);box-shadow:0 0 14px rgba(84,221,255,.75)}
@@ -36,7 +42,16 @@ body.universe-home .hero-mouse{width:18px;height:29px;border:1px solid rgba(218,
 @keyframes heroWheel{0%,100%{opacity:.3;transform:translate(-50%,0)}50%{opacity:1;transform:translate(-50%,6px)}}
 body.universe-home .hero-cards{position:absolute;right:12vw;top:50%;z-index:11;width:min(430px,42vw);display:grid;grid-template-columns:repeat(2,1fr);gap:12px;transform:translateY(-50%)}
 body.universe-home .hero-card{min-height:105px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;border:1px solid rgba(128,215,255,.32);border-radius:10px;background:linear-gradient(145deg,rgba(16,45,67,.48),rgba(3,12,23,.64));backdrop-filter:blur(12px);box-shadow:0 0 25px rgba(42,174,255,.11),inset 0 1px 0 rgba(255,255,255,.07);color:#eefaff;text-align:center}.hero-card-icon{font-size:1.8rem;color:#c9f3ff;line-height:1}.hero-card strong{font-size:.72rem}
-body.universe-home .hero-figure-glow{position:absolute;right:20%;bottom:8%;z-index:8;width:25%;height:40%;border-radius:50%;background:radial-gradient(ellipse,rgba(79,191,255,.13),transparent 65%);filter:blur(12px)}
+body.universe-home .hero-visual-decor{position:absolute;inset:0;z-index:6;pointer-events:none;overflow:hidden}
+body.universe-home .hero-orbit-ring{position:absolute;border:1px solid rgba(137,220,255,.28);border-radius:50%;box-shadow:0 0 24px rgba(68,190,255,.1),inset 0 0 24px rgba(68,190,255,.04);transform:rotate(-18deg)}
+body.universe-home .ring-a{width:45vw;height:22vw;right:4vw;top:19%;transform:rotate(-18deg)}
+body.universe-home .ring-b{width:30vw;height:15vw;right:11vw;top:33%;transform:rotate(17deg);opacity:.6}
+body.universe-home .ring-c{width:20vw;height:10vw;right:22vw;top:45%;transform:rotate(-11deg);opacity:.42}
+body.universe-home .hero-orb{position:absolute;border-radius:50%;background:radial-gradient(circle at 34% 30%,#e8fbff 0 2%,rgba(92,217,255,.95) 4%,rgba(57,116,255,.48) 24%,rgba(31,64,168,.14) 50%,transparent 70%);filter:blur(.2px);box-shadow:0 0 45px rgba(74,204,255,.28)}
+body.universe-home .orb-a{width:92px;height:92px;right:18%;top:23%}.orb-b{width:34px;height:34px;right:34%;top:61%;opacity:.72}
+body.universe-home .hero-type-cards .ring-a{right:1vw;top:16%;width:52vw;height:26vw}.hero-type-cards .ring-b{right:9vw;top:30%}.hero-type-cards .orb-a{right:19%;top:22%}
+body.universe-home .hero-type-astronaut .ring-a{right:8vw;top:26%;width:42vw;height:21vw}.hero-type-astronaut .orb-a{right:20%;top:29%}
+body.universe-home .hero-type-figure .ring-a{right:-2vw;top:12%;width:58vw;height:29vw}.hero-type-figure .orb-a{right:24%;top:18%;width:115px;height:115px}
 body.universe-home .hero-closing{position:relative;min-height:72vh;padding:110px clamp(32px,9vw,140px);overflow:hidden;background:radial-gradient(circle at 75% 35%,rgba(53,133,255,.13),transparent 32%),linear-gradient(180deg,#06101d,#02060d);border-top:1px solid rgba(100,205,255,.13)}
 body.universe-home .hero-closing::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 15%,rgba(90,220,255,.09),transparent 18%),repeating-radial-gradient(circle at 72% 45%,rgba(130,190,255,.13) 0 1px,transparent 1px 70px);opacity:.25;pointer-events:none}
 body.universe-home .hero-closing-content{position:relative;z-index:2;max-width:680px}.hero-closing .hero-title{font-size:clamp(2.8rem,5vw,5.2rem)}body.universe-home .hero-closing .hero-stats{margin-top:48px}
@@ -47,6 +62,7 @@ body.universe-home .hero-closing-content{position:relative;z-index:2;max-width:6
   body.universe-home .hero-index{left:10px}.hero-index span{height:12px!important}
   body.universe-home .hero-scene{position:relative;inset:auto;width:100%;height:auto;min-height:100svh;padding:92px 25px 70px;display:flex;align-items:flex-end}
   body.universe-home .hero-scene-inner{position:absolute}
+  body.universe-home .hero-layer-main{inset:-2%;width:104%;height:104%;object-fit:cover}
   body.universe-home .hero-copy{position:relative;left:auto;top:auto;width:100%;transform:none}
   body.universe-home .hero-title{font-size:clamp(2.8rem,13vw,4.8rem)}body.universe-home .hero-body{font-size:.86rem}
   body.universe-home .hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 12px}
@@ -54,6 +70,7 @@ body.universe-home .hero-closing-content{position:relative;z-index:2;max-width:6
   body.universe-home .hero-cards{position:relative;right:auto;top:auto;width:100%;transform:none;margin-top:26px}
   body.universe-home .hero-card{min-height:84px}.hero-card-icon{font-size:1.35rem}
   body.universe-home .hero-edge{right:10px;font-size:.45rem}.hero-quote,.hero-scroll-hint{display:none}
+  body.universe-home .hero-visual-decor .ring-a{width:82vw;height:42vw;right:-10vw;top:13%}.hero-visual-decor .ring-b{width:64vw;height:32vw;right:1vw;top:27%}.hero-visual-decor .ring-c{width:46vw;height:23vw;right:12vw;top:40%}.hero-visual-decor .orb-a{width:58px;height:58px;right:17%;top:20%}.hero-visual-decor .orb-b{width:22px;height:22px;right:34%;top:57%}
   body.universe-home .hero-closing{padding:80px 25px;min-height:auto}
 }
 @media(prefers-reduced-motion:reduce){.hero-mouse::after{animation:none}.hero-cta{transition:none!important}}
