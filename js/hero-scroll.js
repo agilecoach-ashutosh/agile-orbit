@@ -53,6 +53,7 @@
         </div>
       </div>
       <section class="hero-closing" aria-labelledby="hero-closing-title">
+        <div class="hero-closing-media" data-closing-media aria-hidden="true"></div>
         <div class="hero-closing-content">
           <div class="hero-tag">${data.closing.tag}</div>
           <h2 id="hero-closing-title" class="hero-title">${titleHTML(data.closing)}</h2>
@@ -87,6 +88,25 @@
       holder.dataset.loaded='1';
     }
 
+    function mountClosingMedia(){
+      const holder=root.querySelector('[data-closing-media]');
+      if(!holder||holder.dataset.loaded==='1') return;
+      const img=document.createElement('img');
+      img.className='hero-closing-image';
+      img.alt='';
+      img.decoding='async';
+      img.loading='lazy';
+      img.src=data.closing.image||data.scenes[data.scenes.length-1].image||FALLBACK_IMAGE;
+      img.style.objectPosition=data.closing.position||'center center';
+      img.addEventListener('error',function(){
+        if(img.src.endsWith(FALLBACK_IMAGE)) return;
+        img.src=FALLBACK_IMAGE;
+        img.classList.add('hero-image-fallback');
+      },{once:true});
+      holder.appendChild(img);
+      holder.dataset.loaded='1';
+    }
+
     mountMedia(scenes[0],0);
     if('IntersectionObserver' in window){
       const io=new IntersectionObserver(entries=>entries.forEach(entry=>{
@@ -98,6 +118,7 @@
       }),{rootMargin:'80% 0px'});
       scenes.slice(1).forEach(scene=>io.observe(scene));
     }else scenes.slice(1).forEach((scene,i)=>mountMedia(scene,i+1));
+    mountClosingMedia();
 
     if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){
       scenes.forEach((scene,i)=>{mountMedia(scene,i);scene.classList.add('is-visible');});
@@ -127,21 +148,24 @@
         trigger:stage,start:'top top',end:'bottom top',pin:true,scrub:1,anticipatePin:1,invalidateOnRefresh:true,
         onUpdate:self=>{
           const total=data.scenes.length;
-          const raw=self.progress*total;
+          // Four transitions for five scenes. The final scene remains fully visible
+          // until the pinned sequence ends, so there is never a blank interval.
+          const raw=self.progress*(total-1);
           const active=Math.min(total-1,Math.floor(raw));
           setActive(active);
           scenes.forEach((scene,i)=>{
             const local=gsap.utils.clamp(0,1,raw-i);
             const enter=gsap.utils.clamp(0,1,local/.30);
             const leave=gsap.utils.clamp(0,1,(local-.70)/.30);
-            const opacity=i===active?1-leave*.9:(i===active+1?enter:0);
-            const scale=i===active?1+leave*.045:(i===active+1?1.035-enter*.035:1.035);
-            const y=i===active?-leave*12:(i===active+1?(1-enter)*22:0);
+            const isLast=i===total-1;
+            const opacity=i===active?(isLast?1:1-leave*.9):(i===active+1?enter:0);
+            const scale=i===active?(isLast?1:1+leave*.045):(i===active+1?1.035-enter*.035:1.035);
+            const y=i===active?(isLast?0:-leave*12):(i===active+1?(1-enter)*22:0);
             gsap.set(scene,{autoAlpha:opacity,scale,y});
             scene.querySelectorAll('[data-reveal]').forEach((el,r)=>{
               const start=.05+r*.05;
               const rp=gsap.utils.clamp(0,1,(local-start)/.22);
-              const fadeOut=gsap.utils.clamp(0,1,(local-.84)/.16);
+              const fadeOut=isLast?0:gsap.utils.clamp(0,1,(local-.84)/.16);
               gsap.set(el,{autoAlpha:rp*(1-fadeOut),y:(1-rp)*24});
             });
             const img=scene.querySelector('.hero-layer-main');
