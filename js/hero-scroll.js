@@ -21,7 +21,35 @@
     const desktop=()=>window.innerWidth>760;let raf=0,active=-1;
     const smoothstep=t=>t*t*(3-2*t);
     function setScene(i,opacity,local,visible,revealProgress,z){const scene=scenes[i];scene.style.opacity=String(opacity);scene.style.visibility=visible?'visible':'hidden';scene.style.zIndex=String(z);scene.style.pointerEvents=opacity>.5?'auto':'none';scene.style.transform=visible?`scale(${1.01+Math.abs(local)*.02})`:'scale(1.02)';scene.querySelectorAll('[data-reveal]').forEach((el,n)=>{if(!visible){el.style.opacity='0';el.style.transform='translateY(20px)';return;}const p=Math.max(0,Math.min(1,(revealProgress-.02-n*.025)/.16));el.style.opacity=String(p);el.style.transform=`translateY(${(1-p)*20}px)`;});const img=scene.querySelector('.hero-layer-main');if(img&&visible)img.style.transform=`translate3d(${local*-1.2}%,${local*.5}%,0) scale(${1.01+Math.abs(local)*.02})`;}
-    function update(){raf=0;if(!desktop())return;const rect=stage.getBoundingClientRect(),travel=Math.max(1,stage.offsetHeight-window.innerHeight),p=Math.max(0,Math.min(1,-rect.top/travel)),scaled=p*(scenes.length-1),base=Math.min(scenes.length-1,Math.floor(scaled)),local=scaled-base,transitionStart=.82,transitionT=base<scenes.length-1?Math.max(0,Math.min(1,(local-transitionStart)/(1-transitionStart))):0,fade=smoothstep(transitionT),next=base+1;if(base!==active){active=base;setActive(base);}scenes.forEach((s,n)=>{if(n===base){setScene(n,1-fade,local,true,1,10);}else if(n===next&&fade>0){const incoming=Math.max(0,Math.min(1,(transitionT-.35)/.65));setScene(n,fade,local-1,true,incoming,11);}else{setScene(n,0,0,false,0,1);}});}
+    function update(){
+      raf=0;
+      if(!desktop())return;
+      const rect=stage.getBoundingClientRect();
+      const travel=Math.max(1,stage.offsetHeight-window.innerHeight);
+      const p=Math.max(0,Math.min(1,-rect.top/travel));
+      const scaled=p*(scenes.length-1);
+      const base=Math.min(scenes.length-1,Math.floor(scaled));
+      const local=scaled-base;
+      // Keep the existing Scene 1→2→3→4 behavior, but give the final
+      // Scene 4→5 boundary a longer overlap so it cannot collapse into a snap
+      // at the bottom edge of the sticky hero.
+      const isFinalTransition=base===scenes.length-2;
+      const transitionStart=isFinalTransition?.55:.82;
+      const transitionT=base<scenes.length-1?Math.max(0,Math.min(1,(local-transitionStart)/(1-transitionStart))):0;
+      const fade=smoothstep(transitionT);
+      const next=base+1;
+      if(base!==active){active=base;setActive(base);}
+      scenes.forEach((s,n)=>{
+        if(n===base){
+          setScene(n,1-fade,local,true,1,10);
+        }else if(n===next&&fade>0){
+          const incoming=Math.max(0,Math.min(1,isFinalTransition?transitionT:(transitionT-.35)/.65));
+          setScene(n,fade,local-1,true,incoming,11);
+        }else{
+          setScene(n,0,0,false,0,1);
+        }
+      });
+    }
     function onScroll(){if(!raf)raf=requestAnimationFrame(update);}
     function setup(){if(!desktop())return;viewport.style.position='sticky';viewport.style.top='0';viewport.style.height='100svh';viewport.style.minHeight='640px';viewport.style.overflow='hidden';viewport.style.zIndex='1';scenes.forEach((s,i)=>{s.style.transition='none';s.style.visibility=i===0?'visible':'hidden';s.style.opacity=i===0?'1':'0';s.style.pointerEvents=i===0?'auto':'none';s.style.zIndex=i===0?'10':'1';});update();}
     function setupMobile(){if(desktop())return;viewport.style.position='relative';viewport.style.top='auto';viewport.style.height='auto';scenes.forEach(s=>{s.style.visibility='visible';s.style.opacity='1';s.style.transform='none';s.querySelectorAll('[data-reveal]').forEach(e=>{e.style.opacity='1';e.style.transform='none';});});}
