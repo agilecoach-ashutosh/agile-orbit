@@ -12,9 +12,7 @@
     if(!data||!root) return;
 
     const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    // Use the real high-resolution repository asset. The previous embedded WebP
-    // renders were only 480px wide and became visibly soft when cover-scaled.
-    const HERO_IMAGE='assets/images/hero-cosmic-reference.png';
+    const FALLBACK_IMAGE='assets/images/hero-cosmic-reference.png';
 
     function titleHTML(item){
       if(!item.accent) return item.title;
@@ -26,11 +24,8 @@
     function visualHTML(scene){
       const visualClass=scene.type==='cards'?'cards':scene.type==='astronaut'?'astronaut':scene.type==='figure'?'figure':'hero';
       return `<div class="hero-visual-decor ${visualClass}" aria-hidden="true">
-        <span class="hero-orbit-ring ring-a"></span>
-        <span class="hero-orbit-ring ring-b"></span>
-        <span class="hero-orbit-ring ring-c"></span>
-        <span class="hero-orb orb-a"></span>
-        <span class="hero-orb orb-b"></span>
+        <span class="hero-orbit-ring ring-a"></span><span class="hero-orbit-ring ring-b"></span><span class="hero-orbit-ring ring-c"></span>
+        <span class="hero-orb orb-a"></span><span class="hero-orb orb-b"></span>
       </div>`;
     }
 
@@ -81,7 +76,13 @@
       img.decoding='async';
       img.fetchPriority=index===0?'high':'auto';
       if(index>0) img.loading='lazy';
-      img.src=HERO_IMAGE;
+      img.src=data.scenes[index].image||FALLBACK_IMAGE;
+      img.style.objectPosition=data.scenes[index].position||'center center';
+      img.addEventListener('error',function(){
+        if(img.src.endsWith(FALLBACK_IMAGE)) return;
+        img.src=FALLBACK_IMAGE;
+        img.classList.add('hero-image-fallback');
+      },{once:true});
       holder.appendChild(img);
       holder.dataset.loaded='1';
     }
@@ -123,19 +124,12 @@
       });
 
       heroTrigger=ScrollTrigger.create({
-        trigger:stage,
-        start:'top top',
-        end:'bottom top',
-        pin:true,
-        scrub:1,
-        anticipatePin:1,
-        invalidateOnRefresh:true,
+        trigger:stage,start:'top top',end:'bottom top',pin:true,scrub:1,anticipatePin:1,invalidateOnRefresh:true,
         onUpdate:self=>{
           const total=data.scenes.length;
           const raw=self.progress*total;
           const active=Math.min(total-1,Math.floor(raw));
           setActive(active);
-
           scenes.forEach((scene,i)=>{
             const local=gsap.utils.clamp(0,1,raw-i);
             const enter=gsap.utils.clamp(0,1,local/.30);
@@ -144,38 +138,25 @@
             const scale=i===active?1+leave*.045:(i===active+1?1.035-enter*.035:1.035);
             const y=i===active?-leave*12:(i===active+1?(1-enter)*22:0);
             gsap.set(scene,{autoAlpha:opacity,scale,y});
-
             scene.querySelectorAll('[data-reveal]').forEach((el,r)=>{
               const start=.05+r*.05;
               const rp=gsap.utils.clamp(0,1,(local-start)/.22);
               const fadeOut=gsap.utils.clamp(0,1,(local-.84)/.16);
               gsap.set(el,{autoAlpha:rp*(1-fadeOut),y:(1-rp)*24});
             });
-
             const img=scene.querySelector('.hero-layer-main');
-            if(img){
-              const depth=1;
-              gsap.set(img,{
-                xPercent:(local-.5)*-1.4,
-                yPercent:(local-.5)*.7,
-                scale:1.015+local*.028*depth
-              });
-            }
+            if(img) gsap.set(img,{xPercent:(local-.5)*-1.4,yPercent:(local-.5)*.7,scale:1.015+local*.028});
           });
         }
       });
-
-      return ()=>{ if(heroTrigger) heroTrigger.kill(); };
+      return ()=>{if(heroTrigger) heroTrigger.kill();};
     });
 
     mm.add('(max-width: 760px)',()=>{
       scenes.forEach((scene,i)=>{
         mountMedia(scene,i);
         gsap.set(scene,{autoAlpha:1,scale:1});
-        gsap.fromTo(scene.querySelectorAll('[data-reveal]'),
-          {autoAlpha:0,y:20},
-          {autoAlpha:1,y:0,stagger:.06,duration:.6,ease:'power2.out',scrollTrigger:{trigger:scene,start:'top 78%',once:true}}
-        );
+        gsap.fromTo(scene.querySelectorAll('[data-reveal]'),{autoAlpha:0,y:20},{autoAlpha:1,y:0,stagger:.06,duration:.6,ease:'power2.out',scrollTrigger:{trigger:scene,start:'top 78%',once:true}});
       });
     });
 
