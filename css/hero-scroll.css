@@ -2,7 +2,9 @@
 :root{--hero-bg:#02060d;--hero-white:#f5f8ff;--hero-muted:#a9b7c9;--hero-blue:#67b7ff;--hero-cyan:#54ddff;--hero-line:rgba(139,205,255,.18)}
 body.universe-home{background:var(--hero-bg);overflow-x:hidden}
 body.universe-home .orbit-hero{position:relative;background:var(--hero-bg);isolation:isolate}
-body.universe-home .hero-scene{position:relative;height:100svh;min-height:640px;overflow:hidden;isolation:isolate;background:#02060d;border-bottom:1px solid var(--hero-line)}
+body.universe-home .hero-scroll-stage{position:relative;height:500vh}
+body.universe-home .hero-scenes{position:absolute;inset:0;overflow:hidden}
+body.universe-home .hero-scene{position:absolute;inset:0;height:100%;min-height:640px;overflow:hidden;isolation:isolate;background:#02060d}
 body.universe-home .hero-scene-inner{position:absolute;inset:0;overflow:hidden}
 body.universe-home .hero-layer{position:absolute;inset:-6%;width:112%;height:112%;object-fit:cover;object-position:center;will-change:transform,opacity,filter;pointer-events:none;user-select:none}
 body.universe-home .hero-layer-back{filter:saturate(.92) brightness(.55) blur(.2px);opacity:.72}
@@ -42,8 +44,10 @@ body.universe-home .hero-closing-content{position:relative;z-index:2;max-width:6
 body.universe-home .hero-closing .hero-stats{margin-top:48px}
 @media(max-width:900px){body.universe-home .hero-copy{left:8vw;width:min(500px,58vw)}body.universe-home .hero-cards{right:7vw;width:40vw}.hero-quote{right:7vw}}
 @media(max-width:760px){
+  body.universe-home .hero-scroll-stage{height:auto}
+  body.universe-home .hero-scenes{position:relative;inset:auto;overflow:visible}
   body.universe-home .hero-index{left:10px}.hero-index span{height:12px!important}
-  body.universe-home .hero-scene{height:auto;min-height:100svh;padding:92px 25px 70px;display:flex;align-items:flex-end}
+  body.universe-home .hero-scene{position:relative;inset:auto;height:auto;min-height:100svh;padding:92px 25px 70px;display:flex;align-items:flex-end}
   body.universe-home .hero-scene-inner{position:absolute}
   body.universe-home .hero-copy{position:relative;left:auto;top:auto;width:100%;transform:none}
   body.universe-home .hero-title{font-size:clamp(2.8rem,13vw,4.8rem)}
