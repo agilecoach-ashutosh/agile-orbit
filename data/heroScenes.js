@@ -1,6 +1,6 @@
 window.AGILE_ORBIT_HERO_SCENES = {
   stats: [
-    { value: '548+', label: 'Practice Questions' },
+    { value: '452', label: 'Practice Questions' },
     { value: '40', label: 'JQL Examples' },
     { value: '35', label: 'Must-read Books' },
     { value: '20+', label: 'Templates & Tools' }
@@ -35,9 +35,9 @@ window.AGILE_ORBIT_HERO_SCENES = {
       cta:'Start Practicing →', href:'practice/', edge:'PRACTICE BUILDS CONFIDENCE',
       type:'astronaut', image:'assets/hero/03-practice.webp', position:'center center',
       cards:[
-        ['Agile Leadership','◉','practice/?theme=Agile%20Leadership','LEADERSHIP'],
-        ['Facilitation & Collaboration','◇','practice/?theme=Facilitation%20%26%20Collaboration','COLLABORATION'],
-        ['SAFe 6.0','◎','practice/?theme=SAFe%206.0','SCALED AGILE']
+        ['Scrum Foundations','◉','practice/?theme=Scrum%20Foundations%2C%20Principles%20%26%20Empiricism','FOUNDATIONS'],
+        ['Product Ownership','◇','practice/?theme=Product%20Ownership%2C%20Backlog%20%26%20Value%20Management','PRODUCT'],
+        ['SAFe Delivery','◎','practice/?theme=SAFe%20Delivery%2C%20ART%2C%20PI%20Planning%20%26%20Flow','SCALED AGILE']
       ]
     },
     {

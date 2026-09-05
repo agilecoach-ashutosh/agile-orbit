@@ -29,20 +29,10 @@ Because the project is static, you can open `index.html` directly. For best resu
 4. Validate empty, negative and divide-by-zero inputs.
 5. Add the tool card to `tools/index.html`.
 
-## Add a quiz question
+## Update the Practice question bank
 
-Edit `js/quizzes.js` and add an object to `QUIZ_QUESTIONS`:
-
-```js
-{
-  category: "Scrum Master",
-  question: "...",
-  options: ["...", "...", "...", "..."],
-  correct: 1,
-  explanation: "...",
-  principle: "..."
-}
-```
+The Practice UI is in `js/practice/practice.js`; it reads the normalized 452-question data contract in `js/practice/practice-data.js`.
+Refresh the data file from the master workbook without changing the UI logic. Each question needs an ID, theme, question text, options, answer IDs, and optional feedback. The bank metadata must list each theme and its question count.
 
 ## Add a resource
 
