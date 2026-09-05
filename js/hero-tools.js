@@ -3,7 +3,10 @@
   'use strict';
 
   function loadFeaturedTools(){
-    const cards=document.querySelector('.hero-scene-2 .hero-cards');
+    // The AI opening scene was added before the original scenes, so the Tools
+    // scene is no longer guaranteed to be .hero-scene-2. Select it by its
+    // semantic class instead so Welcome cards are never overwritten.
+    const cards=document.querySelector('.hero-type-cards .hero-cards');
     if(!cards)return;
 
     fetch('tools/index.html',{cache:'no-store'})
