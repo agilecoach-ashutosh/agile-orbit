@@ -143,7 +143,7 @@
     margin: 0 !important;
     padding: 0 !important;
     color: #eef8ff !important;
-    font-size: .68rem !important;
+    font-size: .72rem !important;
     line-height: 1.05 !important;
     font-weight: 800 !important;
     letter-spacing: -.01em !important;
@@ -189,7 +189,7 @@
     font-size: .58rem !important;
   }
   body.universe-home .hero-type-cards .hero-live-tools .hero-card-tag { font-size: .39rem !important; }
-  body.universe-home .hero-type-cards .hero-live-tools .hero-tool-card strong { font-size: .64rem !important; }
+  body.universe-home .hero-type-cards .hero-live-tools .hero-tool-card strong { font-size: .72rem !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
