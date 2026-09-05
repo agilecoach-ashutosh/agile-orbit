@@ -10,7 +10,7 @@ window.AGILE_ORBIT_HERO_SCENES = {
       id:'welcome', tag:'WELCOME TO', title:'AGILE ORBIT', accent:'ORBIT',
       subtitle:'', body:'Learn. Think. Practice. Use.',
       cta:'Begin the Journey →', href:'learn/', edge:'PEOPLE · PRACTICES · POSSIBILITIES',
-      quote:'Better Teams.<br>A Brighter<br>Tomorrow.', type:'hero',
+      quote:'', type:'hero',
       image:'assets/hero/01-welcome.webp', position:'center center',
       cards:[
         ['Agile Fundamentals','◫','learn/agile-fundamentals/','FOUNDATIONS'],
