@@ -7,13 +7,6 @@ window.AGILE_ORBIT_HERO_SCENES = {
   ],
   scenes: [
     {
-      id:'ai-era', tag:'THE AI ERA · THE CASE FOR AGILE', title:'', accent:'',
-      subtitle:'',
-      body:'',
-      cta:'', href:'', edge:'AI · AGILE · UNCERTAINTY',
-      type:'ai', image:'assets/hero/hero-ai-agile.webp', position:'center center'
-    },
-    {
       id:'welcome', tag:'WELCOME TO', title:'AGILE ORBIT', accent:'ORBIT',
       subtitle:'', body:'Learn. Think. Practice. Use.',
       cta:'Begin the Journey →', href:'learn/', edge:'PEOPLE · PRACTICES · POSSIBILITIES',
