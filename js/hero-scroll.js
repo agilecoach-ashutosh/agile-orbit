@@ -9,7 +9,7 @@
     const FALLBACK_IMAGE='assets/images/hero-cosmic-reference.png';
     const titleHTML=item=>{if(!item.accent)return item.title||'';const idx=(item.title||'').lastIndexOf(item.accent);return idx<0?item.title:item.title.slice(0,idx)+`<span class="accent">${item.accent}</span>`+item.title.slice(idx+item.accent.length);};
     const statsHTML=()=>data.stats.map(s=>`<div class="hero-stat"><strong>${s.value}</strong><span>${s.label}</span></div>`).join('');
-    const cardsHTML=cards=>`<div class="hero-cards hero-feature-links">${cards.slice(0,3).map(c=>{const title=c[0]||'',icon=c[1]||'◈',href=c[2],tag=c[3]||'';const inner=`<span class="hero-card-icon">${icon}</span><span class="hero-card-content">${tag?`<small class="hero-card-tag">${tag}</small>`:''}<strong>${title}</strong></span><span class="hero-card-arrow" aria-hidden="true">↗</span>`;return href?`<a class="hero-card" href="${href}" aria-label="Open ${title}">${inner}</a>`:`<div class="hero-card">${inner}</div>`;}).join('')}</div>`;
+    const cardsHTML=cards=>`<div class="hero-cards hero-feature-links">${cards.map(c=>{const title=c[0]||'',icon=c[1]||'◈',href=c[2],tag=c[3]||'';const inner=`<span class="hero-card-icon">${icon}</span><span class="hero-card-content">${tag?`<small class="hero-card-tag">${tag}</small>`:''}<strong>${title}</strong></span><span class="hero-card-arrow" aria-hidden="true">↗</span>`;return href?`<a class="hero-card" href="${href}" aria-label="Open ${title}">${inner}</a>`:`<div class="hero-card">${inner}</div>`;}).join('')}</div>`;
     const aiHTML=`<div class="hero-ai-layer">
       <div class="hero-ai-message">
         <div class="hero-ai-kicker">THE AI ERA · THE CASE FOR AGILE</div>
