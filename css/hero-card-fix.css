@@ -1,0 +1,24 @@
+/* Agile Orbit — preserve the original three-card right rail on hero scenes */
+@media (min-width: 761px){
+  body.universe-home .hero-cards{
+    right:8vw;
+    top:50%;
+    width:min(360px,28vw);
+    display:grid;
+    grid-template-columns:1fr;
+    grid-auto-rows:minmax(78px,auto);
+    gap:12px;
+    transform:translateY(-50%);
+  }
+
+  body.universe-home .hero-card{
+    min-height:78px;
+    width:100%;
+    box-sizing:border-box;
+    padding:14px 18px;
+  }
+
+  body.universe-home .hero-card strong{
+    white-space:nowrap;
+  }
+}
