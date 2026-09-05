@@ -4,18 +4,18 @@
   body.universe-home .hero-type-ai .ai-main-copy{left:24px;right:24px;top:88px;width:auto}
   body.universe-home .hero-type-ai .ai-title{font-size:clamp(2.35rem,8vw,4.1rem)!important;line-height:.94}
   body.universe-home .hero-type-ai .ai-lead{font-size:clamp(.86rem,2vw,1rem)!important;max-width:560px}
-  body.universe-home .hero-type-ai .ai-info-panel{left:16px;right:16px;bottom:28px;width:auto;min-height:0;max-height:calc(100svh - 300px);overflow:hidden;display:block;padding:18px 20px;box-sizing:border-box}
+  body.universe-home .hero-type-ai .ai-info-panel{left:24px;right:24px;bottom:38px;width:auto;min-height:0;max-height:330px;overflow:hidden;display:block;padding:14px 16px;box-sizing:border-box}
   body.universe-home .hero-type-ai .ai-info-left{padding:0}
-  body.universe-home .hero-type-ai .ai-info-center{padding:0;margin:16px 0 0;border-left:0;border-right:0}
-  body.universe-home .hero-type-ai .ai-info-right{display:flex;padding:14px 0 0;margin-top:14px;border-top:1px solid rgba(105,184,232,.22);align-items:flex-start}
-  body.universe-home .hero-type-ai .ai-panel-title{font-size:1rem;line-height:1.2}
-  body.universe-home .hero-type-ai .ai-panel-body{font-size:.72rem;line-height:1.45}
-  body.universe-home .hero-type-ai .ai-steps{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
-  body.universe-home .hero-type-ai .ai-step-icon{width:48px;height:48px;font-size:1.1rem}
-  body.universe-home .hero-type-ai .ai-step strong{font-size:.7rem}
-  body.universe-home .hero-type-ai .ai-step span{font-size:.48rem}
-  body.universe-home .hero-type-ai .ai-quote{font-size:.82rem;line-height:1.3}
-  body.universe-home .hero-type-ai .ai-quote cite{margin-top:8px;font-size:.58rem;line-height:1.35}
+  body.universe-home .hero-type-ai .ai-info-center{padding:0;margin:10px 0 0;border-left:0;border-right:0}
+  body.universe-home .hero-type-ai .ai-info-right{display:none}
+  body.universe-home .hero-type-ai .ai-panel-title{font-size:.95rem;line-height:1.12}
+  body.universe-home .hero-type-ai .ai-panel-body{font-size:.68rem;line-height:1.32}
+  body.universe-home .hero-type-ai .ai-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px}
+  body.universe-home .hero-type-ai .ai-step-icon{width:36px;height:36px;font-size:.85rem}
+  body.universe-home .hero-type-ai .ai-step strong{font-size:.62rem}
+  body.universe-home .hero-type-ai .ai-step span{font-size:.43rem}
+  body.universe-home .hero-type-ai .ai-quote{font-size:.72rem;line-height:1.25}
+  body.universe-home .hero-type-ai .ai-quote cite{margin-top:5px;font-size:.5rem;line-height:1.3}
   body.universe-home .hero-type-ai .ai-benefits{display:none}
   body.universe-home .hero-type-ai .ai-globe-statement,body.universe-home .hero-type-ai .ai-visual-label{display:none!important}
 }
@@ -24,14 +24,15 @@
   body.universe-home .hero-type-ai .ai-title{font-size:clamp(2.15rem,10.5vw,3.25rem)!important}
   body.universe-home .hero-type-ai .ai-eyebrow{font-size:.48rem;letter-spacing:.25em;margin-bottom:12px}
   body.universe-home .hero-type-ai .ai-lead{font-size:.8rem!important}
-  body.universe-home .hero-type-ai .ai-info-panel{left:12px;right:12px;bottom:18px;padding:15px 16px;max-height:calc(100svh - 260px)}
-  body.universe-home .hero-type-ai .ai-panel-title{font-size:.92rem}
-  body.universe-home .hero-type-ai .ai-panel-body{font-size:.66rem}
-  body.universe-home .hero-type-ai .ai-info-center{margin-top:13px}
-  body.universe-home .hero-type-ai .ai-info-right{padding-top:11px;margin-top:11px}
-  body.universe-home .hero-type-ai .ai-step-icon{width:40px;height:40px;font-size:.95rem}
-  body.universe-home .hero-type-ai .ai-step strong{font-size:.62rem}
-  body.universe-home .hero-type-ai .ai-step span{font-size:.43rem}
-  body.universe-home .hero-type-ai .ai-quote{font-size:.72rem;line-height:1.3}
-  body.universe-home .hero-type-ai .ai-quote cite{margin-top:6px;font-size:.52rem}
+  /* Compact Wolfram card for phone screens */
+  body.universe-home .hero-type-ai .ai-info-panel{left:18px;right:18px;bottom:48px;max-height:292px;padding:12px 14px;border-radius:18px}
+  body.universe-home .hero-type-ai .ai-panel-title{font-size:.82rem}
+  body.universe-home .hero-type-ai .ai-panel-body{font-size:.61rem;line-height:1.28}
+  body.universe-home .hero-type-ai .ai-info-center{margin-top:8px}
+  body.universe-home .hero-type-ai .ai-steps{gap:6px 10px}
+  body.universe-home .hero-type-ai .ai-step-icon{width:34px;height:34px;font-size:.78rem}
+  body.universe-home .hero-type-ai .ai-step strong{font-size:.58rem}
+  body.universe-home .hero-type-ai .ai-step span{font-size:.4rem}
+  body.universe-home .hero-type-ai .ai-quote{font-size:.68rem;line-height:1.25}
+  body.universe-home .hero-type-ai .ai-quote cite{margin-top:4px;font-size:.48rem}
 }
