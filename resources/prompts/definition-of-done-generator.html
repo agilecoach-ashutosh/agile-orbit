@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Definition of Done Generator | Agile Orbit</title><meta name="description" content="Generate a practical, team-specific Definition of Done from your team's product, technology, flow, testing and release context."><meta name="theme-color" content="#071019"><link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../css/style.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/animations.css"><link rel="stylesheet" href="../../css/responsive.css"><link rel="stylesheet" href="../../css/universe-pages.css"><link rel="stylesheet" href="../../css/reference-nav.css"><link rel="stylesheet" href="../../css/ai-prompts.css"></head><body class="universe-inner"><div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div><main class="prompt-detail"><section class="page-hero prompt-detail-hero"><div class="container"><div class="breadcrumbs"><a href="../../">Home</a><span>/</span><a href="../">Resources</a><span>/</span><a href="index.html">AI Prompt Library</a><span>/</span><span>Definition of Done Generator</span></div><span class="eyebrow">AI PROMPT • Analyze + Generate</span><h1>Definition of Done Generator</h1><p class="prompt-lead">Turn your team's real technology and delivery context into a practical starting point for a Definition of Done.</p><div class="prompt-tags"><span class="tag">Development Team / Scrum Master / Agile Coach</span><span class="tag">Sprint Planning</span><span class="tag">Analyze + Generate</span></div></div></section><section class="section prompt-detail-section"><div class="container prompt-detail-layout"><article><section class="prompt-info-card reveal"><span class="section-kicker">PURPOSE</span><h2>Why use this prompt?</h2><p>Use AI to quickly create a team-specific Definition of Done instead of starting with a generic checklist. Give AI just enough context about what the team builds, its technology, flow, testing and release process, and let it identify the conditions that should be true before work is considered Done.</p></section><section class="prompt-code-section reveal"><div class="prompt-section-head"><div><span class="section-kicker">COPY-READY PROMPT</span><h2>Prompt</h2></div><button class="copy-prompt" data-copy-target="promptCode" type="button"><span>▣</span> Copy Prompt</button></div><div class="prompt-code-wrap"><div class="code-bar"><span class="traffic-dot"></span><span class="traffic-dot"></span><span class="traffic-dot"></span><span class="code-label">AGILE ORBIT / PROMPT</span></div><pre id="promptCode" tabindex="0"><code>ROLE:
+Act as an experienced Agile Coach and software delivery practitioner.
+
+OBJECTIVE:
+Create a practical, team-specific Definition of Done (DoD) based on the information below.
+
+The goal is to give the team a strong starting point for a DoD based on how they actually build, test, integrate and deliver software.
+
+TEAM CONTEXT:
+
+1. What does the team build?
+{{TEAM_PRODUCT}}
+
+2. Technology stack
+{{TECH_STACK}}
+
+3. High-level application / data flow
+{{HIGH_LEVEL_FLOW}}
+
+4. Testing and release process
+{{TESTING_RELEASE}}
+
+5. Special requirements or constraints
+{{SPECIAL_REQUIREMENTS}}
+
+ANALYZE:
+Consider only the areas relevant to this team, including:
+- Acceptance criteria and business validation
+- Development completion and code review
+- Code quality
+- Unit, integration, functional and regression testing
+- API, integration and data validation
+- Security and compliance
+- Performance and accessibility where relevant
+- CI/CD and deployment
+- Monitoring, logging and production readiness
+- Documentation and operational readiness
+
+RULES:
+- Do not give a generic Scrum checklist.
+- Do not invent tools, processes, regulations or policies that were not provided.
+- Make every criterion observable and verifiable.
+- Focus on outcomes, not activities.
+- Keep the DoD practical and achievable.
+- If something may be important but the information is missing, mark it as “Consider” rather than making it mandatory.
+- Identify conditional criteria for changes such as database, API, integration, security or infrastructure changes.
+- Do not turn the DoD into a detailed test plan or process manual.
+
+OUTPUT:
+
+1. PROPOSED DEFINITION OF DONE
+Create approximately 10–15 practical criteria grouped into relevant categories.
+
+2. CONDITIONAL CRITERIA
+List criteria that apply only when specific types of changes are made.
+
+3. NON-NEGOTIABLES
+Identify the 5–10 criteria that should never be skipped for this team.
+
+4. GAPS / QUESTIONS
+Identify important areas where more team information is needed.
+
+5. RECOMMENDED TEAM DOD
+Provide a clean final checklist that the team can take into a discussion and refine.
+
+IMPORTANT:
+This is a proposed Definition of Done, not an authoritative or official Scrum requirement. The team should review, modify and agree on the final DoD before adopting it.
+
+The purpose is to make the DoD creation exercise faster — not to replace team agreement.
+
+Facilitation Tip</code></pre></div><p class="copy-note">Copy the prompt as-is, then replace the input placeholders with your team's context.</p></section><section class="prompt-final-card reveal"><div class="final-orbit">✦</div><div><span class="section-kicker">Facilitation Tip</span><p>Don't ask the team to approve the AI output immediately. Ask: “What is missing here that would make us uncomfortable calling a story Done?” Use the answers to refine the final DoD together.</p></div></section></article><aside class="prompt-side"><div class="prompt-side-card reveal"><span class="section-kicker">PROMPT AT A GLANCE</span><div class="side-row"><span>Role</span><strong>Development Team / Scrum Master / Agile Coach</strong></div><div class="side-row"><span>Use in</span><strong>Sprint Planning</strong></div><div class="side-row"><span>AI task</span><strong>Analyze + Generate</strong></div></div><a class="prompt-side-link" href="index.html">← Back to AI Prompt Library</a></aside></div></section></main><div id="site-footer"></div><script src="../../js/config.js"></script><script src="../../js/utilities.js"></script><script src="../../js/navigation.js"></script><script src="../../js/main.js"></script><script src="../../js/universe-pages.js"></script><script src="../../js/ai-prompts.js"></script></body></html>
