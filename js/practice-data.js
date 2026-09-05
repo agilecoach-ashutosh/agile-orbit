@@ -13,6 +13,7 @@ window.PRACTICE_THEMES=[
  ['SAFe Portfolio, Strategy & Implementation',40],
  ['Product Design, Architecture & Technical Quality',17]
 ];
+const base='https://raw.githubusercontent.com/agilecoach-ashutosh/agile-orbit/main/js/';
 const parts=['practice-data-01.bin','practice-data-02.bin','practice-data-03.bin','practice-data-04.bin'];
 const expected=452;
 function joinBuffers(buffers){
@@ -23,7 +24,7 @@ function joinBuffers(buffers){
 function normalize(r){
  return {id:r[0],theme:r[1],subtheme:r[2],framework:r[3],question:r[4],options:[r[5]||'',r[6]||'',r[7]||'',r[8]||'',r[9]||'',r[10]||''],correctAnswer:r[11],correctAnswerText:r[12],feedback:r[13]||''};
 }
-Promise.all(parts.map(name=>fetch('../js/'+name,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Failed to load '+name);return r.arrayBuffer()})))
+Promise.all(parts.map(name=>fetch(base+name+'?v=bank-v3-20260905',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Failed to load '+name+' ('+r.status+')');return r.arrayBuffer()})))
 .then(buffers=>new Response(new Blob([joinBuffers(buffers)]).stream().pipeThrough(new DecompressionStream('deflate'))).arrayBuffer())
 .then(buf=>JSON.parse(new TextDecoder().decode(buf)))
 .then(rows=>{
@@ -35,5 +36,9 @@ Promise.all(parts.map(name=>fetch('../js/'+name,{cache:'no-store'}).then(r=>{if(
  window.PRACTICE_QUESTIONS=q;
  document.dispatchEvent(new CustomEvent('practice-data-ready'));
 })
-.catch(err=>console.error('Practice master bank failed to load:',err));
+.catch(err=>{
+ window.PRACTICE_DATA_ERROR=err;
+ document.dispatchEvent(new CustomEvent('practice-data-error',{detail:err}));
+ console.error('Practice master bank failed to load:',err);
+});
 })();
