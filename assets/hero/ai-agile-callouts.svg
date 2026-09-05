@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-label="AI and Agile glowing callout orbs connected by orbital trails">
+<defs>
+  <radialGradient id="blueOrb"><stop offset="0" stop-color="#dff8ff"/><stop offset=".25" stop-color="#5fc8ff" stop-opacity=".95"/><stop offset=".7" stop-color="#1375d8" stop-opacity=".34"/><stop offset="1" stop-color="#00142d" stop-opacity="0"/></radialGradient>
+  <radialGradient id="goldOrb"><stop offset="0" stop-color="#fff7df"/><stop offset=".25" stop-color="#ffd477" stop-opacity=".96"/><stop offset=".7" stop-color="#e58b19" stop-opacity=".35"/><stop offset="1" stop-color="#351600" stop-opacity="0"/></radialGradient>
+  <filter id="glowBlue"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="glowGold"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<g fill="none" stroke-linecap="round">
+  <path d="M80 240 C240 20 610 25 785 205 C875 298 875 480 720 625 C555 780 260 850 75 700" stroke="#45bfff" stroke-opacity=".78" stroke-width="5" filter="url(#glowBlue)"/>
+  <path d="M90 730 C275 835 555 760 710 610 C860 468 860 315 760 225" stroke="#ffbd54" stroke-opacity=".92" stroke-width="4" filter="url(#glowGold)"/>
+  <path d="M94 720 C280 820 565 760 707 620" stroke="#9cdbff" stroke-opacity=".55" stroke-width="1.5"/>
+</g>
+<g filter="url(#glowBlue)">
+  <circle cx="675" cy="170" r="74" fill="#061a31" fill-opacity=".78" stroke="#65ccff" stroke-width="3"/>
+  <circle cx="675" cy="170" r="93" fill="url(#blueOrb)" opacity=".22"/>
+  <circle cx="675" cy="170" r="52" fill="none" stroke="#4bbdff" stroke-opacity=".22"/>
+  <text x="675" y="186" fill="#78d4ff" font-family="Arial,Helvetica,sans-serif" font-size="46" font-weight="800" text-anchor="middle">AI</text>
+</g>
+<g filter="url(#glowGold)">
+  <circle cx="650" cy="620" r="74" fill="#251508" fill-opacity=".8" stroke="#ffc968" stroke-width="3"/>
+  <circle cx="650" cy="620" r="94" fill="url(#goldOrb)" opacity=".2"/>
+  <circle cx="650" cy="620" r="52" fill="none" stroke="#ffc65d" stroke-opacity=".2"/>
+  <path d="M622 620 a28 28 0 1 1 56 0" stroke="#ffe1a0" stroke-width="6"/>
+  <path d="M678 620 a28 28 0 1 1 -56 0" stroke="#ffe1a0" stroke-width="6"/>
+  <path d="M676 592 l13 2 -5 12" fill="#ffe1a0" stroke="none"/>
+  <path d="M624 648 l-13 -2 5 -12" fill="#ffe1a0" stroke="none"/>
+  <text x="650" y="630" fill="#fff0cb" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="800" text-anchor="middle">AGILE</text>
+</g>
+</svg>
