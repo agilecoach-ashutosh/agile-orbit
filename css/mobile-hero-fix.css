@@ -1,0 +1,184 @@
+/* Agile Orbit — mobile hero composition
+   Desktop is intentionally untouched. This file only affects phones/small tablets. */
+@media (max-width: 760px) {
+  body.universe-home .hero-scroll-stage { height: auto !important; }
+  body.universe-home .hero-scenes { position: relative !important; inset: auto !important; overflow: visible !important; }
+
+  /* Give every cinematic panel a real mobile canvas. */
+  body.universe-home .hero-scene {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: 100svh !important;
+    min-height: 640px !important;
+    padding: 0 !important;
+    display: block !important;
+    overflow: hidden !important;
+  }
+  body.universe-home .hero-scene-inner {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  body.universe-home .hero-layer-main {
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* Text stays in a clean left column; it never shares the card column. */
+  body.universe-home .hero-copy {
+    position: absolute !important;
+    left: 24px !important;
+    right: 24px !important;
+    top: 105px !important;
+    bottom: auto !important;
+    width: auto !important;
+    max-width: 305px !important;
+    transform: none !important;
+    z-index: 10 !important;
+  }
+  body.universe-home .hero-tag { margin-bottom: 16px !important; font-size: .55rem !important; letter-spacing: .24em !important; }
+  body.universe-home .hero-tag::before { width: 24px !important; }
+  body.universe-home .hero-title {
+    margin-bottom: 15px !important;
+    font-size: clamp(2.65rem, 12.5vw, 4rem) !important;
+    line-height: .9 !important;
+    letter-spacing: -.065em !important;
+  }
+  body.universe-home .hero-subtitle { font-size: 1rem !important; line-height: 1.35 !important; }
+  body.universe-home .hero-body {
+    max-width: 300px !important;
+    margin-bottom: 18px !important;
+    font-size: .84rem !important;
+    line-height: 1.55 !important;
+  }
+  body.universe-home .hero-cta { min-height: 46px !important; padding: 12px 17px !important; }
+
+  /* Feature cards become a compact bottom rail instead of a desktop side column. */
+  body.universe-home .hero-cards {
+    position: absolute !important;
+    left: 20px !important;
+    right: 20px !important;
+    top: auto !important;
+    bottom: 46px !important;
+    width: auto !important;
+    margin: 0 !important;
+    transform: none !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 7px !important;
+    z-index: 11 !important;
+  }
+  body.universe-home .hero-card {
+    min-width: 0 !important;
+    min-height: 78px !important;
+    padding: 9px 6px !important;
+    gap: 4px !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+  body.universe-home .hero-card-icon { font-size: 1.05rem !important; }
+  body.universe-home .hero-card-tag {
+    max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+    font-size: .42rem !important; letter-spacing: .12em !important;
+  }
+  body.universe-home .hero-card strong {
+    display: block !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: normal !important;
+    font-size: .62rem !important;
+    line-height: 1.15 !important;
+  }
+  body.universe-home .hero-card-arrow { display: none !important; }
+
+  body.universe-home .hero-edge {
+    right: 7px !important;
+    top: 52% !important;
+    max-width: 80px !important;
+    font-size: .4rem !important;
+    line-height: 1.7 !important;
+    letter-spacing: .18em !important;
+  }
+  body.universe-home .hero-quote,
+  body.universe-home .hero-scroll-hint { display: none !important; }
+  body.universe-home .hero-index { left: 8px !important; }
+
+  /* The closing panel follows the same full-screen mobile treatment. */
+  body.universe-home .hero-closing {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: 100svh !important;
+    min-height: 640px !important;
+    margin: 0 !important;
+    padding: 105px 24px 60px !important;
+    display: flex !important;
+    align-items: flex-start !important;
+  }
+  body.universe-home .hero-closing-content { max-width: 305px !important; }
+  body.universe-home .hero-closing .hero-title { font-size: clamp(2.65rem, 12.5vw, 4rem) !important; }
+  body.universe-home .hero-closing .hero-stats { margin-top: 28px !important; }
+
+  /* AI panel: keep the explanatory content readable and vertically ordered. */
+  body.universe-home .hero-type-ai {
+    height: auto !important;
+    min-height: 100svh !important;
+    padding: 0 !important;
+    display: block !important;
+    overflow: hidden !important;
+  }
+  body.universe-home .hero-type-ai .hero-scene-inner { display: block !important; }
+  body.universe-home .ai-hero-content {
+    position: relative !important;
+    width: 100% !important;
+    min-height: 100svh !important;
+    padding: 104px 22px 55px !important;
+    display: block !important;
+    overflow: hidden !important;
+  }
+  body.universe-home .ai-main-copy { max-width: 330px !important; }
+  body.universe-home .ai-info-panel {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    margin-top: 28px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+  body.universe-home .ai-info-left,
+  body.universe-home .ai-info-center,
+  body.universe-home .ai-info-right { width: 100% !important; min-width: 0 !important; }
+  body.universe-home .ai-panel-title { font-size: 1.35rem !important; line-height: 1.05 !important; }
+  body.universe-home .ai-panel-body { font-size: .82rem !important; line-height: 1.5 !important; }
+  body.universe-home .ai-steps {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+  body.universe-home .ai-step { min-width: 0 !important; }
+  body.universe-home .ai-quote { font-size: 1rem !important; line-height: 1.3 !important; }
+  body.universe-home .ai-benefits {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    margin-top: 24px !important;
+  }
+  body.universe-home .ai-benefit { min-width: 0 !important; }
+}
+
+@media (max-width: 420px) {
+  body.universe-home .hero-copy { left: 22px !important; right: 22px !important; max-width: 290px !important; }
+  body.universe-home .hero-title { font-size: clamp(2.5rem, 12.2vw, 3.6rem) !important; }
+  body.universe-home .hero-cards { left: 16px !important; right: 16px !important; gap: 5px !important; }
+  body.universe-home .hero-card { min-height: 72px !important; padding: 8px 4px !important; }
+  body.universe-home .hero-card strong { font-size: .57rem !important; }
+}
