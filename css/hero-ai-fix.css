@@ -6,12 +6,22 @@ body.universe-home .hero-type-ai .ai-visual-label,
 body.universe-home .hero-type-ai .ai-callout-art,
 body.universe-home .hero-type-ai .ai-globe-statement{display:none!important}
 
-body.universe-home .hero-type-ai .ai-info-panel{z-index:8}
+body.universe-home .hero-type-ai .ai-info-panel{
+  z-index:8;
+  border-color:rgba(255,193,92,.52);
+  box-shadow:
+    0 0 0 1px rgba(255,193,92,.10),
+    0 0 18px rgba(255,178,60,.18),
+    0 0 42px rgba(255,158,38,.10),
+    0 18px 45px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,239,193,.10);
+}
+
 body.universe-home .hero-type-ai .ai-benefits{z-index:9}
 
-/* Desktop: make the baked artwork breathe instead of letting object-fit:cover enlarge the globe. */
+/* Desktop: keep the baked artwork slightly farther right so the left copy has more breathing room. */
 @media (min-width:761px){
-  body.universe-home .hero-type-ai .hero-layer-main{object-fit:cover;object-position:center center}
+  body.universe-home .hero-type-ai .hero-layer-main{object-fit:cover;object-position:56% center}
   body.universe-home .hero-type-ai .ai-main-copy{left:4.6vw;top:10.5vh;width:min(700px,50vw)}
   body.universe-home .hero-type-ai .ai-title{font-size:clamp(2.7rem,4.05vw,4.35rem);line-height:.9;letter-spacing:-.055em}
   body.universe-home .hero-type-ai .ai-eyebrow{margin-bottom:15px;font-size:.54rem}
@@ -38,6 +48,7 @@ body.universe-home .hero-type-ai .ai-benefits{z-index:9}
 /* Short desktop/laptop screens */
 @media (min-width:761px) and (max-height:760px){
   body.universe-home .hero-type-ai .ai-main-copy{top:8.5vh;width:min(720px,53vw)}
+  body.universe-home .hero-type-ai .hero-layer-main{object-position:57% center}
   body.universe-home .hero-type-ai .ai-title{font-size:clamp(2.35rem,3.15vw,3.55rem);line-height:.9}
   body.universe-home .hero-type-ai .ai-lead{font-size:clamp(.76rem,.9vw,.88rem)}
   body.universe-home .hero-type-ai .ai-info-panel{bottom:3.9%;min-height:140px;padding:13px 22px}
@@ -49,6 +60,7 @@ body.universe-home .hero-type-ai .ai-benefits{z-index:9}
 
 @media (min-width:761px) and (max-height:680px){
   body.universe-home .hero-type-ai .ai-main-copy{top:7vh}
+  body.universe-home .hero-type-ai .hero-layer-main{object-position:58% center}
   body.universe-home .hero-type-ai .ai-title{font-size:clamp(2.15rem,2.9vw,3.2rem)}
   body.universe-home .hero-type-ai .ai-info-panel{bottom:3%;min-height:132px;padding:11px 20px}
 }
