@@ -1,2 +1,0 @@
-const SITE_CONFIG={name:"Agile Orbit",tagline:"Learn Agile. Think Better. Lead Differently.",email:"YOUR_EMAIL@example.com",linkedin:"YOUR_LINKEDIN_URL",coggle:"YOUR_COGGLE_URL",credly:"YOUR_CREDLY_URL",year:2026,githubRepo:"agilecoach-ashutosh/agile-orbit",githubBranch:"main",basePath:"",toolPages:["wsjf-calculator.html","sprint-capacity.html","cost-of-delay.html","meeting-cost.html","team-health-check.html","pi-planning-capacity.html","release-forecast.html","flow-efficiency.html","earned-value.html"]};
-window.SITE_CONFIG=SITE_CONFIG;
