@@ -1,38 +1,53 @@
-/* Agile Orbit — mobile AI scene fix. Desktop is untouched. */
+/* Agile Orbit — mobile AI scene
+   Mobile is a reflow of the full story, not a content-removal version.
+   Desktop remains untouched. */
 @media (max-width:900px){
   body.universe-home .hero-type-ai .hero-layer-main{object-fit:cover;object-position:center center;transform:scale(1.01)!important}
-  body.universe-home .hero-type-ai .ai-main-copy{left:24px;right:24px;top:88px;width:auto}
-  body.universe-home .hero-type-ai .ai-title{font-size:clamp(2.35rem,8vw,4.1rem)!important;line-height:.94}
-  body.universe-home .hero-type-ai .ai-lead{font-size:clamp(.86rem,2vw,1rem)!important;max-width:560px}
-  body.universe-home .hero-type-ai .ai-info-panel{left:24px;right:24px;bottom:38px;width:auto;min-height:0;max-height:330px;overflow:hidden;display:block;padding:14px 16px;box-sizing:border-box}
+  body.universe-home .hero-type-ai .ai-main-copy{left:24px;right:24px;top:78px;width:auto}
+  body.universe-home .hero-type-ai .ai-title{font-size:clamp(2.15rem,8vw,3.7rem)!important;line-height:.94}
+  body.universe-home .hero-type-ai .ai-lead{font-size:.86rem!important;max-width:560px}
+  body.universe-home .hero-type-ai .ai-visual-label,body.universe-home .hero-type-ai .ai-globe-statement{display:none!important}
+  body.universe-home .hero-type-ai .ai-info-panel{left:24px;right:24px;top:142px;bottom:auto;width:auto;height:285px;min-height:0;max-height:none;overflow:visible;display:block;padding:15px 17px;box-sizing:border-box;border-radius:18px}
   body.universe-home .hero-type-ai .ai-info-left{padding:0}
-  body.universe-home .hero-type-ai .ai-info-center{padding:0;margin:10px 0 0;border-left:0;border-right:0}
-  body.universe-home .hero-type-ai .ai-info-right{display:none}
-  body.universe-home .hero-type-ai .ai-panel-title{font-size:.95rem;line-height:1.12}
-  body.universe-home .hero-type-ai .ai-panel-body{font-size:.68rem;line-height:1.32}
-  body.universe-home .hero-type-ai .ai-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px}
-  body.universe-home .hero-type-ai .ai-step-icon{width:36px;height:36px;font-size:.85rem}
-  body.universe-home .hero-type-ai .ai-step strong{font-size:.62rem}
-  body.universe-home .hero-type-ai .ai-step span{font-size:.43rem}
-  body.universe-home .hero-type-ai .ai-quote{font-size:.72rem;line-height:1.25}
-  body.universe-home .hero-type-ai .ai-quote cite{margin-top:5px;font-size:.5rem;line-height:1.3}
-  body.universe-home .hero-type-ai .ai-benefits{display:none}
-  body.universe-home .hero-type-ai .ai-globe-statement,body.universe-home .hero-type-ai .ai-visual-label{display:none!important}
+  body.universe-home .hero-type-ai .ai-panel-title{font-size:.94rem;line-height:1.12;margin-bottom:9px}
+  body.universe-home .hero-type-ai .ai-panel-body{font-size:.67rem;line-height:1.35}
+  body.universe-home .hero-type-ai .ai-info-center{padding:0;margin:12px 0 0;border:0;display:block}
+  body.universe-home .hero-type-ai .ai-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px}
+  body.universe-home .hero-type-ai .ai-step-icon{width:36px;height:36px;font-size:.82rem;margin-bottom:5px}
+  body.universe-home .hero-type-ai .ai-step strong{font-size:.60rem}
+  body.universe-home .hero-type-ai .ai-step span{font-size:.42rem;margin-top:3px}
+  /* Preserve the Agile principle quote below the Wolfram card. */
+  body.universe-home .hero-type-ai .ai-info-right{display:block;position:absolute;left:0;right:0;top:298px;padding:0;text-align:left}
+  body.universe-home .hero-type-ai .ai-quote{font-size:.70rem;line-height:1.3;margin:0}
+  body.universe-home .hero-type-ai .ai-quote cite{margin-top:5px;font-size:.48rem;line-height:1.25}
+  /* Preserve the four benefit messages beneath the quote. */
+  body.universe-home .hero-type-ai .ai-benefits{display:grid;position:absolute;left:24px;right:24px;top:510px;bottom:auto;grid-template-columns:1fr 1fr;gap:10px 16px;align-items:start}
+  body.universe-home .hero-type-ai .ai-benefit{gap:7px;font-size:.56rem;line-height:1.2}
+  body.universe-home .hero-type-ai .ai-benefit-icon{font-size:1.25rem;flex:0 0 auto}
+  body.universe-home .hero-type-ai .ai-signature{display:none}
 }
 @media (max-width:480px){
-  body.universe-home .hero-type-ai .ai-main-copy{left:18px;right:18px;top:78px}
-  body.universe-home .hero-type-ai .ai-title{font-size:clamp(2.15rem,10.5vw,3.25rem)!important}
-  body.universe-home .hero-type-ai .ai-eyebrow{font-size:.48rem;letter-spacing:.25em;margin-bottom:12px}
-  body.universe-home .hero-type-ai .ai-lead{font-size:.8rem!important}
-  /* Compact Wolfram card for phone screens */
-  body.universe-home .hero-type-ai .ai-info-panel{left:18px;right:18px;bottom:48px;max-height:292px;padding:12px 14px;border-radius:18px}
-  body.universe-home .hero-type-ai .ai-panel-title{font-size:.82rem}
-  body.universe-home .hero-type-ai .ai-panel-body{font-size:.61rem;line-height:1.28}
-  body.universe-home .hero-type-ai .ai-info-center{margin-top:8px}
-  body.universe-home .hero-type-ai .ai-steps{gap:6px 10px}
-  body.universe-home .hero-type-ai .ai-step-icon{width:34px;height:34px;font-size:.78rem}
-  body.universe-home .hero-type-ai .ai-step strong{font-size:.58rem}
-  body.universe-home .hero-type-ai .ai-step span{font-size:.4rem}
-  body.universe-home .hero-type-ai .ai-quote{font-size:.68rem;line-height:1.25}
-  body.universe-home .hero-type-ai .ai-quote cite{margin-top:4px;font-size:.48rem}
+  body.universe-home .hero-type-ai .ai-main-copy{left:18px;right:18px;top:74px}
+  body.universe-home .hero-type-ai .ai-eyebrow{font-size:.46rem;letter-spacing:.22em;margin-bottom:10px}
+  body.universe-home .hero-type-ai .ai-title{font-size:clamp(1.95rem,9.5vw,3rem)!important}
+  body.universe-home .hero-type-ai .ai-lead{font-size:.76rem!important}
+  body.universe-home .hero-type-ai .ai-info-panel{left:18px;right:18px;top:94px;height:292px;padding:13px 14px;border-radius:18px}
+  body.universe-home .hero-type-ai .ai-panel-title{font-size:.82rem;line-height:1.12;margin-bottom:8px}
+  body.universe-home .hero-type-ai .ai-panel-body{font-size:.60rem;line-height:1.3}
+  body.universe-home .hero-type-ai .ai-info-center{margin-top:9px}
+  body.universe-home .hero-type-ai .ai-steps{gap:7px 10px}
+  body.universe-home .hero-type-ai .ai-step-icon{width:34px;height:34px;font-size:.76rem}
+  body.universe-home .hero-type-ai .ai-step strong{font-size:.56rem}
+  body.universe-home .hero-type-ai .ai-step span{font-size:.39rem}
+  body.universe-home .hero-type-ai .ai-info-right{top:305px;left:0;right:0}
+  body.universe-home .hero-type-ai .ai-quote{font-size:.66rem;line-height:1.27}
+  body.universe-home .hero-type-ai .ai-quote cite{font-size:.46rem}
+  body.universe-home .hero-type-ai .ai-benefits{left:20px;right:20px;top:475px;grid-template-columns:1fr;gap:8px}
+  body.universe-home .hero-type-ai .ai-benefit{font-size:.56rem}
+  body.universe-home .hero-type-ai .ai-benefit-icon{font-size:1.18rem}
+}
+@media (max-height:700px) and (max-width:480px){
+  body.universe-home .hero-type-ai .ai-info-panel{top:88px;height:270px}
+  body.universe-home .hero-type-ai .ai-info-right{top:282px}
+  body.universe-home .hero-type-ai .ai-benefits{top:438px;gap:6px}
 }
