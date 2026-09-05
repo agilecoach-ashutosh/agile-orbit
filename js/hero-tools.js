@@ -24,12 +24,10 @@
           const link=card.getAttribute('href')||'#';
           const title=card.querySelector('h3')?.textContent?.trim()||`Tool ${index+1}`;
           const tag=card.querySelector('.tag')?.textContent?.trim()||'AGILE TOOL';
-          const description=card.querySelector('p')?.textContent?.trim()||'';
           const icon=card.querySelector('.card-icon')?.textContent?.trim()||'◈';
           return `<a class="hero-card hero-tool-card" href="tools/${link.replace(/^\.?\//,'')}" aria-label="Open ${title}">
             <span class="hero-card-icon">${icon}</span>
-            <span class="hero-tool-copy"><small>${tag}</small><strong>${title}</strong><em>${description}</em></span>
-            <span class="hero-tool-arrow" aria-hidden="true">↗</span>
+            <span class="hero-tool-copy"><small>${tag}</small><strong>${title}</strong></span>
           </a>`;
         }).join('');
       })
