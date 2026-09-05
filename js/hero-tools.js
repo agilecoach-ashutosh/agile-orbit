@@ -3,9 +3,6 @@
   'use strict';
 
   function loadFeaturedTools(){
-    // The AI opening scene was added before the original scenes, so the Tools
-    // scene is no longer guaranteed to be .hero-scene-2. Select it by its
-    // semantic class instead so Welcome cards are never overwritten.
     const cards=document.querySelector('.hero-type-cards .hero-cards');
     if(!cards)return;
 
@@ -20,12 +17,13 @@
         if(source.length<3)return;
 
         cards.classList.add('hero-live-tools');
+        const mobileTitles=['Capacity Calculator','Efficiency Calculator','WSJF Calculator'];
         cards.innerHTML=source.map((card,index)=>{
           const link=card.getAttribute('href')||'#';
-          const title=card.querySelector('h3')?.textContent?.trim()||`Tool ${index+1}`;
           const tag=card.querySelector('.tag')?.textContent?.trim()||'AGILE TOOL';
           const icon=card.querySelector('.card-icon')?.textContent?.trim()||'◈';
-          return `<a class="hero-card hero-tool-card" href="tools/${link.replace(/^\.?\//,'')}" aria-label="Open ${title}">
+          const title=mobileTitles[index];
+          return `<a class="hero-card hero-tool-card" href="tools/${link.replace(/^\.?\//,'')}" aria-label="Open ${tag} ${title}">
             <span class="hero-card-icon">${icon}</span>
             <span class="hero-tool-copy"><small>${tag}</small><strong>${title}</strong></span>
           </a>`;
