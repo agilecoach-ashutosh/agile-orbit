@@ -5,6 +5,7 @@
   ready(function(){
     const scene=document.querySelector('.hero-scene-1');
     if(!scene)return;
+    scene.setAttribute('aria-labelledby','hero-ai-title');
 
     const copy=scene.querySelector('.hero-copy');
     if(copy)copy.style.display='none';
@@ -16,7 +17,7 @@
     layer.innerHTML=`
       <div class="hero-ai-message">
         <div class="hero-ai-kicker">THE AI ERA · THE CASE FOR AGILE</div>
-        <h1 class="hero-ai-title" id="hero-title-0">
+        <h1 class="hero-ai-title" id="hero-ai-title">
           <span>AI can accelerate</span>
           <span>the computation.</span>
           <span class="accent-blue">It cannot eliminate</span>
