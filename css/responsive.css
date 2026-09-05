@@ -73,6 +73,84 @@
   .site-search-results { max-height: calc(100svh - 245px); }
   .site-search-result { grid-template-columns: 22px minmax(0,1fr) auto; }
   .site-search-result small { white-space: normal; overflow-wrap: anywhere; }
+
+  /* HERO: tool cards must use the same compact visual language as the other hero cards. */
+  body.universe-home .hero-type-cards .hero-cards.hero-live-tools {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 7px !important;
+    width: calc(100vw - 18px) !important;
+    max-width: none !important;
+    right: 9px !important;
+    left: 9px !important;
+    top: auto !important;
+    bottom: 70px !important;
+    transform: none !important;
+    align-items: stretch !important;
+  }
+
+  body.universe-home .hero-type-cards .hero-live-tools .hero-tool-card {
+    min-width: 0 !important;
+    min-height: 68px !important;
+    height: 68px !important;
+    box-sizing: border-box !important;
+    padding: 9px 8px 8px !important;
+    border-radius: 13px !important;
+    display: grid !important;
+    grid-template-columns: 29px minmax(0,1fr) !important;
+    grid-template-rows: 14px 24px !important;
+    column-gap: 7px !important;
+    align-content: center !important;
+    overflow: hidden !important;
+    text-align: left !important;
+  }
+
+  body.universe-home .hero-type-cards .hero-live-tools .hero-card-icon {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    width: 29px !important;
+    height: 29px !important;
+    min-width: 29px !important;
+    border-radius: 9px !important;
+    display: grid !important;
+    place-items: center !important;
+    margin: 0 !important;
+    font-size: .62rem !important;
+    align-self: center !important;
+  }
+
+  body.universe-home .hero-type-cards .hero-live-tools .hero-card-tag {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: var(--orbit-cyan) !important;
+    font-size: .43rem !important;
+    line-height: 1 !important;
+    font-weight: 800 !important;
+    letter-spacing: .16em !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  body.universe-home .hero-type-cards .hero-live-tools .hero-tool-card strong {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #eef8ff !important;
+    font-size: .68rem !important;
+    line-height: 1.05 !important;
+    font-weight: 800 !important;
+    letter-spacing: -.01em !important;
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -87,6 +165,31 @@
   .footer-grid { grid-template-columns: 1fr; gap: 22px; }
   .btn { width: 100%; }
   .hero-actions .btn { width: auto; }
+
+  /* Keep the three tool cards identical in scale on small phones. */
+  body.universe-home .hero-type-cards .hero-cards.hero-live-tools {
+    gap: 6px !important;
+    width: calc(100vw - 14px) !important;
+    right: 7px !important;
+    left: 7px !important;
+    bottom: 66px !important;
+  }
+  body.universe-home .hero-type-cards .hero-live-tools .hero-tool-card {
+    height: 66px !important;
+    min-height: 66px !important;
+    padding: 8px 7px !important;
+    grid-template-columns: 27px minmax(0,1fr) !important;
+    grid-template-rows: 13px 23px !important;
+    column-gap: 6px !important;
+  }
+  body.universe-home .hero-type-cards .hero-live-tools .hero-card-icon {
+    width: 27px !important;
+    height: 27px !important;
+    min-width: 27px !important;
+    font-size: .58rem !important;
+  }
+  body.universe-home .hero-type-cards .hero-live-tools .hero-card-tag { font-size: .39rem !important; }
+  body.universe-home .hero-type-cards .hero-live-tools .hero-tool-card strong { font-size: .64rem !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
