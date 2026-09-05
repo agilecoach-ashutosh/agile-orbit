@@ -1,7 +1,7 @@
 /* Agile Orbit — AI-era visual polish and short-viewport guardrails */
 body.universe-home .hero-type-ai .ai-visual-label{display:none!important}
-body.universe-home .hero-type-ai .ai-callout-art{position:absolute;right:1.5vw;top:4%;width:min(760px,56vw);height:88%;object-fit:contain;object-position:center;z-index:4;pointer-events:none;user-select:none;mix-blend-mode:screen;filter:saturate(1.06) contrast(1.03);opacity:.96}
-body.universe-home .hero-type-ai .ai-globe-statement{z-index:5}
+body.universe-home .hero-type-ai .ai-callout-art{display:none!important}
+body.universe-home .hero-type-ai .ai-globe-statement{display:none!important}
 body.universe-home .hero-type-ai .ai-info-panel{z-index:8}
 body.universe-home .hero-type-ai .ai-benefits{z-index:9}
 
@@ -12,8 +12,6 @@ body.universe-home .hero-type-ai .ai-benefits{z-index:9}
   body.universe-home .hero-type-ai .ai-title{font-size:clamp(2.75rem,4.15vw,4.55rem);line-height:.9}
   body.universe-home .hero-type-ai .ai-divider{margin:16px 0 11px}
   body.universe-home .hero-type-ai .ai-lead{max-width:530px;font-size:clamp(.82rem,1.05vw,.98rem);line-height:1.42}
-  body.universe-home .hero-type-ai .ai-callout-art{top:1%;right:0;width:min(720px,55vw);height:86%}
-  body.universe-home .hero-type-ai .ai-globe-statement{right:18.5vw;top:31.5%;width:220px;font-size:clamp(.78rem,1vw,1rem)}
   body.universe-home .hero-type-ai .ai-info-panel{left:2.6vw;right:2.6vw;bottom:9.7%;min-height:164px;padding:18px 28px;border-radius:16px}
   body.universe-home .hero-type-ai .ai-info-panel>section{padding-top:0;padding-bottom:0}
   body.universe-home .hero-type-ai .ai-info-left{padding-right:22px}
@@ -36,11 +34,10 @@ body.universe-home .hero-type-ai .ai-benefits{z-index:9}
   body.universe-home .hero-type-ai .ai-title{font-size:clamp(2.5rem,3.7vw,4rem)}
   body.universe-home .hero-type-ai .ai-info-panel{bottom:8.2%;min-height:148px;padding:15px 24px}
   body.universe-home .hero-type-ai .ai-step-icon{width:44px;height:44px;font-size:1rem}
-  body.universe-home .hero-type-ai .ai-callout-art{height:82%}
   body.universe-home .hero-type-ai .ai-benefits{bottom:.8%;gap:12px}
 }
 
 @media (max-width:760px){
-  body.universe-home .hero-type-ai .ai-callout-art{right:-5vw;top:14%;width:72vw;height:58%;opacity:.82}
-  body.universe-home .hero-type-ai .ai-globe-statement{z-index:6}
+  body.universe-home .hero-type-ai .ai-callout-art{display:none!important}
+  body.universe-home .hero-type-ai .ai-globe-statement{display:none!important}
 }
