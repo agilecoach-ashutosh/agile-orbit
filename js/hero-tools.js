@@ -17,15 +17,16 @@
         if(source.length<3)return;
 
         cards.classList.add('hero-live-tools');
-        const mobileTitles=['Capacity Calculator','Efficiency Calculator','WSJF Calculator'];
+        const titles=['Capacity Calculator','Efficiency Calculator','WSJF Calculator'];
         cards.innerHTML=source.map((card,index)=>{
           const link=card.getAttribute('href')||'#';
           const tag=card.querySelector('.tag')?.textContent?.trim()||'AGILE TOOL';
           const icon=card.querySelector('.card-icon')?.textContent?.trim()||'◈';
-          const title=mobileTitles[index];
+          const title=titles[index];
           return `<a class="hero-card hero-tool-card" href="tools/${link.replace(/^\.?\//,'')}" aria-label="Open ${tag} ${title}">
             <span class="hero-card-icon">${icon}</span>
-            <span class="hero-tool-copy"><small>${tag}</small><strong>${title}</strong></span>
+            <small class="hero-card-tag">${tag}</small>
+            <strong>${title}</strong>
           </a>`;
         }).join('');
       })
