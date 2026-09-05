@@ -15,7 +15,7 @@ window.PRACTICE_THEMES=[
 ];
 const paths=['practice-data-01.bin','practice-data-02.bin','practice-data-03.bin','practice-data-04.bin'];
 const roots=[
- new URL('./',location.href).href,
+ new URL('../js/',location.href).href,
  'https://raw.githubusercontent.com/agilecoach-ashutosh/agile-orbit/main/js/',
  'https://cdn.jsdelivr.net/gh/agilecoach-ashutosh/agile-orbit@main/js/'
 ];
@@ -32,8 +32,8 @@ async function fetchPart(name){
  let last='unknown error';
  for(const root of roots){
   try{
-   const url=root+name+'?v=bank-v6-20260905';
-   const r=await fetch(url,{cache:'no-store',mode:root.startsWith('http')?'cors':'same-origin'});
+   const url=root+name+'?v=bank-v7-20260905';
+   const r=await fetch(url,{cache:'no-store',mode:'cors'});
    if(!r.ok){last=url+' returned HTTP '+r.status;continue;}
    const b=await r.arrayBuffer();
    if(!b.byteLength){last=url+' returned an empty file';continue;}
