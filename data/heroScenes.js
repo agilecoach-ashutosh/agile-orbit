@@ -7,12 +7,11 @@ window.AGILE_ORBIT_HERO_SCENES = {
   ],
   scenes: [
     {
-      id:'ai-era', tag:'THE AI ERA', title:'AI can accelerate the computation. It cannot eliminate uncertainty.', accent:'uncertainty.',
-      subtitle:'', body:'',
-      cta:'', href:'#', edge:'THE CASE FOR AGILE IN THE AI ERA',
-      quote:'', type:'hero',
-      image:'assets/hero/hero-ai-agile.webp', position:'center center',
-      cards:[]
+      id:'ai-era', tag:'THE AI ERA · THE CASE FOR AGILE', title:'', accent:'',
+      subtitle:'',
+      body:'',
+      cta:'', href:'', edge:'AI · AGILE · UNCERTAINTY',
+      type:'ai', image:'assets/hero/hero-ai-agile.webp', position:'center center'
     },
     {
       id:'welcome', tag:'WELCOME TO', title:'AGILE ORBIT', accent:'ORBIT',
