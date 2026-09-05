@@ -11,8 +11,43 @@
     const statsHTML=()=>data.stats.map(s=>`<div class="hero-stat"><strong>${s.value}</strong><span>${s.label}</span></div>`).join('');
     const cardsHTML=cards=>`<div class="hero-cards hero-feature-links">${cards.map(c=>{const title=c[0]||'',icon=c[1]||'◈',href=c[2],tag=c[3]||'';const inner=`<span class="hero-card-icon">${icon}</span>${tag?`<small class="hero-card-tag">${tag}</small>`:''}<strong>${title}</strong><span class="hero-card-arrow" aria-hidden="true">↗</span>`;return href?`<a class="hero-card" href="${href}" aria-label="Open ${title}">${inner}</a>`:`<div class="hero-card">${inner}</div>`;}).join('')}</div>`;
     const visualHTML=scene=>scene.type==='ai'?'':`<div class="hero-visual-decor ${scene.type==='cards'?'cards':scene.type==='astronaut'?'astronaut':scene.type==='figure'?'figure':'hero'}" aria-hidden="true"><span class="hero-orbit-ring ring-a"></span><span class="hero-orbit-ring ring-b"></span><span class="hero-orbit-ring ring-c"></span><span class="hero-orb orb-a"></span><span class="hero-orb orb-b"></span></div>`;
+    const aiHTML=()=>`<div class="ai-hero-content">
+      <div class="ai-main-copy" data-reveal>
+        <div class="ai-eyebrow">THE AI ERA IS HERE</div>
+        <h1 class="ai-title"><span class="ai-title-line">AI can accelerate</span><span class="ai-title-line">the computation.</span><span class="ai-title-line ai-highlight">It cannot eliminate</span><span class="ai-title-line ai-highlight">uncertainty.</span></h1>
+        <div class="ai-divider"></div>
+        <p class="ai-lead">The more complex the world becomes,<br>the more we need to <strong>learn, adapt and deliver value</strong> — not less.</p>
+      </div>
+      <div class="ai-visual-label ai-label-ai" data-reveal><div><strong>Accelerates</strong><span>what we can do.</span></div></div>
+      <div class="ai-globe-statement" data-reveal>In a complex world,<br><strong>uncertainty isn’t a bug.</strong><br><strong>It’s a feature.</strong></div>
+      <div class="ai-visual-label ai-label-agile" data-reveal><div><strong>Helps us learn</strong><span>what to do next.</span></div></div>
+      <section class="ai-info-panel" data-reveal aria-label="Computational irreducibility and Agile learning loop">
+        <section class="ai-info-left">
+          <h2 class="ai-panel-title">Wolfram's Computational<br>Irreducibility</h2>
+          <p class="ai-panel-body">Some complex systems cannot be reliably predicted from the beginning. There is no shortcut to knowing the outcome — the only way is to let the system evolve and observe what happens.</p>
+        </section>
+        <section class="ai-info-center">
+          <div class="ai-steps">
+            <div class="ai-step"><div class="ai-step-icon" aria-hidden="true">▤</div><strong>Build</strong><span>Take a small step</span></div>
+            <div class="ai-step"><div class="ai-step-icon" aria-hidden="true">◉</div><strong>Observe</strong><span>See what happens</span></div>
+            <div class="ai-step"><div class="ai-step-icon" aria-hidden="true">♧</div><strong>Learn</strong><span>Gain new insights</span></div>
+            <div class="ai-step"><div class="ai-step-icon" aria-hidden="true">↻</div><strong>Adapt</strong><span>Adjust and repeat</span></div>
+          </div>
+        </section>
+        <section class="ai-info-right">
+          <blockquote class="ai-quote">“Agile is based on a fundamental principle in physics: Wolfram’s computational irreducibility.”<cite>— Jeff Sutherland<br><span>Co-Creator of Scrum</span></cite></blockquote>
+        </section>
+      </section>
+      <div class="ai-benefits" data-reveal>
+        <div class="ai-benefit"><span class="ai-benefit-icon" aria-hidden="true">ϟ</span><strong>Faster Execution<br>with AI</strong></div>
+        <div class="ai-benefit"><span class="ai-benefit-icon" aria-hidden="true">♧</span><strong>Stronger Collaboration<br>in Complex Systems</strong></div>
+        <div class="ai-benefit"><span class="ai-benefit-icon" aria-hidden="true">⌁</span><strong>Continuous Learning<br>and Adaptation</strong></div>
+        <div class="ai-benefit"><span class="ai-benefit-icon" aria-hidden="true">◎</span><strong>Greater Value<br>for a Brighter Tomorrow</strong></div>
+        <div class="ai-signature">Same Orbit.<span>A Brighter Tomorrow.</span></div>
+      </div>
+    </div>`;
     const closingHTML=`<section class="hero-scene hero-closing hero-closing-scene" aria-labelledby="hero-closing-title" data-scene-index="${data.scenes.length}"><div class="hero-closing-media" data-closing-media aria-hidden="true"></div><div class="hero-closing-content"><div class="hero-tag" data-reveal>${data.closing.tag}</div><h2 id="hero-closing-title" class="hero-title" data-reveal>${titleHTML(data.closing)}</h2><a class="hero-cta" href="${data.closing.href}" data-reveal>${data.closing.cta}</a><div class="hero-stats" data-reveal>${statsHTML()}</div></div><div class="hero-edge" data-reveal>${data.closing.edge}</div></section>`;
-    root.innerHTML=`<div class="hero-index" aria-hidden="true">${Array.from({length:data.scenes.length+1},(_,i)=>`<span class="${i===0?'active':''}"></span>`).join('')}</div><div class="hero-scroll-stage" data-hero-stage><div class="hero-scenes">${data.scenes.map((s,i)=>{const isWelcome=s.id==='welcome';return `<section class="hero-scene hero-scene-${i+1} hero-type-${s.type}" data-scene-index="${i}" aria-labelledby="hero-title-${i}"><div class="hero-scene-inner" data-hero-media></div>${visualHTML(s)}<div class="hero-copy"><div class="hero-tag" data-reveal>${s.tag}</div><h1 id="hero-title-${i}" class="hero-title" data-reveal>${titleHTML(s)}</h1>${s.subtitle?`<p class="hero-subtitle" data-reveal>${s.subtitle}</p>`:''}<p class="hero-body" data-reveal>${s.body}</p>${s.cta?`<a class="hero-cta" href="${s.href}" data-reveal>${s.cta}</a>`:''}${isWelcome?`<div class="hero-stats" data-reveal>${statsHTML()}</div>`:''}</div>${s.cards?cardsHTML(s.cards):''}${s.quote?`<div class="hero-quote" data-reveal>${s.quote}</div>`:''}<div class="hero-edge" data-reveal>${s.edge}</div>${isWelcome?'<div class="hero-scroll-hint" data-reveal><span class="hero-mouse"></span><span>Scroll to explore</span></div>':''}</section>`;}).join('')}${closingHTML}</div></div>`;
+    root.innerHTML=`<div class="hero-index" aria-hidden="true">${Array.from({length:data.scenes.length+1},(_,i)=>`<span class="${i===0?'active':''}"></span>`).join('')}</div><div class="hero-scroll-stage" data-hero-stage><div class="hero-scenes">${data.scenes.map((s,i)=>{const isAI=s.id==='ai-era';const isWelcome=s.id==='welcome';if(isAI)return `<section class="hero-scene hero-scene-${i+1} hero-type-ai" data-scene-index="${i}" aria-label="The AI era"> <div class="hero-scene-inner" data-hero-media></div>${aiHTML()}<div class="hero-edge" aria-hidden="true">COMPLEXITY · UNCERTAINTY · ADAPTATION</div></section>`;return `<section class="hero-scene hero-scene-${i+1} hero-type-${s.type}" data-scene-index="${i}" aria-labelledby="hero-title-${i}"><div class="hero-scene-inner" data-hero-media></div>${visualHTML(s)}<div class="hero-copy"><div class="hero-tag" data-reveal>${s.tag}</div><h1 id="hero-title-${i}" class="hero-title" data-reveal>${titleHTML(s)}</h1>${s.subtitle?`<p class="hero-subtitle" data-reveal>${s.subtitle}</p>`:''}<p class="hero-body" data-reveal>${s.body}</p>${s.cta?`<a class="hero-cta" href="${s.href}" data-reveal>${s.cta}</a>`:''}${isWelcome?`<div class="hero-stats" data-reveal>${statsHTML()}</div>`:''}</div>${s.cards?cardsHTML(s.cards):''}${s.quote?`<div class="hero-quote" data-reveal>${s.quote}</div>`:''}<div class="hero-edge" data-reveal>${s.edge}</div>${isWelcome?'<div class="hero-scroll-hint" data-reveal><span class="hero-mouse"></span><span>Scroll to explore</span></div>':''}</section>`;}).join('')}${closingHTML}</div></div>`;
     const scenes=[...root.querySelectorAll('.hero-scene')],stage=root.querySelector('[data-hero-stage]'),viewport=root.querySelector('.hero-scenes'),closing=root.querySelector('.hero-closing-scene'),dots=[...root.querySelectorAll('.hero-index span')];
     const setActive=i=>dots.forEach((d,n)=>d.classList.toggle('active',n===i));
     if(closing){closing.style.position='absolute';closing.style.inset='0';closing.style.width='100%';closing.style.height='100svh';closing.style.minHeight='640px';closing.style.marginTop='0';closing.style.padding='110px clamp(32px,9vw,140px)';closing.style.display='flex';closing.style.alignItems='center';closing.style.overflow='hidden';closing.style.isolation='isolate';closing.style.zIndex='1';const closingContent=closing.querySelector('.hero-closing-content');if(closingContent)closingContent.style.zIndex='10';}
