@@ -5,36 +5,40 @@ body.universe-home .hero-type-ai .ai-globe-statement{display:none!important}
 body.universe-home .hero-type-ai .ai-info-panel{z-index:8}
 body.universe-home .hero-type-ai .ai-benefits{z-index:9}
 
-/* Keep the original strong composition usable on shorter desktop/laptop screens. */
-@media (min-width:761px) and (max-height:860px){
-  body.universe-home .hero-type-ai .ai-main-copy{left:clamp(32px,4.6vw,72px);top:10.5vh;width:min(620px,44vw)}
-  body.universe-home .hero-type-ai .ai-eyebrow{margin-bottom:14px;font-size:.54rem}
-  body.universe-home .hero-type-ai .ai-title{font-size:clamp(2.75rem,4.15vw,4.55rem);line-height:.9}
-  body.universe-home .hero-type-ai .ai-divider{margin:16px 0 11px}
-  body.universe-home .hero-type-ai .ai-lead{max-width:530px;font-size:clamp(.82rem,1.05vw,.98rem);line-height:1.42}
-  body.universe-home .hero-type-ai .ai-info-panel{left:2.6vw;right:2.6vw;bottom:9.7%;min-height:164px;padding:18px 28px;border-radius:16px}
+/* Short desktop / laptop screens: preserve the headline above the information panel. */
+@media (min-width:761px) and (max-height:960px){
+  body.universe-home .hero-type-ai .ai-main-copy{left:clamp(32px,4.6vw,72px);top:8.2vh;width:min(620px,43vw)}
+  body.universe-home .hero-type-ai .ai-eyebrow{margin-bottom:13px;font-size:.54rem}
+  body.universe-home .hero-type-ai .ai-title{font-size:clamp(2.55rem,3.9vw,4.1rem);line-height:.91;letter-spacing:-.055em}
+  body.universe-home .hero-type-ai .ai-divider{margin:15px 0 10px}
+  body.universe-home .hero-type-ai .ai-lead{max-width:510px;font-size:clamp(.8rem,1vw,.94rem);line-height:1.4}
+  body.universe-home .hero-type-ai .ai-info-panel{left:2.6vw;right:2.6vw;bottom:9.4%;min-height:158px;padding:17px 26px;border-radius:16px}
   body.universe-home .hero-type-ai .ai-info-panel>section{padding-top:0;padding-bottom:0}
-  body.universe-home .hero-type-ai .ai-info-left{padding-right:22px}
-  body.universe-home .hero-type-ai .ai-info-center{padding:0 22px}
-  body.universe-home .hero-type-ai .ai-info-right{padding-left:22px}
-  body.universe-home .hero-type-ai .ai-panel-title{font-size:1rem;margin-bottom:7px}
-  body.universe-home .hero-type-ai .ai-panel-body{font-size:.66rem;line-height:1.42}
-  body.universe-home .hero-type-ai .ai-step-icon{width:50px;height:50px;font-size:1.2rem;margin-bottom:6px}
-  body.universe-home .hero-type-ai .ai-step strong{font-size:.76rem}
-  body.universe-home .hero-type-ai .ai-step span{font-size:.53rem;margin-top:3px}
-  body.universe-home .hero-type-ai .ai-quote{font-size:clamp(.82rem,1.05vw,1.05rem)}
-  body.universe-home .hero-type-ai .ai-quote cite{margin-top:9px;font-size:.66rem}
-  body.universe-home .hero-type-ai .ai-benefits{bottom:1.2%;gap:18px}
-  body.universe-home .hero-type-ai .ai-benefit{font-size:.64rem;gap:8px}
-  body.universe-home .hero-type-ai .ai-benefit-icon{font-size:1.35rem}
-  body.universe-home .hero-type-ai .ai-signature{font-size:1rem;padding-left:17px}
+  body.universe-home .hero-type-ai .ai-info-left{padding-right:21px}
+  body.universe-home .hero-type-ai .ai-info-center{padding:0 21px}
+  body.universe-home .hero-type-ai .ai-info-right{padding-left:21px}
+  body.universe-home .hero-type-ai .ai-panel-title{font-size:.98rem;margin-bottom:7px}
+  body.universe-home .hero-type-ai .ai-panel-body{font-size:.64rem;line-height:1.4}
+  body.universe-home .hero-type-ai .ai-step-icon{width:48px;height:48px;font-size:1.15rem;margin-bottom:5px}
+  body.universe-home .hero-type-ai .ai-step strong{font-size:.73rem}
+  body.universe-home .hero-type-ai .ai-step span{font-size:.51rem;margin-top:3px}
+  body.universe-home .hero-type-ai .ai-quote{font-size:clamp(.8rem,1vw,1rem)}
+  body.universe-home .hero-type-ai .ai-quote cite{margin-top:8px;font-size:.64rem}
+  body.universe-home .hero-type-ai .ai-benefits{bottom:1.05%;gap:16px}
+  body.universe-home .hero-type-ai .ai-benefit{font-size:.61rem;gap:7px}
+  body.universe-home .hero-type-ai .ai-benefit-icon{font-size:1.3rem}
+  body.universe-home .hero-type-ai .ai-signature{font-size:.96rem;padding-left:16px}
 }
 
-@media (min-width:761px) and (max-height:700px){
-  body.universe-home .hero-type-ai .ai-title{font-size:clamp(2.5rem,3.7vw,4rem)}
-  body.universe-home .hero-type-ai .ai-info-panel{bottom:8.2%;min-height:148px;padding:15px 24px}
-  body.universe-home .hero-type-ai .ai-step-icon{width:44px;height:44px;font-size:1rem}
-  body.universe-home .hero-type-ai .ai-benefits{bottom:.8%;gap:12px}
+/* Very short desktop screens: tighten only the AI intro, never the other hero scenes. */
+@media (min-width:761px) and (max-height:760px){
+  body.universe-home .hero-type-ai .ai-main-copy{top:7.5vh;width:min(610px,42vw)}
+  body.universe-home .hero-type-ai .ai-title{font-size:clamp(2.35rem,3.55vw,3.75rem);line-height:.89}
+  body.universe-home .hero-type-ai .ai-info-panel{bottom:8.1%;min-height:146px;padding:14px 22px}
+  body.universe-home .hero-type-ai .ai-step-icon{width:43px;height:43px;font-size:1rem}
+  body.universe-home .hero-type-ai .ai-benefits{bottom:.7%;gap:10px}
+  body.universe-home .hero-type-ai .ai-benefit{font-size:.56rem}
+  body.universe-home .hero-type-ai .ai-signature{font-size:.9rem}
 }
 
 @media (max-width:760px){
