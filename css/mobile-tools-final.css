@@ -1,28 +1,35 @@
-/* Mobile tool cards — intentionally match the existing hero destination-card style. */
+/* Mobile Tools cards — match the compact typography of the other mobile hero destination cards. */
 @media (max-width:760px){
   body.universe-home .hero-cards.hero-live-tools .hero-tool-card{
     color:#effcff!important;
     text-align:left!important;
+    min-height:72px!important;
+    padding:12px 10px!important;
+    box-sizing:border-box!important;
   }
   body.universe-home .hero-cards.hero-live-tools .hero-tool-card .hero-card-icon{
     color:#b9f4ff!important;
+    width:30px!important;
+    height:30px!important;
+    font-size:.82rem!important;
+    border-radius:8px!important;
   }
   body.universe-home .hero-cards.hero-live-tools .hero-tool-card .hero-card-tag{
     color:#69ddff!important;
-    font-size:.47rem!important;
+    font-size:.40rem!important;
     font-weight:800!important;
     line-height:1!important;
-    letter-spacing:.19em!important;
+    letter-spacing:.16em!important;
     text-transform:uppercase!important;
   }
   body.universe-home .hero-cards.hero-live-tools .hero-tool-card > strong{
     display:block!important;
-    margin-left:4px!important;
-    padding-top:3px!important;
+    margin-left:2px!important;
+    padding-top:2px!important;
     color:#f1fbff!important;
-    font-size:.80rem!important;
+    font-size:.68rem!important;
     font-weight:800!important;
-    line-height:1.15!important;
+    line-height:1.1!important;
     text-align:left!important;
     white-space:normal!important;
     overflow:visible!important;
