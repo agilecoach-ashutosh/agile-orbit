@@ -19,7 +19,7 @@ body.universe-home .hero-type-ai .ai-info-panel{
 
 body.universe-home .hero-type-ai .ai-benefits{z-index:9}
 
-/* Desktop */
+/* Desktop: shift the baked artwork visually farther right while preserving its scale. */
 @media (min-width:761px){
   body.universe-home .hero-type-ai .hero-layer-main{
     object-fit:cover;
@@ -27,14 +27,14 @@ body.universe-home .hero-type-ai .ai-benefits{z-index:9}
     transform:translate3d(3.2vw,0,0) scale(1.01)!important;
   }
 
-  /* Left-weighted Wolfram card: narrower than before and lifted clear of the benefits row. */
+  /* Compact left-weighted Wolfram panel with a deliberate gap above benefits. */
   body.universe-home .hero-type-ai .ai-info-panel{
     left:3vw;
     right:auto;
-    width:min(56vw,960px);
+    width:min(58vw,1000px);
     box-sizing:border-box;
     transform:none;
-    bottom:7.2%;
+    bottom:7.4%;
     min-height:154px;
     padding:17px 28px;
     border-radius:16px;
@@ -57,11 +57,11 @@ body.universe-home .hero-type-ai .ai-benefits{z-index:9}
   body.universe-home .hero-type-ai .ai-quote{font-size:clamp(.82rem,1vw,1rem)}
   body.universe-home .hero-type-ai .ai-quote cite{margin-top:8px;font-size:.64rem}
 
-  /* Bigger, readable benefits with deliberate bottom safe space. */
+  /* Double the bottom safe area for benefits/signature. */
   body.universe-home .hero-type-ai .ai-benefits{
     left:4.7vw;
     right:4.7vw;
-    bottom:4.2%;
+    bottom:1.8%;
     grid-template-columns:repeat(4,1fr) 1.04fr;
     gap:18px;
   }
@@ -81,12 +81,12 @@ body.universe-home .hero-type-ai .ai-benefits{z-index:9}
     left:2.6vw;
     right:auto;
     width:min(58vw,930px);
-    bottom:6.6%;
+    bottom:6.1%;
     min-height:140px;
     padding:13px 22px;
   }
   body.universe-home .hero-type-ai .ai-step-icon{width:42px;height:42px;font-size:1rem}
-  body.universe-home .hero-type-ai .ai-benefits{bottom:3.3%;gap:12px}
+  body.universe-home .hero-type-ai .ai-benefits{bottom:1.4%;gap:12px}
   body.universe-home .hero-type-ai .ai-benefit{font-size:clamp(.66rem,.76vw,.8rem);gap:8px}
   body.universe-home .hero-type-ai .ai-benefit-icon{font-size:1.4rem}
   body.universe-home .hero-type-ai .ai-signature{font-size:1rem}
@@ -96,8 +96,8 @@ body.universe-home .hero-type-ai .ai-benefits{z-index:9}
   body.universe-home .hero-type-ai .ai-main-copy{top:7vh}
   body.universe-home .hero-type-ai .hero-layer-main{transform:translate3d(4.2vw,0,0) scale(1)!important}
   body.universe-home .hero-type-ai .ai-title{font-size:clamp(2.15rem,2.9vw,3.2rem)}
-  body.universe-home .hero-type-ai .ai-info-panel{bottom:5.8%;min-height:132px;padding:11px 20px}
-  body.universe-home .hero-type-ai .ai-benefits{bottom:2.6%;gap:9px}
+  body.universe-home .hero-type-ai .ai-info-panel{bottom:5.2%;min-height:132px;padding:11px 20px}
+  body.universe-home .hero-type-ai .ai-benefits{bottom:1.1%;gap:9px}
   body.universe-home .hero-type-ai .ai-benefit{font-size:clamp(.6rem,.7vw,.72rem)}
   body.universe-home .hero-type-ai .ai-signature{font-size:.92rem}
 }
