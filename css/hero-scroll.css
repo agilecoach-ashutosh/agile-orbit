@@ -12,7 +12,7 @@ body.universe-home .hero-scene-2 .hero-layer-main{object-position:62% center;fil
 body.universe-home .hero-scene-3 .hero-layer-main{object-position:50% 58%;filter:saturate(1.12) contrast(1.06) brightness(.86)}
 body.universe-home .hero-scene-4 .hero-layer-main{object-position:42% center;filter:saturate(1.08) contrast(1.05) brightness(.9)}
 body.universe-home .hero-scene-5 .hero-layer-main{object-position:70% 42%;filter:saturate(.95) contrast(1.06) brightness(.84)}
-body.universe-home .hero-scene::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(90deg,rgba(1,5,11,.88) 0%,rgba(1,5,11,.68) 27%,rgba(1,5,11,.15) 60%,rgba(1,5,11,.08) 100%),linear-gradient(180deg,rgba(0,0,0,.18),transparent 25%,transparent 72%,rgba(0,0,0,.58))}
+body.universe-home .hero-scene::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(90deg,rgba(1,5,11,.70) 0%,rgba(1,5,11,.35) 25%,rgba(1,5,11,0) 50%,rgba(1,5,11,0) 100%),linear-gradient(180deg,rgba(0,0,0,.18),transparent 25%,transparent 72%,rgba(0,0,0,.58))}
 body.universe-home .hero-scene::before{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:radial-gradient(circle at 72% 48%,rgba(72,198,255,.12),transparent 30%),radial-gradient(circle at 88% 18%,rgba(255,197,113,.12),transparent 19%)}
 body.universe-home .hero-scene-2::before{background:radial-gradient(circle at 78% 48%,rgba(82,180,255,.24),transparent 23%),radial-gradient(circle at 68% 72%,rgba(118,92,255,.16),transparent 25%)}
 body.universe-home .hero-scene-3::before{background:radial-gradient(circle at 74% 44%,rgba(75,216,255,.22),transparent 22%),radial-gradient(circle at 30% 25%,rgba(128,94,255,.16),transparent 24%)}
