@@ -1,6 +1,7 @@
 /* Agile Orbit — AI-era composition guardrails */
 body.universe-home .hero-type-ai::before,
 body.universe-home .hero-type-ai::after{display:none!important}
+body.universe-home .hero-type-ai .hero-scene-inner::after{display:none!important}
 
 body.universe-home .hero-type-ai .ai-visual-label,
 body.universe-home .hero-type-ai .ai-callout-art,
