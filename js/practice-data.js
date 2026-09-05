@@ -21,22 +21,17 @@ function joinBuffers(buffers){
  return out;
 }
 function normalize(r){
- return {
-  id:r[0],theme:r[1],subtheme:r[2],framework:r[3],question:r[4],
-  options:[r[5]||'',r[6]||'',r[7]||'',r[8]||'',r[9]||'',r[10]||''],
-  correctAnswer:r[11],correctAnswerText:r[12],feedback:r[13]||''
- };
+ return {id:r[0],theme:r[1],subtheme:r[2],framework:r[3],question:r[4],options:[r[5]||'',r[6]||'',r[7]||'',r[8]||'',r[9]||'',r[10]||''],correctAnswer:r[11],correctAnswerText:r[12],feedback:r[13]||''};
 }
 Promise.all(parts.map(name=>fetch('../js/'+name,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Failed to load '+name);return r.arrayBuffer()})))
 .then(buffers=>new Response(new Blob([joinBuffers(buffers)]).stream().pipeThrough(new DecompressionStream('deflate'))).arrayBuffer())
 .then(buf=>JSON.parse(new TextDecoder().decode(buf)))
 .then(rows=>{
  if(!Array.isArray(rows)||rows.length!==expected)throw new Error('Practice bank row count mismatch: '+(rows&&rows.length));
- const q=rows.map(normalize), counts=new Map(); q.forEach(x=>counts.set(x.theme,(counts.get(x.theme)||0)+1));
+ const q=rows.map(normalize),counts=new Map();q.forEach(x=>counts.set(x.theme,(counts.get(x.theme)||0)+1));
  const badThemes=window.PRACTICE_THEMES.filter(([t,c])=>counts.get(t)!==c);
- const badRows=q.filter(x=>!x.id||!x.theme||!x.question||x.options.filter(Boolean).length<2||!x.correctAnswer||!x.correctAnswerText);
- const ids=new Set(q.map(x=>x.id));
- if(badThemes.length||badRows.length||ids.size!==expected)throw new Error('Practice bank integrity validation failed');
+ const badRows=q.filter(x=>!x.id||!x.theme||!x.question||x.options.filter(Boolean).length<2||!x.correctAnswer||x.correctAnswerText===null||x.correctAnswerText===undefined||x.correctAnswerText==='');
+ if(badThemes.length||badRows.length||new Set(q.map(x=>x.id)).size!==expected)throw new Error('Practice bank integrity validation failed');
  window.PRACTICE_QUESTIONS=q;
  document.dispatchEvent(new CustomEvent('practice-data-ready'));
 })
