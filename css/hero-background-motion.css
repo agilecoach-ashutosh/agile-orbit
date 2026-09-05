@@ -1,0 +1,19 @@
+/* Agile Orbit — slow cinematic background breathing */
+body.universe-home .hero-scene-inner,
+body.universe-home .hero-closing-media{
+  animation: heroBackgroundBreath 18s ease-in-out infinite alternate;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+@keyframes heroBackgroundBreath{
+  0%{transform:scale(1)}
+  100%{transform:scale(1.045)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  body.universe-home .hero-scene-inner,
+  body.universe-home .hero-closing-media{
+    animation:none!important;
+  }
+}
