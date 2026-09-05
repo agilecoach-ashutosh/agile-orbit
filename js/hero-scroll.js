@@ -18,9 +18,6 @@
         <div class="ai-divider"></div>
         <p class="ai-lead">The more complex the world becomes,<br>the more we need to <strong>learn, adapt and deliver value</strong> — not less.</p>
       </div>
-      <div class="ai-visual-label ai-label-ai" data-reveal><div><strong>Accelerates</strong><span>what we can do.</span></div></div>
-      <div class="ai-globe-statement" data-reveal>In a complex world,<br><strong>uncertainty isn’t a bug.</strong><br><strong>It’s a feature.</strong></div>
-      <div class="ai-visual-label ai-label-agile" data-reveal><div><strong>Helps us learn</strong><span>what to do next.</span></div></div>
       <section class="ai-info-panel" data-reveal aria-label="Computational irreducibility and Agile learning loop">
         <section class="ai-info-left">
           <h2 class="ai-panel-title">Wolfram's Computational<br>Irreducibility</h2>
