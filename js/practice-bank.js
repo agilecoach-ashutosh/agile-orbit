@@ -8,24 +8,17 @@
     ['Scrum Foundations, Principles & Empiricism',92],
     ['Scrum Events, Facilitation, Coaching & Scrum Master',63],
     ['Product Ownership, Backlog & Value Management',102],
-    ['Increment, Definition of Done & Product Quality',27],
+    ['Scrum Scaling, Cross-Team Collaboration & Nexus',23],
     ['Stakeholders, Customers & Value',26],
-    ['Scaling, Cross-Team Collaboration & Nexus',23],
+    ['Increment, Definition of Done & Product Quality',27],
+    ['Product Design, Architecture & Technical Quality',17],
     ['SAFe Delivery, ART, PI Planning & Flow',62],
-    ['SAFe Portfolio, Strategy & Implementation',40],
-    ['Product Design, Architecture & Technical Quality',17]
+    ['SAFe Portfolio, Strategy & Implementation',40]
   ];
 
   const scriptUrl=document.currentScript ? document.currentScript.src : new URL('practice-bank.js',document.baseURI).href;
   const dataBase=new URL('.',scriptUrl);
   window.AGILE_ORBIT_PRACTICE={questions:[],themes:THEMES};
-
-  function base64ToBytes(text){
-    const binary=atob(text.replace(/\s+/g,''));
-    const bytes=new Uint8Array(binary.length);
-    for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);
-    return bytes.buffer;
-  }
 
   async function decompress(buffer){
     let last;
@@ -49,9 +42,7 @@
   async function loadPart(name){
     const response=await fetch(new URL(name+'?v=practice-fresh-20260905',dataBase).href,{cache:'no-store'});
     if(!response.ok)throw new Error('Practice bank part failed: '+response.status);
-    const encoded=await response.text();
-    const raw=base64ToBytes(encoded);
-    return JSON.parse(new TextDecoder().decode(await decompress(raw)));
+    return response.arrayBuffer();
   }
 
   function validate(q){
@@ -68,8 +59,13 @@
 
   async function init(){
     try{
-      const parts=await Promise.all(PARTS.map(loadPart));
-      const questions=parts.flat().map(normalize);
+      const buffers=await Promise.all(PARTS.map(loadPart));
+      const total=buffers.reduce((sum,b)=>sum+b.byteLength,0);
+      const combined=new Uint8Array(total);
+      let offset=0;
+      for(const buffer of buffers){combined.set(new Uint8Array(buffer),offset);offset+=buffer.byteLength;}
+      const decoded=await decompress(combined.buffer);
+      const questions=JSON.parse(new TextDecoder().decode(decoded)).map(normalize);
       validate(questions);
       window.AGILE_ORBIT_PRACTICE.questions=questions;
       document.dispatchEvent(new CustomEvent('agile-orbit-practice-ready'));
