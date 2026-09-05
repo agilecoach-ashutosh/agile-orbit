@@ -1,184 +1,66 @@
 /* Agile Orbit — mobile hero composition
    Desktop is intentionally untouched. This file only affects phones/small tablets. */
-@media (max-width: 760px) {
-  body.universe-home .hero-scroll-stage { height: auto !important; }
-  body.universe-home .hero-scenes { position: relative !important; inset: auto !important; overflow: visible !important; }
+@media (max-width:760px) {
+  body.universe-home .hero-scroll-stage { height:auto!important; }
+  body.universe-home .hero-scenes { position:relative!important; inset:auto!important; overflow:visible!important; }
+  body.universe-home .hero-scene { position:relative!important; inset:auto!important; width:100%!important; height:100svh!important; min-height:640px!important; padding:0!important; display:block!important; overflow:hidden!important; }
+  body.universe-home .hero-scene-inner { position:absolute!important; inset:0!important; width:100%!important; height:100%!important; }
+  body.universe-home .hero-layer-main { inset:0!important; width:100%!important; height:100%!important; object-fit:cover!important; }
+  body.universe-home .hero-copy { position:absolute!important; left:20px!important; right:20px!important; top:92px!important; bottom:auto!important; width:auto!important; max-width:calc(100% - 40px)!important; transform:none!important; z-index:10!important; }
+  body.universe-home .hero-tag { margin-bottom:14px!important; font-size:.54rem!important; letter-spacing:.23em!important; }
+  body.universe-home .hero-tag::before { width:24px!important; }
+  body.universe-home .hero-title { margin:0 0 14px!important; font-size:clamp(2.5rem,11.8vw,3.8rem)!important; line-height:.9!important; letter-spacing:-.065em!important; }
+  body.universe-home .hero-subtitle { font-size:.95rem!important; line-height:1.35!important; margin:0 0 8px!important; }
+  body.universe-home .hero-body { max-width:330px!important; margin:0 0 16px!important; font-size:.82rem!important; line-height:1.48!important; }
+  body.universe-home .hero-cta { min-height:42px!important; height:42px!important; padding:10px 16px!important; font-size:.66rem!important; gap:7px!important; box-sizing:border-box!important; }
+  body.universe-home .hero-stats { display:grid!important; grid-template-columns:repeat(2,minmax(0,1fr))!important; gap:14px 22px!important; margin-top:24px!important; }
+  body.universe-home .hero-stat { border:0!important; margin:0!important; padding:0!important; min-width:0!important; }
+  body.universe-home .hero-stat strong { font-size:1.25rem!important; }
+  body.universe-home .hero-stat span { margin-top:4px!important; font-size:.48rem!important; white-space:normal!important; line-height:1.25!important; }
 
-  /* Give every cinematic panel a real mobile canvas. */
-  body.universe-home .hero-scene {
-    position: relative !important;
-    inset: auto !important;
-    width: 100% !important;
-    height: 100svh !important;
-    min-height: 640px !important;
-    padding: 0 !important;
-    display: block !important;
-    overflow: hidden !important;
-  }
-  body.universe-home .hero-scene-inner {
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
-  body.universe-home .hero-layer-main {
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
+  /* Compact 3-card destination rail. */
+  body.universe-home .hero-cards, body.universe-home .hero-feature-links { position:absolute!important; left:12px!important; right:12px!important; top:auto!important; bottom:30px!important; width:auto!important; height:76px!important; margin:0!important; transform:none!important; display:grid!important; grid-template-columns:repeat(3,minmax(0,1fr))!important; grid-template-rows:76px!important; gap:6px!important; z-index:20!important; }
+  body.universe-home .hero-feature-links .hero-card, body.universe-home .hero-cards .hero-card { position:relative!important; width:100%!important; min-width:0!important; min-height:76px!important; height:76px!important; max-height:76px!important; box-sizing:border-box!important; padding:8px 5px!important; margin:0!important; display:flex!important; flex-direction:column!important; align-items:center!important; justify-content:center!important; gap:4px!important; border-radius:11px!important; overflow:hidden!important; text-align:center!important; }
+  body.universe-home .hero-feature-links .hero-card-icon, body.universe-home .hero-cards .hero-card-icon { width:30px!important; height:30px!important; flex:0 0 30px!important; font-size:.85rem!important; border-radius:8px!important; display:grid!important; place-items:center!important; }
+  body.universe-home .hero-feature-links .hero-card-tag, body.universe-home .hero-cards .hero-card-tag { position:static!important; display:block!important; max-width:100%!important; margin:0!important; padding:0!important; overflow:hidden!important; text-overflow:ellipsis!important; white-space:nowrap!important; font-size:.36rem!important; line-height:1!important; letter-spacing:.08em!important; }
+  body.universe-home .hero-feature-links .hero-card strong, body.universe-home .hero-cards .hero-card strong { display:block!important; max-width:100%!important; margin:0!important; padding:0!important; overflow:hidden!important; text-overflow:ellipsis!important; white-space:nowrap!important; font-size:.57rem!important; line-height:1.1!important; text-align:center!important; }
+  body.universe-home .hero-feature-links .hero-card-arrow, body.universe-home .hero-cards .hero-card-arrow { display:none!important; }
 
-  /* Text stays in a clean left column; it never shares the card column. */
-  body.universe-home .hero-copy {
-    position: absolute !important;
-    left: 24px !important;
-    right: 24px !important;
-    top: 105px !important;
-    bottom: auto !important;
-    width: auto !important;
-    max-width: 305px !important;
-    transform: none !important;
-    z-index: 10 !important;
-  }
-  body.universe-home .hero-tag { margin-bottom: 16px !important; font-size: .55rem !important; letter-spacing: .24em !important; }
-  body.universe-home .hero-tag::before { width: 24px !important; }
-  body.universe-home .hero-title {
-    margin-bottom: 15px !important;
-    font-size: clamp(2.65rem, 12.5vw, 4rem) !important;
-    line-height: .9 !important;
-    letter-spacing: -.065em !important;
-  }
-  body.universe-home .hero-subtitle { font-size: 1rem !important; line-height: 1.35 !important; }
-  body.universe-home .hero-body {
-    max-width: 300px !important;
-    margin-bottom: 18px !important;
-    font-size: .84rem !important;
-    line-height: 1.55 !important;
-  }
-  body.universe-home .hero-cta { min-height: 46px !important; padding: 12px 17px !important; }
+  body.universe-home .hero-edge { right:5px!important; top:52%!important; max-width:70px!important; font-size:.38rem!important; line-height:1.6!important; letter-spacing:.15em!important; z-index:12!important; }
+  body.universe-home .hero-quote, body.universe-home .hero-scroll-hint { display:none!important; }
+  body.universe-home .hero-index { left:5px!important; z-index:120!important; }
+  body.universe-home .hero-index span { height:12px!important; }
 
-  /* Feature cards become a compact bottom rail instead of a desktop side column. */
-  body.universe-home .hero-cards {
-    position: absolute !important;
-    left: 20px !important;
-    right: 20px !important;
-    top: auto !important;
-    bottom: 46px !important;
-    width: auto !important;
-    margin: 0 !important;
-    transform: none !important;
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 7px !important;
-    z-index: 11 !important;
-  }
-  body.universe-home .hero-card {
-    min-width: 0 !important;
-    min-height: 78px !important;
-    padding: 9px 6px !important;
-    gap: 4px !important;
-    border-radius: 12px !important;
-    overflow: hidden !important;
-  }
-  body.universe-home .hero-card-icon { font-size: 1.05rem !important; }
-  body.universe-home .hero-card-tag {
-    max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
-    font-size: .42rem !important; letter-spacing: .12em !important;
-  }
-  body.universe-home .hero-card strong {
-    display: block !important;
-    max-width: 100% !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    white-space: normal !important;
-    font-size: .62rem !important;
-    line-height: 1.15 !important;
-  }
-  body.universe-home .hero-card-arrow { display: none !important; }
+  body.universe-home .hero-closing { position:relative!important; inset:auto!important; width:100%!important; height:100svh!important; min-height:640px!important; margin:0!important; padding:92px 20px 125px!important; display:block!important; overflow:hidden!important; }
+  body.universe-home .hero-closing-content { max-width:330px!important; position:relative!important; z-index:10!important; }
+  body.universe-home .hero-closing .hero-title { font-size:clamp(2.5rem,11.8vw,3.8rem)!important; }
+  body.universe-home .hero-closing .hero-stats { margin-top:26px!important; }
 
-  body.universe-home .hero-edge {
-    right: 7px !important;
-    top: 52% !important;
-    max-width: 80px !important;
-    font-size: .4rem !important;
-    line-height: 1.7 !important;
-    letter-spacing: .18em !important;
-  }
-  body.universe-home .hero-quote,
-  body.universe-home .hero-scroll-hint { display: none !important; }
-  body.universe-home .hero-index { left: 8px !important; }
-
-  /* The closing panel follows the same full-screen mobile treatment. */
-  body.universe-home .hero-closing {
-    position: relative !important;
-    inset: auto !important;
-    width: 100% !important;
-    height: 100svh !important;
-    min-height: 640px !important;
-    margin: 0 !important;
-    padding: 105px 24px 60px !important;
-    display: flex !important;
-    align-items: flex-start !important;
-  }
-  body.universe-home .hero-closing-content { max-width: 305px !important; }
-  body.universe-home .hero-closing .hero-title { font-size: clamp(2.65rem, 12.5vw, 4rem) !important; }
-  body.universe-home .hero-closing .hero-stats { margin-top: 28px !important; }
-
-  /* AI panel: keep the explanatory content readable and vertically ordered. */
-  body.universe-home .hero-type-ai {
-    height: auto !important;
-    min-height: 100svh !important;
-    padding: 0 !important;
-    display: block !important;
-    overflow: hidden !important;
-  }
-  body.universe-home .hero-type-ai .hero-scene-inner { display: block !important; }
-  body.universe-home .ai-hero-content {
-    position: relative !important;
-    width: 100% !important;
-    min-height: 100svh !important;
-    padding: 104px 22px 55px !important;
-    display: block !important;
-    overflow: hidden !important;
-  }
-  body.universe-home .ai-main-copy { max-width: 330px !important; }
-  body.universe-home .ai-info-panel {
-    position: relative !important;
-    inset: auto !important;
-    width: 100% !important;
-    margin-top: 28px !important;
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 18px !important;
-  }
-  body.universe-home .ai-info-left,
-  body.universe-home .ai-info-center,
-  body.universe-home .ai-info-right { width: 100% !important; min-width: 0 !important; }
-  body.universe-home .ai-panel-title { font-size: 1.35rem !important; line-height: 1.05 !important; }
-  body.universe-home .ai-panel-body { font-size: .82rem !important; line-height: 1.5 !important; }
-  body.universe-home .ai-steps {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 10px !important;
-  }
-  body.universe-home .ai-step { min-width: 0 !important; }
-  body.universe-home .ai-quote { font-size: 1rem !important; line-height: 1.3 !important; }
-  body.universe-home .ai-benefits {
-    position: relative !important;
-    inset: auto !important;
-    width: 100% !important;
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-    margin-top: 24px !important;
-  }
-  body.universe-home .ai-benefit { min-width: 0 !important; }
+  /* AI scene remains readable on mobile. */
+  body.universe-home .hero-type-ai { height:auto!important; min-height:100svh!important; padding:0!important; display:block!important; overflow:hidden!important; }
+  body.universe-home .hero-type-ai .hero-scene-inner { display:block!important; }
+  body.universe-home .ai-hero-content { position:relative!important; width:100%!important; min-height:100svh!important; padding:104px 22px 55px!important; display:block!important; overflow:hidden!important; }
+  body.universe-home .ai-main-copy { max-width:330px!important; }
+  body.universe-home .ai-info-panel { position:relative!important; inset:auto!important; width:100%!important; margin-top:28px!important; display:grid!important; grid-template-columns:1fr!important; gap:18px!important; }
+  body.universe-home .ai-info-left, body.universe-home .ai-info-center, body.universe-home .ai-info-right { width:100%!important; min-width:0!important; }
+  body.universe-home .ai-panel-title { font-size:1.35rem!important; line-height:1.05!important; }
+  body.universe-home .ai-panel-body { font-size:.82rem!important; line-height:1.5!important; }
+  body.universe-home .ai-steps { display:grid!important; grid-template-columns:repeat(2,minmax(0,1fr))!important; gap:10px!important; }
+  body.universe-home .ai-step { min-width:0!important; }
+  body.universe-home .ai-quote { font-size:1rem!important; line-height:1.3!important; }
+  body.universe-home .ai-benefits { position:relative!important; inset:auto!important; width:100%!important; display:grid!important; grid-template-columns:1fr!important; gap:12px!important; margin-top:24px!important; }
+  body.universe-home .ai-benefit { min-width:0!important; }
 }
 
-@media (max-width: 420px) {
-  body.universe-home .hero-copy { left: 22px !important; right: 22px !important; max-width: 290px !important; }
-  body.universe-home .hero-title { font-size: clamp(2.5rem, 12.2vw, 3.6rem) !important; }
-  body.universe-home .hero-cards { left: 16px !important; right: 16px !important; gap: 5px !important; }
-  body.universe-home .hero-card { min-height: 72px !important; padding: 8px 4px !important; }
-  body.universe-home .hero-card strong { font-size: .57rem !important; }
+@media(max-width:420px){
+  body.universe-home .hero-copy { left:18px!important; right:18px!important; max-width:calc(100% - 36px)!important; }
+  body.universe-home .hero-title { font-size:clamp(2.35rem,11.6vw,3.5rem)!important; }
+  body.universe-home .hero-body { max-width:300px!important; font-size:.78rem!important; }
+  body.universe-home .hero-cards, body.universe-home .hero-feature-links { left:9px!important; right:9px!important; bottom:26px!important; height:72px!important; grid-template-rows:72px!important; gap:5px!important; }
+  body.universe-home .hero-feature-links .hero-card, body.universe-home .hero-cards .hero-card { min-height:72px!important; height:72px!important; max-height:72px!important; padding:7px 4px!important; }
+  body.universe-home .hero-feature-links .hero-card-icon, body.universe-home .hero-cards .hero-card-icon { width:27px!important; height:27px!important; flex-basis:27px!important; font-size:.78rem!important; }
+  body.universe-home .hero-feature-links .hero-card strong, body.universe-home .hero-cards .hero-card strong { font-size:.53rem!important; }
+  body.universe-home .hero-feature-links .hero-card-tag, body.universe-home .hero-cards .hero-card-tag { font-size:.33rem!important; }
 }
+
+@media(prefers-reduced-motion:reduce){ body.universe-home .hero-scene, body.universe-home .hero-layer-main { transition:none!important; } }
