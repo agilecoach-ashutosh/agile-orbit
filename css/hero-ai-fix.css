@@ -57,11 +57,11 @@ body.universe-home .hero-type-ai .ai-benefits{z-index:9}
   body.universe-home .hero-type-ai .ai-quote{font-size:clamp(.82rem,1vw,1rem)}
   body.universe-home .hero-type-ai .ai-quote cite{margin-top:8px;font-size:.64rem}
 
-  /* Raise benefits/signature by a further 10vh to increase the bottom safe area. */
+  /* Move benefits/signature down by 5 percentage points while retaining a clear bottom safe area. */
   body.universe-home .hero-type-ai .ai-benefits{
     left:4.7vw;
     right:4.7vw;
-    bottom:13.6%;
+    bottom:8.6%;
     grid-template-columns:repeat(4,1fr) 1.04fr;
     gap:18px;
   }
@@ -86,7 +86,7 @@ body.universe-home .hero-type-ai .ai-benefits{z-index:9}
     padding:13px 22px;
   }
   body.universe-home .hero-type-ai .ai-step-icon{width:42px;height:42px;font-size:1rem}
-  body.universe-home .hero-type-ai .ai-benefits{bottom:11.0%;gap:12px}
+  body.universe-home .hero-type-ai .ai-benefits{bottom:6.0%;gap:12px}
   body.universe-home .hero-type-ai .ai-benefit{font-size:clamp(.66rem,.76vw,.8rem);gap:8px}
   body.universe-home .hero-type-ai .ai-benefit-icon{font-size:1.4rem}
   body.universe-home .hero-type-ai .ai-signature{font-size:1rem}
@@ -97,7 +97,7 @@ body.universe-home .hero-type-ai .ai-benefits{z-index:9}
   body.universe-home .hero-type-ai .hero-layer-main{transform:translate3d(4.2vw,0,0) scale(1)!important}
   body.universe-home .hero-type-ai .ai-title{font-size:clamp(2.15rem,2.9vw,3.2rem)}
   body.universe-home .hero-type-ai .ai-info-panel{bottom:12.4%;min-height:132px;padding:11px 20px}
-  body.universe-home .hero-type-ai .ai-benefits{bottom:9.7%;gap:9px}
+  body.universe-home .hero-type-ai .ai-benefits{bottom:4.7%;gap:9px}
   body.universe-home .hero-type-ai .ai-benefit{font-size:clamp(.6rem,.7vw,.72rem)}
   body.universe-home .hero-type-ai .ai-signature{font-size:.92rem}
 }
