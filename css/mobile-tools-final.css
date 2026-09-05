@@ -1,0 +1,12 @@
+/* Final mobile tool-card styling. Desktop is untouched. */
+@media (max-width:760px){
+  body.universe-home .hero-cards.hero-live-tools .hero-tool-card{color:#effcff!important;text-align:center!important;}
+  body.universe-home .hero-cards.hero-live-tools .hero-tool-card .hero-card-icon{color:#b9f4ff!important;}
+  body.universe-home .hero-cards.hero-live-tools .hero-tool-card .hero-tool-copy{min-width:0!important;max-width:100%!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:3px!important;}
+  body.universe-home .hero-cards.hero-live-tools .hero-tool-card .hero-tool-copy small{display:block!important;color:#69ddff!important;font-size:.36rem!important;font-weight:800!important;line-height:1!important;letter-spacing:.08em!important;text-transform:uppercase!important;white-space:nowrap!important;}
+  body.universe-home .hero-cards.hero-live-tools .hero-tool-card .hero-tool-copy strong{display:block!important;color:#f1fbff!important;font-size:.57rem!important;font-weight:800!important;line-height:1.1!important;text-align:center!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;max-width:100%!important;}
+}
+@media (max-width:420px){
+  body.universe-home .hero-cards.hero-live-tools .hero-tool-card .hero-tool-copy small{font-size:.33rem!important;}
+  body.universe-home .hero-cards.hero-live-tools .hero-tool-card .hero-tool-copy strong{font-size:.53rem!important;}
+}
