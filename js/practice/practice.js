@@ -16,7 +16,7 @@
     'SAFe Delivery, ART, PI Planning & Flow': 62,
     'SAFe Portfolio, Strategy & Implementation': 40,
   };
-  const escapeHtml = (value) => String(value ?? '').replace(/[&<>'"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char]);
+  const escapeHtml = (value) => String(value ?? '').replace(/[&<>'\"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char]);
   const shuffle = (items) => {
     const copy = [...items];
     for (let index = copy.length - 1; index > 0; index -= 1) {
@@ -53,9 +53,15 @@
     window.history.replaceState({}, '', url);
   }
 
+  function clearSavedTheme() {
+    try { window.localStorage.removeItem('agile-orbit-practice-theme'); } catch (_) { /* Optional preference only. */ }
+  }
+
   function renderThemes() {
+    state.theme = null;
     state.session = null;
     setThemeInUrl('');
+    clearSavedTheme();
     app.innerHTML = `
       <div class="practice-head">
         <div><span class="eyebrow">Practice themes</span><h2>Choose your focus</h2></div>
@@ -127,7 +133,12 @@
     const primaryLabel = state.mode === 'practice' && !checked ? 'Check answer' : nextLabel;
 
     app.innerHTML = `
-      <div class="practice-session-meta"><span>${escapeHtml(state.theme.name)}</span><span class="tag">${state.mode === 'practice' ? 'Practice mode' : 'Exam mode'}</span></div>
+      <div class="practice-session-meta">
+        <span>${escapeHtml(state.theme.name)}</span>
+        <span class="tag">${state.mode === 'practice' ? 'Practice mode' : 'Exam mode'}</span>
+        <button class="btn btn-secondary" type="button" data-action="themes">← Back to themes</button>
+        <button class="btn btn-secondary" type="button" data-action="quit">Quit session</button>
+      </div>
       <div class="practice-progress"><div class="practice-progress-label"><span>Question ${state.session.index + 1} of ${state.session.questions.length}</span><span>${progress}% complete</span></div><div class="progress"><span style="width:${progress}%"></span></div></div>
       <article class="panel practice-question">
         ${question.framework ? `<span class="tag">${escapeHtml(question.framework)}</span>` : ''}
@@ -214,6 +225,14 @@
     renderQuestion();
   }
 
+  function quitSession() {
+    state.session = null;
+    state.theme = null;
+    setThemeInUrl('');
+    clearSavedTheme();
+    renderThemes();
+  }
+
   app.addEventListener('change', (event) => {
     if (event.target.matches('input[name="practice-mode"]')) state.mode = event.target.value;
     if (event.target.matches('input[name="practice-answer"]')) captureAnswer();
@@ -232,6 +251,7 @@
     if (action === 'previous') previous();
     if (action === 'retry') retrySession();
     if (action === 'new-session') startSession();
+    if (action === 'quit') quitSession();
   });
 
   const error = validateBank();
@@ -239,9 +259,11 @@
     app.innerHTML = `<div class="panel practice-empty"><h2>Practice is unavailable</h2><p class="muted">${escapeHtml(error)}</p></div>`;
     return;
   }
+
+  // A plain navigation to Practice must always open the theme hub. A theme is
+  // restored only when explicitly present in the URL (e.g. a bookmarked theme).
   const queryTheme = new URLSearchParams(window.location.search).get('theme');
-  const savedTheme = (() => { try { return window.localStorage.getItem('agile-orbit-practice-theme'); } catch (_) { return null; } })();
-  state.theme = bank.themes.find((theme) => theme.name === queryTheme) || bank.themes.find((theme) => theme.name === savedTheme) || null;
+  state.theme = bank.themes.find((theme) => theme.name === queryTheme) || null;
   if (state.theme) renderSetup();
   else renderThemes();
 })();
