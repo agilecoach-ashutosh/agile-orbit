@@ -7,6 +7,14 @@ window.AGILE_ORBIT_HERO_SCENES = {
   ],
   scenes: [
     {
+      id:'ai-era', tag:'THE AI ERA', title:'AI can accelerate the computation.<br>It cannot eliminate uncertainty.', accent:'',
+      subtitle:'Wolfram’s Computational Irreducibility',
+      body:'Some complex systems cannot be predicted simply by calculating ahead — the only way to know what happens is to let the system run.<br><br><strong class="ai-flow">BUILD → OBSERVE → LEARN → ADAPT</strong>',
+      cta:'', href:'#', edge:'COMPLEXITY · UNCERTAINTY · ADAPTATION',
+      quote:'“Build into your working method the assumption of change, discovery, and new ideas.” — Jeff Sutherland',
+      type:'ai', image:'assets/hero/hero-ai-agile.webp', position:'center center'
+    },
+    {
       id:'welcome', tag:'WELCOME TO', title:'AGILE ORBIT', accent:'ORBIT',
       subtitle:'', body:'Learn. Think. Practice. Use.',
       cta:'Begin the Journey →', href:'learn/', edge:'PEOPLE · PRACTICES · POSSIBILITIES',
