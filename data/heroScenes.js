@@ -32,8 +32,8 @@ window.AGILE_ORBIT_HERO_SCENES = {
       cta:'Explore Tools →', href:'tools/', edge:'PRACTICAL TOOLS · REAL RESULTS',
       type:'cards', image:'assets/hero/04-tools.webp', position:'center center',
       cards:[
-        ['Sprint Capacity','◫','tools/sprint-capacity.html','PLANNING'],
-        ['Value Stream Flow Efficiency','⇢','tools/flow-efficiency.html','FLOW'],
+        ['Capacity Calculator','◫','tools/sprint-capacity.html','PLANNING'],
+        ['Efficiency Calculator','⇢','tools/flow-efficiency.html','FLOW'],
         ['WSJF Calculator','⌘','tools/wsjf-calculator.html','PRIORITISATION']
       ]
     },
