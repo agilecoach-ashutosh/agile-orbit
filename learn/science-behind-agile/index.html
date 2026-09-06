@@ -70,8 +70,9 @@
   </div>
 </section>
 
-<!-- Hidden data layer used by the existing Science Library engine and theme carousel. It is intentionally not rendered as a search UI. -->
+<!-- Internal data layer: not a user-facing search/library. The existing science content engine populates it for the theme carousel. -->
 <section id="science-library" class="science-data-layer" aria-hidden="true">
+  <div id="domain-grid"></div>
   <input id="science-search" type="search"><div id="domain-filters"></div><select id="science-sort"><option value="featured">Featured</option><option value="evidence">Evidence strength</option><option value="alpha">A–Z</option></select>
   <div id="science-count"></div><div id="science-cards"></div><div id="science-empty" hidden></div>
 </section>
