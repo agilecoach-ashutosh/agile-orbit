@@ -33,7 +33,7 @@
     document.querySelectorAll('.tech-slide .tech-visual').forEach((el,i)=>{
       const file=files[i];if(!file)return;
       const img=document.createElement('img');
-      img.src=b+'assets/images/facilitation/'+file;
+      img.src=new URL('/agile-orbit/assets/images/facilitation/'+file,location.origin).href;
       img.alt='Hand-drawn visual for '+(document.querySelectorAll('.tech-slide')[i]?.querySelector('.tech-title')?.textContent||'facilitation technique');
       img.loading=i===0?'eager':'lazy';img.decoding='async';
       el.classList.add('tech-cartoon-visual');el.replaceChildren(img);
