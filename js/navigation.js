@@ -27,15 +27,17 @@
   function enhanceFacilitationTechniqueCartoons(){
     if(!location.pathname.includes('/learn/facilitation/techniques.html'))return;
     const files=['01-1-2-4-All.png','02-Roman-Voting.png','03-Dot-Voting.png','04-Fist-of-Five.png','05-Affinity-Mapping.png','06-Gallery-Walk.png','07-White-Elephant.png','08-Diverge-Converge.png','09-TRIZ.png','10-Team-Agreement.png','11-Thirty-Five.png','12-Buy-a-Feature.png'];
+    const rawBase='https://raw.githubusercontent.com/agilecoach-ashutosh/agile-orbit/main/assets/images/facilitation/';
     const style=document.createElement('style');
     style.textContent='.tech-visual.tech-cartoon-visual{padding:0!important;background:#fff!important;border:1px solid rgba(255,255,255,.16)!important;overflow:hidden;min-height:260px!important}.tech-cartoon-visual img{display:block;width:100%;height:100%;min-height:260px;object-fit:contain;border-radius:15px}.tech-cartoon-visual>*{margin:0!important}@media(max-width:800px){.tech-cartoon-visual img{min-height:220px}}';
     document.head.appendChild(style);
     document.querySelectorAll('.tech-slide .tech-visual').forEach((el,i)=>{
       const file=files[i];if(!file)return;
       const img=document.createElement('img');
-      img.src=new URL('/agile-orbit/assets/images/facilitation/'+file,location.origin).href;
+      img.src=rawBase+encodeURIComponent(file)+'?v=20260907';
       img.alt='Hand-drawn visual for '+(document.querySelectorAll('.tech-slide')[i]?.querySelector('.tech-title')?.textContent||'facilitation technique');
       img.loading=i===0?'eager':'lazy';img.decoding='async';
+      img.addEventListener('error',()=>{img.src=b+'assets/images/facilitation/'+file+'?v=20260907';});
       el.classList.add('tech-cartoon-visual');el.replaceChildren(img);
     });
   }
