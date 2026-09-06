@@ -6,17 +6,28 @@ window.SITE_CONFIG=SITE_CONFIG;
   const addScienceLink=()=>{
     const base=location.pathname.includes('/agile-orbit/')?'/agile-orbit/':'/';
     const href=base+'learn/science-behind-agile/';
-    const desktop=document.querySelector('.nav-item [data-section="learn"]')?.nextElementSibling;
-    if(desktop?.classList.contains('nav-dropdown')&&!desktop.querySelector(`a[href="${href}"]`)){
-      const link=document.createElement('a');link.href=href;link.setAttribute('role','menuitem');link.textContent='Science Behind Agile';
-      const facilitation=desktop.querySelector('a[href*="learn/facilitation/"]');desktop.insertBefore(link,facilitation||null);
+
+    const learnItem=document.querySelector('.nav-item.has-dropdown .nav-link[data-section="learn"]')?.closest('.nav-item.has-dropdown');
+    const desktop=learnItem?.querySelector(':scope > .nav-dropdown');
+    if(desktop&&!desktop.querySelector(`a[href="${href}"]`)){
+      const link=document.createElement('a');
+      link.href=href;
+      link.setAttribute('role','menuitem');
+      link.textContent='Science Behind Agile';
+      const facilitation=desktop.querySelector('a[href*="learn/facilitation/"]');
+      desktop.insertBefore(link,facilitation||null);
     }
+
     const learnGroup=[...document.querySelectorAll('.mobile-nav-group')].find(g=>g.querySelector(':scope > summary')?.textContent.trim()==='Learn');
     if(learnGroup&&!learnGroup.querySelector(`:scope > a[href="${href}"]`)){
-      const link=document.createElement('a');link.href=href;link.textContent='Science Behind Agile';
-      const facilitation=learnGroup.querySelector(':scope > details.mobile-nav-subgroup');learnGroup.insertBefore(link,facilitation||null);
+      const link=document.createElement('a');
+      link.href=href;
+      link.textContent='Science Behind Agile';
+      const facilitation=learnGroup.querySelector(':scope > details.mobile-nav-subgroup');
+      learnGroup.insertBefore(link,facilitation||null);
     }
   };
+
   new MutationObserver(addScienceLink).observe(document.documentElement,{childList:true,subtree:true});
   addScienceLink();
 })();
