@@ -1,9 +1,0 @@
-/* Final landing frame for the immersive hero — keeps scene 06 intentional, never empty. */
-body.universe-home .final-scene{position:absolute;inset:0;z-index:21;opacity:0;visibility:hidden;pointer-events:none}
-body.universe-home .final-scene .orbit-beat{left:clamp(28px,8vw,130px);top:50%;width:min(520px,42vw);transform:translateY(-50%);pointer-events:auto}
-body.universe-home .final-scene .orbit-final-stats{position:absolute;right:12vw;top:50%;transform:translateY(-50%);width:min(390px,28vw);display:grid;grid-template-columns:repeat(2,1fr);gap:28px 34px}
-body.universe-home .final-scene .final-stat{padding:18px 0;border-top:1px solid rgba(153,200,231,.18)}
-body.universe-home .final-scene .final-stat strong{display:block;color:#f2fbff;font-size:1.55rem;line-height:1}
-body.universe-home .final-scene .final-stat span{display:block;color:#91a5b7;font-size:.61rem;margin-top:6px}
-@media(max-width:960px){body.universe-home .final-scene .orbit-beat{left:28px;right:28px;width:auto;top:38%}body.universe-home .final-scene .orbit-final-stats{left:28px;right:28px;top:auto;bottom:88px;width:auto;transform:none;gap:10px 22px}}
-@media(max-width:620px){body.universe-home .final-scene .orbit-beat{left:20px;right:20px;top:36%}body.universe-home .final-scene .orbit-final-stats{left:20px;right:20px;bottom:68px;gap:9px 14px}.final-scene .final-stat{padding:11px 0}.final-scene .final-stat strong{font-size:1.05rem}.final-scene .final-stat span{font-size:.5rem}}
