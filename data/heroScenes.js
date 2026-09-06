@@ -21,9 +21,9 @@ window.AGILE_ORBIT_HERO_SCENES = {
       quote:'', type:'hero',
       image:'assets/hero/01-welcome.webp', position:'center center',
       cards:[
-        ['Agile Fundamentals','◫','learn/agile-fundamentals/','FOUNDATIONS'],
-        ['Scrum','◈','learn/scrum/','FRAMEWORK'],
-        ['SAFe','◎','learn/safe/','SCALE']
+        ['Behavioural Psychology','◫','learn/behavioural-psychology/','PEOPLE'],
+        ['Facilitation','◈','learn/facilitation/','FACILITATION'],
+        ['Explore Learn','◎','learn/','KNOWLEDGE']
       ]
     },
     {
