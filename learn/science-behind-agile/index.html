@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Science Behind Agile | Agile Orbit</title>
-<meta name="description" content="Explore 50 scientific principles that help explain Agile practices, from empiricism and queueing theory to cognitive science, systems thinking and probability.">
+<meta name="description" content="Explore the science behind Agile through simple themes, practical connections and deeper evidence.">
 <meta name="theme-color" content="#02050c">
 <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../css/style.css">
@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="../../css/reference-nav.css">
 <link rel="stylesheet" href="../../css/science-behind-agile.css">
 <link rel="stylesheet" href="../../css/science-modal.css">
+<link rel="stylesheet" href="../../css/science-theme-cards.css">
 </head>
 <body class="universe-inner science-page">
 <div id="site-nav"></div>
@@ -27,9 +28,8 @@
     <div class="breadcrumbs"><a href="../../">Home</a><span>/</span><a href="../">Learn</a><span>/</span><span>Science Behind Agile</span></div>
     <span class="eyebrow">LEARN • SCIENCE</span>
     <h1>The Science<br>Behind Agile</h1>
-    <p class="science-hero-lead">Agile practices make more sense when you understand the systems, mathematics, psychology and science underneath them.</p>
-    <div class="science-hero-lines"><span>Complexity explains adaptation.</span><span>Queueing explains flow.</span><span>Psychology explains collaboration.</span><span>Systems thinking explains organizations.</span></div>
-    <a class="btn btn-primary science-cta" href="#science-map">Explore the science ↓</a>
+    <p class="science-hero-lead">Understand the science behind everyday Agile problems — without needing to know the scientific vocabulary first.</p>
+    <a class="btn btn-primary science-cta" href="#science-themes">Explore by theme ↓</a>
   </div>
 </section>
 
@@ -38,8 +38,8 @@
     <div class="science-problem-grid">
       <div>
         <span class="eyebrow">THE MENTAL MODEL</span>
-        <h2>Agile isn't magic.</h2>
-        <p>Many Agile practices are responses to problems that already exist in real-world systems: uncertainty, queues, feedback delay, cognitive limits, coordination cost and incentive distortion.</p>
+        <h2>Start with the problem, not the theory.</h2>
+        <p>You do not need to know the name of a scientific principle before you can learn it. Pick a question that sounds familiar, then discover the science that helps explain it.</p>
       </div>
       <div class="science-flow-card" aria-label="Problem to science to practice to outcome">
         <div><small>01</small><strong>Real-world problem</strong><span>Something is hard, slow or unpredictable.</span></div>
@@ -55,30 +55,70 @@
   </div>
 </section>
 
-<section id="science-map" class="section science-map-section">
+<section id="science-themes" class="section science-themes-section">
   <div class="container">
-    <div class="section-head science-section-head"><div><span class="eyebrow">THE SCIENCE MAP</span><h2>Six lenses. One Agile system.</h2></div><p>Start with a science domain, then follow the practices it helps explain.</p></div>
-    <div id="domain-grid" class="domain-grid"></div>
+    <div class="section-head science-section-head theme-section-head">
+      <div><span class="eyebrow">EXPLORE BY THEME</span><h2>What do you want to understand?</h2></div>
+      <p>Choose the problem or question that feels closest to your world. The science comes next.</p>
+    </div>
+    <div class="science-theme-grid">
+      <button class="science-theme-card" type="button" data-theme-domain="complexity">
+        <span class="theme-icon">🌌</span><span class="theme-number">01</span>
+        <h3>Why Agile Needs Adaptation</h3>
+        <p>Why detailed plans struggle when the work itself keeps changing.</p>
+        <div class="theme-path">Complexity • Emergence • Feedback</div><span class="theme-arrow">Explore →</span>
+      </button>
+      <button class="science-theme-card" type="button" data-theme-domain="flow">
+        <span class="theme-icon">🌊</span><span class="theme-number">02</span>
+        <h3>Why Work Gets Stuck</h3>
+        <p>Why teams can be busy all day and still deliver slowly.</p>
+        <div class="theme-path">Queues • WIP • Bottlenecks</div><span class="theme-arrow">Explore →</span>
+      </button>
+      <button class="science-theme-card" type="button" data-theme-domain="psychology">
+        <span class="theme-icon">🧠</span><span class="theme-number">03</span>
+        <h3>How Humans Think</h3>
+        <p>Why estimation, decisions and collaboration behave the way they do.</p>
+        <div class="theme-path">Cognition • Bias • Motivation</div><span class="theme-arrow">Explore →</span>
+      </button>
+      <button class="science-theme-card" type="button" data-theme-domain="feedback">
+        <span class="theme-icon">🔄</span><span class="theme-number">04</span>
+        <h3>How Teams Learn</h3>
+        <p>Why feedback, experiments and reflection help teams improve.</p>
+        <div class="theme-path">Feedback • Learning • Safety</div><span class="theme-arrow">Explore →</span>
+      </button>
+      <button class="science-theme-card" type="button" data-theme-domain="systems">
+        <span class="theme-icon">🕸</span><span class="theme-number">05</span>
+        <h3>How Organizations Behave</h3>
+        <p>Why structure, dependencies and incentives change delivery.</p>
+        <div class="theme-path">Systems • Networks • Constraints</div><span class="theme-arrow">Explore →</span>
+      </button>
+      <button class="science-theme-card" type="button" data-theme-domain="probability">
+        <span class="theme-icon">📊</span><span class="theme-number">06</span>
+        <h3>Why Forecasts Fail</h3>
+        <p>Why variability makes certainty difficult — and what to do instead.</p>
+        <div class="theme-path">Probability • Variability • Forecasting</div><span class="theme-arrow">Explore →</span>
+      </button>
+    </div>
   </div>
 </section>
 
 <section class="section science-library-section" id="science-library">
   <div class="container">
-    <div class="section-head science-section-head"><div><span class="eyebrow">SCIENCE LIBRARY</span><h2>50 principles worth knowing.</h2></div><p>Every card answers: <em>what happens → why it happens → what Agile does about it.</em></p></div>
+    <div class="section-head science-section-head"><div><span class="eyebrow">SCIENCE LIBRARY</span><h2>The concepts behind the themes.</h2></div><p>Once a theme interests you, explore the individual principles. Search is optional — the themes above are the starting point.</p></div>
     <div class="science-controls">
-      <label class="science-search"><span>⌕</span><input id="science-search" type="search" placeholder="Search science, practice, or problem…" aria-label="Search science library"></label>
+      <label class="science-search"><span>⌕</span><input id="science-search" type="search" placeholder="Search a science concept (optional)…" aria-label="Search science library"></label>
       <div id="domain-filters" class="chip-row" role="tablist" aria-label="Filter science domains"></div>
       <label class="sort-select">Sort <select id="science-sort"><option value="featured">Featured</option><option value="evidence">Evidence strength</option><option value="alpha">A–Z</option></select></label>
     </div>
     <div id="science-count" class="science-count"></div>
     <div id="science-cards" class="science-cards"></div>
-    <div id="science-empty" class="science-empty" hidden>No science cards match that search. Try a practice name, problem, or scientific concept.</div>
+    <div id="science-empty" class="science-empty" hidden>No science cards match that search. Choose a theme above or try a different phrase.</div>
   </div>
 </section>
 
 <section class="section practice-explorer-section" id="practice-explorer">
   <div class="container">
-    <div class="section-head science-section-head"><div><span class="eyebrow">PRACTICE → SCIENCE</span><h2>Start with your Agile practice.</h2></div><p>Agile practitioners usually ask “Why should I do this?” before they ask for a theory lesson.</p></div>
+    <div class="section-head science-section-head"><div><span class="eyebrow">PRACTICE → SCIENCE</span><h2>Start with your Agile practice.</h2></div><p>Already know the practice? See the science that helps explain why it may work.</p></div>
     <div class="practice-explorer-shell">
       <div class="practice-list" id="practice-list"></div>
       <div class="practice-detail" id="practice-detail"></div>
@@ -88,14 +128,14 @@
 
 <section class="section myth-section" id="myths">
   <div class="container">
-    <div class="section-head science-section-head"><div><span class="eyebrow">MYTH ↔ SCIENCE</span><h2>Challenge the Agile claim.</h2></div><p>Credibility increases when we show where the evidence is strong—and where the community often overstates it.</p></div>
+    <div class="section-head science-section-head"><div><span class="eyebrow">MYTH ↔ SCIENCE</span><h2>Challenge the Agile claim.</h2></div><p>See where evidence is strong — and where Agile folklore goes further than the science.</p></div>
     <div id="myth-grid" class="myth-grid"></div>
   </div>
 </section>
 
 <section class="section deep-dive-section" id="deep-dive">
   <div class="container">
-    <div class="section-head science-section-head"><div><span class="eyebrow">DEEP DIVE</span><h2>Go as deep as you need.</h2></div><p>The default page stays fast. Open a topic when you want assumptions, limits, examples and sources.</p></div>
+    <div class="section-head science-section-head"><div><span class="eyebrow">DEEP DIVE</span><h2>Go deeper when you need to.</h2></div><p>Assumptions, limits, examples and sources live here so the main learning path stays fast.</p></div>
     <div id="deep-dive-list" class="deep-dive-list"></div>
   </div>
 </section>
@@ -107,7 +147,7 @@
       <h2>Don't memorize the practice.<br>Understand the mechanism.</h2>
       <p>When you understand the mechanism, you can adapt the practice to context instead of turning Agile into a checklist.</p>
       <div class="loop-steps"><span>Observe</span><b>→</b><span>Explain</span><b>→</b><span>Experiment</span><b>→</b><span>Measure</span><b>→</b><span>Adapt</span></div>
-      <a class="btn btn-primary" href="#science-map">Back to the science map ↑</a>
+      <a class="btn btn-primary" href="#science-themes">Back to themes ↑</a>
     </div>
   </div>
 </section>
@@ -121,6 +161,6 @@
 <script src="../../js/universe-pages.js"></script>
 <script src="../../js/science-behind-agile.js"></script>
 <script src="../../js/science-card-reader.js"></script>
-<script src="../../js/science-domain-navigation.js"></script>
+<script src="../../js/science-theme-navigation.js"></script>
 </body>
 </html>
