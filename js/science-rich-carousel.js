@@ -30,7 +30,7 @@
     return `Imagine this in a delivery situation: ${text.charAt(0).toUpperCase() + text.slice(1)}.`;
   };
 
-  const caveat = (evidence, science) => {
+  const caveat = (evidence) => {
     const e = evidence.toLowerCase();
     if (e.includes('not established') || e.includes('analogy') || e.includes('conceptual'))
       return 'Treat this as a useful conceptual connection, not as proof that the Agile practice was derived from this scientific principle.';
@@ -52,7 +52,7 @@
     if (s.includes('goodhart')) return 'Goodhart’s Law';
     if (s.includes('deming') || s.includes('pdca')) return 'Deming / PDCA process improvement';
     if (s.includes('self-determination')) return 'Self-Determination Theory';
-    if (s.includes('parkison')) return "Parkinson's Law";
+    if (s.includes('parkinson')) return "Parkinson's Law";
     return science;
   };
 
@@ -81,7 +81,7 @@
         <section class="science-rich-panel wide example"><span class="science-rich-kicker">PRACTICAL EXAMPLE</span><p>${esc(example(practice, connection))}</p></section>
       </div>
       <div class="science-rich-bottom">
-        <section><span class="science-rich-kicker">IMPORTANT CAVEAT</span><p>${esc(caveat(evidence, science))}</p></section>
+        <section><span class="science-rich-kicker">IMPORTANT CAVEAT</span><p>${esc(caveat(evidence))}</p></section>
         <section><span class="science-rich-kicker">REFERENCE / FURTHER READING</span><p>${esc(reference(science, practice))}</p></section>
       </div>
       <div class="science-card-bottom"><span>${esc(group)}</span><span>${esc(pos)}</span></div>`;
