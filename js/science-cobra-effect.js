@@ -14,14 +14,14 @@
       reference:'Goodhart’s Law; Campbell’s Law; metrics-design research'
     },
     {
-      practice:'Cobra Effect',
-      science:'Perverse incentives / incentive design',
-      what:'A well-intentioned reward or rule can produce the opposite of its intended outcome when people respond strategically to the incentive and discover a profitable way to optimize the proxy.',
-      how:'Problem → reward the proxy → strategic response → rewarded activity increases → underlying problem can worsen.',
-      connection:'In Agile environments, a target can accidentally make the problem itself attractive to produce or preserve. For example, rewarding raw defect closure can create pressure to maximize closures rather than reduce defects; rewarding speed alone can encourage premature completion.',
-      example:'Imagine a team measured mainly on the number of defects they close. A clever optimization is to close many small, low-value defects while deeper recurring causes remain untouched. The dashboard improves, but product quality does not.',
+      practice:'Agile Metric',
+      science:'Cobra Effect',
+      what:'A well-intentioned metric or incentive can create the opposite of the intended outcome when people adapt their behavior to maximize the measured or rewarded activity instead of the underlying goal.',
+      how:'Target a proxy → people optimize the proxy → behavior changes → the measured activity increases → the underlying outcome can worsen.',
+      connection:'An Agile metric becomes dangerous when it is treated as the outcome itself. Rewarding or penalizing teams using a narrow metric can encourage gaming, local optimization or preservation of the very problem the organization is trying to solve.',
+      example:'Imagine a team is measured mainly on the number of defects closed each sprint. The team can improve the metric by closing many small, easy defects while deeper recurring causes remain unresolved. The dashboard improves, but actual product quality does not.',
       evidence:'🟠 Conceptual / empirical incentive-design pattern',
-      caveat:'The famous Delhi cobra-bounty story is historically disputed. The broader economic principle—perverse incentives and unintended behavioral responses—is well established. Treat the cobra story as an illustration, not as the evidence itself.',
+      caveat:'The famous Delhi cobra-bounty story is historically disputed. The broader principle of perverse incentives and unintended behavioral responses is well established. The story should be treated as an illustration, not as scientific evidence.',
       reference:'Horst Siebert, The Cobra Effect; Kerr (1975), “On the Folly of Rewarding A While Hoping for B”'
     }
   ];
@@ -85,7 +85,6 @@
       setTimeout(upgradeMetricsModal, 0);
     });
 
-    // Keep the dashboard count aligned with the added connection.
     const total = document.getElementById('science-total');
     if (total) total.textContent = '43 science connections across 9 Agile ecosystem groupings';
     const metricsCard = grid.querySelector('[data-group="metrics"] .group-count');
