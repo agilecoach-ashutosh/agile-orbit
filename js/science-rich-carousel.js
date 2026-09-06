@@ -24,6 +24,19 @@
     return `Observe the relevant pattern → connect it to ${practice.toLowerCase()} → adapt using evidence.`;
   };
 
+  const approved = {
+    Empiricism: {
+      practice: 'Scrum / Empirical Process Control',
+      what: 'Empiricism is the view that knowledge about the world is grounded in experience and observation. Instead of assuming that an initial model or prediction is correct, we learn by observing what actually happens and using that evidence to improve our understanding and decisions. Scientific inquiry uses related empirical practices—such as observation, testing and replication—to build and refine knowledge, although empiricism itself is broader than the scientific method.',
+      how: 'Assumption → take action → observe the result → compare it with what was expected → learn → adapt the next action.',
+      connection: 'Scrum explicitly uses empiricism as one of its foundations. The Scrum Team makes work and results transparent, inspects them frequently, and adapts based on what it learns. The Scrum Guide describes these as the three empirical pillars: transparency, inspection and adaptation.',
+      example: 'A team believes that a new customer onboarding feature will reduce abandonment. Instead of assuming the hypothesis is correct, the team delivers a usable increment, observes customer behavior and feedback during the next Sprint Review, and changes the product based on what the evidence shows. The next decision is therefore informed by what happened, not just by the original assumption.',
+      evidence: '🟢 Direct foundation of Scrum',
+      caveat: 'Empiricism does not mean “do something and see what happens” without discipline. Useful empirical learning depends on having enough transparency to observe the relevant evidence, inspecting it thoughtfully, and actually adapting decisions based on what is learned. Scrum also combines empiricism with lean thinking.',
+      reference: 'Ken Schwaber & Jeff Sutherland, The Scrum Guide (2020); National Academies, Decoding Science: How does science know what it knows?'
+    }
+  };
+
   const example = (practice, connection) => {
     let text = connection.trim();
     if (text.length > 260) text = text.slice(0, 257).replace(/\s+\S*$/, '') + '…';
@@ -63,26 +76,35 @@
     const practice = card.querySelector('.science-practice')?.textContent?.trim() || '';
     const science = card.querySelector('h3')?.textContent?.trim() || '';
     const details = [...card.querySelectorAll('.science-detail')];
-    const what = details.find(d => d.querySelector('span')?.textContent?.includes('WHAT THE SCIENCE SAYS'))?.querySelector('p')?.textContent?.trim() || '';
-    const connection = details.find(d => d.classList.contains('connection'))?.querySelector('p')?.textContent?.trim() || '';
-    const evidence = card.querySelector('.science-evidence')?.textContent?.trim() || '';
+    const baseWhat = details.find(d => d.querySelector('span')?.textContent?.includes('WHAT THE SCIENCE SAYS'))?.querySelector('p')?.textContent?.trim() || '';
+    const baseConnection = details.find(d => d.classList.contains('connection'))?.querySelector('p')?.textContent?.trim() || '';
+    const baseEvidence = card.querySelector('.science-evidence')?.textContent?.trim() || '';
     const group = card.querySelector('.science-card-bottom span:first-child')?.textContent?.trim() || '';
     const pos = card.querySelector('.science-card-bottom span:last-child')?.textContent?.trim() || '';
+    const o = approved[science];
+    const finalPractice = o?.practice || practice;
+    const finalWhat = o?.what || baseWhat;
+    const finalHow = o?.how || mechanism(science, practice);
+    const finalConnection = o?.connection || baseConnection;
+    const finalExample = o?.example || example(practice, baseConnection);
+    const finalEvidence = o?.evidence || baseEvidence;
+    const finalCaveat = o?.caveat || caveat(baseEvidence);
+    const finalReference = o?.reference || reference(science, practice);
     card.innerHTML = `
       <div class="science-rich-top">
-        <div><span class="science-rich-kicker">AGILE PRACTICE / FRAMEWORK</span><div class="science-practice">${esc(practice)}</div></div>
-        <span class="science-evidence">${esc(evidence)}</span>
+        <div><span class="science-rich-kicker">AGILE PRACTICE / FRAMEWORK</span><div class="science-practice">${esc(finalPractice)}</div></div>
+        <span class="science-evidence">${esc(finalEvidence)}</span>
       </div>
       <div class="science-rich-theory"><span class="science-rich-kicker">SCIENTIFIC PRINCIPLE / THEORY</span><h3>${esc(science)}</h3></div>
       <div class="science-rich-grid">
-        <section class="science-rich-panel"><span class="science-rich-kicker">WHAT THE SCIENCE SAYS</span><p>${esc(what)}</p></section>
-        <section class="science-rich-panel"><span class="science-rich-kicker">HOW IT WORKS</span><p>${esc(mechanism(science, practice))}</p></section>
-        <section class="science-rich-panel wide"><span class="science-rich-kicker">AGILE CONNECTION</span><p>${esc(connection)}</p></section>
-        <section class="science-rich-panel wide example"><span class="science-rich-kicker">PRACTICAL EXAMPLE</span><p>${esc(example(practice, connection))}</p></section>
+        <section class="science-rich-panel"><span class="science-rich-kicker">WHAT THE SCIENCE SAYS</span><p>${esc(finalWhat)}</p></section>
+        <section class="science-rich-panel"><span class="science-rich-kicker">HOW IT WORKS</span><p>${esc(finalHow)}</p></section>
+        <section class="science-rich-panel wide"><span class="science-rich-kicker">AGILE CONNECTION</span><p>${esc(finalConnection)}</p></section>
+        <section class="science-rich-panel wide example"><span class="science-rich-kicker">PRACTICAL EXAMPLE</span><p>${esc(finalExample)}</p></section>
       </div>
       <div class="science-rich-bottom">
-        <section><span class="science-rich-kicker">IMPORTANT CAVEAT</span><p>${esc(caveat(evidence))}</p></section>
-        <section><span class="science-rich-kicker">REFERENCE / FURTHER READING</span><p>${esc(reference(science, practice))}</p></section>
+        <section><span class="science-rich-kicker">IMPORTANT CAVEAT</span><p>${esc(finalCaveat)}</p></section>
+        <section><span class="science-rich-kicker">REFERENCE / FURTHER READING</span><p>${esc(finalReference)}</p></section>
       </div>
       <div class="science-card-bottom"><span>${esc(group)}</span><span>${esc(pos)}</span></div>`;
     card.dataset.richReady='1';
