@@ -12,49 +12,36 @@
     'systems thinking explains organizations.': 'Systems & Organizations'
   };
 
-  const selectDomain = (domainName, sourceElement = null) => {
+  const selectDomain = (domainName) => {
     const target = normalise(domainName);
+    const library = document.querySelector('#science-library');
 
-    // Prefer the actual domain card, then its library filter chip.
+    // Highlight the corresponding Science Map card when it exists.
     const domainCard = [...document.querySelectorAll('.domain-card')]
       .find((el) => normalise(el.querySelector('h3')?.textContent || '') === target);
-
     if (domainCard) {
       document.querySelectorAll('.domain-card').forEach((el) => {
         el.classList.toggle('active', el === domainCard);
       });
-      domainCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-      // The domain card is the authoritative navigation point.
-      setTimeout(() => domainCard.click(), 120);
-      return;
     }
 
+    // Use the actual library filter so the visible result set changes too.
     const chip = [...document.querySelectorAll('.science-chip')]
       .find((el) => normalise(el.textContent) === target);
 
     if (chip) {
       chip.click();
-      document.querySelector('#science-library')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      library?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       return;
     }
 
-    // Content may be rendered asynchronously; retry after the Science Library is mounted.
-    document.querySelector('#science-library')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // The library is populated asynchronously.
+    library?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     setTimeout(() => {
-      const retryCard = [...document.querySelectorAll('.domain-card')]
-        .find((el) => normalise(el.querySelector('h3')?.textContent || '') === target);
-      if (retryCard) {
-        document.querySelectorAll('.domain-card').forEach((el) => {
-          el.classList.toggle('active', el === retryCard);
-        });
-        retryCard.click();
-        return;
-      }
-      const retryChip = [...document.querySelectorAll('.science-chip')]
+      const retry = [...document.querySelectorAll('.science-chip')]
         .find((el) => normalise(el.textContent) === target);
-      retryChip?.click();
-    }, 400);
+      retry?.click();
+    }, 350);
   };
 
   const enhance = () => {
@@ -85,20 +72,19 @@
       if (domainName) {
         event.preventDefault();
         event.stopPropagation();
-        selectDomain(domainName, hero);
+        selectDomain(domainName);
         return;
       }
     }
 
     const card = event.target.closest('.domain-card');
-    if (!card) return;
-
-    const heading = card.querySelector('h3');
-    if (!heading) return;
-
-    event.preventDefault();
-    event.stopPropagation();
-    selectDomain(heading.textContent.trim(), card);
+    if (card) {
+      const heading = card.querySelector('h3');
+      if (!heading) return;
+      event.preventDefault();
+      event.stopPropagation();
+      selectDomain(heading.textContent.trim());
+    }
   }, true);
 
   document.addEventListener('keydown', (event) => {
@@ -109,16 +95,18 @@
       const domainName = heroDomains[normalise(hero.textContent)];
       if (domainName) {
         event.preventDefault();
-        selectDomain(domainName, hero);
+        selectDomain(domainName);
         return;
       }
     }
 
     const card = event.target.closest('.domain-card');
     if (card) {
-      event.preventDefault();
       const heading = card.querySelector('h3');
-      if (heading) selectDomain(heading.textContent.trim(), card);
+      if (heading) {
+        event.preventDefault();
+        selectDomain(heading.textContent.trim());
+      }
     }
   });
 
