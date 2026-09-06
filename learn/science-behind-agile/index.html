@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="../../css/science-behind-agile.css">
 <link rel="stylesheet" href="../../css/science-modal.css">
 <link rel="stylesheet" href="../../css/science-theme-cards.css">
+<link rel="stylesheet" href="../../css/science-theme-carousel.css">
 </head>
 <body class="universe-inner science-page">
 <div id="site-nav"></div>
@@ -42,12 +43,9 @@
         <p>You do not need to know the name of a scientific principle before you can learn it. Pick a question that sounds familiar, then discover the science that helps explain it.</p>
       </div>
       <div class="science-flow-card" aria-label="Problem to science to practice to outcome">
-        <div><small>01</small><strong>Real-world problem</strong><span>Something is hard, slow or unpredictable.</span></div>
-        <b>↓</b>
-        <div><small>02</small><strong>Scientific principle</strong><span>A model explains part of what is happening.</span></div>
-        <b>↓</b>
-        <div><small>03</small><strong>Agile response</strong><span>A practice changes the system or decision.</span></div>
-        <b>↓</b>
+        <div><small>01</small><strong>Real-world problem</strong><span>Something is hard, slow or unpredictable.</span></div><b>↓</b>
+        <div><small>02</small><strong>Scientific principle</strong><span>A model explains part of what is happening.</span></div><b>↓</b>
+        <div><small>03</small><strong>Agile response</strong><span>A practice changes the system or decision.</span></div><b>↓</b>
         <div><small>04</small><strong>Observable outcome</strong><span>Measure what changed; adapt again.</span></div>
       </div>
     </div>
@@ -59,7 +57,7 @@
   <div class="container">
     <div class="section-head science-section-head theme-section-head">
       <div><span class="eyebrow">EXPLORE BY THEME</span><h2>What do you want to understand?</h2></div>
-      <p>Choose a theme. Each one opens a simple carousel of the science behind it.</p>
+      <p>Choose a theme. Each theme opens a carousel — no searching, no scientific vocabulary required.</p>
     </div>
     <div class="science-theme-grid">
       <button class="science-theme-card" type="button" data-theme-domain="complexity"><span class="theme-icon">🌌</span><span class="theme-number">01</span><h3>Why Agile Needs Adaptation</h3><p>Why detailed plans struggle when the work itself keeps changing.</p><div class="theme-path">Complexity • Emergence • Feedback</div><span class="theme-arrow">Explore →</span></button>
@@ -72,35 +70,28 @@
   </div>
 </section>
 
+<!-- Hidden data layer used by the existing Science Library engine and theme carousel. It is intentionally not rendered as a search UI. -->
+<section id="science-library" class="science-data-layer" aria-hidden="true">
+  <input id="science-search" type="search"><div id="domain-filters"></div><select id="science-sort"><option value="featured">Featured</option><option value="evidence">Evidence strength</option><option value="alpha">A–Z</option></select>
+  <div id="science-count"></div><div id="science-cards"></div><div id="science-empty" hidden></div>
+</section>
+
 <section class="section practice-explorer-section" id="practice-explorer">
   <div class="container">
     <div class="section-head science-section-head"><div><span class="eyebrow">PRACTICE → SCIENCE</span><h2>Start with your Agile practice.</h2></div><p>Already know the practice? See the science that helps explain why it may work.</p></div>
-    <div class="practice-explorer-shell">
-      <div class="practice-list" id="practice-list"></div>
-      <div class="practice-detail" id="practice-detail"></div>
-    </div>
+    <div class="practice-explorer-shell"><div class="practice-list" id="practice-list"></div><div class="practice-detail" id="practice-detail"></div></div>
   </div>
 </section>
 
-<section class="section myth-section" id="myths">
-  <div class="container"><div class="section-head science-section-head"><div><span class="eyebrow">MYTH ↔ SCIENCE</span><h2>Challenge the Agile claim.</h2></div><p>See where evidence is strong — and where Agile folklore goes further than the science.</p></div><div id="myth-grid" class="myth-grid"></div></div>
-</section>
+<section class="section myth-section" id="myths"><div class="container"><div class="section-head science-section-head"><div><span class="eyebrow">MYTH ↔ SCIENCE</span><h2>Challenge the Agile claim.</h2></div><p>See where evidence is strong — and where Agile folklore goes further than the science.</p></div><div id="myth-grid" class="myth-grid"></div></div></section>
 
-<section class="section deep-dive-section" id="deep-dive">
-  <div class="container"><div class="section-head science-section-head"><div><span class="eyebrow">DEEP DIVE</span><h2>Go deeper when you need to.</h2></div><p>Assumptions, limits, examples and sources live here so the main learning path stays fast.</p></div><div id="deep-dive-list" class="deep-dive-list"></div></div>
-</section>
+<section class="section deep-dive-section" id="deep-dive"><div class="container"><div class="section-head science-section-head"><div><span class="eyebrow">DEEP DIVE</span><h2>Go deeper when you need to.</h2></div><p>Assumptions, limits, examples and sources live here so the main learning path stays fast.</p></div><div id="deep-dive-list" class="deep-dive-list"></div></div></section>
 
 <section class="section science-close"><div class="container"><div class="science-close-card"><span class="eyebrow">THE PRACTITIONER LOOP</span><h2>Don't memorize the practice.<br>Understand the mechanism.</h2><p>When you understand the mechanism, you can adapt the practice to context instead of turning Agile into a checklist.</p><div class="loop-steps"><span>Observe</span><b>→</b><span>Explain</span><b>→</b><span>Experiment</span><b>→</b><span>Measure</span><b>→</b><span>Adapt</span></div><a class="btn btn-primary" href="#science-themes">Back to themes ↑</a></div></div></section>
 </main>
 <div id="site-footer"></div>
-<script src="../../js/config.js"></script>
-<script src="../../js/utilities.js"></script>
-<script src="../../js/navigation.js"></script>
-<script src="../../js/main.js"></script>
-<script src="../../js/tools.js"></script>
-<script src="../../js/universe-pages.js"></script>
+<script src="../../js/config.js"></script><script src="../../js/utilities.js"></script><script src="../../js/navigation.js"></script><script src="../../js/main.js"></script><script src="../../js/tools.js"></script><script src="../../js/universe-pages.js"></script>
 <script src="../../js/science-behind-agile.js"></script>
-<script src="../../js/science-card-reader.js"></script>
-<script src="../../js/science-theme-navigation.js"></script>
+<script src="../../js/science-theme-carousel.js"></script>
 </body>
 </html>
