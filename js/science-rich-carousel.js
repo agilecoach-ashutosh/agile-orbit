@@ -59,7 +59,7 @@
   const esc = s => String(s ?? '').replace(/[&<>\"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));
 
   function enrich(card) {
-    if (!card || card.dataset.richReady === '1') return;
+    if (!card || card.dataset.richReady === '1' || card.classList.contains('science-cobra-card')) return;
     const practice = card.querySelector('.science-practice')?.textContent?.trim() || '';
     const science = card.querySelector('h3')?.textContent?.trim() || '';
     const details = [...card.querySelectorAll('.science-detail')];
