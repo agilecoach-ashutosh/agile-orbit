@@ -195,3 +195,35 @@
 @media(prefers-reduced-motion:reduce){
   .site-header,.site-header .nav-link,.site-header .nav-link::after,.site-header .nav-orbit-btn,.site-header .icon-btn{transition:none!important}
 }
+
+/* Facilitation Techniques — fresh illustrated visuals. The existing schematic content is retained underneath but the visual area is replaced by a lightweight cartoon sprite. */
+.tech-stage .tech-slide .tech-visual{
+  min-height:320px;
+  padding:0;
+  border:0;
+  background-color:#fbfaf6;
+  background-image:url('/agile-orbit/assets/images/facilitation-cartoon-sheet.svg');
+  background-repeat:no-repeat;
+  background-size:400% 300%;
+  box-shadow:inset 0 0 0 1px rgba(36,52,74,.08),0 12px 32px rgba(0,0,0,.15);
+  overflow:hidden;
+}
+.tech-stage .tech-slide .tech-visual > *{display:none!important}
+.tech-stage .tech-slide:nth-of-type(1) .tech-visual{background-position:0% 0%}
+.tech-stage .tech-slide:nth-of-type(2) .tech-visual{background-position:33.333% 0%}
+.tech-stage .tech-slide:nth-of-type(3) .tech-visual{background-position:66.666% 0%}
+.tech-stage .tech-slide:nth-of-type(4) .tech-visual{background-position:100% 0%}
+.tech-stage .tech-slide:nth-of-type(5) .tech-visual{background-position:0% 50%}
+.tech-stage .tech-slide:nth-of-type(6) .tech-visual{background-position:33.333% 50%}
+.tech-stage .tech-slide:nth-of-type(7) .tech-visual{background-position:66.666% 50%}
+.tech-stage .tech-slide:nth-of-type(8) .tech-visual{background-position:100% 50%}
+.tech-stage .tech-slide:nth-of-type(9) .tech-visual{background-position:0% 100%}
+.tech-stage .tech-slide:nth-of-type(10) .tech-visual{background-position:33.333% 100%}
+.tech-stage .tech-slide:nth-of-type(11) .tech-visual{background-position:66.666% 100%}
+.tech-stage .tech-slide:nth-of-type(12) .tech-visual{background-position:100% 100%}
+@media(max-width:800px){
+  .tech-stage .tech-slide .tech-visual{min-height:270px}
+}
+@media(max-width:520px){
+  .tech-stage .tech-slide .tech-visual{min-height:240px}
+}
