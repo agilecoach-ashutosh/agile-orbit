@@ -12,7 +12,7 @@
   ];
 
   const rows = [
-    ['scrum','Scrum / empirical process control','Empiricism / scientific method','Knowledge improves through observation, experimentation and evidence rather than assuming the initial model is correct.','Transparency → inspection → adaptation; learn from each increment rather than pretending the future is fully knowable. Scrum explicitly identifies empiricism as its theoretical foundation.','🟢 Direct'],
+    ['scrum','Scrum / empirical process control','Empiricism','Knowledge is grounded in experience and observation; decisions are refined as new evidence emerges rather than relying only on predetermined assumptions.','Scrum explicitly identifies empiricism as a foundation. Transparency → inspection → adaptation creates a recurring evidence-based learning loop for the Scrum Team.','🟢 Direct foundation'],
     ['scrum','Iterative & incremental delivery','Control theory / feedback systems','A system can be steered by measuring its output and feeding information back into the system.','Sprint Review, inspection and adaptation form a recurring feedback loop.','🟢 Strong'],
     ['scrum','Sprint / timeboxing',"Parkinson's Law",'Work tends to expand to occupy the available time.','A fixed timebox creates a constraint that discourages unlimited expansion of work.','🟡 Strong conceptual connection'],
     ['forecast','Relative estimation / story points','Psychophysics / Weber–Fechner','Human perception of differences is often relative rather than linearly proportional to physical magnitude.','Comparing “A is roughly twice B” can be easier than predicting “A will take exactly 13 hours.”','🟠 Interesting analogy, NOT established Agile foundation'],
