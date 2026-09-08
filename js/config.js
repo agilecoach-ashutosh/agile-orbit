@@ -49,22 +49,25 @@ window.SITE_CONFIG=SITE_CONFIG;
   const syncToolsNav=()=>{
     const base=location.pathname.includes('/agile-orbit/')?'/agile-orbit/':'/';
     const desktop=document.querySelector('.nav-item.has-dropdown .nav-link[data-section="tools"]')?.closest('.nav-item.has-dropdown')?.querySelector(':scope > .nav-dropdown');
-    if(desktop){
-      desktop.innerHTML=toolItems.map(([label,file])=>`<a href="${base}tools/${file}" role="menuitem">${label}</a>`).join('');
-    }
-
     const mobile=[...document.querySelectorAll('.mobile-nav-group')].find(g=>g.querySelector(':scope > summary')?.textContent.trim()==='Tools');
-    if(mobile){
-      mobile.querySelectorAll(':scope > a:not(.mobile-nav-parent)').forEach(a=>a.remove());
-      toolItems.forEach(([label,file])=>{
-        const link=document.createElement('a');
-        link.href=base+'tools/'+file;
-        link.textContent=label;
-        mobile.appendChild(link);
-      });
-    }
+    if(!desktop||!mobile)return false;
+
+    desktop.innerHTML=toolItems.map(([label,file])=>`<a href="${base}tools/${file}" role="menuitem">${label}</a>`).join('');
+
+    mobile.querySelectorAll(':scope > a:not(.mobile-nav-parent)').forEach(a=>a.remove());
+    toolItems.forEach(([label,file])=>{
+      const link=document.createElement('a');
+      link.href=base+'tools/'+file;
+      link.textContent=label;
+      mobile.appendChild(link);
+    });
+    return true;
   };
 
-  new MutationObserver(syncToolsNav).observe(document.documentElement,{childList:true,subtree:true});
-  syncToolsNav();
+  if(!syncToolsNav()){
+    const observer=new MutationObserver(()=>{
+      if(syncToolsNav())observer.disconnect();
+    });
+    observer.observe(document.documentElement,{childList:true,subtree:true});
+  }
 })();
