@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PBI Health Calculator | Agile Orbit</title>
+<meta name="description" content="Compare ready-state Product Backlog story points with the average of the last three Sprint velocities to see whether the team has a practical 2–3 Sprint ready-work runway.">
+<meta name="theme-color" content="#071019">
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/animations.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/universe-pages.css">
+<link rel="stylesheet" href="../css/reference-nav.css">
+<link rel="stylesheet" href="../css/advanced-calculators.css">
+<style>
+.pbi-stack{display:grid;gap:22px}.pbi-result{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}.pbi-health-card{padding:28px;border:1px solid rgba(105,220,255,.15);border-radius:18px;background:linear-gradient(145deg,rgba(13,29,47,.82),rgba(7,15,28,.9))}.pbi-health-label{font-size:.72rem;font-weight:800;letter-spacing:.12em;color:#91a5bc;text-transform:uppercase}.pbi-health-value{font-size:clamp(3.2rem,8vw,5.8rem);line-height:1;font-weight:900;letter-spacing:-.05em;margin:12px 0 8px}.pbi-health-state{font-size:1.05rem;font-weight:800}.pbi-health-state.low{color:#ffd080}.pbi-health-state.good{color:#8de8b6}.pbi-health-state.high{color:#ffb6bc}.pbi-range{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.pbi-range>div{padding:15px;border:1px solid rgba(140,180,255,.12);border-radius:12px;background:rgba(255,255,255,.025)}.pbi-range span{display:block;color:#8fa1b7;font-size:.72rem;text-transform:uppercase;font-weight:800;letter-spacing:.06em}.pbi-range strong{display:block;margin-top:5px;font-size:1.25rem}.pbi-scale{position:relative;height:14px;border-radius:999px;margin:20px 0 8px;background:linear-gradient(90deg,rgba(255,193,92,.4) 0 40%,rgba(79,208,132,.5) 40% 60%,rgba(255,112,124,.4) 60% 100%);overflow:hidden}.pbi-marker{position:absolute;top:-4px;width:4px;height:22px;border-radius:2px;background:#fff;box-shadow:0 0 12px rgba(255,255,255,.55);transform:translateX(-2px)}.pbi-scale-labels{display:flex;justify-content:space-between;color:#8092a8;font-size:.72rem}.pbi-guidance{padding:22px;border:1px solid rgba(140,180,255,.12);border-radius:18px;background:rgba(7,18,31,.45)}.pbi-guidance h3{margin:0 0 8px}.pbi-guidance p{margin:.35rem 0;color:#afbdce}.pbi-legend{display:grid;gap:10px;margin-top:16px}.pbi-legend div{padding:12px 14px;border-left:3px solid rgba(255,255,255,.2);background:rgba(255,255,255,.025);border-radius:0 10px 10px 0}.pbi-legend .low{border-color:#ffd080}.pbi-legend .good{border-color:#8de8b6}.pbi-legend .high{border-color:#ff9da6}.pbi-legend strong{display:block;margin-bottom:3px}.pbi-note{margin-top:14px;font-size:.82rem;color:#8fa1b7}@media(max-width:820px){.pbi-result{grid-template-columns:1fr}.pbi-range{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="universe-inner">
+<div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div>
+<main>
+<section class="page-hero"><div class="container">
+<div class="breadcrumbs"><a href="../">Home</a><span>/</span><a href="index.html">Tools</a><span>/</span><span>PBI Health</span></div>
+<span class="eyebrow">PRODUCT BACKLOG · PLANNING TOOL</span>
+<h1>PBI Health Calculator</h1>
+<p class="muted" style="max-width:820px;font-size:1.08rem">Check whether the top of your Product Backlog has enough refined, ready work to support upcoming Sprint Planning without creating excessive upfront inventory.</p>
+</div></section>
+
+<section class="section"><div class="container pbi-stack">
+<div class="panel calc-panel">
+<div class="calc-heading"><div><span class="eyebrow">HOW IT WORKS</span><h2>Compare ready work with recent delivery pace.</h2></div><span class="formula">Health ratio = Ready story points ÷ Average Sprint velocity</span></div>
+<p class="muted">This tool uses a practical <strong>2–3× velocity</strong> runway as the healthy zone: enough ready work for roughly two to three Sprints, without refining too far into an uncertain future.</p>
+<div class="calc-insight">
+<div class="callout"><strong>Under 2×</strong><br>The team may run short of sufficiently refined work for upcoming Sprint Planning.</div>
+<div class="callout"><strong>2× to 3×</strong><br>A practical runway that balances readiness with flexibility.</div>
+<div class="callout"><strong>Over 3×</strong><br>Too much work may be refined too early, increasing rework and stale understanding.</div>
+</div>
+</div>
+
+<div class="panel calc-panel">
+<div class="calc-heading"><div><span class="eyebrow">1 · INPUTS</span><h2>Enter the last three Sprint velocities</h2></div><span class="formula">Average = (N + N−1 + N−2) ÷ 3</span></div>
+<div class="calc-grid">
+<div class="calc-field"><label for="velocityN">Last Sprint velocity (N)</label><input id="velocityN" type="number" min="0" step="0.1" placeholder="e.g. 30"></div>
+<div class="calc-field"><label for="velocityN1">Previous Sprint velocity (N−1)</label><input id="velocityN1" type="number" min="0" step="0.1" placeholder="e.g. 28"></div>
+<div class="calc-field"><label for="velocityN2">Sprint velocity (N−2)</label><input id="velocityN2" type="number" min="0" step="0.1" placeholder="e.g. 32"></div>
+<div class="calc-field"><label for="readyPoints">Ready-state Product Backlog story points</label><input id="readyPoints" type="number" min="0" step="0.1" placeholder="e.g. 75"><small>Count only items the team currently considers sufficiently refined for near-term selection.</small></div>
+</div>
+<div class="calc-callout"><strong>Important:</strong> Scrum does not define a formal “Ready” state or Definition of Ready. Use your team’s own working agreement for what counts as sufficiently refined and understandable.</div>
+</div>
+
+<div class="pbi-result">
+<section class="pbi-health-card">
+<span class="pbi-health-label">PBI HEALTH RATIO</span>
+<div class="pbi-health-value" id="healthRatio">—</div>
+<div class="pbi-health-state" id="healthState">Enter the four inputs to calculate health.</div>
+<div class="pbi-scale" aria-hidden="true"><span class="pbi-marker" id="healthMarker" style="left:0%"></span></div>
+<div class="pbi-scale-labels"><span>0×</span><span>2×</span><span>3×</span><span>5×+</span></div>
+<div class="pbi-range">
+<div><span>Average velocity</span><strong id="avgVelocity">—</strong></div>
+<div><span>Healthy ready range</span><strong id="healthyRange">—</strong></div>
+<div><span>Ready runway</span><strong id="runway">—</strong></div>
+</div>
+</section>
+<section class="pbi-guidance">
+<h3>What should the team do?</h3>
+<p id="healthGuidance">Enter the recent velocities and current ready-state story points to see the guidance.</p>
+<div class="pbi-legend">
+<div class="low"><strong>Under-refined</strong>Build near-term clarity before the team risks running out of selectable work.</div>
+<div class="good"><strong>Healthy</strong>Maintain the runway while continuing to refine just enough, just in time.</div>
+<div class="high"><strong>Over-refined</strong>Pause unnecessary refinement further down the backlog and protect flexibility.</div>
+</div>
+<p class="pbi-note">Treat 2–3× as a practical heuristic, not a Scrum rule. Product uncertainty, item size, dependencies and refinement cadence can justify a different runway for a particular team.</p>
+</section>
+</div>
+
+<div class="panel calc-panel">
+<div class="calc-heading"><div><span class="eyebrow">2 · INTERPRETATION</span><h2>Read the ratio as backlog runway, not performance.</h2></div></div>
+<div class="calc-kpis">
+<div class="calc-kpi"><div class="label">Ready points</div><div class="value" id="readyKpi">—</div></div>
+<div class="calc-kpi"><div class="label">Minimum target · 2×</div><div class="value" id="minTarget">—</div></div>
+<div class="calc-kpi"><div class="label">Upper target · 3×</div><div class="value" id="maxTarget">—</div></div>
+<div class="calc-kpi"><div class="label">Gap / excess</div><div class="value" id="gapValue">—</div></div>
+</div>
+<div class="calc-callout"><strong>Use this as a conversation signal.</strong> A low ratio does not mean “write more requirements,” and a high ratio does not mean “delete backlog items.” It helps the Product Owner and Developers inspect whether the near-term backlog is appropriately refined for the team’s current delivery pace.</div>
+<div class="actions"><button class="btn btn-secondary" id="resetPbi" type="button">Reset Calculator</button></div>
+</div>
+</div></section>
+</main>
+<div id="site-footer"></div>
+<script src="../js/config.js"></script><script src="../js/utilities.js"></script><script src="../js/navigation.js"></script><script src="../js/main.js"></script><script src="../js/tools.js"></script><script src="../js/universe-pages.js"></script>
+<script>
+(function(){
+'use strict';
+const ids=['velocityN','velocityN1','velocityN2','readyPoints'];
+const $=id=>document.getElementById(id);
+const num=id=>{const v=parseFloat($(id).value);return Number.isFinite(v)&&v>=0?v:0;};
+const fmt=v=>Number.isInteger(v)?String(v):v.toFixed(1).replace(/\.0$/,'');
+function calc(){
+ const velocities=[num('velocityN'),num('velocityN1'),num('velocityN2')];
+ const ready=num('readyPoints');
+ const complete=ids.every(id=>$(id).value.trim()!==''&&Number.isFinite(parseFloat($(id).value))&&parseFloat($(id).value)>=0);
+ const avg=velocities.reduce((a,b)=>a+b,0)/3;
+ if(!complete||avg<=0){
+  $('healthRatio').textContent='—';$('healthState').textContent='Enter the four inputs to calculate health.';$('healthState').className='pbi-health-state';$('avgVelocity').textContent='—';$('healthyRange').textContent='—';$('runway').textContent='—';$('readyKpi').textContent='—';$('minTarget').textContent='—';$('maxTarget').textContent='—';$('gapValue').textContent='—';$('healthMarker').style.left='0%';$('healthGuidance').textContent='Enter the recent velocities and current ready-state story points to see the guidance.';return;
+ }
+ const ratio=ready/avg,min=avg*2,max=avg*3;
+ $('healthRatio').textContent=ratio.toFixed(2)+'×';
+ $('avgVelocity').textContent=fmt(avg)+' pts';
+ $('healthyRange').textContent=fmt(min)+'–'+fmt(max)+' pts';
+ $('runway').textContent=ratio.toFixed(1)+' Sprints';
+ $('readyKpi').textContent=fmt(ready);
+ $('minTarget').textContent=fmt(min);
+ $('maxTarget').textContent=fmt(max);
+ const marker=Math.max(0,Math.min(100,(ratio/5)*100));$('healthMarker').style.left=marker+'%';
+ if(ratio<2){
+  const gap=min-ready;$('healthState').textContent='Under-refined · below the 2× runway';$('healthState').className='pbi-health-state low';$('gapValue').textContent='+'+fmt(gap)+' pts needed';$('healthGuidance').textContent='The team has less than two Sprints of ready work at its recent delivery pace. Focus refinement on the highest-priority Product Backlog Items until the near-term runway is stronger.';
+ }else if(ratio<=3){
+  $('healthState').textContent='Healthy · within the 2×–3× runway';$('healthState').className='pbi-health-state good';$('gapValue').textContent='In range';$('healthGuidance').textContent='The ready backlog is in the practical target range. Keep refinement continuous and prioritize freshness over building a larger inventory of detailed work.';
+ }else{
+  const excess=ready-max;$('healthState').textContent='Over-refined · above the 3× runway';$('healthState').className='pbi-health-state high';$('gapValue').textContent=fmt(excess)+' pts above';$('healthGuidance').textContent='The team has more than three Sprints of ready work at its recent delivery pace. Consider reducing refinement further down the backlog so effort is not spent detailing work that may change before selection.';
+ }
+}
+ids.forEach(id=>$(id).addEventListener('input',calc));
+$('resetPbi').addEventListener('click',()=>{ids.forEach(id=>$(id).value='');calc();});
+calc();
+})();
+</script>
+</body>
+</html>
