@@ -49,7 +49,7 @@
   }
   async function getDocument(path){
     const url=new URL(b+path,location.origin);
-    const res=await fetch(url.href,{cache:'no-store'});
+    const res=await fetch(url.href,{cache:'default'});
     if(!res.ok)throw new Error(`Unable to load ${path}`);
     const html=await res.text();
     return {doc:new DOMParser().parseFromString(html,'text/html'),url};
@@ -111,12 +111,69 @@
   }
   hydrateNavigation();
 
-  const seedPaths=primary.map(section=>section.key+'/');let searchIndex=null,searchBuilding=null;
-  function absolutePath(href){try{const u=new URL(href,location.href);if(u.origin!==location.origin)return null;const root=new URL(b,location.href);if(u.pathname!==root.pathname&&!u.pathname.startsWith(root.pathname))return null;return u.pathname+u.search;}catch{return null;}}
-  function makeEntry(url,doc,card){const title=cleanText(card?.querySelector('h1,h2,h3,h4'))||cleanText(doc.querySelector('h1'))||doc.title.replace(/\s*\|.*$/,'').trim();if(!title)return null;const text=cleanText(card||doc.querySelector('main')||doc.body).slice(0,1800),href=card?.getAttribute('href'),target=href?absolutePath(href):url;if(!target)return null;return {title,url:target,keywords:text};}
-  async function buildSearchIndex(){if(searchIndex)return searchIndex;if(searchBuilding)return searchBuilding;searchBuilding=(async()=>{const queue=seedPaths.map(p=>b+p),seen=new Set(),entries=new Map(),maxPages=180;while(queue.length&&seen.size<maxPages){const batch=queue.splice(0,8).filter(u=>!seen.has(u));if(!batch.length)continue;const pages=await Promise.all(batch.map(async url=>{seen.add(url);try{const res=await fetch(url,{cache:'no-store'});if(!res.ok||!res.url.includes(rootName))return null;return {url,html:await res.text()};}catch{return null;}}));pages.filter(Boolean).forEach(page=>{const doc=new DOMParser().parseFromString(page.html,'text/html'),main=doc.querySelector('main')||doc.body,pageEntry=makeEntry(page.url,doc,null);if(pageEntry)entries.set(pageEntry.url,pageEntry);main.querySelectorAll('a[href]').forEach(a=>{const target=absolutePath(a.getAttribute('href'));if(!target||target.startsWith(b+'assets/')||target.startsWith(b+'css/')||target.startsWith(b+'js/'))return;const full=new URL(target,location.origin).href;if(!seen.has(full)&&!queue.includes(full)&&queue.length+seen.size<maxPages)queue.push(full);const card=a.matches('.card,.ai-system-card,.theme-card,[class*="card"]')?a:(a.querySelector('h2,h3,h4')?a:null),entry=makeEntry(target,doc,card);if(entry)entries.set(entry.url,entry);});});}searchIndex=Array.from(entries.values()).filter((item,i,arr)=>arr.findIndex(x=>x.url===item.url&&x.title===item.title)===i);return searchIndex;})();return searchBuilding;}
-  function ensureSearch(){if(document.getElementById('siteSearch'))return;const overlay=document.createElement('div');overlay.id='siteSearch';overlay.className='site-search';overlay.innerHTML=`<div class="site-search-backdrop" data-search-close></div><section class="site-search-panel" role="dialog" aria-modal="true" aria-labelledby="siteSearchTitle"><div class="site-search-head"><div><span class="site-search-kicker">AGILE ORBIT</span><h2 id="siteSearchTitle">Search the Orbit</h2></div><button class="icon-btn" data-search-close aria-label="Close search">×</button></div><label class="site-search-field"><span aria-hidden="true">⌕</span><input id="siteSearchInput" type="search" autocomplete="off" placeholder="Search Agile, Scrum, SAFe, prompts, calculators…" aria-label="Search Agile Orbit"><kbd>ESC</kbd></label><div id="siteSearchResults" class="site-search-results" aria-live="polite"></div></section>`;document.body.appendChild(overlay);const input=overlay.querySelector('#siteSearchInput'),results=overlay.querySelector('#siteSearchResults');function render(items,query){const q=query.trim().toLowerCase(),terms=q.split(/\s+/).filter(Boolean),matches=terms.length?items.filter(item=>{const haystack=(item.title+' '+item.keywords).toLowerCase();return terms.every(term=>haystack.includes(term));}):items.slice(0,30);results.innerHTML=matches.length?matches.slice(0,40).map(item=>`<a class="site-search-result" href="${item.url}"><span class="site-search-result-mark" aria-hidden="true">✦</span><span><strong>${item.title}</strong><small>${item.keywords.slice(0,150)}${item.keywords.length>150?'…':''}</small></span><span aria-hidden="true">→</span></a>`).join(''):`<div class="site-search-empty">No matching content found. Try a card title, topic, tool name, prompt, framework or Scrum event.</div>`;}async function openSearch(){overlay.classList.add('open');document.getElementById('searchBtn')?.setAttribute('aria-expanded','true');results.innerHTML='<div class="site-search-empty">Indexing Agile Orbit content…</div>';requestAnimationFrame(()=>input.focus());const items=await buildSearchIndex();render(items,input.value);}function closeSearch(){overlay.classList.remove('open');document.getElementById('searchBtn')?.setAttribute('aria-expanded','false');}input.addEventListener('input',async()=>render(await buildSearchIndex(),input.value));overlay.addEventListener('click',e=>{if(e.target.closest('[data-search-close]'))closeSearch();});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSearch();});document.addEventListener('click',e=>{if(e.target.closest('#searchBtn'))openSearch();});}
+  let searchIndex=null;
+  let searchLoading=null;
+  function searchUrl(path){return new URL(b+path.replace(/^\//,''),location.origin).pathname;}
+  async function loadSearchIndex(){
+    if(searchIndex)return searchIndex;
+    if(searchLoading)return searchLoading;
+    searchLoading=fetch(b+'search-index.json',{cache:'force-cache'})
+      .then(res=>{if(!res.ok)throw new Error('Search index unavailable');return res.json();})
+      .then(items=>{
+        searchIndex=Array.isArray(items)?items.map(item=>({
+          title:String(item.title||''),
+          url:searchUrl(String(item.url||'')),
+          keywords:String(item.keywords||'')
+        })).filter(item=>item.title&&item.url):[];
+        return searchIndex;
+      })
+      .catch(()=>{searchIndex=[];return searchIndex;})
+      .finally(()=>{searchLoading=null;});
+    return searchLoading;
+  }
+  function warmSearchIndex(){
+    if('requestIdleCallback' in window)requestIdleCallback(()=>loadSearchIndex(),{timeout:1800});
+    else setTimeout(()=>loadSearchIndex(),900);
+  }
+
+  function ensureSearch(){
+    if(document.getElementById('siteSearch'))return;
+    const overlay=document.createElement('div');overlay.id='siteSearch';overlay.className='site-search';
+    overlay.innerHTML=`<div class="site-search-backdrop" data-search-close></div><section class="site-search-panel" role="dialog" aria-modal="true" aria-labelledby="siteSearchTitle"><div class="site-search-head"><div><span class="site-search-kicker">AGILE ORBIT</span><h2 id="siteSearchTitle">Search the Orbit</h2></div><button class="icon-btn" data-search-close aria-label="Close search">×</button></div><label class="site-search-field"><span aria-hidden="true">⌕</span><input id="siteSearchInput" type="search" autocomplete="off" placeholder="Search Agile, Scrum, SAFe, prompts, calculators…" aria-label="Search Agile Orbit"><kbd>ESC</kbd></label><div id="siteSearchResults" class="site-search-results" aria-live="polite"></div></section>`;
+    document.body.appendChild(overlay);
+    const input=overlay.querySelector('#siteSearchInput'),results=overlay.querySelector('#siteSearchResults');
+
+    function rank(item,terms){
+      const title=item.title.toLowerCase(),keywords=item.keywords.toLowerCase();
+      let score=0;
+      for(const term of terms){
+        if(title===term)score+=12;
+        else if(title.startsWith(term))score+=8;
+        else if(title.includes(term))score+=5;
+        else if(keywords.includes(term))score+=2;
+        else return -1;
+      }
+      return score;
+    }
+    function render(items,query){
+      const q=query.trim().toLowerCase(),terms=q.split(/\s+/).filter(Boolean);
+      const matches=terms.length?items.map(item=>({item,score:rank(item,terms)})).filter(x=>x.score>=0).sort((a,b)=>b.score-a.score||a.item.title.localeCompare(b.item.title)).map(x=>x.item):items.slice(0,30);
+      results.innerHTML=matches.length?matches.slice(0,40).map(item=>`<a class="site-search-result" href="${item.url}"><span class="site-search-result-mark" aria-hidden="true">✦</span><span><strong>${item.title}</strong><small>${item.keywords.slice(0,150)}${item.keywords.length>150?'…':''}</small></span><span aria-hidden="true">→</span></a>`).join(''):`<div class="site-search-empty">No matching content found. Try a card title, topic, tool name, prompt, framework or Scrum event.</div>`;
+    }
+    async function openSearch(){
+      overlay.classList.add('open');document.getElementById('searchBtn')?.setAttribute('aria-expanded','true');requestAnimationFrame(()=>input.focus());
+      if(searchIndex){render(searchIndex,input.value);return;}
+      results.innerHTML='<div class="site-search-empty">Loading search…</div>';
+      render(await loadSearchIndex(),input.value);
+    }
+    function closeSearch(){overlay.classList.remove('open');document.getElementById('searchBtn')?.setAttribute('aria-expanded','false');}
+    input.addEventListener('input',async()=>render(await loadSearchIndex(),input.value));
+    overlay.addEventListener('click',e=>{if(e.target.closest('[data-search-close]'))closeSearch();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSearch();});
+    document.addEventListener('click',e=>{if(e.target.closest('#searchBtn'))openSearch();});
+  }
   ensureSearch();
+  warmSearchIndex();
 
   function enhanceFacilitationTechniqueCartoons(){
     if(!location.pathname.includes('/learn/facilitation/techniques.html'))return;
