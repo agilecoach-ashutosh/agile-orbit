@@ -1,0 +1,75 @@
+/* Agile Orbit — canonical mobile hero composition.
+   Loaded last on the home page. Replaces the former mobile *-fix/final layers. */
+@media(max-width:760px){
+  body.universe-home .hero-scroll-stage{height:auto!important}
+  body.universe-home .hero-scenes{position:relative!important;inset:auto!important;overflow:visible!important}
+  body.universe-home .hero-index{display:none!important}
+  body.universe-home .hero-scene{position:relative!important;inset:auto!important;width:100%!important;height:max(100svh,680px)!important;min-height:680px!important;padding:0!important;display:block!important;overflow:hidden!important}
+  body.universe-home .hero-scene-inner{position:absolute!important;inset:0!important;width:100%!important;height:100%!important}
+  body.universe-home .hero-layer-main{inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important}
+  body.universe-home .hero-copy{position:absolute!important;left:18px!important;right:18px!important;top:82px!important;bottom:auto!important;width:auto!important;max-width:calc(100% - 36px)!important;transform:none!important;z-index:20!important}
+  body.universe-home .hero-tag{margin-bottom:12px!important;font-size:.50rem!important;letter-spacing:.22em!important}
+  body.universe-home .hero-tag::before{width:24px!important}
+  body.universe-home .hero-title{margin:0 0 12px!important;font-size:clamp(2.45rem,11.8vw,3.7rem)!important;line-height:.9!important;letter-spacing:-.065em!important}
+  body.universe-home .hero-subtitle{font-size:.92rem!important;line-height:1.35!important;margin:0 0 8px!important}
+  body.universe-home .hero-body{max-width:320px!important;margin:0 0 15px!important;font-size:.80rem!important;line-height:1.45!important}
+  body.universe-home .hero-cta{min-height:40px!important;height:40px!important;padding:9px 15px!important;font-size:.62rem!important;gap:7px!important;box-sizing:border-box!important}
+  body.universe-home .hero-edge{right:5px!important;top:52%!important;max-width:65px!important;font-size:.36rem!important;line-height:1.55!important;letter-spacing:.14em!important;z-index:12!important}
+  body.universe-home .hero-quote,body.universe-home .hero-scroll-hint{display:none!important}
+
+  /* Destination cards: one compact, consistent 3-card rail. */
+  body.universe-home .hero-cards,body.universe-home .hero-feature-links{position:absolute!important;left:9px!important;right:9px!important;top:auto!important;bottom:18px!important;width:auto!important;height:72px!important;margin:0!important;transform:none!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-template-rows:72px!important;gap:6px!important;z-index:25!important}
+  body.universe-home .hero-card{position:relative!important;width:100%!important;min-width:0!important;min-height:72px!important;height:72px!important;max-height:72px!important;box-sizing:border-box!important;padding:7px 5px!important;margin:0!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:4px!important;border-radius:11px!important;overflow:hidden!important;text-align:center!important}
+  body.universe-home .hero-card-icon{width:27px!important;height:27px!important;flex:0 0 27px!important;font-size:.78rem!important;border-radius:8px!important;display:grid!important;place-items:center!important}
+  body.universe-home .hero-card-tag{position:static!important;display:block!important;max-width:100%!important;margin:0!important;padding:0!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;font-size:.32rem!important;line-height:1!important;letter-spacing:.07em!important}
+  body.universe-home .hero-card strong{display:block!important;max-width:100%!important;margin:0!important;padding:0!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;font-size:.51rem!important;line-height:1.08!important;text-align:center!important}
+  body.universe-home .hero-card-arrow{display:none!important}
+
+  /* Welcome: preserve the complete desktop content set. */
+  body.universe-home .hero-scene-2{height:max(100svh,760px)!important;min-height:760px!important}
+  body.universe-home .hero-scene-2 .hero-copy{top:82px!important}
+  body.universe-home .hero-scene-2 .hero-title{font-size:clamp(2.7rem,13vw,3.55rem)!important;margin-bottom:10px!important}
+  body.universe-home .hero-scene-2 .hero-body{font-size:.78rem!important;line-height:1.35!important;margin-bottom:13px!important}
+  body.universe-home .hero-scene-2 .hero-stats{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;width:min(300px,88%)!important;gap:10px 20px!important;margin:17px 0 0!important}
+  body.universe-home .hero-scene-2 .hero-stat{min-width:0!important;margin:0!important;padding:0!important;border:0!important}
+  body.universe-home .hero-scene-2 .hero-stat strong{font-size:1.08rem!important;line-height:1!important}
+  body.universe-home .hero-scene-2 .hero-stat span{display:block!important;margin-top:3px!important;font-size:.43rem!important;line-height:1.2!important;white-space:normal!important}
+  body.universe-home .hero-scene-2 .hero-edge{display:none!important}
+
+  /* AI scene: keep the complete story, but let short phones scroll through it. */
+  body.universe-home .hero-type-ai{height:max(100svh,700px)!important;min-height:700px!important;padding:0!important;display:block!important;overflow:hidden!important}
+  body.universe-home .hero-type-ai .hero-scene-inner{display:block!important}
+  body.universe-home .hero-type-ai .ai-hero-content{position:relative!important;width:100%!important;height:100%!important;min-height:700px!important;padding:0 18px!important;display:block!important;overflow:hidden!important;box-sizing:border-box!important}
+  body.universe-home .hero-type-ai .ai-main-copy{display:block!important;position:absolute!important;left:18px!important;right:18px!important;top:31px!important;width:auto!important;z-index:30!important}
+  body.universe-home .hero-type-ai .ai-eyebrow{display:block!important;font-size:.43rem!important;line-height:1!important;letter-spacing:.20em!important;margin:0 0 6px!important}
+  body.universe-home .hero-type-ai .ai-title{display:block!important;font-size:clamp(1rem,4.9vw,1.32rem)!important;line-height:1.05!important;margin:0!important;letter-spacing:-.025em!important}
+  body.universe-home .hero-type-ai .ai-title-line{display:inline!important;margin:0 .18em 0 0!important}
+  body.universe-home .hero-type-ai .ai-lead,body.universe-home .hero-type-ai .ai-divider,body.universe-home .hero-type-ai .ai-globe-statement,body.universe-home .hero-type-ai .ai-visual-label{display:none!important}
+  body.universe-home .hero-type-ai .ai-info-panel{position:absolute!important;top:106px!important;left:15px!important;right:15px!important;width:auto!important;max-width:none!important;height:210px!important;min-height:210px!important;margin:0!important;padding:11px 13px 9px!important;box-sizing:border-box!important;display:block!important;overflow:hidden!important;border-radius:17px!important;z-index:25!important}
+  body.universe-home .hero-type-ai .ai-info-left{padding:0!important}.hero-type-ai .ai-panel-title{font-size:.87rem!important;line-height:1.08!important;margin:0 0 6px!important}.hero-type-ai .ai-panel-body{font-size:.57rem!important;line-height:1.25!important;margin:0!important}
+  body.universe-home .hero-type-ai .ai-info-center{padding:0!important;margin:10px 0 0!important;border:0!important}
+  body.universe-home .hero-type-ai .ai-steps{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:3px!important;width:100%!important}
+  body.universe-home .hero-type-ai .ai-step{min-width:0!important;text-align:center!important}.hero-type-ai .ai-step-icon{width:25px!important;height:25px!important;font-size:.58rem!important;margin:0 auto 3px!important}.hero-type-ai .ai-step strong{display:block!important;font-size:.44rem!important;line-height:1.05!important}.hero-type-ai .ai-step span{display:block!important;font-size:.29rem!important;line-height:1.1!important;margin-top:2px!important;white-space:nowrap!important}
+  body.universe-home .hero-type-ai .ai-info-right{display:block!important;position:absolute!important;left:13px!important;right:13px!important;top:auto!important;bottom:7px!important;padding:6px 0 0!important;border-top:1px solid rgba(120,200,255,.20)!important;text-align:left!important;z-index:2!important}
+  body.universe-home .hero-type-ai .ai-quote{display:block!important;margin:0!important;font-size:.47rem!important;line-height:1.15!important}.hero-type-ai .ai-quote cite{display:block!important;margin-top:3px!important;font-size:.35rem!important;line-height:1.1!important}
+  body.universe-home .hero-type-ai .ai-benefits{position:absolute!important;left:18px!important;right:18px!important;top:326px!important;bottom:auto!important;width:auto!important;margin:0!important;padding:0!important;display:grid!important;grid-template-columns:1fr 1fr!important;gap:7px 9px!important;align-items:start!important}
+  body.universe-home .hero-type-ai .ai-benefit{min-width:0!important;display:flex!important;align-items:flex-start!important;gap:6px!important;font-size:.45rem!important;line-height:1.12!important}.hero-type-ai .ai-benefit-icon{font-size:.90rem!important;flex:0 0 auto!important}.hero-type-ai .ai-signature{display:block!important;grid-column:1/-1!important;margin-top:2px!important;font-size:.62rem!important;line-height:1.1!important}.hero-type-ai .ai-signature span{display:block!important}
+
+  /* Closing scene */
+  body.universe-home .hero-closing{position:relative!important;inset:auto!important;width:100%!important;height:max(100svh,680px)!important;min-height:680px!important;margin:0!important;padding:92px 20px 120px!important;display:block!important;overflow:hidden!important}
+  body.universe-home .hero-closing-content{max-width:330px!important;position:relative!important;z-index:10!important}
+  body.universe-home .hero-closing .hero-title{font-size:clamp(2.45rem,11.8vw,3.7rem)!important}.hero-closing .hero-stats{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px 20px!important;margin-top:26px!important}.hero-closing .hero-stat{border:0!important;margin:0!important;padding:0!important}
+}
+
+@media(max-width:420px){
+  body.universe-home .hero-copy{left:16px!important;right:16px!important;max-width:calc(100% - 32px)!important}
+  body.universe-home .hero-title{font-size:clamp(2.35rem,11.6vw,3.45rem)!important}.hero-body{max-width:300px!important;font-size:.76rem!important}
+  body.universe-home .hero-scene-2{height:max(100svh,730px)!important;min-height:730px!important}.hero-scene-2 .hero-copy{top:76px!important}.hero-scene-2 .hero-title{font-size:clamp(2.45rem,12.7vw,3.25rem)!important}.hero-scene-2 .hero-stats{gap:9px 16px!important;margin-top:14px!important}
+}
+
+@media(max-height:700px) and (max-width:480px){
+  body.universe-home .hero-scene-2{height:720px!important;min-height:720px!important}.hero-scene-2 .hero-copy{top:68px!important}
+  body.universe-home .hero-type-ai{height:700px!important;min-height:700px!important}.hero-type-ai .ai-hero-content{min-height:700px!important}
+}
+
+@media(prefers-reduced-motion:reduce){body.universe-home .hero-scene,body.universe-home .hero-layer-main{transition:none!important}}
