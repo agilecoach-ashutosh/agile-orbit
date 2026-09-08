@@ -68,6 +68,27 @@
   }
   .mobile-drawer-inner > a:hover, .mobile-drawer-inner > a:focus { color: var(--text-primary); }
 
+  /* Keep every mobile dropdown item on its own row. Dynamic nav links are anchors,
+     so they must be explicitly block-level rather than relying on inherited styles. */
+  .mobile-nav-group > a {
+    display: block !important;
+    width: 100%;
+    margin: 0;
+  }
+  .mobile-nav-subgroup {
+    display: block;
+    width: 100%;
+  }
+  .mobile-nav-subgroup > a {
+    display: block !important;
+    width: 100%;
+  }
+  .mobile-nav-subgroup summary > a {
+    display: inline-block;
+    max-width: calc(100% - 28px);
+    vertical-align: top;
+  }
+
   /* Mobile search */
   .site-search-panel { max-height: calc(100svh - 90px); overflow: hidden; }
   .site-search-results { max-height: calc(100svh - 245px); }
