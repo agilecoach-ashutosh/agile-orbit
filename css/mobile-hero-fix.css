@@ -28,8 +28,7 @@
 
   body.universe-home .hero-edge { right:5px!important; top:52%!important; max-width:70px!important; font-size:.38rem!important; line-height:1.6!important; letter-spacing:.15em!important; z-index:12!important; }
   body.universe-home .hero-quote, body.universe-home .hero-scroll-hint { display:none!important; }
-  body.universe-home .hero-index { left:5px!important; z-index:120!important; }
-  body.universe-home .hero-index span { height:12px!important; }
+  body.universe-home .hero-index { display:none!important; }
 
   body.universe-home .hero-closing { position:relative!important; inset:auto!important; width:100%!important; height:100svh!important; min-height:640px!important; margin:0!important; padding:92px 20px 125px!important; display:block!important; overflow:hidden!important; }
   body.universe-home .hero-closing-content { max-width:330px!important; position:relative!important; z-index:10!important; }
