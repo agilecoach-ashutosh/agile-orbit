@@ -28,6 +28,53 @@
   <div class="panel wsjf-input-panel">
     <div class="wsjf-section-heading"><div><span class="eyebrow">1 · INPUT</span><h2>Enter feature inputs</h2></div><div class="actions"><button type="button" class="btn btn-primary" id="addWsjf">+ Add feature</button><button type="button" class="btn btn-secondary" id="resetWsjf">Reset</button></div></div>
     <p class="note">Use only values from [1, 2, 3, 5, 8, 13, 20]. Invalid entries are flagged rather than silently changed. Cost of Delay, WSJF Score and Rank are calculated automatically.</p>
+
+    <div class="wsjf-question-guide" aria-labelledby="wsjfQuestionsTitle">
+      <div class="wsjf-question-guide-head">
+        <div><span class="eyebrow">SCORING GUIDANCE</span><h3 id="wsjfQuestionsTitle">Powerful questions before you score</h3></div>
+        <p>Discuss the questions comparatively across features. The goal is shared understanding—not false precision.</p>
+      </div>
+      <div class="wsjf-question-grid">
+        <article class="wsjf-question-card">
+          <div class="wsjf-question-label"><span class="wsjf-question-icon" aria-hidden="true">📈</span><span>User / Business Value</span></div>
+          <ul>
+            <li>Which customer or business outcome improves if we deliver this?</li>
+            <li>What revenue, cost, adoption or customer-satisfaction impact could this create?</li>
+            <li>What negative consequence or penalty occurs if we delay or never do it?</li>
+          </ul>
+          <small>Think relative value compared with the other items being scored.</small>
+        </article>
+        <article class="wsjf-question-card">
+          <div class="wsjf-question-label"><span class="wsjf-question-icon" aria-hidden="true">⏱️</span><span>Time Criticality</span></div>
+          <ul>
+            <li>Is there a fixed date, regulatory window, market event or opportunity deadline?</li>
+            <li>How quickly does the value decay if we wait?</li>
+            <li>What becomes more costly, risky or less useful if delivery is delayed?</li>
+          </ul>
+          <small>High time criticality means the economic impact of waiting rises quickly.</small>
+        </article>
+        <article class="wsjf-question-card">
+          <div class="wsjf-question-label"><span class="wsjf-question-icon" aria-hidden="true">🛡️</span><span>Risk Reduction / Opportunity Enablement</span></div>
+          <ul>
+            <li>Which current or future risk does this reduce?</li>
+            <li>What learning, information or uncertainty reduction will this create?</li>
+            <li>What future capability, dependency or business opportunity does this unlock?</li>
+          </ul>
+          <small>Include enablers whose value comes from reducing uncertainty or enabling later work.</small>
+        </article>
+        <article class="wsjf-question-card">
+          <div class="wsjf-question-label"><span class="wsjf-question-icon" aria-hidden="true">⚙️</span><span>Job Size</span></div>
+          <ul>
+            <li>How much total effort is required end-to-end relative to the other features?</li>
+            <li>Where are the major complexity, uncertainty or dependency drivers?</li>
+            <li>Do testing, integration, compliance, migration or rollout materially increase the size?</li>
+          </ul>
+          <small>Estimate the whole job, not only development effort.</small>
+        </article>
+      </div>
+      <div class="wsjf-question-tip" role="note"><strong>Facilitation tip:</strong> score one reference feature first, then compare the others against it. If the team debates whether something is a 5 or an 8, the conversation about assumptions is often more valuable than the number itself.</div>
+    </div>
+
     <div class="wsjf-table-shell">
       <table class="data-table wsjf-table wsjf-input-table"><thead><tr>
         <th>Feature</th><th>Business Value</th><th>Time Criticality</th><th>Risk Reduction / Opportunity Enablement</th><th>Job Size</th><th>Cost of Delay</th><th>WSJF Score</th><th>Rank</th>
