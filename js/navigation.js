@@ -8,7 +8,7 @@
   const primary=[
     {key:'learn',label:'Learn',dropdown:true},
     {key:'tools',label:'Tools',dropdown:true},
-    {key:'practice',label:'Practice',dropdown:false},
+    {key:'practice',label:'Practice',dropdown:true},
     {key:'resources',label:'Resources',dropdown:true},
     {key:'insights',label:'Insights',dropdown:true},
     {key:'coaching',label:'Coaching',dropdown:true},
