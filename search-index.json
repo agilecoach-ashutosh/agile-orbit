@@ -2,6 +2,8 @@
   {"title":"Learn","url":"learn/","keywords":"Agile learning behavioural psychology facilitation science behind agile leadership knowledge"},
   {"title":"Behavioural Psychology for Leaders","url":"learn/behavioural-psychology/","keywords":"psychology human behaviour leadership mindset decision making communication cognitive load individual behaviour team group behaviour change resistance leadership growth psychological safety motivation bias Tuckman Ringelmann conflict"},
   {"title":"Science Behind Agile","url":"learn/science-behind-agile/","keywords":"science Agile Scrum empiricism flow queueing theory Little's Law feedback control forecasting teams psychology metrics systems complexity Miller law Conway law Parkinson law WIP throughput lead time"},
+
+  {"title":"Cobra Effect","url":"learn/science-behind-agile/","keywords":"Cobra Effect Agile metric perverse incentive unintended consequences gaming targets defect closure speed utilization decision making Steven Kerr"},
   {"title":"Knowledge-Worker Productivity","url":"learn/science-behind-agile/","keywords":"Peter Drucker knowledge worker productivity outcomes quality impact hours logged time utilization busyness manual work expertise judgment developer value metrics decision making"},
   {"title":"Empiricism and Process Control Theory","url":"learn/science-behind-agile/empirical-process-control.html","keywords":"empiricism empirical process control theory chemical engineering sensors feedback loop transparency inspection adaptation complex problems Scrum evidence short feedback loop"},
   {"title":"Facilitation","url":"learn/facilitation/","keywords":"facilitation collective intelligence participatory healthy transparency process purposeful meetings decisions outcomes Agile Scrum"},
