@@ -44,17 +44,41 @@ function render(newAt='',newIds=[]){
  $('round').textContent=round+'/'+ROUNDS;$('done').textContent=done.length+'/'+TOTAL;$('waiting').textContent=workQueue.length+analysis.length+develop.length+test.length;$('mode').textContent=phase==='baseline'?'Baseline':'Improved';
 }
 async function pulse(id){$(id).classList.add('busy');await sleep(650);$(id).classList.remove('busy');await sleep(220)}
-async function transfer(from,to,cap,machineId,toName){const moving=from.splice(0,Math.min(cap,from.length));render();if(!moving.length){await sleep(350);return}await pulse(machineId);to.push(...moving);render(toName,moving);await sleep(800)}
+async function moveExisting(from,to,cap,machineId,toName){const moving=from.splice(0,Math.min(cap,from.length));render();if(!moving.length){await sleep(280);return}await pulse(machineId);to.push(...moving);render(toName,moving);await sleep(700)}
+async function feedAnalysis(){const moving=workQueue.splice(0,Math.min(caps.analysis,workQueue.length));render();if(!moving.length){await sleep(280);return}analysis.push(...moving);render('analysis',moving);await sleep(700)}
 async function oneRound(){
- await transfer(workQueue,analysis,caps.analysis,'machine1','analysis');
- await transfer(analysis,develop,caps.develop,'machine2','develop');
- await transfer(develop,test,caps.develop,'machine2','test');
- await transfer(test,done,caps.test,'machine3','done');
- round++;render();await sleep(550);
+  // Move downstream first so no card can cross more than one stage in the same round.
+  await moveExisting(test,done,caps.test,'machine3','done');
+  await moveExisting(develop,test,caps.develop,'machine2','test');
+  await moveExisting(analysis,develop,caps.analysis,'machine1','develop');
+  await feedAnalysis();
+  round++;render();await sleep(500);
 }
-async function runFactory(){if(running)return;running=true;$('runBtn').disabled=true;document.querySelectorAll('.bn-upgrade').forEach(b=>b.hidden=true);$('status').innerHTML='<strong>Factory running…</strong><br><span class="muted">Watch Work Queue → Analysis → Develop → Test → Done.</span>';while(round<ROUNDS)await oneRound();running=false;if(phase==='baseline'){baselineDone=done.length;$('step1').classList.remove('active');$('step2').classList.add('active');$('status').innerHTML='<strong>Factory paused.</strong><br>'+done.length+' of '+TOTAL+' cards reached Done. Which processing stage is holding the system back?';document.querySelectorAll('.bn-upgrade').forEach(b=>b.hidden=false);const sizes=[analysis.length,develop.length,test.length];const max=Math.max(...sizes);[1,2,3].forEach((id,i)=>$('station'+id).classList.toggle('hot',sizes[i]===max&&max>0));}else finish();}
-function chooseUpgrade(stage){if(running||phase!=='baseline')return;chosen=stage;caps[stage]+=2;phase='improved';$('step2').classList.remove('active');$('step3').classList.add('active');document.querySelectorAll('.bn-upgrade').forEach(b=>b.hidden=true);['station1','station2','station3'].forEach(id=>$(id).classList.remove('hot','improved'));const map={analysis:'station1',develop:'station2',test:'station3'};$(map[stage]).classList.add('improved');resetFlow();$('status').innerHTML='<strong>You improved '+stage.charAt(0).toUpperCase()+stage.slice(1)+'.</strong><br>Run the same 24 cards again and compare the result.';$('runBtn').textContent='▶ Run Improved Factory';$('runBtn').disabled=false;}
-function finish(){const after=done.length;$('beforeScore').textContent=baselineDone;$('afterScore').textContent=after;$('comparePanel').classList.remove('bn-hidden');let text;if(chosen==='develop')text='<strong>✅ You improved the main bottleneck.</strong> Develop had the lowest capacity, so strengthening it increased end-to-end flow.<br><br><strong>Learning:</strong> improve the constraint, not every local step.';else text='<strong>❌ That was not the main bottleneck.</strong> Develop still had the lowest capacity, so the system remained constrained there.<br><br><strong>Learning:</strong> improving a non-bottleneck can make one area faster without improving the whole system.';$('resultText').innerHTML=text;$('status').innerHTML='<strong>Experiment complete.</strong> Compare before and after below.';$('runBtn').disabled=true;setTimeout(()=>$('comparePanel').scrollIntoView({behavior:'smooth',block:'center'}),250)}
+async function runFactory(){
+ if(running)return;running=true;$('runBtn').disabled=true;document.querySelectorAll('.bn-upgrade').forEach(b=>b.hidden=true);
+ $('status').innerHTML='<strong>Factory running…</strong><br><span class="muted">Each card can move only one stage per round. Watch where work starts accumulating.</span>';
+ while(round<ROUNDS)await oneRound();running=false;
+ if(phase==='baseline'){
+  baselineDone=done.length;$('step1').classList.remove('active');$('step2').classList.add('active');
+  const sizes=[analysis.length,develop.length,test.length];const max=Math.max(...sizes);const labels=['Analysis','Develop','Test'];const maxIndex=sizes.indexOf(max);
+  $('status').innerHTML='<strong>Factory paused.</strong><br>'+done.length+' of '+TOTAL+' cards reached Done.<br><span class="muted">Visible queues: Analysis '+analysis.length+' · Develop '+develop.length+' · Test '+test.length+'.</span><br><b>'+labels[maxIndex]+' has the largest persistent queue.</b> Which processing stage would you improve?';
+  document.querySelectorAll('.bn-upgrade').forEach(b=>b.hidden=false);
+  [1,2,3].forEach((id,i)=>$('station'+id).classList.toggle('hot',i===maxIndex&&max>0));
+ } else finish();
+}
+function chooseUpgrade(stage){
+ if(running||phase!=='baseline')return;chosen=stage;caps[stage]+=2;phase='improved';$('step2').classList.remove('active');$('step3').classList.add('active');
+ document.querySelectorAll('.bn-upgrade').forEach(b=>b.hidden=true);['station1','station2','station3'].forEach(id=>$(id).classList.remove('hot','improved'));
+ const map={analysis:'station1',develop:'station2',test:'station3'};$(map[stage]).classList.add('improved');resetFlow();
+ $('status').innerHTML='<strong>You improved '+stage.charAt(0).toUpperCase()+stage.slice(1)+'.</strong><br>Run the same 24 cards again and compare the result.';
+ $('runBtn').textContent='▶ Run Improved Factory';$('runBtn').disabled=false;
+}
+function finish(){
+ const after=done.length;$('beforeScore').textContent=baselineDone;$('afterScore').textContent=after;$('comparePanel').classList.remove('bn-hidden');
+ let text;if(chosen==='develop')text='<strong>✅ You improved the main bottleneck.</strong> Develop had the lowest capacity and the largest persistent queue. Increasing its capacity improved end-to-end delivery from '+baselineDone+' to '+after+' cards in Done.<br><br><strong>Learning:</strong> improve the constraint, not every local step.';
+ else text='<strong>❌ That was not the main bottleneck.</strong> Develop remained the lowest-capacity stage, so the number of cards reaching Done stayed at '+after+'.<br><br><strong>Learning:</strong> improving a non-bottleneck can make one area faster without improving the whole system.';
+ $('resultText').innerHTML=text;$('status').innerHTML='<strong>Experiment complete.</strong> Compare before and after below.';$('runBtn').disabled=true;setTimeout(()=>$('comparePanel').scrollIntoView({behavior:'smooth',block:'center'}),250);
+}
 $('runBtn').onclick=runFactory;document.querySelectorAll('[data-upgrade]').forEach(b=>b.onclick=()=>chooseUpgrade(b.dataset.upgrade));$('playAgain').onclick=()=>location.reload();resetFlow();
 })();
 </script>
