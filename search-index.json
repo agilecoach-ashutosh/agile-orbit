@@ -5,6 +5,7 @@
 
   {"title":"Cobra Effect","url":"learn/science-behind-agile/","keywords":"Cobra Effect Agile metric perverse incentive unintended consequences gaming targets defect closure speed utilization decision making Steven Kerr"},
   {"title":"Knowledge-Worker Productivity","url":"learn/science-behind-agile/","keywords":"Peter Drucker knowledge worker productivity outcomes quality impact hours logged time utilization busyness manual work expertise judgment developer value metrics decision making"},
+  {"title":"A Stale Board Is a Broken Sensor","url":"learn/science-behind-agile/board-data-quality.html","keywords":"data quality Jira GitLab board stale status WIP cycle time aging throughput blocker dependency forecast metrics decisions garbage in garbage out French train SNCF RFF 2014 platform data management"},
   {"title":"Empiricism and Process Control Theory","url":"learn/science-behind-agile/empirical-process-control.html","keywords":"empiricism empirical process control theory chemical engineering sensors feedback loop transparency inspection adaptation complex problems Scrum evidence short feedback loop"},
   {"title":"Facilitation","url":"learn/facilitation/","keywords":"facilitation collective intelligence participatory healthy transparency process purposeful meetings decisions outcomes Agile Scrum"},
   {"title":"Scrum Event Facilitation","url":"learn/facilitation/scrum-event.html","keywords":"Sprint Planning Daily Scrum Sprint Review Retrospective Refinement facilitation video Scrum events questions anti-patterns"},
