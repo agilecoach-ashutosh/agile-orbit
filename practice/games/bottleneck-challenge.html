@@ -20,8 +20,8 @@
 <div class="game-panel"><div class="bn-line">
 <div class="bn-station"><h3>📥 Work Queue</h3><div class="bn-cap">All incoming work starts here</div><div class="bn-machine">🗂️</div><div class="bn-queue-label"><span>Waiting to start</span><strong id="q0">24</strong></div><div class="bn-queue" id="queue0"></div></div><div class="bn-arrow">→</div>
 <div class="bn-station" id="station1"><h3>🧠 Analysis</h3><div class="bn-cap">Capacity <strong id="cap1">4</strong> / round</div><div class="bn-machine" id="machine1">⚙️</div><div class="bn-queue-label"><span>Waiting / in progress</span><strong id="q1">0</strong></div><div class="bn-queue" id="queue1"></div><button class="btn btn-secondary bn-upgrade" data-upgrade="analysis" hidden>Improve Analysis +2</button></div><div class="bn-arrow">→</div>
-<div class="bn-station" id="station2"><h3>💻 Develop</h3><div class="bn-cap">Capacity <strong id="cap2">2</strong> / round</div><div class="bn-machine" id="machine2">⚙️</div><div class="bn-queue-label"><span>Waiting / in progress</span><strong id="q2">0</strong></div><div class="bn-queue" id="queue2"></div><button class="btn btn-secondary bn-upgrade" data-upgrade="develop" hidden>Improve Develop +2</button></div><div class="bn-arrow">→</div>
-<div class="bn-station" id="station3"><h3>🧪 Test</h3><div class="bn-cap">Capacity <strong id="cap3">4</strong> / round</div><div class="bn-machine" id="machine3">⚙️</div><div class="bn-queue-label"><span>Waiting / in progress</span><strong id="q3">0</strong></div><div class="bn-queue" id="queue3"></div><button class="btn btn-secondary bn-upgrade" data-upgrade="test" hidden>Improve Test +2</button></div><div class="bn-arrow">→</div>
+<div class="bn-station" id="station2"><h3>💻 Develop</h3><div class="bn-cap">Capacity <strong id="cap2">4</strong> / round</div><div class="bn-machine" id="machine2">⚙️</div><div class="bn-queue-label"><span>Waiting / in progress</span><strong id="q2">0</strong></div><div class="bn-queue" id="queue2"></div><button class="btn btn-secondary bn-upgrade" data-upgrade="develop" hidden>Improve Develop +2</button></div><div class="bn-arrow">→</div>
+<div class="bn-station" id="station3"><h3>🧪 Test</h3><div class="bn-cap">Capacity <strong id="cap3">2</strong> / round</div><div class="bn-machine" id="machine3">⚙️</div><div class="bn-queue-label"><span>Waiting / in progress</span><strong id="q3">0</strong></div><div class="bn-queue" id="queue3"></div><button class="btn btn-secondary bn-upgrade" data-upgrade="test" hidden>Improve Test +2</button></div><div class="bn-arrow">→</div>
 <div class="bn-station done-box"><h3>✅ Done</h3><div class="bn-cap">Completed work stays here</div><div class="bn-machine">🏁</div><div class="bn-queue-label"><span>Completed</span><strong id="qDone">0</strong></div><div class="bn-queue" id="queueDone"></div></div>
 </div><div class="bn-status" id="status"><strong>Press “Run Factory”.</strong><br><span class="muted">Follow cards 1–24 all the way to Done.</span></div></div>
 <div class="game-panel bn-hidden" id="comparePanel"><span class="eyebrow">RESULT</span><h2>Did your improvement help the whole system?</h2><div class="bn-compare"><div class="bn-score"><span>Before</span><strong id="beforeScore">—</strong><small>cards in Done</small></div><div class="bn-vs">→</div><div class="bn-score"><span>After</span><strong id="afterScore">—</strong><small>cards in Done</small></div></div><div class="bn-result" id="resultText"></div><div class="game-actions" style="margin-top:16px"><button class="btn btn-primary bn-run" id="playAgain">Play Again</button><a class="btn btn-secondary bn-back" href="index.html">Back to Games</a></div></div>
@@ -31,7 +31,7 @@
 <script>
 (()=>{
 const $=id=>document.getElementById(id),TOTAL=24,ROUNDS=6,sleep=ms=>new Promise(r=>setTimeout(r,ms));
-let caps={analysis:4,develop:2,test:4},workQueue=[],analysis=[],develop=[],test=[],done=[],round=0,running=false,phase='baseline',baselineDone=0,chosen='';
+let caps={analysis:4,develop:4,test:2},workQueue=[],analysis=[],develop=[],test=[],done=[],round=0,running=false,phase='baseline',baselineDone=0,chosen='';
 function resetFlow(){workQueue=Array.from({length:TOTAL},(_,i)=>i+1);analysis=[];develop=[];test=[];done=[];round=0;render();}
 function cardHTML(items,newIds=[]){return items.map(id=>`<span class="bn-card ${newIds.includes(id)?'new':''}">${id}</span>`).join('')}
 function render(newAt='',newIds=[]){
@@ -47,7 +47,6 @@ async function pulse(id){$(id).classList.add('busy');await sleep(650);$(id).clas
 async function moveExisting(from,to,cap,machineId,toName){const moving=from.splice(0,Math.min(cap,from.length));render();if(!moving.length){await sleep(280);return}await pulse(machineId);to.push(...moving);render(toName,moving);await sleep(700)}
 async function feedAnalysis(){const moving=workQueue.splice(0,Math.min(caps.analysis,workQueue.length));render();if(!moving.length){await sleep(280);return}analysis.push(...moving);render('analysis',moving);await sleep(700)}
 async function oneRound(){
-  // Move downstream first so no card can cross more than one stage in the same round.
   await moveExisting(test,done,caps.test,'machine3','done');
   await moveExisting(develop,test,caps.develop,'machine2','test');
   await moveExisting(analysis,develop,caps.analysis,'machine1','develop');
@@ -75,8 +74,7 @@ function chooseUpgrade(stage){
 }
 function finish(){
  const after=done.length;$('beforeScore').textContent=baselineDone;$('afterScore').textContent=after;$('comparePanel').classList.remove('bn-hidden');
- let text;if(chosen==='develop')text='<strong>✅ You improved the main bottleneck.</strong> Develop had the lowest capacity and the largest persistent queue. Increasing its capacity improved end-to-end delivery from '+baselineDone+' to '+after+' cards in Done.<br><br><strong>Learning:</strong> improve the constraint, not every local step.';
- else text='<strong>❌ That was not the main bottleneck.</strong> Develop remained the lowest-capacity stage, so the number of cards reaching Done stayed at '+after+'.<br><br><strong>Learning:</strong> improving a non-bottleneck can make one area faster without improving the whole system.';
+ let text;if(chosen==='test')text='<strong>✅ You improved the main bottleneck.</strong> Test had the lowest capacity, so strengthening it increased end-to-end flow.<br><br><strong>Learning:</strong> improving the constraint improves the whole system.';else text='<strong>❌ That was not the main bottleneck.</strong> Test still had the lowest capacity, so the system remained constrained there.<br><br><strong>Learning:</strong> improving Analysis or Develop may add local capacity without increasing end-to-end throughput.';
  $('resultText').innerHTML=text;$('status').innerHTML='<strong>Experiment complete.</strong> Compare before and after below.';$('runBtn').disabled=true;setTimeout(()=>$('comparePanel').scrollIntoView({behavior:'smooth',block:'center'}),250);
 }
 $('runBtn').onclick=runFactory;document.querySelectorAll('[data-upgrade]').forEach(b=>b.onclick=()=>chooseUpgrade(b.dataset.upgrade));$('playAgain').onclick=()=>location.reload();resetFlow();
