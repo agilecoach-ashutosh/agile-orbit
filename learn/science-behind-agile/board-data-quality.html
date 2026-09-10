@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Stale Board Is a Broken Sensor | Agile Orbit</title>
+<meta name="description" content="A practical data-quality case study connecting the French train platform incident to trustworthy Jira and GitLab delivery data.">
+<meta name="theme-color" content="#02050c">
+<link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="../../css/components.css">
+<link rel="stylesheet" href="../../css/animations.css">
+<link rel="stylesheet" href="../../css/responsive.css">
+<link rel="stylesheet" href="../../css/universe-pages.css">
+<link rel="stylesheet" href="../../css/reference-nav.css">
+<link rel="stylesheet" href="../../css/board-data-quality.css">
+</head>
+<body class="universe-inner bdq-page">
+<div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div>
+<main>
+<section class="page-hero bdq-hero">
+  <div class="container">
+    <div class="breadcrumbs"><a href="../../">Home</a><span>/</span><a href="../">Learn</a><span>/</span><a href="./">Science Behind Agile</a><span>/</span><span>Board Data Quality</span></div>
+    <span class="eyebrow">METRICS &amp; DECISION MAKING</span>
+    <h1>A Stale Board<br>Is a Broken Sensor</h1>
+    <p class="bdq-lead">Why accurate Jira and GitLab data matters: not because the tool needs updating, but because teams make decisions from the picture of reality recorded inside it.</p>
+    <div class="bdq-chain" aria-label="Decision data chain"><span>Reality</span><b>→</b><span>Board Data</span><b>→</b><span>Metrics</span><b>→</b><span>Decision</span></div>
+  </div>
+</section>
+
+<section class="section"><div class="container bdq-shell">
+  <div class="bdq-intro panel">
+    <span class="eyebrow">THE IDEA</span>
+    <h2>Your delivery board is a measurement system.</h2>
+    <p>If the work and the board disagree, every downstream view can become misleading: WIP, cycle time, aging, blockers, throughput, forecasts and status reporting.</p>
+    <strong>The goal is not “keep Jira updated.” The goal is to keep the shared model of work aligned with reality.</strong>
+  </div>
+
+  <section class="bdq-story" aria-labelledby="bdq-story-title">
+    <div class="bdq-story-head">
+      <div><span class="eyebrow">CASE STUDY → PRACTICE</span><h2 id="bdq-story-title">From bad infrastructure data to bad delivery data</h2></div>
+      <div class="bdq-position" id="bdqPosition">1 / 5</div>
+    </div>
+    <div class="bdq-carousel">
+      <button class="bdq-nav" id="bdqPrev" type="button" aria-label="Previous slide">‹</button>
+      <div class="bdq-viewport"><div id="bdqSlides" class="bdq-slides">
+
+        <article class="bdq-slide" data-title="French train case study">
+          <div class="bdq-slide-kicker">01 · THE CONSEQUENCE OF BAD DATA</div>
+          <h3>French train case study</h3>
+          <p class="bdq-subtitle">Lack of proper Data Quality controls</p>
+          <div class="bdq-case-grid">
+            <div><strong>In 2014</strong><p>French train operator (SNCF) ordered <b>2,000</b> new trains for their lines in Paris and throughout France.</p></div>
+            <div><strong>The problem</strong><p>Unfortunately, the data that they were using in the project was <b>not accurate</b>.</p></div>
+            <div><strong>What was missing</strong><p>The national rail operator (RFF) had sent SNCF the dimensions of stations built less than <b>30 years</b> ago – however, stations built more than <b>50 years</b> ago were several centimeters smaller. As a result the new trains were too big for the older stations.</p></div>
+            <div class="impact"><strong>The consequence</strong><p>The financial consequences of using data of bad quality were significant - the mistake sparked an urgent <b>$68m</b> operation to modify <b>1,300 platforms</b> on the regional network.</p></div>
+          </div>
+          <div class="bdq-punch">The engineering decision was only as good as the data describing the system.</div>
+        </article>
+
+        <article class="bdq-slide" data-title="Your board is also a model">
+          <div class="bdq-slide-kicker">02 · NOW BRING IT TO DELIVERY</div>
+          <h3>Jira or GitLab is also a model of reality.</h3>
+          <p class="bdq-subtitle">When the model is stale, the team sees a system that does not actually exist.</p>
+          <div class="bdq-reality-grid">
+            <div><span>Actual work</span><strong>Testing</strong><b>but board says</b><strong>Development</strong></div>
+            <div><span>Actual work</span><strong>Blocked</strong><b>but board says</b><strong>In Progress</strong></div>
+            <div><span>Actual work</span><strong>Finished</strong><b>but board says</b><strong>In Progress</strong></div>
+            <div><span>Actual work</span><strong>Started</strong><b>but board says</b><strong>To Do</strong></div>
+          </div>
+          <div class="bdq-punch">A board that does not reflect reality is not transparency. It is misinformation.</div>
+        </article>
+
+        <article class="bdq-slide" data-title="What breaks">
+          <div class="bdq-slide-kicker">03 · THE DOMINO EFFECT</div>
+          <h3>What breaks when the board is stale?</h3>
+          <p class="bdq-subtitle">A mathematically perfect dashboard can still be wrong when the source data is wrong.</p>
+          <div class="bdq-domino">
+            <div><strong>Wrong status</strong><span>→</span><b>Wrong WIP</b></div>
+            <div><strong>Wrong start / finish dates</strong><span>→</span><b>Wrong cycle time &amp; aging</b></div>
+            <div><strong>Work not closed</strong><span>→</span><b>Wrong throughput</b></div>
+            <div><strong>Missing blockers</strong><span>→</span><b>Hidden waiting &amp; risk</b></div>
+            <div><strong>Missing dependencies</strong><span>→</span><b>False planning confidence</b></div>
+            <div><strong>Bad historical data</strong><span>→</span><b>Weak forecasts</b></div>
+          </div>
+          <div class="bdq-chain big"><span>Bad Data</span><b>→</b><span>Bad Metrics</span><b>→</b><span>Bad Decisions</span></div>
+        </article>
+
+        <article class="bdq-slide" data-title="Minimum useful hygiene">
+          <div class="bdq-slide-kicker">04 · DON'T UPDATE THE TOOL FOR THE TOOL</div>
+          <h3>Maintain only the data that helps the team see and decide.</h3>
+          <p class="bdq-subtitle">Automate what the system can infer. Ask people to maintain what still requires human context.</p>
+          <div class="bdq-two-col">
+            <div class="bdq-do"><span class="eyebrow">HUMANS SHOULD MAKE VISIBLE</span><ul><li><b>Work actually started?</b> Reflect the active state.</li><li><b>Blocked?</b> Make the blocker visible.</li><li><b>Dependency changed?</b> Link or record it.</li><li><b>Priority/context changed?</b> Reflect the new decision.</li></ul></div>
+            <div class="bdq-auto"><span class="eyebrow">AUTOMATE WHERE PRACTICAL</span><ul><li>Merge / pull-request activity</li><li>CI pipeline and deployment state</li><li>Workflow timestamps</li><li>Release and environment signals</li></ul></div>
+          </div>
+          <div class="bdq-punch">The purpose is trustworthy shared visibility—not administrative perfection.</div>
+        </article>
+
+        <article class="bdq-slide" data-title="Team agreement">
+          <div class="bdq-slide-kicker">05 · MAKE IT A TEAM HABIT</div>
+          <h3>Our Board = Our Shared Reality</h3>
+          <p class="bdq-subtitle">Before a Daily Scrum, flow review or delivery conversation, ask one question:</p>
+          <div class="bdq-question">“Does this board represent what is actually happening right now?”</div>
+          <div class="bdq-checks">
+            <div><span>Started?</span><strong>Move it.</strong></div>
+            <div><span>Finished?</span><strong>Close it.</strong></div>
+            <div><span>Blocked?</span><strong>Show it.</strong></div>
+            <div><span>Dependency changed?</span><strong>Reflect it.</strong></div>
+          </div>
+          <div class="bdq-punch">If the board and reality disagree, trust reality — then fix the board.</div>
+        </article>
+
+      </div></div>
+      <button class="bdq-nav" id="bdqNext" type="button" aria-label="Next slide">›</button>
+    </div>
+    <div class="bdq-dots" id="bdqDots" aria-label="Case study slides"></div>
+  </section>
+
+  <div class="bdq-close panel">
+    <span class="eyebrow">THE POINT</span>
+    <h2>Don't maintain the tool for the tool.</h2>
+    <p>Maintain a trustworthy representation of work so the team can coordinate, expose flow problems and make better decisions from real evidence.</p>
+    <a class="btn btn-primary" href="./">Back to Science Behind Agile →</a>
+  </div>
+</div></section>
+</main>
+<div id="site-footer"></div>
+<script src="../../js/config.js"></script><script src="../../js/utilities.js"></script><script src="../../js/navigation.js"></script><script src="../../js/main.js"></script><script src="../../js/universe-pages.js"></script>
+<script>
+(()=>{
+  const track=document.getElementById('bdqSlides'),slides=[...track.children],dots=document.getElementById('bdqDots'),pos=document.getElementById('bdqPosition');
+  let i=0;
+  dots.innerHTML=slides.map((_,n)=>`<button type="button" aria-label="Go to slide ${n+1}" data-i="${n}"></button>`).join('');
+  function show(n){i=(n+slides.length)%slides.length;track.style.transform=`translateX(-${i*100}%)`;pos.textContent=`${i+1} / ${slides.length}`;dots.querySelectorAll('button').forEach((b,k)=>b.classList.toggle('active',k===i));}
+  document.getElementById('bdqPrev').onclick=()=>show(i-1);document.getElementById('bdqNext').onclick=()=>show(i+1);dots.onclick=e=>{const b=e.target.closest('[data-i]');if(b)show(+b.dataset.i);};
+  document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1);});show(0);
+})();
+</script>
+</body>
+</html>
