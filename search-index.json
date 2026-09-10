@@ -21,7 +21,8 @@
   {"title":"Meeting Cost","url":"tools/meeting-cost.html","keywords":"meeting cost calculator people participants hourly rate duration recurring annual cost productivity"},
   {"title":"Team Health Check","url":"tools/team-health-check.html","keywords":"team health psychological safety collaboration clarity autonomy quality delivery continuous improvement stakeholder alignment reflection"},
 
-  {"title":"Practice","url":"practice/","keywords":"practice quizzes Agile Scrum SAFe Product Backlog refinement MCQ questions assessments learning"},
+  {"title":"Practice","url":"practice/","keywords":"practice quizzes Agile Scrum SAFe Product Backlog refinement MCQ questions assessments learning games simulation Kanban"},
+  {"title":"Kanban Flow Lab","url":"practice/kanban-flow-lab/","keywords":"Kanban Flow Lab interactive simulation WIP limits pull flow bottleneck constraint Test swarming blockers expedite cycle time work item age cumulative flow diagram CFD throughput value delivery"},
 
   {"title":"Resources","url":"resources/","keywords":"Agile resources templates retrospectives AI prompts books JQL Jira"},
   {"title":"Retrospectives","url":"resources/retrospectives/","keywords":"retrospective formats facilitation runner sprint retro activities team improvement"},
