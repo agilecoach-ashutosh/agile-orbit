@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Kanban Flow Lab | Agile Orbit</title>
-  <meta name="description" content="Run a guided Kanban delivery simulation, make flow decisions, and discover the effects of WIP, bottlenecks, blockers, swarming and expedite work.">
+  <meta name="description" content="Run a guided Kanban delivery simulation, make flow decisions, and discover WIP, bottlenecks, blockers, swarming, expedite, replenishment and forecasting.">
   <meta name="theme-color" content="#071019">
   <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../../css/style.css">
@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../css/reference-nav.css">
   <link rel="stylesheet" href="../../css/agile-games.css">
   <link rel="stylesheet" href="../../css/kanban-flow-lab.css">
+  <link rel="stylesheet" href="../../css/kanban-flow-lab-advanced.css">
 </head>
 <body class="universe-inner kfl-page">
   <div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div>
@@ -61,7 +62,7 @@
           <div class="kfl-col"><div class="kfl-col-head"><div><span class="eyebrow">QUEUE</span><h3>📥 Ready</h3></div><div class="kfl-cap">Not started<br>Not WIP</div></div><div class="kfl-cards" id="readyCards"></div></div>
           <div class="kfl-col"><div class="kfl-col-head"><div><span class="eyebrow">FLOW</span><h3>🧠 Analysis</h3></div><div class="kfl-cap" id="capAnalysis">4 effort/day</div></div><div class="kfl-cards" id="analysisCards"></div></div>
           <div class="kfl-col"><div class="kfl-col-head"><div><span class="eyebrow">FLOW</span><h3>💻 Development</h3></div><div class="kfl-cap" id="capDevelopment">6 effort/day</div></div><div class="kfl-cards" id="developmentCards"></div></div>
-          <div class="kfl-col"><div class="kfl-col-head"><div><span class="eyebrow">CONSTRAINT</span><h3>🧪 Test</h3></div><div class="kfl-cap" id="capTest">3 effort/day</div></div><div class="kfl-cards" id="testCards"></div></div>
+          <div class="kfl-col"><div class="kfl-col-head"><div><span class="eyebrow">CONSTRAINT</span><h3>🧪 Test</h3></div><div class="kfl-cap" id="capTest">2 effort/day</div></div><div class="kfl-cards" id="testCards"></div></div>
           <div class="kfl-col"><div class="kfl-col-head"><div><span class="eyebrow">VALUE</span><h3>✅ Done</h3></div><div class="kfl-cap">Customer value<br>delivered</div></div><div class="kfl-cards" id="doneCards"></div></div>
         </div></div>
         <div class="kfl-status" id="status" aria-live="polite"><strong>Ready to run.</strong></div>
@@ -105,6 +106,6 @@
     </div></section>
   </main>
   <div id="site-footer"></div>
-  <script src="../../js/config.js"></script><script src="../../js/utilities.js"></script><script src="../../js/navigation.js"></script><script src="../../js/main.js"></script><script src="../../js/universe-pages.js"></script><script src="../../js/kanban-flow-lab.js"></script>
+  <script src="../../js/config.js"></script><script src="../../js/utilities.js"></script><script src="../../js/navigation.js"></script><script src="../../js/main.js"></script><script src="../../js/universe-pages.js"></script><script src="../../js/kanban-flow-lab.js"></script><script src="../../js/kanban-flow-lab-advanced.js"></script>
 </body>
 </html>
