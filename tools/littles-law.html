@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Little's Law Flow Calculator | Agile Orbit</title>
+<meta name="description" content="Explore the relationship between Work in Progress, Cycle Time and Throughput using Little's Law, with practical what-if flow scenarios.">
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/responsive.css"><link rel="stylesheet" href="../css/universe-pages.css"><link rel="stylesheet" href="../css/reference-nav.css"><link rel="stylesheet" href="../css/advanced-calculators.css">
+<style>
+.ll-equation{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:center;margin-top:18px}.ll-term{padding:18px;border:1px solid rgba(140,180,255,.13);border-radius:12px;background:rgba(7,18,31,.45);text-align:center}.ll-term strong{display:block;font-size:1.15rem;margin-bottom:4px}.ll-term span{font-size:.78rem;color:#8294aa}.ll-symbol{font-size:1.25rem;color:#bfefff;font-weight:900}.ll-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.ll-tab{border:1px solid rgba(140,180,255,.16);border-radius:999px;padding:9px 14px;background:rgba(7,18,31,.45);color:#aebdd0;font-weight:800;cursor:pointer}.ll-tab.active{border-color:var(--u-cyan);color:#eefaff;background:rgba(105,220,255,.08)}.ll-result-main{text-align:center;padding:24px;border:1px solid rgba(105,220,255,.16);border-radius:14px;background:rgba(105,220,255,.045);margin-bottom:14px}.ll-result-main .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:#8294aa;font-weight:800}.ll-result-main .value{font-size:clamp(2rem,5vw,3.6rem);font-weight:900;letter-spacing:-.05em;margin:8px 0;color:#eefaff}.ll-result-main .hint{color:#90a4bb}.ll-range{width:100%;accent-color:auto}.ll-source-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.ll-source{padding:16px;border:1px solid rgba(140,180,255,.13);border-radius:12px;background:rgba(7,18,31,.36)}.ll-source h3{font-size:1rem;margin:0 0 7px}.ll-source p{margin:0;color:#8c9caf;font-size:.86rem;line-height:1.55}@media(max-width:800px){.ll-equation{grid-template-columns:1fr}.ll-symbol{text-align:center}.ll-source-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="universe-inner">
+<div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div>
+<main>
+<section class="page-hero"><div class="container">
+<div class="breadcrumbs"><a href="../">Home</a><span>/</span><a href="index.html">Tools</a><span>/</span><span>Little's Law</span></div>
+<span class="eyebrow">FLOW · FORECASTING</span>
+<h1>Little's Law Flow Calculator</h1>
+<p class="muted" style="max-width:820px;font-size:1.08rem">Explore how Work in Progress, Cycle Time and Throughput relate in a reasonably stable delivery system — then test practical what-if scenarios.</p>
+</div></section>
+
+<section class="section"><div class="container calc-stack">
+<div class="panel calc-panel">
+<div class="calc-heading"><div><span class="eyebrow">THE RELATIONSHIP</span><h2>Three flow measures. One simple law.</h2></div><span class="formula">WIP = Throughput × Cycle Time</span></div>
+<p class="muted">Little's Law connects the average amount of work inside a system, the average time each item spends in that system, and the average rate at which items leave it.</p>
+<div class="ll-equation"><div class="ll-term"><strong>Work in Progress</strong><span>Average items inside the workflow</span></div><div class="ll-symbol">=</div><div class="ll-term"><strong>Throughput</strong><span>Items completed per time period</span></div><div class="ll-symbol">×</div><div class="ll-term"><strong>Cycle Time</strong><span>Average elapsed time per item</span></div></div>
+<div class="calc-callout"><strong>Example:</strong> 20 items of average WIP ÷ 5 days average Cycle Time = 4 items/day average Throughput.</div>
+</div>
+
+<div class="panel calc-panel">
+<div class="calc-heading"><div><span class="eyebrow">CALCULATE</span><h2>Choose the flow measure you want to find</h2></div></div>
+<div class="ll-tabs" role="tablist" aria-label="Little's Law calculation mode"><button class="ll-tab active" data-mode="throughput" type="button">Throughput</button><button class="ll-tab" data-mode="cycle" type="button">Cycle Time</button><button class="ll-tab" data-mode="wip" type="button">WIP</button></div>
+<div class="calc-grid three">
+<div class="calc-field" id="wipField"><label>Average Work in Progress (items)</label><input id="wip" type="number" min="0" step="0.1" value="20"><small>Average number of items between your selected start and finish boundaries.</small></div>
+<div class="calc-field" id="cycleField"><label>Average Cycle Time</label><input id="cycle" type="number" min="0" step="0.1" value="5"><small>Average elapsed time for an item to cross the selected workflow.</small></div>
+<div class="calc-field" id="throughputField"><label>Average Throughput</label><input id="throughput" type="number" min="0" step="0.1" value="4"><small>Average number of items completed in the selected time period.</small></div>
+<div class="calc-field"><label>Time unit</label><select id="unit"><option value="day">Day</option><option value="week">Week</option></select><small>Use the same unit for Cycle Time and Throughput.</small></div>
+</div>
+</div>
+
+<div class="panel calc-panel">
+<div class="calc-heading"><div><span class="eyebrow">RESULT</span><h2>What the relationship says</h2></div><span class="formula" id="activeFormula">Throughput = WIP ÷ Cycle Time</span></div>
+<div class="ll-result-main"><div class="label" id="resultLabel">Estimated Throughput</div><div class="value" id="resultValue">—</div><div class="hint" id="resultHint">Enter valid values to calculate.</div></div>
+<div class="calc-kpis"><div class="calc-kpi"><div class="label">Average WIP</div><div class="value" id="kpiWip">—</div><div class="hint">Items inside system</div></div><div class="calc-kpi"><div class="label">Average Cycle Time</div><div class="value" id="kpiCycle">—</div><div class="hint" id="cycleUnitHint">Per item</div></div><div class="calc-kpi"><div class="label">Average Throughput</div><div class="value" id="kpiThroughput">—</div><div class="hint" id="throughputUnitHint">Completed rate</div></div><div class="calc-kpi"><div class="label">Mode</div><div class="value" id="kpiMode">Throughput</div><div class="hint">Current calculation</div></div></div>
+<div class="calc-callout" id="coachInsight"><strong>Coaching insight:</strong> Use this relationship as a system-level conversation starter, not an individual productivity target.</div>
+<div class="calc-callout"><strong>Important:</strong> Little's Law describes a relationship in a reasonably stable system. It does not mean that deliberately adding more WIP will automatically increase useful delivery. More WIP can create queues, contention and longer Cycle Time.</div>
+</div>
+
+<div class="panel calc-panel">
+<div class="calc-heading"><div><span class="eyebrow">WHAT-IF SIMULATOR</span><h2>Explore a different flow scenario</h2></div><span class="formula">Scenario Throughput = WIP ÷ Cycle Time</span></div>
+<p class="muted">Start from the current values, then move either slider. This is a mathematical scenario, not a prediction that the system will automatically behave this way.</p>
+<div class="calc-grid">
+<div class="calc-field"><label>Scenario WIP: <strong id="scenarioWipLabel">20</strong> items</label><input class="ll-range" id="scenarioWip" type="range" min="1" max="100" step="1" value="20"></div>
+<div class="calc-field"><label>Scenario Cycle Time: <strong id="scenarioCycleLabel">5</strong> <span id="scenarioUnitLabel">days</span></label><input class="ll-range" id="scenarioCycle" type="range" min="0.5" max="30" step="0.5" value="5"></div>
+</div>
+<div class="calc-kpis" style="margin-top:16px"><div class="calc-kpi"><div class="label">Baseline throughput</div><div class="value" id="baselineThroughput">—</div><div class="hint">From current calculator values</div></div><div class="calc-kpi"><div class="label">Scenario throughput</div><div class="value" id="scenarioThroughput">—</div><div class="hint">Mathematical scenario</div></div><div class="calc-kpi"><div class="label">Throughput change</div><div class="value" id="scenarioDelta">—</div><div class="hint">Versus baseline</div></div><div class="calc-kpi"><div class="label">Cycle Time change</div><div class="value" id="cycleDelta">—</div><div class="hint">Versus baseline</div></div></div>
+<div class="calc-callout" id="scenarioInsight"><strong>Scenario cue:</strong> Adjust WIP or Cycle Time to explore the relationship.</div>
+</div>
+
+<div class="panel calc-panel">
+<div class="calc-heading"><div><span class="eyebrow">WHERE DO THE NUMBERS COME FROM?</span><h2>Use consistent workflow boundaries and historical averages</h2></div></div>
+<div class="ll-source-grid"><div class="ll-source"><h3>Average WIP</h3><p>Look at the average number of items between your agreed started and finished states — for example Development → Review → Test → Done.</p></div><div class="ll-source"><h3>Average Cycle Time</h3><p>Measure elapsed time from when an item enters the selected workflow boundary until it exits that same boundary.</p></div><div class="ll-source"><h3>Average Throughput</h3><p>Count completed work items over a consistent period. Example: 42 items completed over 14 days = 3 items/day.</p></div></div>
+<div class="calc-callout"><strong>Common sources:</strong> Jira, Azure DevOps, your Kanban board, cumulative flow diagrams and delivery analytics. Prefer averages taken over a representative historical period.</div>
+</div>
+
+<div class="panel calc-panel">
+<div class="calc-heading"><div><span class="eyebrow">WHEN TO USE</span><h2>Use it to improve flow conversations</h2></div></div>
+<p class="muted">Useful during Flow Reviews, retrospectives, delivery forecasting, WIP-limit conversations and Kanban system reviews — especially when exploring how to improve delivery without simply starting more work.</p>
+<div class="calc-callout"><strong>Assumptions:</strong> Little's Law is most meaningful when the observed system is reasonably stable, the same workflow boundaries are used for all three measures, and averages are taken over a representative period. Treat major scope, staffing or workflow changes carefully.</div>
+</div>
+</div></section>
+</main>
+<div id="site-footer"></div>
+<script src="../js/config.js"></script><script src="../js/utilities.js"></script><script src="../js/navigation.js"></script><script src="../js/main.js"></script><script src="../js/tools.js"></script><script src="../js/littles-law.js"></script><script src="../js/universe-pages.js"></script>
+</body></html>
