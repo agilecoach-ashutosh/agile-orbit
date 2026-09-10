@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kanban Flow Lab | Agile Orbit</title>
+  <meta name="description" content="Run a guided Kanban delivery simulation, make flow decisions, and discover the effects of WIP, bottlenecks, blockers, swarming and expedite work.">
+  <meta name="theme-color" content="#071019">
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <link rel="stylesheet" href="../../css/universe-pages.css">
+  <link rel="stylesheet" href="../../css/reference-nav.css">
+  <link rel="stylesheet" href="../../css/agile-games.css">
+  <link rel="stylesheet" href="../../css/kanban-flow-lab.css">
+</head>
+<body class="universe-inner kfl-page">
+  <div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div>
+  <main>
+    <section class="page-hero"><div class="container">
+      <div class="breadcrumbs"><a href="../../">Home</a><span>/</span><a href="../">Practice</a><span>/</span><span>Kanban Flow Lab</span></div>
+      <span class="eyebrow">INTERACTIVE SIMULATION</span>
+      <h1>🏭 Kanban Flow Lab</h1>
+      <p class="muted" style="max-width:850px">Run the system. Make decisions. Discover Kanban through the consequences of how work actually flows.</p>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <div class="kfl-intro">
+        <div class="kfl-mission">
+          <span class="eyebrow">YOUR MISSION</span>
+          <h2>Improve delivery without adding people</h2>
+          <p class="muted">You inherit a software delivery system already full of work. Over 10 simulated days, the system will pause when a flow decision is needed. You choose; the board shows the consequence.</p>
+          <button class="btn btn-primary kfl-run" id="startSim">▶ Start Simulation</button>
+        </div>
+        <aside class="kfl-how">
+          <span class="eyebrow">HOW TO PLAY</span>
+          <h3>Mostly autorun</h3>
+          <ol><li>Watch work move automatically.</li><li>Make a decision when the Lab pauses.</li><li>See queues, aging and metrics change.</li><li>Reach Day 10 and review the system outcome.</li></ol>
+        </aside>
+      </div>
+
+      <div class="kfl-hud">
+        <div class="kfl-stat"><span>Day</span><strong id="day">0/10</strong></div>
+        <div class="kfl-stat"><span>Active WIP</span><strong id="wip">5</strong></div>
+        <div class="kfl-stat"><span>Done</span><strong id="done">0</strong></div>
+        <div class="kfl-stat"><span>Avg Cycle</span><strong id="cycle">—</strong></div>
+        <div class="kfl-stat"><span>Oldest WIP</span><strong id="oldest">5d</strong></div>
+        <div class="kfl-stat"><span>Value Delivered</span><strong id="value">0</strong></div>
+      </div>
+
+      <div class="kfl-policy" aria-label="Current simulation policies">
+        <span class="kfl-pill warn" id="wipPolicy">No WIP limit</span>
+        <span class="kfl-pill" id="teamPolicy">Specialists stay in lane</span>
+        <span class="kfl-pill" id="blockPolicy">No blocker decision yet</span>
+      </div>
+
+      <section class="game-panel" aria-label="Kanban delivery board">
+        <div class="kfl-board-wrap"><div class="kfl-board">
+          <div class="kfl-col"><div class="kfl-col-head"><div><span class="eyebrow">QUEUE</span><h3>📥 Ready</h3></div><div class="kfl-cap">Not started<br>Not WIP</div></div><div class="kfl-cards" id="readyCards"></div></div>
+          <div class="kfl-col"><div class="kfl-col-head"><div><span class="eyebrow">FLOW</span><h3>🧠 Analysis</h3></div><div class="kfl-cap" id="capAnalysis">4 effort/day</div></div><div class="kfl-cards" id="analysisCards"></div></div>
+          <div class="kfl-col"><div class="kfl-col-head"><div><span class="eyebrow">FLOW</span><h3>💻 Development</h3></div><div class="kfl-cap" id="capDevelopment">6 effort/day</div></div><div class="kfl-cards" id="developmentCards"></div></div>
+          <div class="kfl-col"><div class="kfl-col-head"><div><span class="eyebrow">CONSTRAINT</span><h3>🧪 Test</h3></div><div class="kfl-cap" id="capTest">3 effort/day</div></div><div class="kfl-cards" id="testCards"></div></div>
+          <div class="kfl-col"><div class="kfl-col-head"><div><span class="eyebrow">VALUE</span><h3>✅ Done</h3></div><div class="kfl-cap">Customer value<br>delivered</div></div><div class="kfl-cards" id="doneCards"></div></div>
+        </div></div>
+        <div class="kfl-status" id="status" aria-live="polite"><strong>Ready to run.</strong></div>
+      </section>
+
+      <section class="kfl-event kfl-hidden" id="decisionPanel" aria-live="polite">
+        <span class="eyebrow">SIMULATION PAUSED</span>
+        <h2 id="decisionTitle">Decision</h2>
+        <p id="decisionCopy"></p>
+        <div class="kfl-choices" id="decisionChoices"></div>
+      </section>
+
+      <div class="kfl-lab-grid">
+        <section class="kfl-chart">
+          <h3>Cumulative Flow</h3>
+          <p>Watch the bands widen or narrow as work accumulates in different parts of the system.</p>
+          <svg id="cfd" viewBox="0 0 620 230" role="img" aria-label="Cumulative flow diagram over simulated days"></svg>
+          <div class="kfl-legend">
+            <span style="--swatch:#3e9f70">Done</span><span style="--swatch:#c99845">Test</span><span style="--swatch:#4f83bd">Development</span><span style="--swatch:#6e6ab3">Analysis</span><span style="--swatch:#536170">Ready</span>
+          </div>
+        </section>
+        <aside class="kfl-log">
+          <h3>Decision Log</h3>
+          <p>Your choices and system events are recorded here.</p>
+          <div class="kfl-log-list" id="logList"></div>
+        </aside>
+      </div>
+
+      <section class="kfl-result kfl-hidden" id="resultPanel">
+        <span class="eyebrow">DAY 10 · SYSTEM REVIEW</span>
+        <h2>What did your delivery system become?</h2>
+        <div class="kfl-result-grid">
+          <div class="kfl-result-card"><span>Done</span><strong id="resultDone">—</strong></div>
+          <div class="kfl-result-card"><span>Remaining WIP</span><strong id="resultWip">—</strong></div>
+          <div class="kfl-result-card"><span>Avg Cycle Time</span><strong id="resultCycle">—</strong></div>
+          <div class="kfl-result-card"><span>Value Delivered</span><strong id="resultValue">—</strong></div>
+        </div>
+        <div class="kfl-realizations" id="realizations"></div>
+        <div class="kfl-actions"><button class="btn btn-primary kfl-run" id="playAgain">Play Again</button><a class="btn btn-secondary kfl-back" href="../">Back to Practice</a></div>
+      </section>
+    </div></section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="../../js/config.js"></script><script src="../../js/utilities.js"></script><script src="../../js/navigation.js"></script><script src="../../js/main.js"></script><script src="../../js/universe-pages.js"></script><script src="../../js/kanban-flow-lab.js"></script>
+</body>
+</html>
