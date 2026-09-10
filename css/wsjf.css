@@ -31,6 +31,21 @@
 .wsjf-table input:focus{border-color:var(--u-cyan);box-shadow:0 0 0 3px rgba(105,220,255,.08)}
 .wsjf-error{margin-top:14px}
 .wsjf-actions{justify-content:flex-end}
+
+.wsjf-question-guide{margin-top:18px;padding-top:18px;border-top:1px solid rgba(140,180,255,.12)}
+.wsjf-question-guide-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:12px}
+.wsjf-question-guide-head h3{margin:4px 0 0;font-size:1.15rem;color:#f4f9ff}
+.wsjf-question-guide-head p{margin:0;max-width:600px;color:#8fa3b8;font-size:.78rem;line-height:1.5;text-align:right}
+.wsjf-question-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.wsjf-question-card{padding:16px;border:1px solid rgba(140,180,255,.14);border-radius:14px;background:rgba(5,18,30,.42)}
+.wsjf-question-card .wsjf-question-label{display:flex;align-items:center;gap:8px;margin-bottom:8px;color:#eaf7ff;font-weight:850;font-size:.9rem}
+.wsjf-question-card .wsjf-question-icon{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:rgba(105,220,255,.08);border:1px solid rgba(105,220,255,.14);font-size:1rem}
+.wsjf-question-card ul{margin:0;padding-left:19px;color:#b8c8d8;font-size:.78rem;line-height:1.55}
+.wsjf-question-card li+li{margin-top:5px}
+.wsjf-question-card small{display:block;margin-top:10px;color:#7f93aa;line-height:1.45}
+.wsjf-question-tip{margin-top:12px;padding:11px 13px;border-radius:11px;border:1px solid rgba(255,210,124,.2);background:rgba(255,210,124,.045);color:#c9d5e2;font-size:.77rem;line-height:1.5}
+.wsjf-question-tip strong{color:#ffe1a3}
+
 @media(max-width:1000px){
   .wsjf-how-grid{grid-template-columns:1fr}
   .wsjf-table th,.wsjf-table td{padding:9px 6px;font-size:.74rem}
@@ -40,6 +55,9 @@
   .wsjf-how,.wsjf-input-panel,.wsjf-results-panel{padding:20px 16px}
   .wsjf-section-heading{align-items:flex-start;flex-direction:column}
   .wsjf-formula{white-space:normal}
+  .wsjf-question-guide-head{align-items:flex-start;flex-direction:column}
+  .wsjf-question-guide-head p{text-align:left}
+  .wsjf-question-grid{grid-template-columns:1fr}
   .wsjf-table-shell{overflow:visible}
   .wsjf-table,.wsjf-table thead,.wsjf-table tbody,.wsjf-table tr,.wsjf-table th,.wsjf-table td{display:block}
   .wsjf-table thead{display:none}
