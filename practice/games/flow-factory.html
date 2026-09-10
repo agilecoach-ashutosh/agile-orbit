@@ -11,23 +11,20 @@
 <div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div>
 <main>
 <section class="page-hero"><div class="container">
-<div class="breadcrumbs"><a href="../../">Home</a><span>/</span><a href="../index.html">Practice</a><span>/</span><span>Flow Factory</span></div>
+<div class="breadcrumbs"><a href="../../">Home</a><span>/</span><a href="../index.html">Practice</a><span>/</span><a href="index.html">Games</a><span>/</span><span>Flow Factory</span></div>
 <span class="eyebrow">AGILE GAME · FLOW</span><h1>🏭 Flow Factory</h1>
 <p class="muted" style="max-width:820px;font-size:1.08rem">The Batch Size Challenge. Deliver 20 customer cards through Design → Build → Test and discover what batch size does to flow.</p>
 </div></section>
 <section class="section"><div class="container">
 <div class="ff-shell">
 <div class="ff-mission"><div><span class="eyebrow">MISSION</span><h2>Deliver 20 products to the customer</h2><p>Choose a production strategy. Once the round starts, watch the queues and time-to-value — you cannot change the batch mid-round.</p></div><div class="ff-level">LEVEL 1 · RACE TO VALUE</div></div>
-
 <div class="ff-strategies" id="strategyPicker">
 <button class="ff-strategy" data-batch="20"><span class="ff-boxes">📦</span><strong>Big Batch</strong><small>20 at a time</small></button>
 <button class="ff-strategy" data-batch="10"><span class="ff-boxes">📦📦</span><strong>Medium Batch</strong><small>10 at a time</small></button>
 <button class="ff-strategy active" data-batch="5"><span class="ff-boxes">📦📦📦</span><strong>Small Batch</strong><small>5 at a time</small></button>
 <button class="ff-strategy" data-batch="1"><span class="ff-boxes">⚡</span><strong>Single-Piece Flow</strong><small>1 at a time</small></button>
 </div>
-
 <div class="ff-controls"><button class="btn btn-primary ff-start" id="startRound">▶ START ROUND</button><button class="btn btn-secondary" id="resetRound">↻ Reset</button><button class="ff-sound" id="soundToggle" type="button" aria-label="Toggle sound">🔇</button></div>
-
 <div class="ff-game" id="gameBoard">
 <div class="ff-hud"><div><span>ROUND</span><strong id="roundNo">1</strong></div><div><span>DELIVERED</span><strong id="delivered">0/20</strong></div><div><span>TIME</span><strong id="timer">00:00</strong></div><div><span>WAITING</span><strong id="waiting">0</strong></div><div><span>BATCH</span><strong id="batchHud">5</strong></div></div>
 <div class="ff-line">
@@ -41,15 +38,12 @@
 </div>
 <div class="ff-source"><strong>Customer Orders</strong><div class="ff-order-pool" id="orderPool"></div></div>
 </div>
-
 <div class="ff-results" id="roundResults" hidden>
 <div class="ff-result-title"><span>🎯</span><div><span class="eyebrow">ROUND COMPLETE</span><h2 id="resultHeading">Batch size 5</h2></div></div>
 <div class="ff-result-grid"><div><span>⏱</span><strong id="firstValueResult">—</strong><small>First Value</small></div><div><span>🏁</span><strong id="totalTimeResult">—</strong><small>Total Time</small></div><div><span>⏳</span><strong id="waitResult">—</strong><small>Item-Wait Seconds</small></div><div><span>📦</span><strong id="maxQueueResult">—</strong><small>Peak Queue</small></div></div>
 <div class="ff-learning" id="learningText"></div><div class="ff-result-actions"><button class="btn btn-primary" id="playAgain">Try Another Strategy →</button></div>
 </div>
-
 <div class="ff-scoreboard"><div class="ff-score-head"><div><span class="eyebrow">YOUR EXPERIMENTS</span><h2>Round scoreboard</h2></div><span class="ff-score-note">Play different strategies to compare what you experienced.</span></div><div id="scoreRows" class="ff-score-empty">No completed rounds yet.</div></div>
-
 <div class="ff-reveal" id="conceptReveal" hidden><span class="eyebrow">WHAT DID YOU NOTICE?</span><h2>Smaller batches change when feedback becomes possible.</h2><p>When a whole batch must finish one stage before moving, downstream stations wait and value reaches the customer later. Smaller transfers allow stages to overlap, expose problems sooner and reduce the amount of work sitting in queues.</p><div class="ff-note"><strong>Don’t turn this into a rule that “batch 1 is always best”.</strong> Real systems have setup costs, constraints and economics. The useful question is: <em>what is the smallest practical batch that improves feedback and flow in your context?</em></div></div>
 </div>
 </div></section>
