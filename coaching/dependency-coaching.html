@@ -102,7 +102,7 @@
 <div class="runbook-step"><span>10 MIN · PRIORITISE</span><h3>Find the few that matter</h3><p>Use exposure scoring or simple dot voting. Do not leave with a list of twenty equal problems.</p></div>
 <div class="runbook-step"><span>10–20 MIN · ACT</span><h3>Design experiments</h3><p>Agree a small action, owner, evidence to watch and review date for the top one to three dependencies.</p></div>
 </div>
-<div class="canvas-copy"><div><h3>Take the canvas into your next session</h3><p>Copy a lightweight facilitation template with the questions, classification and action fields.</p></div><button class="btn btn-primary" id="copyDependencyCanvas">Copy coaching canvas</button></div>
+<div class="canvas-copy"><div><h3>Take the canvas into your next session</h3><p>Download a ready-to-use, colour-formatted Excel workbook with the coaching canvas, dropdowns, exposure scoring, powerful questions, session guide and scoring reference.</p></div><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-primary" id="downloadDependencyCanvas">Download Excel Canvas ↓</button><button class="btn btn-secondary" id="copyDependencyCanvas">Copy text version</button></div></div>
 <textarea id="dependencyCanvasText" hidden>DEPENDENCY & CONSTRAINT COACHING CANVAS
 
 1. SURFACE
@@ -140,5 +140,6 @@ What will we keep, adapt or stop?</textarea>
 </main>
 <div id="site-footer"></div>
 <script src="../js/config.js"></script><script src="../js/utilities.js"></script><script src="../js/navigation.js"></script><script src="../js/main.js"></script><script src="../js/tools.js"></script><script src="../js/universe-pages.js"></script>
-<script>(function(){const btn=document.getElementById('copyDependencyCanvas'),source=document.getElementById('dependencyCanvasText');if(!btn||!source)return;btn.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(source.value);const old=btn.textContent;btn.textContent='Copied ✓';setTimeout(()=>btn.textContent=old,1800)}catch{source.hidden=false;source.select();document.execCommand('copy');source.hidden=true;btn.textContent='Copied ✓';setTimeout(()=>btn.textContent='Copy coaching canvas',1800)}})})();</script>
+<script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script><script src="../js/dependency-canvas-excel.js"></script>
+<script>(function(){const btn=document.getElementById('copyDependencyCanvas'),source=document.getElementById('dependencyCanvasText');if(!btn||!source)return;btn.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(source.value);const old=btn.textContent;btn.textContent='Copied ✓';setTimeout(()=>btn.textContent=old,1800)}catch{source.hidden=false;source.select();document.execCommand('copy');source.hidden=true;btn.textContent='Copied ✓';setTimeout(()=>btn.textContent='Copy text version',1800)}})})();</script>
 </body></html>
