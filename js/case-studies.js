@@ -28,30 +28,42 @@
   };
 
   const caseMeta={
-    'kodak-digital-disruption.html':['Kodak','2012'],
-    'startup-pivots.html':['Slack · Instagram · Netflix','2007–2012'],
-    'tata-nano-positioning.html':['Tata Nano','2009–2012'],
-    'ing-agile-transformation.html':['ING','2015–2017'],
-    'dbs-managing-through-journeys.html':['DBS','2021–2023'],
-    'akbank-agile-transformation.html':['Akbank','2010–2020s'],
-    'govuk-scaling-agile.html':['GOV.UK','2012–2018'],
-    'intralinks-scrum-reboot.html':['Intralinks','2010s'],
-    'citi-risk-data-transformation.html':['Citi Transformation','2020–2024'],
-    'fbi-sentinel-recovery.html':['FBI Sentinel','2010–2012'],
-    'healthcare-gov-recovery.html':['HealthCare.gov','2013–2014'],
-    'nestle-maggi-crisis.html':['Nestlé Maggi','2015'],
-    'toyota-production-system.html':['Toyota','1950s–1970s'],
-    'microsoft-devops-delivery.html':['Microsoft','2010s–2020s'],
-    'mahindra-xuv700-demand-capacity.html':['Mahindra XUV700','2021–2022'],
-    'flipkart-big-billion-day.html':['Flipkart','2014'],
-    'ola-electric-service-capacity.html':['Ola Electric','2024–2025'],
-    'go-first-supplier-dependency.html':['Go First','2023–2024'],
-    'knight-capital-deployment-failure.html':['Knight Capital','2012'],
-    'credit-suisse-archegos.html':['Credit Suisse','2021'],
-    'ubs-unauthorized-trading.html':['UBS','2011'],
-    'citi-revlon-payment-error.html':['Citi · Revlon','2020'],
-    'paytm-payments-bank-compliance.html':['Paytm','2024']
+    'kodak-digital-disruption.html':['Kodak','2012','United States'],
+    'startup-pivots.html':['Slack · Instagram · Netflix','2007–2012','United States'],
+    'tata-nano-positioning.html':['Tata Nano','2009–2012','India'],
+    'ing-agile-transformation.html':['ING','2015–2017','Netherlands'],
+    'dbs-managing-through-journeys.html':['DBS','2021–2023','Singapore'],
+    'akbank-agile-transformation.html':['Akbank','2010–2020s','Turkey'],
+    'govuk-scaling-agile.html':['GOV.UK','2012–2018','United Kingdom'],
+    'intralinks-scrum-reboot.html':['Intralinks','2010s','United States'],
+    'citi-risk-data-transformation.html':['Citi Transformation','2020–2024','United States'],
+    'fbi-sentinel-recovery.html':['FBI Sentinel','2010–2012','United States'],
+    'healthcare-gov-recovery.html':['HealthCare.gov','2013–2014','United States'],
+    'nestle-maggi-crisis.html':['Nestlé Maggi','2015','India'],
+    'toyota-production-system.html':['Toyota','1950s–1970s','Japan'],
+    'microsoft-devops-delivery.html':['Microsoft','2010s–2020s','United States'],
+    'mahindra-xuv700-demand-capacity.html':['Mahindra XUV700','2021–2022','India'],
+    'flipkart-big-billion-day.html':['Flipkart','2014','India'],
+    'ola-electric-service-capacity.html':['Ola Electric','2024–2025','India'],
+    'go-first-supplier-dependency.html':['Go First','2023–2024','India'],
+    'knight-capital-deployment-failure.html':['Knight Capital','2012','United States'],
+    'credit-suisse-archegos.html':['Credit Suisse','2021','Switzerland'],
+    'ubs-unauthorized-trading.html':['UBS','2011','Switzerland'],
+    'citi-revlon-payment-error.html':['Citi · Revlon','2020','United States'],
+    'paytm-payments-bank-compliance.html':['Paytm','2024','India']
   };
+
+  const regionFilters=[
+    ['Global','🌍'],
+    ['India','🇮🇳'],
+    ['United States','🇺🇸'],
+    ['Switzerland','🇨🇭'],
+    ['United Kingdom','🇬🇧'],
+    ['Netherlands','🇳🇱'],
+    ['Singapore','🇸🇬'],
+    ['Turkey','🇹🇷'],
+    ['Japan','🇯🇵']
+  ];
 
   function pageNameFromHref(href){
     try{
@@ -104,25 +116,72 @@
     if(!document.body.classList.contains('case-library')||document.querySelector('.case-company-jump'))return;
     const hero=document.querySelector('.case-hero');
     if(!hero)return;
+
     const section=document.createElement('section');
     section.className='case-company-jump';
     const container=document.createElement('div');
     container.className='container';
+
     const head=document.createElement('div');
     head.className='case-company-jump-head';
-    head.innerHTML='<span class="case-label">COMPANIES & ORGANIZATIONS</span><strong>Jump directly to a case</strong>';
+    head.innerHTML='<span class="case-label">COMPANIES & ORGANIZATIONS</span><strong>Filter by region, then jump directly to a case</strong>';
+
+    const filters=document.createElement('div');
+    filters.className='case-company-links';
+    filters.style.marginBottom='14px';
+    filters.setAttribute('role','group');
+    filters.setAttribute('aria-label','Filter case studies by region');
+
     const list=document.createElement('div');
     list.className='case-company-links';
-    Object.entries(caseMeta).sort((a,b)=>a[1][0].localeCompare(b[1][0])).forEach(([fileName,[label,year]])=>{
-      const link=document.createElement('a');
-      link.href=fileName;
-      link.className='case-company-link';
-      link.innerHTML=`<span>${label}</span><small>${year}</small>`;
-      list.appendChild(link);
+    list.setAttribute('aria-live','polite');
+
+    const entries=Object.entries(caseMeta);
+    const countFor=region=>region==='Global'?entries.length:entries.filter(([,meta])=>meta[2]===region).length;
+
+    function renderRegion(region){
+      list.innerHTML='';
+      entries
+        .filter(([,meta])=>region==='Global'||meta[2]===region)
+        .sort((a,b)=>a[1][0].localeCompare(b[1][0]))
+        .forEach(([fileName,[label,year,country]])=>{
+          const link=document.createElement('a');
+          link.href=fileName;
+          link.className='case-company-link';
+          link.title=`${label} · ${country} · ${year}`;
+          link.innerHTML=`<span>${label}</span><small>${year}</small>`;
+          list.appendChild(link);
+        });
+
+      filters.querySelectorAll('button[data-region]').forEach(button=>{
+        const active=button.dataset.region===region;
+        button.setAttribute('aria-pressed',String(active));
+        button.style.borderColor=active?'color-mix(in srgb,var(--accent) 58%,transparent)':'';
+        button.style.background=active?'color-mix(in srgb,var(--accent) 12%,var(--surface))':'';
+        const label=button.querySelector('span');
+        if(label)label.style.color=active?'var(--accent)':'';
+      });
+    }
+
+    regionFilters.forEach(([region,flag])=>{
+      const count=countFor(region);
+      if(!count)return;
+      const button=document.createElement('button');
+      button.type='button';
+      button.className='case-company-link';
+      button.dataset.region=region;
+      button.style.cursor='pointer';
+      button.style.font='inherit';
+      button.setAttribute('aria-pressed','false');
+      button.innerHTML=`<span>${flag} ${region}</span><small>${count}</small>`;
+      button.addEventListener('click',()=>renderRegion(region));
+      filters.appendChild(button);
     });
-    container.append(head,list);
+
+    container.append(head,filters,list);
     section.appendChild(container);
     hero.insertAdjacentElement('afterend',section);
+    renderRegion('Global');
   }
 
   function enhanceImpact(){
