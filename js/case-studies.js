@@ -4,52 +4,52 @@
   const impactData={
     'ing-agile-transformation.html':{
       tone:'context',
-      badge:'Cost of status quo · handoffs + slower response',
+      badge:'Handoffs + slower customer response',
       items:[['Cost of status quo','Cross-functional handoffs'],['2017 snapshot','≈350 squads · 13 tribes'],['Consequence','Operating model redesigned']]
     },
     'kodak-digital-disruption.html':{
       tone:'critical',
-      badge:'Business impact · Chapter 11 · 2012',
+      badge:'Chapter 11 · 2012',
       items:[['Economic impact','Core film economics eroded'],['Strategic loss','Legacy model viability'],['Consequence','Chapter 11 · 2012']]
     },
     'startup-pivots.html':{
       tone:'warning',
-      badge:'Cost of wrong direction · original product bets failed',
+      badge:'Original product direction failed',
       items:[['What was lost','Original product direction'],['Signal','Stronger user behaviour elsewhere'],['Consequence','Pivot, narrow—or shut down']]
     },
     'dbs-managing-through-journeys.html':{
       tone:'context',
-      badge:'Cost of status quo · silos + slow customer learning',
+      badge:'Silos + slow customer learning',
       items:[['Cost of status quo','Siloed customer journeys'],['Learning cost','Slow cross-functional decisions'],['Scale of response','60+ journeys by 2023']]
     },
     'akbank-agile-transformation.html':{
       tone:'context',
-      badge:'Cost of status quo · annual plans + coaching bottlenecks',
+      badge:'Annual plans + coaching bottlenecks',
       items:[['Adaptation cost','Annual plans aged quickly'],['Scaling risk','Coach + role bottlenecks'],['Scale of response','143 Scrum Teams reported']]
     },
     'govuk-scaling-agile.html':{
       tone:'warning',
-      badge:'Delivery impact · technical debt + too much WIP',
+      badge:'Technical debt + too much WIP',
       items:[['Delivery impact','Technical debt accumulated'],['Flow loss','Too much work in progress'],['Consequence','Quality + focus degraded']]
     },
     'fbi-sentinel-recovery.html':{
       tone:'critical',
-      badge:'Program context · $170M failed predecessor',
+      badge:'$170M failed predecessor · 3 years',
       items:[['Failed predecessor','$170M · 3 years'],['Sentinel cost','$441M estimated total'],['Consequence','Recovery model required']]
     },
     'healthcare-gov-recovery.html':{
       tone:'warning',
-      badge:'Public impact · failed national launch',
+      badge:'Failed national launch · enrollment disrupted',
       items:[['Launch impact','Outages + technical failures'],['User cost','Enrollment journey disrupted'],['Recovery','Service stabilized by Mar 2014']]
     },
     'toyota-production-system.html':{
       tone:'context',
-      badge:'System waste targeted · defects + rework + inventory',
+      badge:'Defects + rework + inventory waste',
       items:[['Waste targeted','Defects + rework'],['Flow drag','Inventory + waiting'],['Countermeasure','Stop abnormalities early']]
     },
     'microsoft-devops-delivery.html':{
       tone:'context',
-      badge:'Cost of slow feedback · integration + release risk',
+      badge:'Integration delay + release risk',
       items:[['Cost of slow feedback','Late integration risk'],['Scale','200+ PRs / day'],['Fast evidence','≈60k tests in <5 min']]
     },
     'knight-capital-deployment-failure.html':{
@@ -59,7 +59,7 @@
     },
     'intralinks-scrum-reboot.html':{
       tone:'warning',
-      badge:'Adoption cost · Scrum done, agility not achieved',
+      badge:'Scrum adopted · agility not achieved',
       items:[['Investment','Scrum mechanics adopted'],['Loss','Desired agility did not materialize'],['Consequence','Scrum reboot required']]
     }
   };
