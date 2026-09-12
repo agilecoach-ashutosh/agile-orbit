@@ -75,6 +75,10 @@
     const badge=document.createElement('div');
     badge.className=`case-impact-badge ${data.tone}`;
     badge.textContent=data.badge;
+    badge.style.textTransform='none';
+    badge.style.fontWeight='750';
+    badge.style.lineHeight='1.4';
+    badge.style.letterSpacing='0';
     badge.setAttribute('aria-label',`Impact at a glance: ${data.badge}`);
     return badge;
   }
