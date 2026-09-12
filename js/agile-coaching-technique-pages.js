@@ -3,6 +3,21 @@
   'use strict';
   const modal=document.getElementById('topicModal');
   if(!modal)return;
+
+  // The topic script highlights the active sticky-subnav link by calling scrollIntoView().
+  // Native scrollIntoView can also move the document vertically, which made the page
+  // jump slightly down when the user reached the top. Keep that behaviour horizontal only.
+  const coachSubnav=document.querySelector('.coach-subnav');
+  if(coachSubnav){
+    [...coachSubnav.querySelectorAll('a[href^="#"]')].forEach(link=>{
+      link.scrollIntoView=function(){
+        const max=Math.max(0,coachSubnav.scrollWidth-coachSubnav.clientWidth);
+        const target=Math.min(max,Math.max(0,this.offsetLeft-(coachSubnav.clientWidth-this.offsetWidth)/2));
+        coachSubnav.scrollTo({left:target,top:0,behavior:'auto'});
+      };
+    });
+  }
+
   const slideWrap=modal.querySelector('.topic-slide-wrap');
   const slide=document.getElementById('topicSlide');
   const oldBar=modal.querySelector('.topic-method-bar');
@@ -26,7 +41,7 @@
   panel.className='topic-technique-panel';panel.hidden=true;
   slide.insertAdjacentElement('afterend',panel);
 
-  const esc=s=>String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+  const esc=s=>String(s||'').replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[m]));
   const topicLabel=id=>{
     const card=document.querySelector(`[data-topic="${CSS.escape(id)}"] h3`);
     return card?card.textContent.trim():id;
