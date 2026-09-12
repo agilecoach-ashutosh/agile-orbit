@@ -41,4 +41,22 @@
     });
   }
 
+  // Agile Coaching techniques use the legacy in-page data store but route users
+  // to full Agile Orbit pages. Load this enhancement only after the hub's own
+  // coaching scripts have finished creating their data-backed technique layer.
+  if(document.body.classList.contains('agile-coaching-page')){
+    window.addEventListener('load',()=>{
+      if(!document.querySelector('link[data-coaching-technique-pages]')){
+        const link=document.createElement('link');
+        link.rel='stylesheet';link.href='../css/agile-coaching-technique-pages.css';
+        link.dataset.coachingTechniquePages='true';document.head.appendChild(link);
+      }
+      if(!document.querySelector('script[data-coaching-technique-pages]')){
+        const script=document.createElement('script');
+        script.src='../js/agile-coaching-technique-pages.js';script.defer=true;
+        script.dataset.coachingTechniquePages='true';document.body.appendChild(script);
+      }
+    },{once:true});
+  }
+
 })();
