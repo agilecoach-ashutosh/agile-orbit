@@ -1,5 +1,6 @@
 [
-  {"title":"Learn","url":"learn/","keywords":"Agile learning behavioural psychology facilitation science behind agile leadership knowledge"},
+  {"title":"Learn","url":"learn/","keywords":"Agile learning product management product lifecycle quadrants behavioural psychology facilitation science behind agile leadership knowledge"},
+  {"title":"The Product Management Landscape","url":"learn/product-management.html","keywords":"product management project vs product product lifecycle discovery launch growth maturity decline retire four quadrants internal strategy market external operations Q1 Q2 Q3 Q4 Agile Scrum project manager product owner developers scrum master incremental delivery stakeholder power interest banking investment suitability compliance"},
   {"title":"Behavioural Psychology for Leaders","url":"learn/behavioural-psychology/","keywords":"psychology human behaviour leadership mindset decision making communication cognitive load individual behaviour team group behaviour change resistance leadership growth psychological safety motivation bias Tuckman Ringelmann conflict"},
   {"title":"Science Behind Agile","url":"learn/science-behind-agile/","keywords":"science Agile Scrum empiricism flow queueing theory Little's Law feedback control forecasting teams psychology metrics systems complexity Miller law Conway law Parkinson law WIP throughput lead time"},
 
