@@ -116,6 +116,17 @@
   }
 
   function enhanceImpact(){
+    if(document.body.classList.contains('case-library')){
+      const heroMeta=document.querySelector('.case-hero .case-meta');
+      if(heroMeta&&!heroMeta.querySelector('[data-india-case-count]')){
+        const indiaPill=document.createElement('span');
+        indiaPill.className='case-pill';
+        indiaPill.dataset.indiaCaseCount='true';
+        indiaPill.textContent='🇮🇳 3 India cases';
+        heroMeta.appendChild(indiaPill);
+      }
+    }
+
     document.querySelectorAll('a.case-card[href]').forEach(card=>{
       const data=impactData[pageNameFromHref(card.getAttribute('href'))];
       if(!data||card.querySelector('.case-impact-badge'))return;
