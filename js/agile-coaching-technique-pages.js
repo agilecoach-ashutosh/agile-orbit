@@ -25,13 +25,18 @@ panel.hidden=true;
 slide.insertAdjacentElement('afterend',panel);
 const esc=s=>String(s||'').replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[m]));
 
+function methodHref(item){
+  const join=item.page.includes('?')?'&':'?';
+  return `${item.page}${join}from=${encodeURIComponent(activeTopic||item.topicId||'')}`;
+}
+
 function renderPanel(){
   if(!activeTopic||modal.hidden){panel.hidden=true;return}
   const ids=lib.topics[activeTopic]||[];
   const items=ids.map(id=>lib.methods[id]).filter(Boolean);
   if(!items.length){panel.hidden=true;return}
   panel.hidden=false;
-  panel.innerHTML=`<div class="topic-technique-head"><div><span>GO DEEPER</span><h4>Techniques, models & frameworks</h4><p>Only researched methods with a clear lineage are shown here. Open a method to understand it in depth inside Agile Orbit.</p></div><b class="topic-technique-count">${items.length} ${items.length===1?'METHOD':'METHODS'}</b></div><div class="topic-technique-links">${items.map(item=>`<a class="topic-technique-link" href="${esc(item.page)}"><span class="topic-technique-type">${esc(item.type)}</span><span><strong>${esc(item.name)}</strong><small>${esc(item.summary)}</small></span><span class="topic-technique-arrow">→</span></a>`).join('')}</div>`;
+  panel.innerHTML=`<div class="topic-technique-head"><div><span>GO DEEPER</span><h4>Techniques, models & frameworks</h4><p>Only researched methods with a clear lineage are shown here. Open a method to understand it in depth inside Agile Orbit.</p></div><b class="topic-technique-count">${items.length} ${items.length===1?'METHOD':'METHODS'}</b></div><div class="topic-technique-links">${items.map(item=>`<a class="topic-technique-link" href="${esc(methodHref(item))}"><span class="topic-technique-type">${esc(item.type)}</span><span><strong>${esc(item.name)}</strong><small>${esc(item.summary)}</small></span><span class="topic-technique-arrow">→</span></a>`).join('')}</div>`;
 }
 
 document.querySelectorAll('[data-topic]').forEach(card=>{
