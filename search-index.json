@@ -5,10 +5,12 @@
   {"title":"Kodak Digital Disruption Case Study","url":"learn/case-studies/kodak-digital-disruption.html","keywords":"Kodak digital camera disruption strategy business model innovation film photography strategic inertia cannibalization customer job adapt decline empiricism portfolio agility case study"},
   {"title":"FBI Sentinel Agile Recovery Case Study","url":"learn/case-studies/fbi-sentinel-recovery.html","keywords":"FBI Sentinel agile recovery Scrum two week sprints government program turnaround working software user stories architecture stories direct management Lockheed Martin feedback loop case study"},
   {"title":"Knight Capital Deployment Failure Case Study","url":"learn/case-studies/knight-capital-deployment-failure.html","keywords":"Knight Capital deployment failure DevOps risk controls Power Peg SMARS dormant code server drift alerts kill switch blast radius engineering safety SEC case study"},
+  {"title":"Startup Pivots Case Study","url":"learn/case-studies/startup-pivots.html","keywords":"startup pivots Slack Glitch Instagram Burbn Netflix DVD streaming pivot persevere stop product strategy experiments feedback product market fit evidence sunk cost learning case study"},
+  {"title":"HealthCare.gov Recovery Case Study","url":"learn/case-studies/healthcare-gov-recovery.html","keywords":"HealthCare.gov CMS USDS recovery site reliability observability monitoring ruthless prioritization badgeless one team government digital service conversion uptime iterative agile case study"},
+  {"title":"Toyota Production System Case Study","url":"learn/case-studies/toyota-production-system.html","keywords":"Toyota Production System TPS Lean Jidoka Just in Time JIT Kanban pull flow Andon quality at source stop the line WIP kaizen waste software analogy case study"},
   {"title":"The Product Management Landscape","url":"learn/product-management.html","keywords":"product management project vs product product lifecycle discovery launch growth maturity decline retire four quadrants internal strategy market external operations Q1 Q2 Q3 Q4 Agile Scrum project manager product owner developers scrum master incremental delivery stakeholder power interest banking investment suitability compliance"},
   {"title":"Behavioural Psychology for Leaders","url":"learn/behavioural-psychology/","keywords":"psychology human behaviour leadership mindset decision making communication cognitive load individual behaviour team group behaviour change resistance leadership growth psychological safety motivation bias Tuckman Ringelmann conflict"},
   {"title":"Science Behind Agile","url":"learn/science-behind-agile/","keywords":"science Agile Scrum empiricism flow queueing theory Little's Law feedback control forecasting teams psychology metrics systems complexity Miller law Conway law Parkinson law WIP throughput lead time"},
-
   {"title":"Cobra Effect","url":"learn/science-behind-agile/","keywords":"Cobra Effect Agile metric perverse incentive unintended consequences gaming targets defect closure speed utilization decision making Steven Kerr"},
   {"title":"Knowledge-Worker Productivity","url":"learn/science-behind-agile/","keywords":"Peter Drucker knowledge worker productivity outcomes quality impact hours logged time utilization busyness manual work expertise judgment developer value metrics decision making"},
   {"title":"A Stale Board Is a Broken Sensor","url":"learn/science-behind-agile/board-data-quality.html","keywords":"data quality Jira GitLab board stale status WIP cycle time aging throughput blocker dependency forecast metrics decisions garbage in garbage out French train SNCF RFF 2014 platform data management"},
@@ -16,7 +18,6 @@
   {"title":"Facilitation","url":"learn/facilitation/","keywords":"facilitation collective intelligence participatory healthy transparency process purposeful meetings decisions outcomes Agile Scrum"},
   {"title":"Scrum Event Facilitation","url":"learn/facilitation/scrum-event.html","keywords":"Sprint Planning Daily Scrum Sprint Review Retrospective Refinement facilitation video Scrum events questions anti-patterns"},
   {"title":"Facilitation Techniques","url":"learn/facilitation/techniques.html","keywords":"1-2-4-All Roman Voting Dot Voting Fist of Five Affinity Mapping Gallery Walk White Elephant Diverge Converge TRIZ Team Agreement Thirty-Five Buy a Feature facilitation techniques"},
-
   {"title":"Tools","url":"tools/","keywords":"Agile calculators planning forecasting flow prioritisation team collaboration tools"},
   {"title":"Sprint Capacity","url":"tools/sprint-capacity.html","keywords":"sprint capacity calculator last three sprint velocity availability capacity factor points commit sprint planning"},
   {"title":"PBI Health Calculator","url":"tools/pbi-health.html","keywords":"PBI product backlog health calculator ready story points average velocity 2x 3x refined backlog sprint runway refinement"},
@@ -27,10 +28,8 @@
   {"title":"WSJF Cost of Delay Score","url":"tools/cost-of-delay.html","keywords":"cost of delay WSJF business value time criticality risk reduction opportunity enablement prioritisation relative score"},
   {"title":"Meeting Cost","url":"tools/meeting-cost.html","keywords":"meeting cost calculator people participants hourly rate duration recurring annual cost productivity"},
   {"title":"Team Health Check","url":"tools/team-health-check.html","keywords":"team health psychological safety collaboration clarity autonomy quality delivery continuous improvement stakeholder alignment reflection"},
-
   {"title":"Practice","url":"practice/","keywords":"practice quizzes Agile Scrum SAFe Product Backlog refinement MCQ questions assessments learning games simulation Kanban"},
   {"title":"Kanban Flow Lab","url":"practice/kanban-flow-lab/","keywords":"Kanban Flow Lab interactive simulation WIP limits pull flow bottleneck constraint Test swarming blockers expedite cycle time work item age cumulative flow diagram CFD throughput value delivery"},
-
   {"title":"Resources","url":"resources/","keywords":"Agile resources templates retrospectives AI prompts books JQL Jira"},
   {"title":"Retrospectives","url":"resources/retrospectives/","keywords":"retrospective formats facilitation runner sprint retro activities team improvement"},
   {"title":"Templates","url":"resources/templates/","keywords":"Agile templates planning team agreements user stories stakeholder tools downloadable resources"},
@@ -52,7 +51,6 @@
   {"title":"Definition of Done Generator","url":"resources/prompts/definition-of-done-generator.html","keywords":"prompt Definition of Done DoD product technology architecture testing release context development team scrum master agile coach"},
   {"title":"Recommended Books","url":"resources/books/","keywords":"35 Agile books reading guide Scrum Kanban leadership psychology product coaching organisational behaviour recommended books"},
   {"title":"Advanced JQL Cookbook","url":"resources/jql/","keywords":"JQL Jira Query Language 40 recipes Scrum backlog sprint health dependencies release readiness reporting hygiene project status assignee sprint openSprints closedSprints startOfMonth operators functions"},
-
   {"title":"Insights","url":"insights/","keywords":"Agile practice observations experiments leadership behaviour coaching delivery AI learning"},
   {"title":"Cargo Cult Agile","url":"insights/cargo-cult-agile.html","keywords":"cargo cult Agile ceremonies without principles process compliance daily scrum status report velocity target retrospectives transformation"},
   {"title":"The Watermelon Status Problem","url":"insights/watermelon-status.html","keywords":"watermelon status green outside red inside dashboards reporting metrics psychological safety governance Goodhart status"},
@@ -64,11 +62,9 @@
   {"title":"Flow Before Forecasts","url":"insights/product-delivery.html","keywords":"flow forecasts queues predictability delivery lead time throughput WIP"},
   {"title":"What AI Means for Scrum Masters","url":"insights/ai-agile.html","keywords":"AI Scrum Master artificial intelligence toil judgment agency Agile"},
   {"title":"Lessons Learned in Public","url":"insights/lessons-learned.html","keywords":"lessons learned learning experience reusable insight experiments reflection"},
-
   {"title":"Coaching","url":"coaching/","keywords":"Agile coaching professional coaching teams leaders systems learning change"},
   {"title":"Agile Coaching","url":"coaching/agile-coaching.html","keywords":"Agile coaching teams systems flow leadership change coaching stances interventions experiments questions"},
   {"title":"Dependency & Constraint Coaching","url":"coaching/dependency-coaching.html","keywords":"dependencies constraints waiting blocked WIP handoffs approvals architecture skills authorization external teams vendors environments flow pressure heroics control influence escalate accept manage heatmap coaching canvas powerful questions"},
   {"title":"Professional Coaching","url":"coaching/professional-coaching.html","keywords":"professional coaching client led contracting listening awareness questions action ICF coaching"},
-
   {"title":"About Agile Orbit","url":"about/","keywords":"about Agile Orbit Agile Coach author experience certifications journey"}
 ]
