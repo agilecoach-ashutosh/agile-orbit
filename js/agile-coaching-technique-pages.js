@@ -10,6 +10,8 @@
   const oldOpen=oldBar&&oldBar.querySelector('.topic-method-open');
   const oldClose=oldStage&&oldStage.querySelector('.technique-close');
   if(!slideWrap||!slide||!oldBar||!oldStage||!oldOpen||!oldClose)return;
+  oldBar.style.display='none';
+  oldStage.style.display='none';
 
   const dedicated={
     'conflict-coaching::Thomas-Kilmann Conflict Modes':'techniques/thomas-kilmann-conflict-modes.html',
