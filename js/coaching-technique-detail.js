@@ -12,7 +12,11 @@
   }catch(e){}
   const esc=s=>String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
   const topic=params.get('topic')||(data&&data.topicId)||'';
-  const back=`../agile-coaching.html${topic?`?topic=${encodeURIComponent(topic)}`:''}#${topic&&topic.includes('product')?'product':topic&&topic.includes('technology')?'technology':topic&&topic.includes('process')?'process':'people'}`;
+  const productTopics=new Set(['define-product','product-role-clarity','outcomes-value','product-goals-evidence','mvp-experimentation','product-discovery','prioritisation-tradeoffs','customer-feedback']);
+  const technologyTopics=new Set(['technical-excellence','built-in-quality','architecture-autonomy','small-batches-ci','continuous-delivery','ai-assisted-engineering','human-ai-quality','ai-agents-autonomy','knowledge-dependencies']);
+  const processTopics=new Set(['dependency-constraint','flow-bottleneck','wip-queues','empiricism-feedback','change-transformation','resistance-change','communication-decision-flow','experiment-improvement']);
+  const anchor=productTopics.has(topic)?'product':technologyTopics.has(topic)?'technology':processTopics.has(topic)?'process':'people';
+  const back=`../agile-coaching.html${topic?`?topic=${encodeURIComponent(topic)}`:''}#${anchor}`;
 
   if(!data){
     document.title=`${requestedName} | Agile Orbit`;
