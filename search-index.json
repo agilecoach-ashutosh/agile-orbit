@@ -59,13 +59,10 @@
   {"title":"What AI Means for Scrum Masters","url":"insights/ai-agile.html","keywords":"AI Scrum Master artificial intelligence toil judgment agency Agile"},
   {"title":"Lessons Learned in Public","url":"insights/lessons-learned.html","keywords":"lessons learned learning experience reusable insight experiments reflection"},
 
-  {"title":"Coaching","url":"coaching/","keywords":"Agile coaching teams leaders transformation learning change"},
-  {"title":"Coaching Approach","url":"coaching/coaching-approach.html","keywords":"coaching approach stances boundaries ways of working Agile coach"},
-  {"title":"Coaching Canvas","url":"coaching/coaching-canvas.html","keywords":"coaching canvas reflection coaching conversations tool"},
-  {"title":"Coaching Questions","url":"coaching/coaching-questions.html","keywords":"coaching questions generator coaching intent powerful questions"},
-  {"title":"Team Coaching","url":"coaching/team-coaching.html","keywords":"team coaching system patterns team as system Agile coach"},
-  {"title":"Leadership Coaching","url":"coaching/leadership-coaching.html","keywords":"leadership coaching leaders impact choices reflection"},
-  {"title":"Agile Transformation Coaching","url":"coaching/agile-transformation.html","keywords":"Agile transformation coaching systemic change organisation transformation"},
+  {"title":"Coaching","url":"coaching/","keywords":"Agile coaching professional coaching teams leaders systems learning change"},
+  {"title":"Agile Coaching","url":"coaching/agile-coaching.html","keywords":"Agile coaching teams systems flow leadership change coaching stances interventions experiments questions"},
+  {"title":"Dependency & Constraint Coaching","url":"coaching/dependency-coaching.html","keywords":"dependencies constraints waiting blocked WIP handoffs approvals architecture skills authorization external teams vendors environments flow pressure heroics control influence escalate accept manage heatmap coaching canvas powerful questions"},
+  {"title":"Professional Coaching","url":"coaching/professional-coaching.html","keywords":"professional coaching client led contracting listening awareness questions action ICF coaching"},
 
   {"title":"About Agile Orbit","url":"about/","keywords":"about Agile Orbit Agile Coach author experience certifications journey"}
 ]
