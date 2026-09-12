@@ -10,7 +10,7 @@
     {key:'tools',label:'Tools',dropdown:true},
     {key:'practice',label:'Practice',dropdown:true},
     {key:'resources',label:'Resources',dropdown:true},
-    {key:'insights',label:'Insights',dropdown:true},
+    {key:'ai',label:'AI',dropdown:true},
     {key:'coaching',label:'Coaching',dropdown:true},
     {key:'about',label:'About',dropdown:false}
   ];
