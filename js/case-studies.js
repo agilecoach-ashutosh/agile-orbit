@@ -61,6 +61,21 @@
       tone:'warning',
       badge:'Teams adopted Scrum mechanics, but the desired agility did not materialize, so the organization had to reboot its approach.',
       items:[['What was invested','Teams implemented the visible mechanics of Scrum'],['What did not improve','The organization still did not achieve the agility it expected'],['Business consequence','The reboot shifted attention toward empiricism, trust and real adaptation']]
+    },
+    'mahindra-xuv700-demand-capacity.html':{
+      tone:'warning',
+      badge:'25,000 XUV700 bookings arrived in 57 minutes—demand equal to up to six months of production for that launch-price batch.',
+      items:[['Demand surge','25,000 bookings arrived in 57 minutes'],['Capacity consequence','Mahindra said that volume represented up to six months of production, depending on variant'],['Customer consequence','Waiting periods later reached 6–10 months for most variants and well over 12 months for AX7']]
+    },
+    'flipkart-big-billion-day.html':{
+      tone:'warning',
+      badge:'Flipkart reached about $100M in GMV in 10 hours, but extreme demand also caused outages, stockouts, overbooking and cancellations.',
+      items:[['Commercial result','About $100M / ₹600 crore in GMV was reported within 10 hours'],['Preparation','Nearly 5,000 servers and capacity for about 20× normal traffic were reported'],['Customer consequence','Demand still exceeded the system, contributing to outages, stockouts, overbooking and cancellations']]
+    },
+    'tata-nano-positioning.html':{
+      tone:'warning',
+      badge:'More than 203,000 paid bookings at launch did not translate into durable demand; by 2012 the Nano plant was reported at about 25% capacity.',
+      items:[['Early demand','More than 203,000 fully paid bookings were received in 2009'],['Demand reversal','HBR noted sales falling from about 9,000 in July 2010 to 509 in November 2010'],['Business consequence','A published Ivey case reports the Nano plant operating at about 25% of capacity by 2012']]
     }
   };
 
