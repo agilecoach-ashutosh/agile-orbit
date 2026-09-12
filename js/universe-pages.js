@@ -68,6 +68,17 @@
     });
   }
 
+  // Add the verified real-world agent catalog only on the AI Agents workbench.
+  // Keeping the catalog in its own file makes the frequently updated vendor list
+  // independent from the core Agent Blueprint Builder.
+  if(document.querySelector('main.agent-page') && !document.querySelector('script[data-real-agents]')){
+    const script=document.createElement('script');
+    script.src='real-agents.js';
+    script.async=false;
+    script.dataset.realAgents='true';
+    document.body.appendChild(script);
+  }
+
   // Agile Coaching techniques use the legacy in-page data store but route users
   // to full Agile Orbit pages. Load this enhancement only after the hub's own
   // coaching scripts have finished creating their data-backed technique layer.
