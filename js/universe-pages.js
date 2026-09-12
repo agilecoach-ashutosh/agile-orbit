@@ -4,6 +4,33 @@
   const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.body.classList.add('universe-inner');
 
+  // Agile Coaching has a sticky theme observer that keeps the active tab visible.
+  // Its legacy scrollIntoView call must only move the horizontal theme strip; the
+  // native method can also move the document vertically and pull the page away
+  // from scrollTop=0. Install this guard synchronously, before agile-coaching.js
+  // creates its IntersectionObserver.
+  if(document.body.classList.contains('agile-coaching-page') && !window.__agileOrbitCoachScrollGuard){
+    window.__agileOrbitCoachScrollGuard=true;
+    const nativeScrollIntoView=Element.prototype.scrollIntoView;
+    Element.prototype.scrollIntoView=function(options){
+      if(this.matches && this.matches('.coach-subnav a[href^="#"]')){
+        const nav=this.closest('.coach-subnav');
+        if(nav){
+          const max=Math.max(0,nav.scrollWidth-nav.clientWidth);
+          const target=Math.min(max,Math.max(0,this.offsetLeft-(nav.clientWidth-this.offsetWidth)/2));
+          nav.scrollTo({left:target,top:0,behavior:'auto'});
+        }
+        return;
+      }
+      return nativeScrollIntoView.call(this,options);
+    };
+
+    // Dynamic navigation/stars are inserted after initial paint. Prevent browser
+    // scroll anchoring from compensating for those layout changes on this page.
+    document.documentElement.style.overflowAnchor='none';
+    document.body.style.overflowAnchor='none';
+  }
+
   // Subtle star field: intentionally lightweight and DOM-only.
   const stars = document.createElement('div');
   stars.className = 'universe-stars';
