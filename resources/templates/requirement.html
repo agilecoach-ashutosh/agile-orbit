@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Requirement Template | Agile Orbit</title>
-<meta name="description" content="Practical requirement templates: User Story with examples and powerful questions, plus a SAFe-aligned Epic template.">
+<meta name="description" content="Practical requirement templates: User Story with examples and powerful questions, INVEST guidance, plus a SAFe-aligned Epic template.">
 <meta name="theme-color" content="#071019"><link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../css/style.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/animations.css"><link rel="stylesheet" href="../../css/responsive.css"><link rel="stylesheet" href="../../css/universe-pages.css"><link rel="stylesheet" href="../../css/reference-nav.css"><link rel="stylesheet" href="../../css/requirement-template.css">
 </head>
@@ -55,6 +55,53 @@ So that I can &lt;benefit / value&gt;
 </div>
 
 <div class="invest-strip"><span>INVEST</span><div><b>Independent</b><b>Negotiable</b><b>Valuable</b><b>Estimable</b><b>Small</b><b>Testable</b></div></div>
+
+<section class="invest-guide" id="invest">
+<div class="invest-intro">
+<div><span class="eyebrow">STORY QUALITY · INVEST</span><h2>Use INVEST as a refinement lens</h2><p>INVEST is a practical heuristic for improving the quality of a User Story conversation. It is not a compliance checklist or a rigid “ready” gate. When one dimension is weak, use it as a signal to clarify, slice, explore uncertainty or make a dependency visible.</p></div>
+<div class="invest-domain-note"><span>BANKING</span><span>ASSET MANAGEMENT</span><span>COMPLIANCE</span><p>The examples below deliberately use enterprise financial-services scenarios where regulation, controls, data and dependencies make requirement quality especially important.</p></div>
+</div>
+
+<div class="invest-cards">
+<article class="invest-card">
+<div class="invest-card-head"><span class="invest-letter">I</span><div><span class="invest-domain">Sanctions Screening</span><h3>Independent</h3><p class="invest-question">Can this story deliver meaningful value with minimal dependency on another story?</p></div></div>
+<div class="invest-explain-grid"><div><span>WHAT IT MEANS</span><p>The story can be delivered with minimal dependency on other stories.</p></div><div><span>WHY IT MATTERS</span><p>Heavy dependencies restrict prioritisation, create sequencing problems and increase delivery risk.</p></div><div><span>HOW TO IMPROVE</span><p>Slice vertically around a usable business outcome. Reduce technical sequencing and make unavoidable dependencies explicit.</p></div></div>
+<div class="story-compare"><div class="story-state needs-work"><span>⚠ NEEDS REFINEMENT</span><p>“Complete sanctions screening UI after the sanctions engine integration story is finished.”</p><small>The story cannot deliver anything useful until another story is completed.</small></div><div class="story-state stronger"><span>✓ STRONGER STORY</span><p>“As a Compliance Analyst, I want a newly onboarded customer to be automatically screened against the configured sanctions list so that I can identify potential sanctions matches before the account is activated.”</p><small><strong>What improved?</strong> The slice includes the minimum integration and result needed to provide usable compliance value.</small></div></div>
+</article>
+
+<article class="invest-card">
+<div class="invest-card-head"><span class="invest-letter">N</span><div><span class="invest-domain">Portfolio Compliance</span><h3>Negotiable</h3><p class="invest-question">Does the story preserve the business need without unnecessarily prescribing the solution?</p></div></div>
+<div class="invest-explain-grid"><div><span>WHAT IT MEANS</span><p>The story describes the need and outcome rather than becoming a fixed implementation contract.</p></div><div><span>WHY IT MATTERS</span><p>Over-specified stories prevent the team from exploring simpler, safer or more effective solutions.</p></div><div><span>HOW TO IMPROVE</span><p>State the user need, outcome and genuine constraints. Keep implementation choices open unless they are mandatory regulatory or architectural constraints.</p></div></div>
+<div class="story-compare"><div class="story-state needs-work"><span>⚠ NEEDS REFINEMENT</span><p>“The portfolio compliance report must be generated as a PDF using JasperReports, stored in S3 and emailed every day at 6 PM.”</p><small>The story mixes the business need with several predetermined implementation decisions.</small></div><div class="story-state stronger"><span>✓ STRONGER STORY</span><p>“As a Portfolio Compliance Officer, I want to receive a daily record of portfolio breaches in a non-editable format so that I can review, evidence and escalate breaches before the start of the trading day.”</p><small><strong>What improved?</strong> The user, outcome and audit constraint remain clear while the delivery team retains solution flexibility.</small></div></div>
+</article>
+
+<article class="invest-card">
+<div class="invest-card-head"><span class="invest-letter">V</span><div><span class="invest-domain">AML Transaction Monitoring</span><h3>Valuable</h3><p class="invest-question">Can we explain who benefits and what meaningful outcome changes?</p></div></div>
+<div class="invest-explain-grid"><div><span>WHAT IT MEANS</span><p>The story produces a meaningful outcome for a customer, business stakeholder or control function.</p></div><div><span>WHY IT MATTERS</span><p>Technical activity alone does not explain why the organisation should invest in the work.</p></div><div><span>HOW TO IMPROVE</span><p>Connect technical work to a customer, operational, risk, regulatory or business outcome.</p></div></div>
+<div class="story-compare"><div class="story-state needs-work"><span>⚠ NEEDS REFINEMENT</span><p>“As a developer, I want to create an API for transaction monitoring.”</p><small>The technical output has no explicit user or business outcome.</small></div><div class="story-state stronger"><span>✓ STRONGER STORY</span><p>“As an AML Investigator, I want high-risk transactions to be evaluated against configured monitoring rules within five minutes of posting so that potentially suspicious activity can be investigated before further funds movement occurs.”</p><small><strong>What improved?</strong> The story ties the capability to an investigator, a time-sensitive control outcome and a clear reason for the investment.</small></div></div>
+</article>
+
+<article class="invest-card">
+<div class="invest-card-head"><span class="invest-letter">E</span><div><span class="invest-domain">MiFID II · Suitability</span><h3>Estimable</h3><p class="invest-question">Does the team understand the behaviour and uncertainty well enough to size it meaningfully?</p></div></div>
+<div class="invest-explain-grid"><div><span>WHAT IT MEANS</span><p>The team understands the scope, behaviour and uncertainty well enough to estimate the story relatively.</p></div><div><span>WHY IT MATTERS</span><p>Large estimation differences often reveal hidden assumptions, unclear rules, unknown dependencies or excessive scope.</p></div><div><span>HOW TO IMPROVE</span><p>Clarify business rules, data sources, edge cases and dependencies. Run a spike when uncertainty cannot reasonably be removed through discussion.</p></div></div>
+<div class="story-compare"><div class="story-state needs-work"><span>⚠ NEEDS REFINEMENT</span><p>“Implement MiFID II suitability validation for investment products.”</p><small>One developer estimates 3 points and another 21 because product rules, customer classifications and exception scenarios are unclear.</small></div><div class="story-state stronger"><span>✓ STRONGER STORY</span><p>“As an Investment Advisor, I want the order screen to block the purchase of a product whose risk rating exceeds the client's approved risk profile so that unsuitable transactions cannot be submitted without an authorised override.”</p><small><strong>What improved?</strong> Product-risk mapping, client-risk data source and override behaviour can now be clarified explicitly, allowing the team to estimate within a reasonable range.</small></div></div>
+</article>
+
+<article class="invest-card">
+<div class="invest-card-head"><span class="invest-letter">S</span><div><span class="invest-domain">Digital KYC</span><h3>Small</h3><p class="invest-question">Is this small enough to complete, validate and learn from within the team's normal delivery cycle?</p></div></div>
+<div class="invest-explain-grid"><div><span>WHAT IT MEANS</span><p>The story is small enough to complete, validate and learn from within the team's normal delivery cycle.</p></div><div><span>WHY IT MATTERS</span><p>Large stories hide complexity, delay feedback and make progress difficult to inspect.</p></div><div><span>HOW TO IMPROVE</span><p>Slice by workflow step, business rule, customer segment, product type, transaction type, happy path or risk scenario.</p></div></div>
+<div class="story-compare"><div class="story-state needs-work"><span>⚠ NEEDS REFINEMENT</span><p>“Build the entire digital KYC onboarding process including identity verification, sanctions screening, PEP checks, document validation, risk scoring and compliance approval.”</p><small>Multiple independently valuable behaviours and control stages are bundled into one large story.</small></div><div class="story-state stronger"><span>✓ STRONGER STORY</span><p>“As a Retail Banking Customer, I want my submitted identity document to be validated for document type, expiry date and mandatory information so that an invalid document is identified before my onboarding request proceeds to compliance screening.”</p><small><strong>What improved?</strong> One observable step of the onboarding journey is isolated while still delivering a meaningful customer and control outcome.</small></div></div>
+</article>
+
+<article class="invest-card">
+<div class="invest-card-head"><span class="invest-letter">T</span><div><span class="invest-domain">Transaction Monitoring</span><h3>Testable</h3><p class="invest-question">Can we objectively determine whether the expected behaviour works?</p></div></div>
+<div class="invest-explain-grid"><div><span>WHAT IT MEANS</span><p>The expected behaviour can be verified objectively using observable conditions.</p></div><div><span>WHY IT MATTERS</span><p>Without testable behaviour, different people may have different interpretations of whether the requirement is complete.</p></div><div><span>HOW TO IMPROVE</span><p>Define observable acceptance criteria using business rules, thresholds, states and expected outcomes.</p></div></div>
+<div class="story-compare"><div class="story-state needs-work"><span>⚠ NEEDS REFINEMENT</span><p>“The system should detect suspicious transactions and prevent money laundering.”</p><small>There is no objective condition for determining whether the behaviour works.</small></div><div class="story-state stronger"><span>✓ STRONGER STORY</span><p>“Given a customer's cumulative outgoing transfers exceed ₹10 lakh within 24 hours and the customer is classified as high risk, when another qualifying transfer is posted, then the transaction-monitoring service creates a high-priority alert containing the customer ID, triggering transactions, rule ID and timestamp for investigator review.”</p><small><strong>What improved?</strong> Trigger conditions, threshold, system response and evidence required by the investigator are observable and testable.</small></div></div>
+</article>
+</div>
+
+<div class="callout invest-reminder"><strong>Refinement reminder:</strong> INVEST is not about forcing every story to look perfect. Use it to expose the conversation you still need to have: dependency, solution flexibility, value, uncertainty, size or testability.</div>
+</section>
 </div></section>
 
 <section class="section section-alt" id="safe-epic"><div class="container">
