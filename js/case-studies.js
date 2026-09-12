@@ -4,63 +4,63 @@
   const impactData={
     'ing-agile-transformation.html':{
       tone:'context',
-      badge:'Handoffs + slower customer response',
-      items:[['Cost of status quo','Cross-functional handoffs'],['2017 snapshot','≈350 squads · 13 tribes'],['Consequence','Operating model redesigned']]
+      badge:'Cross-functional handoffs slowed the bank’s response to changing digital customer expectations.',
+      items:[['What was hurting','Customer outcomes crossed too many functional handoffs'],['Scale of response','About 350 squads across 13 tribes were reported by 2017'],['Business consequence','ING redesigned much of its operating model around end-to-end client goals']]
     },
     'kodak-digital-disruption.html':{
       tone:'critical',
-      badge:'Chapter 11 · 2012',
-      items:[['Economic impact','Core film economics eroded'],['Strategic loss','Legacy model viability'],['Consequence','Chapter 11 · 2012']]
+      badge:'Core film economics eroded, and Kodak filed for Chapter 11 bankruptcy protection in 2012.',
+      items:[['What was lost','The legacy film-based business model became increasingly unsustainable'],['Why it mattered','Digital changed how customers captured, stored and shared images'],['Business consequence','Kodak filed for Chapter 11 bankruptcy protection in January 2012']]
     },
     'startup-pivots.html':{
       tone:'warning',
-      badge:'Original product direction failed',
-      items:[['What was lost','Original product direction'],['Signal','Stronger user behaviour elsewhere'],['Consequence','Pivot, narrow—or shut down']]
+      badge:'Sticking to the original direction risked losing relevance, so stronger customer signals drove a change in product or business model.',
+      items:[['What changed','The original product or delivery model was no longer the strongest path to value'],['Evidence that mattered','Users showed stronger demand for a different capability, behaviour or channel'],['Business consequence','The companies redirected investment instead of protecting the original plan']]
     },
     'dbs-managing-through-journeys.html':{
       tone:'context',
-      badge:'Silos + slow customer learning',
-      items:[['Cost of status quo','Siloed customer journeys'],['Learning cost','Slow cross-functional decisions'],['Scale of response','60+ journeys by 2023']]
+      badge:'Product silos slowed end-to-end customer journeys and made cross-functional learning harder.',
+      items:[['What was hurting','Customers experienced one journey while work remained split across functions'],['Why it mattered','Slow cross-functional decisions increased the cost of learning'],['Scale of response','DBS reported more than 60 managed customer journeys by 2023']]
     },
     'akbank-agile-transformation.html':{
       tone:'context',
-      badge:'Annual plans + coaching bottlenecks',
-      items:[['Adaptation cost','Annual plans aged quickly'],['Scaling risk','Coach + role bottlenecks'],['Scale of response','143 Scrum Teams reported']]
+      badge:'Annual planning and centralized coaching became bottlenecks as Agile scaled beyond 100 teams.',
+      items:[['What was hurting','Yearly plans became stale while delivery teams were expected to adapt frequently'],['Scaling risk','A small number of coaches and role experts could become organizational queues'],['Scale of response','The practitioner case later reported about 143 Scrum Teams']]
     },
     'govuk-scaling-agile.html':{
       tone:'warning',
-      badge:'Technical debt + too much WIP',
-      items:[['Delivery impact','Technical debt accumulated'],['Flow loss','Too much work in progress'],['Consequence','Quality + focus degraded']]
+      badge:'Technical debt and too much work in progress reduced focus, sustainability and delivery quality.',
+      items:[['What accumulated','Technical debt created future delivery constraints'],['What slowed flow','Too many concurrent missions increased work in progress'],['Business consequence','GDS changed mission design to restore focus and improve quality']]
     },
     'fbi-sentinel-recovery.html':{
       tone:'critical',
-      badge:'$170M failed predecessor · 3 years',
-      items:[['Failed predecessor','$170M · 3 years'],['Sentinel cost','$441M estimated total'],['Consequence','Recovery model required']]
+      badge:'A previous FBI modernization effort consumed $170M over three years without succeeding, leaving Sentinel under heavy recovery pressure.',
+      items:[['Failed predecessor','Virtual Case File was an unsuccessful three-year, $170M modernization effort'],['Sentinel investment','The later Sentinel program was estimated at about $441M in total cost'],['Business consequence','The FBI changed ownership, team shape and delivery approach to recover the mission']]
     },
     'healthcare-gov-recovery.html':{
       tone:'warning',
-      badge:'Failed national launch · enrollment disrupted',
-      items:[['Launch impact','Outages + technical failures'],['User cost','Enrollment journey disrupted'],['Recovery','Service stabilized by Mar 2014']]
+      badge:'A failed national launch caused outages and disrupted enrollment during a fixed public signup window.',
+      items:[['What failed','Users encountered outages and serious technical malfunctions'],['Who was affected','People trying to complete the enrollment journey faced disruption'],['Business consequence','The service had to be stabilized under intense public and operational pressure']]
     },
     'toyota-production-system.html':{
       tone:'context',
-      badge:'Defects + rework + inventory waste',
-      items:[['Waste targeted','Defects + rework'],['Flow drag','Inventory + waiting'],['Countermeasure','Stop abnormalities early']]
+      badge:'Defects, rework, excess inventory and waiting increase cost and slow end-to-end flow when problems are allowed to move downstream.',
+      items:[['What creates waste','Defects and rework consume capacity without creating customer value'],['What slows flow','Excess inventory and waiting hide imbalance and delay feedback'],['System response','Toyota’s approach makes abnormalities visible and stops them before they spread']]
     },
     'microsoft-devops-delivery.html':{
       tone:'context',
-      badge:'Integration delay + release risk',
-      items:[['Cost of slow feedback','Late integration risk'],['Scale','200+ PRs / day'],['Fast evidence','≈60k tests in <5 min']]
+      badge:'Slow integration and delayed release feedback increase change risk across a large shared codebase.',
+      items:[['What creates risk','Late integration allows conflicts and defects to grow before they are detected'],['Scale of work','Microsoft describes more than 200 pull requests into main per day'],['How risk is reduced','Fast automated validation can run about 60,000 tests in under five minutes']]
     },
     'knight-capital-deployment-failure.html':{
       tone:'critical',
-      badge:'$460M+ loss · ≈45 minutes',
-      items:[['Financial loss','$460M+'],['Time to damage','≈45 minutes'],['Blast radius','397M+ shares traded']]
+      badge:'Knight Capital lost more than $460M in about 45 minutes after a faulty deployment triggered uncontrolled trading.',
+      items:[['Financial loss','More than $460M was lost during the incident'],['How fast it happened','The damaging trading activity unfolded in roughly 45 minutes'],['Scale of exposure','The system traded more than 397M shares while erroneous orders multiplied']]
     },
     'intralinks-scrum-reboot.html':{
       tone:'warning',
-      badge:'Scrum adopted · agility not achieved',
-      items:[['Investment','Scrum mechanics adopted'],['Loss','Desired agility did not materialize'],['Consequence','Scrum reboot required']]
+      badge:'Teams adopted Scrum mechanics, but the desired agility did not materialize, so the organization had to reboot its approach.',
+      items:[['What was invested','Teams implemented the visible mechanics of Scrum'],['What did not improve','The organization still did not achieve the agility it expected'],['Business consequence','The reboot shifted attention toward empiricism, trust and real adaptation']]
     }
   };
 
