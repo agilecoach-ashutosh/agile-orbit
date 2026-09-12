@@ -57,7 +57,11 @@
       if(!visible)return;
       links.forEach(a=>a.classList.remove('active'));
       const active=map.get(visible.target.id);
-      if(active){active.classList.add('active');active.scrollIntoView({block:'nearest',inline:'nearest'})}
+      if(active){
+        active.classList.add('active');
+        const left=Math.max(0,active.offsetLeft-(subnav.clientWidth/2)+(active.clientWidth/2));
+        subnav.scrollTo({left,behavior:reduce?'auto':'smooth'});
+      }
     },{rootMargin:'-28% 0px -58% 0px',threshold:[0,.15,.35,.55]});
     sections.forEach(section=>observer.observe(section));
   }
