@@ -1,5 +1,15 @@
-const SITE_CONFIG={name:"Agile Orbit",tagline:"Learn Agile. Think Better. Lead Differently.",email:"YOUR_EMAIL@example.com",linkedin:"YOUR_LINKEDIN_URL",coggle:"YOUR_COGGLE_URL",credly:"YOUR_CREDLY_URL",year:2026,githubRepo:"agilecoach-ashutosh/agile-orbit",githubBranch:"main",basePath:""};
+const SITE_CONFIG={name:"Agile Orbit",tagline:"Learn Agile. Think Better. Lead Differently.",email:"YOUR_EMAIL@example.com",linkedin:"YOUR_LINKEDIN_URL",coggle:"YOUR_COGGLE_URL",credly:"YOUR_CREDLY_URL",year:2026,githubRepo:"agilecoach-ashutosh/agile-orbit",githubBranch:"main",basePath:"",analytics:{enabled:true,provider:"ga4",measurementId:""}};
 window.SITE_CONFIG=SITE_CONFIG;
+
+// Load one global analytics layer from the same /js directory regardless of page depth.
+(function(){
+  const current=document.currentScript;
+  if(!current?.src)return;
+  const analytics=document.createElement('script');
+  analytics.src=new URL('analytics.js',current.src).href;
+  analytics.async=true;
+  document.head.appendChild(analytics);
+})();
 
 // Cross-link the Five Dysfunctions practitioner model from Behavioural Psychology
 // without changing the carousel's internal data or interaction model.
