@@ -1,0 +1,7 @@
+/* Small companion for Values Explorer on the dedicated coaching tools page. */
+(function(){document.addEventListener('DOMContentLoaded',()=>{
+ const host=document.querySelector('#pctValues'),out=document.querySelector('#pctValuesOut');if(!host||!out||host.children.length)return;
+ const values=['Achievement','Autonomy','Belonging','Compassion','Courage','Creativity','Family','Freedom','Growth','Honesty','Impact','Learning','Security','Service','Stability','Trust','Wellbeing','Wisdom'];const chosen=[];
+ function render(){[...host.children].forEach(b=>b.classList.toggle('selected',chosen.includes(b.textContent)));out.innerHTML=chosen.length?`<strong>Priority order:</strong> ${chosen.join(' → ')}<br><br>Where are these values aligned? Which two are in tension? Which value might you be over-protecting?`:'Choose the values that create the strongest “yes”, not the ones you think you should choose.'}
+ values.forEach(v=>{const b=document.createElement('button');b.type='button';b.className='pct-value-btn';b.textContent=v;b.addEventListener('click',()=>{const i=chosen.indexOf(v);if(i>=0)chosen.splice(i,1);else if(chosen.length<5)chosen.push(v);else{out.textContent='Five selected. Remove one before adding another.';return}render()});host.appendChild(b)});render();
+})})();
