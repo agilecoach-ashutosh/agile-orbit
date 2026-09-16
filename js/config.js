@@ -11,6 +11,17 @@ window.SITE_CONFIG=SITE_CONFIG;
   document.head.appendChild(analytics);
 })();
 
+// Load the Professional Coaching Practice Lab hub only on the professional coaching page.
+(function(){
+  if(!location.pathname.includes('/coaching/professional-coaching'))return;
+  const current=document.currentScript;
+  if(!current?.src)return;
+  const practice=document.createElement('script');
+  practice.src=new URL('professional-practice-hub.js',current.src).href;
+  practice.defer=true;
+  document.head.appendChild(practice);
+})();
+
 // Cross-link the Five Dysfunctions practitioner model from Behavioural Psychology
 // without changing the carousel's internal data or interaction model.
 (function(){
