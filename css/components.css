@@ -16,3 +16,25 @@
 .about-page main>.section{padding-top:54px}
 .about-page .about-wrap>.about-section:first-child{margin-top:0}
 @media(max-width:720px){.about-page main>.section{padding-top:42px}}
+
+/* Product Management quadrants: give the vertical axis its own gutter instead of laying it over the cards. */
+.pm-page .pm-mini-axis-y{
+  left:-30px!important;
+  top:50%!important;
+  writing-mode:vertical-rl;
+  white-space:nowrap;
+  transform:translateY(-50%) rotate(180deg)!important;
+  transform-origin:center!important;
+  letter-spacing:.11em!important;
+}
+.pm-page .pm-q-axis-left{
+  left:17px!important;
+  top:50%!important;
+  writing-mode:vertical-rl;
+  white-space:nowrap;
+  transform:translateY(-50%) rotate(180deg)!important;
+  transform-origin:center!important;
+}
+@media(max-width:760px){
+  .pm-page .pm-mini-axis-y,.pm-page .pm-mini-axis-x{display:none!important}
+}
