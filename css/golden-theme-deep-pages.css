@@ -1,0 +1,427 @@
+/* =========================================================
+   AGILE ORBIT — GOLDEN THEME · DEEP PAGE COMPATIBILITY
+   Converts legacy decorative cyan/violet surfaces to the
+   shared warm-gold language while preserving semantic
+   success / risk / warning states and meaningful taxonomies.
+========================================================= */
+
+/* ---------- RECOMMENDED BOOKS ---------- */
+.books-page .books-stat,.books-page .books-controls,.books-page .books-search input,
+.books-page .book-cover-frame,.books-page .book-details,.books-page .book-empty,.books-page .books-cta{
+  border-color:rgba(244,196,92,.16) !important;
+}
+.books-page .books-stat,.books-page .books-controls{
+  background:rgba(7,15,25,.62) !important;
+}
+.books-page .books-search input:focus{
+  border-color:rgba(244,196,92,.54) !important;
+  box-shadow:0 0 0 3px rgba(244,196,92,.075),0 0 20px rgba(244,196,92,.045) !important;
+}
+.books-page .book-visual{
+  background:radial-gradient(circle at 50% 0%,rgba(244,196,92,.10),transparent 58%) !important;
+}
+.books-page .book-cover-frame{
+  background:linear-gradient(145deg,#151a20,#080b10) !important;
+  box-shadow:0 22px 55px rgba(0,0,0,.38),0 0 35px rgba(244,196,92,.055) !important;
+}
+.books-page .book-role,.books-page .book-topic{
+  border-color:rgba(244,196,92,.17) !important;
+  background:rgba(244,196,92,.045) !important;
+  color:#d9c58e !important;
+}
+.books-page .book-details{border-top-color:rgba(244,196,92,.11) !important}
+.books-page .book-details>summary:after{color:#f4c45c !important}
+.books-page .book-fit{
+  border-left-color:#f4c45c !important;
+  background:linear-gradient(135deg,rgba(244,196,92,.065),rgba(244,196,92,.025)) !important;
+}
+.books-page .book-empty{border-color:rgba(244,196,92,.18) !important}
+.books-page .books-cta{
+  background:linear-gradient(135deg,rgba(244,196,92,.07),rgba(244,196,92,.025)) !important;
+}
+
+/* ---------- CASE STUDIES ---------- */
+.case-page,.case-library{--case-line:rgba(244,196,92,.18) !important}
+.case-hero:after{
+  background:radial-gradient(circle,rgba(244,196,92,.14),rgba(244,196,92,.045) 48%,transparent 70%) !important;
+}
+.case-hero h1 em{background:linear-gradient(100deg,#f4c45c,#ffe19a) !important;-webkit-background-clip:text !important;background-clip:text !important;color:transparent !important}
+.case-thesis{
+  border-color:rgba(244,196,92,.22) !important;
+  background:linear-gradient(135deg,rgba(244,196,92,.075),rgba(244,196,92,.028)) !important;
+}
+.case-company-link:hover,.case-theme-link:hover,.case-card[href]:hover{
+  border-color:rgba(244,196,92,.38) !important;
+}
+.case-feature{
+  border-color:rgba(244,196,92,.28) !important;
+  background:linear-gradient(135deg,rgba(244,196,92,.075),rgba(11,21,32,.78) 55%,rgba(244,196,92,.035)) !important;
+}
+.case-feature-visual,.case-theme-link,.case-card,.case-snapshot>div,.case-tension-card,.case-change,.case-myth,.case-lesson,.case-lens-item,.case-question,.case-source,.case-related article,.case-method-step{
+  border-color:rgba(244,196,92,.16) !important;
+}
+.case-flow-arrow,.case-label,.case-card[href] .case-card-footer strong,.case-snapshot small,.case-lens-item b,.case-question b,.case-method-step b{
+  color:#f4c45c !important;
+}
+/* Keep success / warning / danger impact indicators unchanged. */
+
+/* ---------- AGILE GAMES ---------- */
+.game-panel,.game-stat,.game-btn,.game-cardx,.game-lane,.game-token,.game-message,.game-column{
+  border-color:rgba(244,196,92,.16) !important;
+}
+.game-panel,.game-column,.game-cardx,.game-stat,.game-lane{
+  background:rgba(7,16,27,.48) !important;
+}
+.game-btn:hover,.game-btn.active{
+  border-color:#f4c45c !important;
+  background:rgba(244,196,92,.075) !important;
+}
+.game-cardx.selected{
+  border-color:#f4c45c !important;
+  box-shadow:0 0 0 2px rgba(244,196,92,.075) !important;
+}
+.game-token{background:rgba(244,196,92,.055) !important}
+.game-message{
+  border-color:rgba(244,196,92,.16) !important;
+  background:rgba(244,196,92,.045) !important;
+}
+.game-progress{background:rgba(244,196,92,.09) !important}
+/* .hot / .risk / .good remain semantic. */
+
+/* ---------- SHARED CALCULATOR FAMILY ---------- */
+.calc-field input,.calc-field select,.calc-table input,.calc-kpi,.calc-callout,.calc-empty,.formula{
+  border-color:rgba(244,196,92,.16) !important;
+}
+.calc-field input:focus,.calc-field select:focus,.calc-table input:focus{
+  border-color:#f4c45c !important;
+  box-shadow:0 0 0 3px rgba(244,196,92,.075) !important;
+}
+.calc-table th,.calc-table td{border-bottom-color:rgba(244,196,92,.09) !important}
+.calc-kpi{background:rgba(7,18,31,.42) !important}
+.calc-callout{
+  border-color:rgba(244,196,92,.16) !important;
+  background:rgba(244,196,92,.045) !important;
+}
+.formula{
+  background:rgba(244,196,92,.05) !important;
+  color:#e6d39e !important;
+}
+.calc-empty{border-color:rgba(244,196,92,.16) !important}
+@media(max-width:680px){
+  .calc-table tr{border-color:rgba(244,196,92,.15) !important;background:rgba(7,18,31,.38) !important}
+  .calc-table td{border-bottom-color:rgba(244,196,92,.08) !important}
+}
+/* status-good / status-watch / status-risk remain semantic. */
+
+/* ---------- SPRINT CAPACITY / CAPACITY PLANNING ---------- */
+.capacity-story{
+  border-color:rgba(244,196,92,.24) !important;
+  background:linear-gradient(135deg,rgba(42,34,20,.62),rgba(8,15,30,.92)) !important;
+  box-shadow:0 18px 60px rgba(0,0,0,.22),0 0 30px rgba(244,196,92,.04) !important;
+}
+.capacity-story:after{background:radial-gradient(circle,rgba(244,196,92,.18),transparent 68%) !important}
+.forecast-message{
+  border-left-color:#f4c45c !important;
+  background:rgba(244,196,92,.07) !important;
+}
+.capacity-box,.capacity-result,.formula-pill,.formula-card,.prediction-card,.prediction-stat,.interpret-card{
+  border-color:rgba(244,196,92,.15) !important;
+}
+.capacity-box-head .step,.formula-arrow{color:#f4c45c !important}
+.capacity-field input:focus{
+  border-color:#f4c45c !important;
+  box-shadow:0 0 0 3px rgba(244,196,92,.085) !important;
+}
+.capacity-field input[readonly]{background:rgba(244,196,92,.055) !important;color:#e9dbb5 !important}
+.capacity-result.primary{
+  border-color:rgba(244,196,92,.30) !important;
+  background:linear-gradient(135deg,rgba(244,196,92,.105),rgba(255,255,255,.02)) !important;
+}
+.formula-card code{color:#ead9aa !important}
+.prediction-card{
+  border-color:rgba(244,196,92,.34) !important;
+  background:radial-gradient(circle at 82% 25%,rgba(244,196,92,.14),transparent 32%),linear-gradient(145deg,rgba(33,27,17,.9),rgba(8,13,27,.94)) !important;
+}
+.prediction-number{
+  background:linear-gradient(90deg,#fff,#ffe19a) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;color:transparent !important;
+}
+
+/* ---------- WSJF ---------- */
+.wsjf-formula,.wsjf-table input,.wsjf-question-guide,.wsjf-question-card,.wsjf-question-card .wsjf-question-icon{
+  border-color:rgba(244,196,92,.16) !important;
+}
+.wsjf-formula{
+  background:rgba(244,196,92,.05) !important;
+  color:#e7d39d !important;
+}
+.wsjf-table input:focus{
+  border-color:#f4c45c !important;
+  box-shadow:0 0 0 3px rgba(244,196,92,.075) !important;
+}
+.wsjf-question-guide{border-top-color:rgba(244,196,92,.12) !important}
+.wsjf-question-card{background:rgba(8,17,28,.48) !important}
+.wsjf-question-card .wsjf-question-icon{
+  background:rgba(244,196,92,.06) !important;
+}
+@media(max-width:720px){.wsjf-table tr{border-bottom-color:rgba(244,196,92,.12) !important}}
+
+/* ---------- VALUE STREAM FLOW ---------- */
+.vs-mini-flow span,.vs-stage-card,.vs-stage-number,.vs-stage-name,.vs-stage-card input,.vs-efficiency,.vs-kpis>div{
+  border-color:rgba(244,196,92,.16) !important;
+}
+.vs-mini-flow span{background:rgba(244,196,92,.045) !important;color:#f0e4c3 !important}
+.vs-mini-flow i,.vs-arrow{color:#f4c45c !important}
+.vs-definition,.vs-insight{
+  border-left-color:#f4c45c !important;
+  background:rgba(244,196,92,.045) !important;
+}
+.vs-stage-card{background:linear-gradient(180deg,rgba(18,24,29,.94),rgba(6,12,20,.94)) !important}
+.vs-stage-number{
+  background:rgba(244,196,92,.09) !important;
+  color:#ffe19a !important;
+}
+.vs-efficiency{
+  background:radial-gradient(circle at 50% 10%,rgba(244,196,92,.085),rgba(7,18,31,.40) 55%) !important;
+}
+.vs-kpis>div{background:rgba(7,18,31,.45) !important}
+.vs-stage-total{border-top-color:rgba(244,196,92,.10) !important}
+.vs-flow-shell::-webkit-scrollbar-thumb{background:rgba(244,196,92,.20) !important}
+
+/* ---------- JQL COOKBOOK ---------- */
+.jql-stats>div,.jql-ring,.jql-explainer-copy,.jql-code-demo,.jql-building-blocks>div,.jql-search-wrap,.jql-card,.jql-details,.jql-query-box,.jql-copy,.jql-note,.jql-recipe-use,.jql-usage-card,.jql-usage-links button,.jql-syntax-grid,.jql-syntax-row,.jql-cta{
+  border-color:rgba(244,196,92,.16) !important;
+}
+.jql-ring{border-color:rgba(244,196,92,.16) !important}
+.jql-ring.r2{border-color:rgba(255,225,154,.14) !important}
+.jql-ring.r3{border-color:rgba(244,196,92,.105) !important}
+.jql-core{
+  background:radial-gradient(circle at 34% 28%,#fff,#fff0bd 18%,#f4c45c 50%,#bb8428 80%) !important;
+  box-shadow:0 0 35px rgba(244,196,92,.42),0 0 100px rgba(244,196,92,.13) !important;
+}
+.jql-dot{background:#f4c45c !important;box-shadow:0 0 20px rgba(244,196,92,.62) !important}
+.jql-dot.d2{background:#d8b76d !important}.jql-dot.d3{background:#ffe19a !important}
+.jql-explainer-copy,.jql-building-blocks>div,.jql-card,.jql-usage-card{
+  background:linear-gradient(145deg,rgba(12,24,38,.78),rgba(4,11,19,.82)) !important;
+}
+.jql-token-row span{
+  background:rgba(244,196,92,.05) !important;
+  border-color:rgba(244,196,92,.14) !important;
+  color:#d8c38b !important;
+}
+.jql-search-wrap>span,.jql-result-meta button,.jql-number,.jql-plus{color:#f4c45c !important}
+.jql-card:hover,.jql-card.jql-focus,.jql-usage-card:hover{
+  border-color:rgba(244,196,92,.36) !important;
+  box-shadow:0 22px 65px rgba(0,0,0,.28),0 0 28px rgba(244,196,92,.06) !important;
+}
+.jql-category{
+  border-color:rgba(244,196,92,.16) !important;
+  background:rgba(244,196,92,.05) !important;
+  color:#d8c38b !important;
+}
+.jql-copy,.jql-usage-links button{
+  background:rgba(244,196,92,.05) !important;
+  color:#e5cf94 !important;
+}
+.jql-copy:hover,.jql-copy.copied,.jql-usage-links button:hover{
+  background:rgba(244,196,92,.11) !important;
+  color:#fff3ce !important;
+}
+.jql-note,.jql-recipe-use{
+  border-left-color:#f4c45c !important;
+  background:rgba(244,196,92,.035) !important;
+}
+.jql-field{color:#ffe19a !important}.jql-op{color:#d6b86f !important}.jql-fn{color:#f4c45c !important}
+.jql-syntax-row>div>code{color:#ffe19a !important}
+.jql-cta{
+  background:linear-gradient(135deg,rgba(244,196,92,.065),rgba(244,196,92,.028)) !important;
+}
+/* JQL warning callout remains amber by design. */
+
+/* ---------- WORKING AGREEMENTS ---------- */
+.wa-hero{
+  background:radial-gradient(circle at 75% 35%,rgba(244,196,92,.10),transparent 28%),radial-gradient(circle at 20% 80%,rgba(244,196,92,.045),transparent 25%) !important;
+}
+.wa-hero:after{
+  border-color:rgba(244,196,92,.16) !important;
+  box-shadow:0 0 80px rgba(244,196,92,.07),inset 0 0 80px rgba(244,196,92,.035) !important;
+}
+.wa-gradient{
+  background:linear-gradient(90deg,#fff 0%,#ffe19a 48%,#d6b76f 100%) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;color:transparent !important;
+}
+.wa-callout,.wa-flow>div,.summary-card,.map-group,.agreement-search input,.agreement-card,.agreement-panel-inner,.team-mantra,.empty-state,.wa-download-card{
+  border-color:rgba(244,196,92,.16) !important;
+}
+.wa-callout,.summary-card,.map-group,.agreement-card{
+  background:linear-gradient(145deg,rgba(12,24,38,.80),rgba(4,11,19,.74)) !important;
+}
+.wa-callout-icon,.agreement-number{
+  background:rgba(244,196,92,.075) !important;
+  color:#ffe19a !important;
+}
+.wa-flow i,.map-group-title,.agreement-kicker,.agreement-chevron,.team-mantra span{color:#d7be7b !important}
+.agreement-table th,.summary-table th,.governance-table th,.signoff-table th{
+  background:rgba(244,196,92,.055) !important;
+}
+.agreement-table th,.agreement-table td,.summary-table th,.summary-table td,.governance-table th,.governance-table td,.signoff-table th,.signoff-table td{
+  border-bottom-color:rgba(244,196,92,.09) !important;
+}
+.summary-principle{background:rgba(244,196,92,.055) !important}
+.map-items a:hover{
+  background:rgba(244,196,92,.075) !important;
+  color:#fff4d4 !important;
+}
+.agreement-search input:focus{
+  border-color:rgba(244,196,92,.46) !important;
+  box-shadow:0 0 0 3px rgba(244,196,92,.075) !important;
+}
+.agreement-card.is-open{border-color:rgba(244,196,92,.31) !important}
+.agreement-panel-inner{border-top-color:rgba(244,196,92,.09) !important}
+.team-mantra{
+  border-left-color:#f4c45c !important;
+  background:rgba(244,196,92,.05) !important;
+}
+.wa-download-card{
+  background:radial-gradient(circle at 80% 20%,rgba(244,196,92,.09),transparent 35%),rgba(10,19,32,.72) !important;
+}
+
+/* ---------- BOARD DATA QUALITY ---------- */
+.bdq-page{--bdq-border:rgba(244,196,92,.16) !important;--bdq-cyan:#f4c45c !important}
+.bdq-chain span,.bdq-story,.bdq-position,.bdq-nav,.bdq-case-grid>div,.bdq-reality-grid>div,.bdq-domino>div,.bdq-two-col>div,.bdq-checks>div{
+  border-color:rgba(244,196,92,.16) !important;
+}
+.bdq-chain span{
+  background:rgba(244,196,92,.05) !important;
+  color:#eee0bc !important;
+}
+.bdq-chain b,.bdq-slide-kicker,.bdq-domino span{color:#f4c45c !important}
+.bdq-story{background:rgba(7,18,31,.62) !important}
+.bdq-slide{
+  background:linear-gradient(180deg,rgba(18,31,40,.95),rgba(7,18,31,.88)) !important;
+}
+.bdq-nav{
+  background:rgba(244,196,92,.045) !important;
+  color:#f2e5c1 !important;
+}
+.bdq-nav:hover{
+  background:rgba(244,196,92,.10) !important;
+  border-color:rgba(244,196,92,.38) !important;
+}
+.bdq-dots button.active{background:#f4c45c !important}
+.bdq-punch{
+  border-left-color:#f4c45c !important;
+  background:rgba(244,196,92,.055) !important;
+}
+/* Red impact and green good-state signals remain semantic. */
+
+/* ---------- AI LEARNING / PROMPT PAGES ---------- */
+.ai-flow>div,.ai-system-card,.ai-principle-grid>div,.framework-card,.framework-example,.event-tab,.usecase-card,.usecase-icon,.ai-next,
+.prompt-stats,.prompt-stats>div,.prompt-search-wrap input,.prompt-filter,.prompt-card,.prompt-icon,.prompt-build-cta,.prompt-info-card,.prompt-code-section,.prompt-final-card,.prompt-side-card,.copy-prompt,.prompt-code-wrap,.code-bar,.final-orbit,.side-row,.prompt-side-link{
+  border-color:rgba(244,196,92,.16) !important;
+}
+.ai-flow>div,.ai-system-card,.framework-card,.prompt-card,.prompt-info-card,.prompt-code-section,.prompt-final-card,.prompt-side-card{
+  background:linear-gradient(145deg,rgba(12,24,38,.80),rgba(4,11,19,.82)) !important;
+}
+.ai-flow b,.ai-flow i,.ai-number,.ai-principle-grid b,.framework-index,.framework-card summary,.section-kicker,
+.prompt-search-wrap span,.prompt-icon,.prompt-arrow,.prompt-side-link,.final-orbit{
+  color:#f4c45c !important;
+}
+.ai-system-card:hover,.framework-card:hover,.usecase-card:hover,.prompt-card:hover,.prompt-side-link:hover{
+  border-color:rgba(244,196,92,.36) !important;
+  box-shadow:0 24px 68px rgba(0,0,0,.27),0 0 30px rgba(244,196,92,.055) !important;
+}
+.ai-system-card .arrow,.usecase-bottom a{color:#e2ca8d !important}
+.framework-structure{
+  border-left-color:#f4c45c !important;
+  background:rgba(244,196,92,.04) !important;
+}
+.event-tab.active,.prompt-filter:hover,.prompt-filter.active{
+  color:#171108 !important;
+  background:linear-gradient(135deg,#e0ad38,#ffe19a) !important;
+  border-color:transparent !important;
+}
+.usecase-icon{
+  color:#f4c45c !important;
+  background:rgba(244,196,92,.065) !important;
+}
+.usecase-bottom{border-top-color:rgba(244,196,92,.09) !important}
+.ai-next,.prompt-build-cta{
+  background:linear-gradient(135deg,rgba(244,196,92,.075),rgba(244,196,92,.025)) !important;
+}
+.prompt-search-wrap input:focus{
+  border-color:#f4c45c !important;
+  box-shadow:0 0 0 3px rgba(244,196,92,.075) !important;
+}
+.prompt-card:before{background:radial-gradient(circle at 50% 0%,rgba(244,196,92,.11),transparent 35%) !important}
+.prompt-icon{
+  background:radial-gradient(circle,rgba(244,196,92,.14),transparent 68%) !important;
+  box-shadow:0 0 22px rgba(244,196,92,.075) !important;
+}
+.copy-prompt{
+  background:rgba(244,196,92,.06) !important;
+  color:#e1ca8d !important;
+}
+.copy-prompt:hover{
+  background:linear-gradient(135deg,#e0ad38,#ffe19a) !important;
+  color:#171108 !important;
+}
+/* copied state stays green: successful action feedback */
+.prompt-code-wrap pre:focus{outline-color:rgba(244,196,92,.38) !important}
+.final-orbit{box-shadow:0 0 20px rgba(244,196,92,.09) !important}
+.side-row{border-bottom-color:rgba(244,196,92,.10) !important}
+.prompt-side-link:hover{background:rgba(244,196,92,.05) !important}
+
+/* ---------- SCIENCE BEHIND AGILE ---------- */
+.science-hero-lines span,.science-group-card,.science-principles-banner,.science-close-card,.science-modal-dialog,.science-modal-close,.science-nav,.science-carousel-card,.science-card-summary,.science-rich-panel,.science-card-footnotes section{
+  border-color:rgba(244,196,92,.15) !important;
+}
+.science-hero-lines span{background:rgba(244,196,92,.025) !important;color:#a99b76 !important}
+.science-group-card{
+  background:linear-gradient(145deg,rgba(12,24,38,.82),rgba(4,11,19,.82)) !important;
+}
+.science-group-card:before{background:radial-gradient(circle at 86% 12%,rgba(244,196,92,.11),transparent 33%) !important}
+.science-group-card:hover,.science-group-card:focus-visible{
+  border-color:rgba(244,196,92,.40) !important;
+  box-shadow:0 24px 70px rgba(0,0,0,.28),0 0 35px rgba(244,196,92,.065) !important;
+}
+.group-count{color:#d8c38a !important}
+.science-close-card{
+  background:radial-gradient(circle at 50% 0%,rgba(244,196,92,.09),transparent 45%),linear-gradient(145deg,rgba(10,24,41,.88),rgba(4,10,20,.9)) !important;
+}
+.science-modal-dialog{box-shadow:0 35px 110px rgba(0,0,0,.56),0 0 32px rgba(244,196,92,.035) !important}
+.science-modal-close:hover,.science-nav:hover{border-color:rgba(244,196,92,.36) !important;color:#fff2c8 !important}
+.science-carousel-card{background:linear-gradient(145deg,rgba(12,25,43,.84),rgba(5,12,23,.9)) !important}
+.science-card-summary{background:rgba(244,196,92,.03) !important}
+.science-mechanism p{color:#dccb9e !important}
+.science-dot.active{background:#f4c45c !important;box-shadow:0 0 10px rgba(244,196,92,.42) !important}
+/* Evidence-strength badge colours remain distinct because they encode meaning. */
+
+/* ---------- PRODUCT MANAGEMENT ---------- */
+/* Keep the four product quadrant colours: they are meaningful taxonomy. */
+.pm-hero:before{
+  background:radial-gradient(circle,rgba(244,196,92,.16),rgba(244,196,92,.045) 34%,transparent 68%) !important;
+}
+.pm-hero h1 em{
+  background:linear-gradient(100deg,#ffe19a,#f4c45c) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;color:transparent !important;
+}
+.pm-thesis{
+  border-color:rgba(244,196,92,.25) !important;
+  background:linear-gradient(120deg,rgba(244,196,92,.075),rgba(244,196,92,.025)) !important;
+}
+.pm-life-btn:hover,.pm-life-btn.active{
+  border-color:rgba(244,196,92,.42) !important;
+  background:rgba(244,196,92,.055) !important;
+}
+.pm-life-num{
+  background:rgba(244,196,92,.075) !important;
+  color:#f4c45c !important;
+}
+.pm-life-stage:after{background:radial-gradient(circle,rgba(244,196,92,.12),transparent 70%) !important}
+.pm-evidence span,.pm-arrow-bridge{color:#f4c45c !important}
+.pm-detail-item:before{background:#f4c45c !important}
+
+@media(prefers-reduced-motion:reduce){
+  .prompt-card,.ai-system-card,.framework-card,.science-group-card,.jql-card{transition:none !important}
+}
