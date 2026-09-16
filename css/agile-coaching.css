@@ -64,12 +64,14 @@
 .pillar-node.technology{transform:translateY(188px);border-top-color:rgba(112,169,255,.58)}
 .pillar-node.process{transform:translateX(-190px);border-top-color:rgba(154,134,255,.58)}
 
-/* STICKY SECTION NAV */
-.coach-subnav-wrap{position:sticky;top:var(--nav,76px);z-index:75;background:rgba(3,8,16,.9);backdrop-filter:blur(18px);border-block:1px solid rgba(244,196,92,.11);box-shadow:0 10px 30px rgba(0,0,0,.13)}
-.coach-subnav{display:flex;align-items:center;gap:6px;overflow:auto;padding:10px 0;scrollbar-width:none}
+/* COMPACT STICKY FOUR-LENS SWITCHER */
+.coach-subnav-wrap{position:sticky;top:calc(var(--nav,76px) + 10px);z-index:75;background:transparent;border:0;box-shadow:none;pointer-events:none;padding:7px 0}
+.coach-subnav{width:max-content;max-width:calc(100vw - 24px);margin:0 auto;display:flex;align-items:center;justify-content:center;gap:4px;overflow:auto;padding:5px;border:1px solid rgba(244,196,92,.22);border-radius:999px;background:rgba(4,10,18,.86);backdrop-filter:blur(16px);box-shadow:0 12px 34px rgba(0,0,0,.24),0 0 22px rgba(244,196,92,.035);scrollbar-width:none;pointer-events:auto}
 .coach-subnav::-webkit-scrollbar{display:none}
-.coach-subnav a{white-space:nowrap;padding:8px 12px;border-radius:999px;color:#899aaf;font-size:.78rem;font-weight:800;transition:color .2s,border-color .2s,background .2s,box-shadow .2s;border:1px solid transparent}
-.coach-subnav a:hover,.coach-subnav a.active{color:#ffe19a;background:rgba(244,196,92,.055);border-color:rgba(244,196,92,.2);box-shadow:0 0 16px rgba(244,196,92,.035)}
+.coach-subnav a:first-child,.coach-subnav a:last-child{display:none}
+.coach-subnav a{white-space:nowrap;padding:8px 13px;border-radius:999px;color:#899aaf;font-size:.76rem;font-weight:800;transition:color .2s,border-color .2s,background .2s,box-shadow .2s;border:1px solid transparent}
+.coach-subnav a:hover{color:#e8d394;background:rgba(244,196,92,.04)}
+.coach-subnav a.active{color:#171108;background:linear-gradient(135deg,#f4c45c,#ffe19a);border-color:transparent;box-shadow:0 6px 18px rgba(244,196,92,.18)}
 
 /* FOUR PILLARS */
 .coach-pillar{scroll-margin-top:132px;padding-block:42px}
@@ -179,7 +181,8 @@ body.topic-modal-open{overflow:hidden}
   .agile-coaching-page .page-hero{padding-bottom:42px}
   .coach-hero h1{font-size:clamp(2.6rem,13vw,4rem)}
   .coach-lead-note{font-size:.96rem}
-  .coach-subnav-wrap{top:var(--nav,70px)}
+  .coach-subnav-wrap{top:calc(var(--nav,70px) + 7px);padding-block:5px}
+  .coach-subnav{max-width:calc(100vw - 16px);justify-content:flex-start}
   .coach-pillar>.container{padding:22px 18px;border-radius:21px}
   .pillar-head{grid-template-columns:1fr;gap:13px}
   .pillar-icon{width:52px;height:52px}
@@ -203,7 +206,7 @@ body.topic-modal-open{overflow:hidden}
   .coach-hero-actions .btn{width:100%}
   .gold-definition{padding:24px 20px}
   .system-map{transform:scale(.75);min-height:300px;margin-inline:-52px}
-  .coach-subnav a{padding:7px 9px;font-size:.73rem}
+  .coach-subnav a{padding:7px 10px;font-size:.72rem}
   .topic-card{padding:19px}
   .scenario-card{padding:20px}
   .coach-closing{padding:24px 20px}
