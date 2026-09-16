@@ -1,0 +1,301 @@
+/* =========================================================
+   AGILE ORBIT — GLOBAL GOLDEN GLOW THEME
+   Shared visual language inspired by Professional Coaching.
+   Keeps semantic success / warning / danger colours intact.
+========================================================= */
+
+:root{
+  --gold:#f4c45c;
+  --gold-bright:#ffe19a;
+  --gold-deep:#d6a83e;
+  --gold-line:rgba(244,196,92,.24);
+  --gold-line-strong:rgba(244,196,92,.42);
+  --gold-wash:rgba(244,196,92,.065);
+  --gold-glow:rgba(244,196,92,.10);
+  --gold-panel-1:rgba(12,24,38,.90);
+  --gold-panel-2:rgba(4,11,19,.88);
+
+  /* Shared primitives */
+  --accent:#f4c45c !important;
+  --accent-2:#ffe19a !important;
+  --border:rgba(244,196,92,.18) !important;
+  --shadow:0 24px 70px rgba(0,0,0,.30),0 0 30px rgba(244,196,92,.035) !important;
+
+  /* Universe primitives used by inner pages + homepage */
+  --u-cyan:#f4c45c !important;
+  --u-violet:#d8b76d !important;
+  --u-gold:#ffe19a !important;
+  --u-line:rgba(244,196,92,.17) !important;
+}
+
+[data-theme=light]{
+  --accent:#9b6900 !important;
+  --accent-2:#bd8514 !important;
+  --border:rgba(157,108,0,.20) !important;
+  --gold:#a87300;
+  --gold-bright:#7d5600;
+  --gold-line:rgba(157,108,0,.22);
+  --gold-line-strong:rgba(157,108,0,.38);
+  --gold-wash:rgba(157,108,0,.055);
+  --gold-glow:rgba(157,108,0,.08);
+}
+
+/* ---------- GLOBAL SHELL ---------- */
+body:not(.universe-home):not(.universe-inner){
+  background:radial-gradient(circle at 82% -8%,rgba(244,196,92,.10),transparent 31%),radial-gradient(circle at 8% 48%,rgba(244,196,92,.025),transparent 28%),var(--bg-primary) !important;
+}
+body:not([data-theme=light])::before{
+  background-image:radial-gradient(rgba(255,232,178,.075) 1px,transparent 1px) !important;
+}
+.site-header.scrolled{
+  border-bottom-color:rgba(244,196,92,.15) !important;
+  box-shadow:0 8px 36px rgba(0,0,0,.18),0 0 22px rgba(244,196,92,.025) !important;
+}
+.brand-mark{
+  border-color:var(--gold) !important;
+  box-shadow:0 0 22px rgba(244,196,92,.18) !important;
+}
+.brand-mark:before{background:var(--gold) !important;box-shadow:0 0 12px rgba(244,196,92,.38)}
+.brand-mark:after{border-color:rgba(255,225,154,.62) !important}
+.nav-link:hover,.nav-trigger:hover,.nav-link.active,.nav-trigger.active{
+  background:rgba(244,196,92,.055) !important;
+  color:var(--text-primary) !important;
+}
+.dropdown,.nav-dropdown,.nav-submenu{
+  border-color:rgba(244,196,92,.16) !important;
+  box-shadow:0 22px 60px rgba(0,0,0,.34),0 0 30px rgba(244,196,92,.04) !important;
+}
+.dropdown a:hover,.nav-dropdown a:hover,.nav-submenu a:hover{
+  background:rgba(244,196,92,.065) !important;
+}
+.icon-btn{
+  border-color:rgba(244,196,92,.18) !important;
+}
+.icon-btn:hover{
+  border-color:rgba(244,196,92,.38) !important;
+  box-shadow:0 0 18px rgba(244,196,92,.06) !important;
+}
+
+/* ---------- TYPOGRAPHY + ACTIONS ---------- */
+.eyebrow{color:var(--gold) !important;text-shadow:0 0 18px rgba(244,196,92,.16)}
+.breadcrumbs a:hover{color:var(--gold-bright) !important}
+.btn-primary{
+  background:linear-gradient(135deg,#e0ad38,#ffe19a) !important;
+  color:#171108 !important;
+  border-color:transparent !important;
+  box-shadow:0 10px 30px rgba(244,196,92,.16) !important;
+}
+.btn-primary:hover{box-shadow:0 14px 38px rgba(244,196,92,.22) !important}
+.btn-secondary,.btn:not(.btn-primary){border-color:rgba(244,196,92,.17)}
+.arrow{color:var(--gold) !important}
+
+/* ---------- SHARED SURFACES ---------- */
+.card,.panel,.tool-card,.result,.search-box,.toast{
+  border-color:rgba(244,196,92,.18) !important;
+}
+.card{
+  background:linear-gradient(145deg,var(--gold-panel-1),var(--gold-panel-2)) !important;
+  box-shadow:0 0 0 1px rgba(255,255,255,.012) inset,0 14px 46px rgba(0,0,0,.16),0 0 22px rgba(244,196,92,.025) !important;
+}
+.card:after{
+  background:radial-gradient(circle at var(--mx,50%) var(--my,0%),rgba(244,196,92,.11),transparent 27%) !important;
+}
+.card:hover{
+  border-color:rgba(244,196,92,.44) !important;
+  box-shadow:0 22px 62px rgba(0,0,0,.27),0 0 32px rgba(244,196,92,.075) !important;
+}
+.card-icon{
+  color:var(--gold) !important;
+  border-color:rgba(244,196,92,.21) !important;
+  background:rgba(244,196,92,.055) !important;
+  box-shadow:0 0 18px rgba(244,196,92,.04) !important;
+}
+.tag{
+  color:var(--gold-bright) !important;
+  border-color:rgba(244,196,92,.22) !important;
+  background:rgba(244,196,92,.05) !important;
+}
+.callout{
+  border-left-color:var(--gold) !important;
+  background:linear-gradient(135deg,rgba(244,196,92,.075),rgba(244,196,92,.022)) !important;
+}
+.thought{
+  background:linear-gradient(135deg,rgba(244,196,92,.09),rgba(244,196,92,.028)) !important;
+  border-color:rgba(244,196,92,.22) !important;
+}
+
+/* ---------- FORMS / TABLES / SEARCH ---------- */
+.field input,.field select,.field textarea,.search-input{
+  border-color:rgba(244,196,92,.16) !important;
+}
+.field input:focus,.field select:focus,.field textarea:focus,.search-input:focus{
+  border-color:var(--gold) !important;
+  box-shadow:0 0 0 3px rgba(244,196,92,.075),0 0 22px rgba(244,196,92,.05) !important;
+}
+.table-wrap{border-color:rgba(244,196,92,.15) !important}
+.data-table th,.data-table td{border-bottom-color:rgba(244,196,92,.09) !important}
+.progress>span{
+  background:linear-gradient(90deg,#d8a735,#ffe19a) !important;
+  box-shadow:0 0 14px rgba(244,196,92,.22) !important;
+}
+.quiz-option:hover{border-color:var(--gold) !important}
+.search-overlay,.site-search{--search-accent:var(--gold)}
+.site-search-panel,.site-search-result,.site-search-field{
+  border-color:rgba(244,196,92,.16) !important;
+}
+.site-search-result:hover{background:rgba(244,196,92,.045) !important}
+.site-search-kicker,.site-search-result-mark{color:var(--gold) !important}
+
+/* ---------- FOOTER ---------- */
+.site-footer{border-top-color:rgba(244,196,92,.12) !important}
+.footer-links a:hover{color:var(--gold-bright) !important}
+.footer-bottom{border-top-color:rgba(244,196,92,.10) !important}
+
+/* =========================================================
+   INNER-PAGE UNIVERSE
+========================================================= */
+body.universe-inner{
+  background:radial-gradient(circle at 18% 0%,rgba(244,196,92,.075),transparent 28%),radial-gradient(circle at 85% 12%,rgba(244,196,92,.055),transparent 27%),linear-gradient(180deg,#02050c 0%,#050b15 52%,#030711 100%) !important;
+}
+body.universe-inner:after{
+  background:radial-gradient(ellipse at 50% 18%,rgba(244,196,92,.06),transparent 38%),radial-gradient(ellipse at 78% 55%,rgba(244,196,92,.035),transparent 32%),radial-gradient(ellipse at 15% 72%,rgba(244,196,92,.025),transparent 35%) !important;
+}
+.universe-inner .site-header{border-bottom-color:rgba(244,196,92,.07) !important}
+.universe-inner .site-header.scrolled{border-bottom-color:rgba(244,196,92,.14) !important}
+.universe-inner .breadcrumbs a:hover{color:var(--gold-bright) !important}
+.universe-inner .page-hero h1:after{
+  background:linear-gradient(90deg,var(--gold),transparent) !important;
+  box-shadow:0 0 18px rgba(244,196,92,.34) !important;
+}
+.universe-inner .section:before{
+  background:linear-gradient(90deg,transparent,rgba(244,196,92,.13),transparent) !important;
+}
+.universe-inner .card,.universe-inner .panel,.universe-inner .tool-card,.universe-inner .callout,.universe-inner .result{
+  border-color:rgba(244,196,92,.17) !important;
+  background:linear-gradient(145deg,rgba(12,24,38,.86),rgba(4,11,19,.82)) !important;
+}
+.universe-inner .card:before,.universe-inner .panel:before{
+  background:radial-gradient(circle at var(--mx,50%) var(--my,0%),rgba(244,196,92,.105),transparent 30%) !important;
+}
+.universe-inner .card:hover{
+  border-color:rgba(244,196,92,.42) !important;
+  box-shadow:0 24px 70px rgba(0,0,0,.29),0 0 34px rgba(244,196,92,.07) !important;
+}
+.universe-inner .card-icon{
+  background:radial-gradient(circle at 35% 30%,rgba(244,196,92,.22),rgba(244,196,92,.045) 58%,transparent 72%) !important;
+  border-color:rgba(244,196,92,.23) !important;
+  box-shadow:0 0 22px rgba(244,196,92,.07) !important;
+  color:var(--gold) !important;
+}
+.universe-inner .tag{
+  background:rgba(244,196,92,.05) !important;
+  border-color:rgba(244,196,92,.18) !important;
+  color:#ffe19a !important;
+}
+.universe-inner .card:hover .arrow{color:var(--gold-bright) !important}
+.universe-inner .btn{border-color:rgba(244,196,92,.18) !important}
+.universe-inner .btn-primary{
+  background:linear-gradient(135deg,#dfa936,#ffe19a) !important;
+  color:#171108 !important;
+  box-shadow:0 12px 35px rgba(244,196,92,.15) !important;
+}
+.universe-inner .field input,.universe-inner .field select,.universe-inner .field textarea{
+  border-color:rgba(244,196,92,.16) !important;
+}
+.universe-inner .field input:focus,.universe-inner .field select:focus,.universe-inner .field textarea:focus{
+  border-color:var(--gold) !important;
+  box-shadow:0 0 0 3px rgba(244,196,92,.075),0 0 22px rgba(244,196,92,.05) !important;
+}
+.universe-inner .table-wrap{border-color:rgba(244,196,92,.13) !important}
+.universe-inner .data-table td,.universe-inner .data-table th{border-bottom-color:rgba(244,196,92,.09) !important}
+.universe-inner .progress>span{
+  background:linear-gradient(90deg,#d8a735,#ffe19a) !important;
+  box-shadow:0 0 16px rgba(244,196,92,.23) !important;
+}
+.universe-inner .article h2:before{
+  background:var(--gold) !important;
+  box-shadow:0 0 12px rgba(244,196,92,.45) !important;
+}
+.universe-inner .callout{
+  border-left-color:var(--gold) !important;
+  background:linear-gradient(135deg,rgba(244,196,92,.075),rgba(244,196,92,.025)) !important;
+}
+.universe-inner .site-footer{border-top-color:rgba(244,196,92,.10) !important}
+
+/* Shared inner-page orbit visual */
+.page-orbit-visual .u-orbit{border-color:rgba(244,196,92,.17) !important}
+.page-orbit-visual .u-orbit.o2{border-color:rgba(255,225,154,.11) !important}
+.page-orbit-visual .u-orbit.o3{border-color:rgba(244,196,92,.105) !important}
+.page-orbit-visual .u-sun{
+  background:radial-gradient(circle at 35% 30%,#fff7df,#ffe19a 18%,#e2ae38 48%,rgba(226,174,56,.08) 72%,transparent 74%) !important;
+  box-shadow:0 0 25px rgba(244,196,92,.55),0 0 80px rgba(244,196,92,.14) !important;
+}
+.page-orbit-visual .u-planet{background:#d8b76d !important;box-shadow:0 0 15px rgba(244,196,92,.46) !important}
+.page-orbit-visual .u-planet.p2{background:#f4c45c !important}
+.page-orbit-visual .u-planet.p3{background:#ffe19a !important}
+
+/* =========================================================
+   HOMEPAGE UNIVERSE
+========================================================= */
+body.universe-home{background:#03040a !important}
+.universe-shell{
+  background:radial-gradient(ellipse at 50% 20%,rgba(244,196,92,.11),transparent 42%),radial-gradient(ellipse at 80% 65%,rgba(244,196,92,.055),transparent 36%),#03040a !important;
+}
+.nebula.one{background:radial-gradient(ellipse,rgba(244,196,92,.15),transparent 70%) !important}
+.nebula.two{background:radial-gradient(ellipse,rgba(255,225,154,.10),transparent 70%) !important}
+.nebula.three{background:radial-gradient(ellipse,rgba(244,196,92,.07),transparent 70%) !important}
+.u-eyebrow:before{background:linear-gradient(90deg,var(--gold),transparent) !important}
+.u-btn.primary{
+  background:linear-gradient(135deg,#e0ad38,#ffe19a) !important;
+  color:#171108 !important;
+  border-color:transparent !important;
+  box-shadow:0 10px 38px rgba(244,196,92,.16) !important;
+}
+.u-btn.secondary:hover{border-color:rgba(244,196,92,.42) !important}
+.orbit-system .sun{
+  background:radial-gradient(circle at 35% 30%,#fff 0 4%,#fff0bd 14%,#f4c45c 36%,rgba(244,196,92,.24) 62%,transparent 74%) !important;
+  box-shadow:0 0 35px rgba(244,196,92,.58),0 0 110px rgba(244,196,92,.20) !important;
+}
+.sun:before{
+  border-color:rgba(244,196,92,.27) !important;
+  box-shadow:0 0 45px rgba(244,196,92,.17) !important;
+}
+.orbit-info i{background:var(--gold) !important;box-shadow:0 0 12px var(--gold) !important}
+.u-tile{
+  border-color:rgba(244,196,92,.12) !important;
+  background:linear-gradient(135deg,rgba(244,196,92,.045),rgba(255,255,255,.014)) !important;
+}
+.u-tile:hover{
+  border-color:rgba(244,196,92,.32) !important;
+  box-shadow:0 25px 80px rgba(0,0,0,.31),0 0 30px rgba(244,196,92,.055) !important;
+}
+.u-tile.big{
+  background:radial-gradient(circle at 70% 20%,rgba(244,196,92,.11),transparent 38%),linear-gradient(135deg,rgba(244,196,92,.045),rgba(255,255,255,.014)) !important;
+}
+.u-tile .line-art{border-color:rgba(244,196,92,.20) !important}
+.u-thought{
+  border-color:rgba(244,196,92,.13) !important;
+  background:radial-gradient(circle at 80% 30%,rgba(244,196,92,.09),transparent 35%),rgba(255,255,255,.014) !important;
+}
+
+/* ---------- Golden utility classes ---------- */
+.golden-glow-surface{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(244,196,92,.32) !important;
+  border-radius:22px;
+  background:linear-gradient(145deg,rgba(12,24,38,.92),rgba(4,11,19,.88)) !important;
+  box-shadow:0 0 0 1px rgba(255,255,255,.012) inset,0 18px 54px rgba(0,0,0,.20),0 0 30px rgba(244,196,92,.055) !important;
+}
+.golden-glow-surface:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(135deg,rgba(244,196,92,.075),transparent 28%,transparent 76%,rgba(244,196,92,.025));
+}
+.golden-glow-surface>*{position:relative;z-index:1}
+
+@media(prefers-reduced-motion:reduce){
+  .card,.u-tile,.btn{transition:none!important}
+}
