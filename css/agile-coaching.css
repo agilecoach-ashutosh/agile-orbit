@@ -64,7 +64,7 @@
 .pillar-node.technology{transform:translateY(188px);border-top-color:rgba(112,169,255,.58)}
 .pillar-node.process{transform:translateX(-190px);border-top-color:rgba(154,134,255,.58)}
 
-/* COMPACT STICKY FOUR-LENS SWITCHER */
+/* FOUR-LENS NAVIGATION — horizontal by default; vertical when a real left gutter exists */
 .coach-subnav-wrap{position:sticky;top:calc(var(--nav,76px) + 10px);z-index:75;background:transparent;border:0;box-shadow:none;pointer-events:none;padding:7px 0}
 .coach-subnav{width:max-content;max-width:calc(100vw - 24px);margin:0 auto;display:flex;align-items:center;justify-content:center;gap:4px;overflow:auto;padding:5px;border:1px solid rgba(244,196,92,.22);border-radius:999px;background:rgba(4,10,18,.86);backdrop-filter:blur(16px);box-shadow:0 12px 34px rgba(0,0,0,.24),0 0 22px rgba(244,196,92,.035);scrollbar-width:none;pointer-events:auto}
 .coach-subnav::-webkit-scrollbar{display:none}
@@ -72,6 +72,21 @@
 .coach-subnav a{white-space:nowrap;padding:8px 13px;border-radius:999px;color:#899aaf;font-size:.76rem;font-weight:800;transition:color .2s,border-color .2s,background .2s,box-shadow .2s;border:1px solid transparent}
 .coach-subnav a:hover{color:#e8d394;background:rgba(244,196,92,.04)}
 .coach-subnav a.active{color:#171108;background:linear-gradient(135deg,#f4c45c,#ffe19a);border-color:transparent;box-shadow:0 6px 18px rgba(244,196,92,.18)}
+
+@media(min-width:1480px){
+  .coach-subnav-wrap{position:fixed;left:max(18px,calc((100vw - 1180px)/2 - 158px));top:50%;transform:translateY(-50%);width:142px;padding:0;z-index:74}
+  .coach-subnav{width:142px;max-width:none;margin:0;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:4px;overflow:visible;padding:8px;border-radius:18px;background:rgba(4,10,18,.82);box-shadow:0 18px 46px rgba(0,0,0,.28),0 0 24px rgba(244,196,92,.035)}
+  .coach-subnav a{position:relative;width:100%;padding:12px 10px 12px 15px;border-radius:12px;text-align:left;font-size:0;line-height:1}
+  .coach-subnav a:nth-child(2)::before{content:"01 — People"}
+  .coach-subnav a:nth-child(3)::before{content:"02 — Product"}
+  .coach-subnav a:nth-child(4)::before{content:"03 — Technology"}
+  .coach-subnav a:nth-child(5)::before{content:"04 — Process"}
+  .coach-subnav a::before{font:800 .71rem/1.2 Manrope,Inter,sans-serif;letter-spacing:.025em;color:inherit}
+  .coach-subnav a::after{content:"";position:absolute;left:4px;top:50%;width:2px;height:0;border-radius:2px;background:linear-gradient(#ffe19a,#d7a833);transform:translateY(-50%);box-shadow:0 0 9px rgba(244,196,92,.35);transition:height .2s ease}
+  .coach-subnav a:hover{color:#dfc882;background:rgba(244,196,92,.035)}
+  .coach-subnav a.active{color:#fff0bd;background:rgba(244,196,92,.075);border-color:rgba(244,196,92,.24);box-shadow:0 0 18px rgba(244,196,92,.045)}
+  .coach-subnav a.active::after{height:24px}
+}
 
 /* FOUR PILLARS */
 .coach-pillar{scroll-margin-top:132px;padding-block:42px}
