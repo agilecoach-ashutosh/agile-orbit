@@ -1,0 +1,168 @@
+/* =========================================================
+   AGILE ORBIT — GOLDEN THEME HARDENING
+   Regression-safe overrides for legacy cyan/violet accents
+   that sit outside the shared card primitives.
+========================================================= */
+
+/* ---------- SHARED NAVIGATION + SEARCH ---------- */
+.site-header .brand{ text-shadow:0 0 22px rgba(244,196,92,.12) !important; }
+.site-header .nav-link::after{
+  background:linear-gradient(90deg,transparent,#f4c45c,transparent) !important;
+  box-shadow:0 0 9px rgba(244,196,92,.58) !important;
+}
+.site-header .nav-link:hover,.site-header .nav-link.active{
+  text-shadow:0 0 16px rgba(244,196,92,.24) !important;
+}
+.site-header .has-dropdown:hover .nav-caret,
+.site-header .has-dropdown:focus-within .nav-caret,
+.site-header .nav-submenu-caret{color:#f4c45c !important}
+.site-header .nav-dropdown::before{
+  border-left-color:rgba(244,196,92,.18) !important;
+  border-top-color:rgba(244,196,92,.18) !important;
+}
+.site-header .nav-submenu::before{
+  border-left-color:rgba(244,196,92,.18) !important;
+  border-bottom-color:rgba(244,196,92,.18) !important;
+}
+.site-header .icon-btn:hover{
+  background:rgba(244,196,92,.055) !important;
+  box-shadow:0 0 18px rgba(244,196,92,.09),inset 0 1px 0 rgba(255,255,255,.07) !important;
+}
+.mobile-nav-group{border-bottom-color:rgba(244,196,92,.08) !important}
+.mobile-nav-group summary::after,.mobile-nav-subgroup summary::after{color:#f4c45c !important}
+.mobile-nav-group .mobile-nav-parent{color:#ffe19a !important}
+.mobile-nav-subgroup{border-left-color:rgba(244,196,92,.14) !important}
+.site-search-panel{
+  box-shadow:0 30px 100px rgba(0,0,0,.55),0 0 60px rgba(244,196,92,.065) !important;
+}
+.site-search-field:focus-within{
+  border-color:rgba(244,196,92,.54) !important;
+  box-shadow:0 0 24px rgba(244,196,92,.085) !important;
+}
+.site-search-field>span{color:#f4c45c !important}
+.site-search-result:hover{
+  border-color:rgba(244,196,92,.28) !important;
+  background:rgba(244,196,92,.05) !important;
+}
+.site-search-result-mark{color:#f4c45c !important}
+
+/* ---------- HOMEPAGE ---------- */
+.universe-home .u-eyebrow,.universe-home .u-kicker{color:#d7c58d !important}
+.universe-home .orbit-ring{border-color:rgba(244,196,92,.13) !important;box-shadow:0 0 35px rgba(244,196,92,.02) !important}
+.universe-home .ring4{border-color:rgba(244,196,92,.07) !important}
+.universe-home .planet:after{border-color:rgba(244,196,92,.30) !important}
+.universe-home .orbit-info{
+  border-color:rgba(244,196,92,.14) !important;
+  background:rgba(244,196,92,.035) !important;
+}
+.universe-home .u-tile .planet-mini{
+  background:radial-gradient(circle at 32% 28%,#fff8dd,#ffe19a 9%,#d4a23c 40%,#15110a 72%) !important;
+  box-shadow:0 0 80px rgba(244,196,92,.18) !important;
+}
+.universe-home .u-thought cite{color:#9b8c68 !important}
+
+/* ---------- PRACTICE LANDING ---------- */
+.practice-page .practice-path .path-meta span{
+  border-color:rgba(244,196,92,.16) !important;
+  color:#b8a880 !important;
+  background:rgba(244,196,92,.025) !important;
+}
+.practice-page .practice-path.featured{
+  border-color:rgba(244,196,92,.38) !important;
+  background:linear-gradient(145deg,rgba(244,196,92,.085),rgba(7,18,31,.52)) !important;
+  box-shadow:0 0 28px rgba(244,196,92,.045) !important;
+}
+
+/* ---------- AI LANDING ---------- */
+.ai-path span{
+  border-color:rgba(244,196,92,.16) !important;
+  background:rgba(244,196,92,.035) !important;
+  color:#c8b98e !important;
+}
+.ai-path b{color:#f4c45c !important}
+.ai-feature{
+  border-color:rgba(244,196,92,.40) !important;
+  background:linear-gradient(145deg,rgba(244,196,92,.09),rgba(5,12,22,.88)) !important;
+  box-shadow:0 0 30px rgba(244,196,92,.045) !important;
+}
+
+/* ---------- ABOUT PAGE ---------- */
+.about-page .about-kicker{color:#f4c45c !important}
+.about-page .about-role span{
+  border-color:rgba(244,196,92,.18) !important;
+  background:rgba(244,196,92,.035) !important;
+  color:#cbbd97 !important;
+}
+.about-page .about-orbit{
+  border-color:rgba(244,196,92,.19) !important;
+  background:radial-gradient(circle at 50% 50%,rgba(244,196,92,.10),transparent 35%),linear-gradient(145deg,rgba(12,24,42,.76),rgba(4,9,18,.76)) !important;
+  box-shadow:0 22px 70px rgba(0,0,0,.25),0 0 32px rgba(244,196,92,.045),inset 0 1px 0 rgba(255,255,255,.025) !important;
+}
+.about-page .about-orbit:before{border-color:rgba(244,196,92,.18) !important}
+.about-page .about-orbit:after{border-color:rgba(255,225,154,.14) !important}
+.about-page .orbit-ring-3{border-color:rgba(244,196,92,.11) !important}
+.about-page .about-sun{
+  background:radial-gradient(circle at 35% 30%,#fff,#fff0bd 19%,#f4c45c 46%,rgba(244,196,92,.06) 70%,transparent 72%) !important;
+  box-shadow:0 0 34px rgba(244,196,92,.50),0 0 100px rgba(244,196,92,.13) !important;
+}
+.about-page .orbit-label{
+  border-color:rgba(244,196,92,.18) !important;
+  color:#e4d8b7 !important;
+}
+.about-page .orbit-dot{background:#d7b968 !important;box-shadow:0 0 18px rgba(244,196,92,.54) !important}
+.about-page .orbit-dot.d2{background:#f4c45c !important}
+.about-page .orbit-dot.d3{background:#ffe19a !important}
+.about-page .about-pillar,
+.about-page .about-principle,
+.about-page .about-link,
+.about-page .about-impact,
+.about-page .about-story{
+  border-color:rgba(244,196,92,.17) !important;
+  background:linear-gradient(145deg,rgba(12,24,38,.86),rgba(4,11,19,.82)) !important;
+  box-shadow:0 14px 42px rgba(0,0,0,.12),0 0 20px rgba(244,196,92,.02) !important;
+}
+.about-page .about-impact:after{background:radial-gradient(circle,rgba(244,196,92,.12),transparent 68%) !important}
+.about-page .about-journey:before{
+  background:linear-gradient(90deg,rgba(244,196,92,.18),rgba(255,225,154,.38),rgba(244,196,92,.18)) !important;
+}
+.about-page .journey-dot{
+  background:#2d2411 !important;
+  border-color:rgba(244,196,92,.34) !important;
+  color:#ffeab0 !important;
+  box-shadow:0 0 22px rgba(244,196,92,.08) !important;
+}
+.about-page .about-philosophy a{
+  border-color:rgba(244,196,92,.15) !important;
+  background:rgba(244,196,92,.022) !important;
+}
+.about-page .about-philosophy a:hover{
+  border-color:rgba(244,196,92,.38) !important;
+  background:rgba(244,196,92,.055) !important;
+}
+.about-page .about-manifesto{border-top-color:rgba(244,196,92,.13) !important}
+.about-page .about-manifesto span:not(:last-child):after{color:#7d6d45 !important}
+.about-page .about-principle .num{
+  background:rgba(244,196,92,.08) !important;
+  color:#ffe19a !important;
+}
+.about-page .about-link:hover{
+  border-color:rgba(244,196,92,.38) !important;
+  box-shadow:0 20px 60px rgba(0,0,0,.25),0 0 30px rgba(244,196,92,.05) !important;
+}
+.about-page .about-link .link-arrow,
+.about-page .about-link.linkedin .link-arrow,
+.about-page .about-link.mindmap .link-arrow,
+.about-page .about-link.cert .link-arrow{color:#f4c45c !important}
+
+/* ---------- COMMON LEGACY SURFACES ---------- */
+.universe-inner .pc-category-card,
+.universe-inner .menu-card,
+.universe-inner .resource-card,
+.universe-inner .book-card,
+.universe-inner .template-card{
+  border-color:rgba(244,196,92,.18) !important;
+}
+
+@media(prefers-reduced-motion:reduce){
+  .about-page .orbit-dot,.about-page .orbit-label{animation:none !important}
+}
