@@ -11,15 +11,39 @@ window.SITE_CONFIG=SITE_CONFIG;
   document.head.appendChild(analytics);
 })();
 
-// Load the Professional Coaching Practice Lab hub only on the professional coaching page.
+// Keep Professional Coaching workspace pages aligned to the new Coach / Coachee menus.
 (function(){
-  if(!location.pathname.includes('/coaching/professional-coaching'))return;
-  const current=document.currentScript;
-  if(!current?.src)return;
-  const practice=document.createElement('script');
-  practice.src=new URL('professional-practice-hub.js',current.src).href;
-  practice.defer=true;
-  document.head.appendChild(practice);
+  document.addEventListener('DOMContentLoaded',()=>{
+    const path=location.pathname;
+    const coachWorkspace=['/coaching/session-lab','/coaching/coaching-agreement','/coaching/icf-reflection','/coaching/ethics-lab'];
+    if(coachWorkspace.some(p=>path.includes(p))){
+      document.querySelectorAll('.pc-backbar a[href="professional-coaching.html"],.pc-link-card[href="professional-coaching.html"]').forEach(a=>{
+        a.href='professional-coaching-coach.html';
+        if(a.classList.contains('pc-link-card')){
+          const strong=a.querySelector('strong'),small=a.querySelector('small');
+          if(strong)strong.textContent='Coach Menu';
+          if(small)small.textContent='Return to Professional Coaching for coaches.';
+        }else a.textContent='← Back to Coach Menu';
+      });
+    }
+
+    if(path.includes('/coaching/coaching-journal')){
+      const view=new URLSearchParams(location.search).get('view');
+      if(view==='coach'||view==='coachee'){
+        const tab=document.querySelector(`[data-tab="${view}"]`);
+        if(tab)tab.click();
+        const href=view==='coach'?'professional-coaching-coach.html':'professional-coaching-coachee.html';
+        const label=view==='coach'?'← Back to Coach Menu':'← Back to Coachee Menu';
+        document.querySelectorAll('.pc-backbar a[href="professional-coaching.html"]').forEach(a=>{a.href=href;a.textContent=label});
+        document.querySelectorAll('.pc-link-card[href="professional-coaching.html"]').forEach(a=>{
+          a.href=href;
+          const strong=a.querySelector('strong'),small=a.querySelector('small');
+          if(strong)strong.textContent=view==='coach'?'Coach Menu':'Coachee Menu';
+          if(small)small.textContent='Return to your Professional Coaching menu.';
+        });
+      }
+    }
+  });
 })();
 
 // Cross-link the Five Dysfunctions practitioner model from Behavioural Psychology
