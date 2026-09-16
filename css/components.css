@@ -1,2 +1,8 @@
 /* Component-specific extensions live here. Keep shared primitives in style.css. */
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid var(--border);border-radius:999px;background:var(--surface-soft);font-size:.76rem;font-weight:800;color:var(--text-secondary)}
+
+/* Reusable story/reflection treatment. Opt-in only: does not affect generic cards. */
+.golden-glow-story-card{position:relative;overflow:hidden;border:1px solid rgba(244,196,92,.34);border-radius:20px;background:linear-gradient(145deg,rgba(12,24,38,.92),rgba(4,11,19,.88));box-shadow:0 0 0 1px rgba(255,255,255,.014) inset,0 16px 48px rgba(0,0,0,.2),0 0 28px rgba(244,196,92,.055);transition:border-color .25s ease,box-shadow .25s ease}
+.golden-glow-story-card:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(135deg,rgba(244,196,92,.07),transparent 28%,transparent 76%,rgba(244,196,92,.03))}
+.golden-glow-story-card:hover{border-color:rgba(244,196,92,.5);box-shadow:0 0 0 1px rgba(255,255,255,.018) inset,0 18px 54px rgba(0,0,0,.22),0 0 34px rgba(244,196,92,.085)}
+.golden-glow-story-card>*{position:relative;z-index:1}
