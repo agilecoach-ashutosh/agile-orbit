@@ -11,7 +11,18 @@ window.SITE_CONFIG=SITE_CONFIG;
   document.head.appendChild(analytics);
 })();
 
-// Keep Professional Coaching workspace pages aligned to the new Coach / Coachee menus.
+// Keep Professional Coaching back-navigation aligned with its hierarchical Coach / Coachee menus.
+(function(){
+  if(!location.pathname.includes('/coaching/'))return;
+  const current=document.currentScript;
+  if(!current?.src)return;
+  const routing=document.createElement('script');
+  routing.src=new URL('professional-coaching-back-routing.js',current.src).href;
+  routing.defer=true;
+  document.head.appendChild(routing);
+})();
+
+// Keep Professional Coaching workspace pages aligned to the Coach / Coachee menus.
 (function(){
   document.addEventListener('DOMContentLoaded',()=>{
     const path=location.pathname;
