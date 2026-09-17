@@ -1,1 +1,142 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contact | Agile Orbit</title><meta name="description" content="Static contact pathway."><meta name="theme-color" content="#071019"><link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/responsive.css"><link rel="stylesheet" href="../css/reference-nav.css"></head><body class="universe-inner"><div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div><main><section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="./">Home</a><span>/</span><span>Connect</span></div><span class="eyebrow">AGILE ORBIT</span><h1>Contact</h1><p class="muted" style="max-width:760px;font-size:1.08rem">Static contact pathway.</p></div></section><section class="section"><div class="article"><div class="card"><p class="muted">Configure your email in <code>js/config.js</code>.</p><a class="btn btn-primary" id="emailLink" href="#">Email Agile Orbit →</a></div></div></section></main><div id="site-footer"></div><script src="../js/config.js"></script><script src="../js/utilities.js"></script><script src="../js/navigation.js"></script><script src="../js/main.js"></script><script src="../js/tools.js"></script><script>document.addEventListener("DOMContentLoaded",()=>{const a=document.getElementById("emailLink");a.href=`mailto:${SITE_CONFIG.email}?subject=Agile%20Orbit%20Contact`})</script><script src="../js/universe-pages.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact | Agile Orbit</title>
+  <meta name="description" content="Connect with Ashutosh Mishra for Agile coaching, professional coaching, transformation conversations, collaboration and Agile Orbit feedback.">
+  <meta name="theme-color" content="#071019">
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/reference-nav.css">
+  <style>
+    .contact-page .page-hero{padding-bottom:36px}
+    .contact-hero-copy{max-width:820px}
+    .contact-hero-copy h1{max-width:760px;margin-bottom:18px}
+    .contact-hero-copy .lead{max-width:760px;font-size:1.12rem;line-height:1.75}
+
+    .contact-shell{padding-top:26px;padding-bottom:110px}
+    .contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+    .contact-card{position:relative;overflow:hidden;min-height:290px;padding:30px;border:1px solid rgba(244,196,92,.26);border-radius:24px;background:linear-gradient(145deg,rgba(12,24,38,.92),rgba(4,11,19,.9));box-shadow:0 22px 60px rgba(0,0,0,.2),0 0 32px rgba(244,196,92,.04);transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease}
+    .contact-card:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 85% 12%,rgba(244,196,92,.1),transparent 30%)}
+    .contact-card:hover{transform:translateY(-4px);border-color:rgba(244,196,92,.48);box-shadow:0 26px 70px rgba(0,0,0,.24),0 0 40px rgba(244,196,92,.08)}
+    .contact-card>*{position:relative;z-index:1}
+    .contact-icon{display:grid;place-items:center;width:46px;height:46px;margin-bottom:22px;border:1px solid rgba(244,196,92,.34);border-radius:14px;background:rgba(244,196,92,.07);font-size:1.35rem}
+    .contact-card h2{margin:0 0 10px;font-size:1.55rem}
+    .contact-card p{max-width:520px;margin:0 0 22px;line-height:1.7}
+    .contact-value{display:block;margin:0 0 24px;color:var(--text-primary);font-weight:750;overflow-wrap:anywhere}
+    .contact-card .btn{margin-top:auto}
+
+    .contact-topics{margin-top:54px}
+    .contact-topics-head{max-width:720px;margin-bottom:22px}
+    .contact-topics-head h2{margin:.45rem 0 .65rem}
+    .topic-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+    .topic-card{min-height:132px;padding:20px;border:1px solid var(--border);border-radius:18px;background:var(--surface-soft)}
+    .topic-card strong{display:block;margin-bottom:8px;color:var(--text-primary)}
+    .topic-card span{display:block;color:var(--text-secondary);font-size:.9rem;line-height:1.5}
+
+    .contact-note{display:flex;align-items:flex-start;gap:14px;margin-top:32px;padding:20px 22px;border:1px solid rgba(244,196,92,.2);border-radius:18px;background:rgba(244,196,92,.035)}
+    .contact-note strong{display:block;margin-bottom:4px;color:var(--text-primary)}
+    .contact-note p{margin:0;line-height:1.6}
+
+    @media(max-width:900px){
+      .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(max-width:700px){
+      .contact-grid{grid-template-columns:1fr}
+      .contact-card{min-height:0;padding:24px}
+      .topic-grid{grid-template-columns:1fr}
+      .contact-shell{padding-top:12px;padding-bottom:76px}
+    }
+  </style>
+</head>
+<body class="universe-inner contact-page">
+  <div id="site-nav"></div>
+  <div id="mobile-drawer" class="mobile-drawer"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container contact-hero-copy">
+        <div class="breadcrumbs"><a href="../">Home</a><span>/</span><span>Contact</span></div>
+        <span class="eyebrow">CONNECT WITH ASHUTOSH</span>
+        <h1>Let’s connect.</h1>
+        <p class="muted lead">For Agile coaching, professional coaching, transformation conversations, collaboration, or feedback on Agile Orbit — the simplest ways to reach me are email and LinkedIn.</p>
+      </div>
+    </section>
+
+    <section class="section contact-shell">
+      <div class="container">
+        <div class="contact-grid">
+          <article class="contact-card">
+            <div class="contact-icon" aria-hidden="true">✉</div>
+            <span class="eyebrow">DIRECT</span>
+            <h2>Email me</h2>
+            <p class="muted">Best for a specific question, collaboration idea, coaching conversation, or anything that needs a little context.</p>
+            <span class="contact-value" id="emailValue">agilecoach.ashutosh@gmail.com</span>
+            <a class="btn btn-primary" id="emailLink" href="mailto:agilecoach.ashutosh@gmail.com?subject=Agile%20Orbit%20Contact">Send an email →</a>
+          </article>
+
+          <article class="contact-card">
+            <div class="contact-icon" aria-hidden="true">in</div>
+            <span class="eyebrow">PROFESSIONAL NETWORK</span>
+            <h2>Connect on LinkedIn</h2>
+            <p class="muted">Follow my work, start a professional conversation, or connect around Agile, coaching, leadership, technology and transformation.</p>
+            <span class="contact-value">Ashutosh Mishra</span>
+            <a class="btn btn-secondary" id="linkedinLink" href="https://www.linkedin.com/in/ashutosh-mishra-1089/" target="_blank" rel="noopener noreferrer">Open LinkedIn ↗</a>
+          </article>
+        </div>
+
+        <div class="contact-topics">
+          <div class="contact-topics-head">
+            <span class="eyebrow">GOOD REASONS TO REACH OUT</span>
+            <h2>What can we talk about?</h2>
+            <p class="muted">Agile Orbit is built around practical work. These are the kinds of conversations I’m most interested in.</p>
+          </div>
+
+          <div class="topic-grid">
+            <div class="topic-card"><strong>Agile Coaching</strong><span>Teams, flow, Scrum, Kanban, product delivery and ways of working.</span></div>
+            <div class="topic-card"><strong>Professional Coaching</strong><span>Thinking partnerships, leadership conversations and personal development.</span></div>
+            <div class="topic-card"><strong>Transformation</strong><span>Product, technology, culture, systems and organisation-level change.</span></div>
+            <div class="topic-card"><strong>Collaboration</strong><span>Speaking, workshops, learning sessions, experiments and useful partnerships.</span></div>
+            <div class="topic-card"><strong>Agile Orbit</strong><span>Feedback, corrections, ideas for tools, resources or practical content.</span></div>
+          </div>
+        </div>
+
+        <div class="contact-note">
+          <div aria-hidden="true">◎</div>
+          <div>
+            <strong>A small note</strong>
+            <p class="muted">A short message with the context and what you would like to explore makes it easier for me to respond meaningfully.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/utilities.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/tools.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+      const email=SITE_CONFIG.email;
+      const linkedin=SITE_CONFIG.linkedin;
+      const emailLink=document.getElementById('emailLink');
+      const emailValue=document.getElementById('emailValue');
+      const linkedinLink=document.getElementById('linkedinLink');
+      if(email){
+        emailValue.textContent=email;
+        emailLink.href=`mailto:${email}?subject=Agile%20Orbit%20Contact`;
+      }
+      if(linkedin)linkedinLink.href=linkedin;
+    });
+  </script>
+  <script src="../js/universe-pages.js"></script>
+</body>
+</html>
