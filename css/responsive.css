@@ -1,11 +1,11 @@
 /* Agile Orbit — shared mobile responsiveness. Desktop styles remain untouched. */
 
-/* About page: keep the hero and every content section on the same site grid. */
-body.about-page .page-hero > .container.about-hero-grid,
+/* About page: center only the lower content wrapper; leave the hero grid untouched. */
 body.about-page main > .section > .container.about-wrap{
-  width:min(calc(100% - 40px),1180px);
-  max-width:1180px;
-  margin-inline:auto;
+  width:min(calc(100% - 40px),1120px);
+  max-width:1120px;
+  margin-left:auto;
+  margin-right:auto;
 }
 body.about-page .about-grid-3,
 body.about-page .about-impact-grid,
@@ -22,8 +22,7 @@ body.about-page .about-links{grid-template-columns:repeat(3,minmax(0,1fr))}
   html,body{max-width:100%;overflow-x:hidden}
   body.mobile-menu-open{overflow:hidden}
   .container{width:min(calc(100% - 30px),var(--max))}
-  body.about-page .page-hero > .container.about-hero-grid,
-  body.about-page main > .section > .container.about-wrap{width:min(calc(100% - 30px),1180px)}
+  body.about-page main > .section > .container.about-wrap{width:min(calc(100% - 30px),1120px)}
   .hero{padding:58px 0 55px}.hero-grid,.split,.tool-layout{grid-template-columns:1fr;gap:22px}
   .grid-4,.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-2{grid-template-columns:1fr}
   .section{padding:58px 0}.section-head{display:block;margin-bottom:24px}.section-head>*+*{margin-top:12px}
@@ -63,7 +62,6 @@ body.about-page .about-links{grid-template-columns:repeat(3,minmax(0,1fr))}
 
 @media (max-width:480px){
   .container{width:calc(100% - 24px)}.section{padding:48px 0}.card{padding:18px}.panel{padding:18px}.metric-strip{grid-template-columns:1fr 1fr}.metric{padding:18px 8px}.metric strong{font-size:1.55rem}.footer-grid{grid-template-columns:1fr;gap:22px}.btn{width:100%}.hero-actions .btn{width:auto}
-  body.about-page .page-hero > .container.about-hero-grid,
   body.about-page main > .section > .container.about-wrap{width:calc(100% - 24px)}
   .mobile-drawer-inner{width:min(86vw,330px);padding-left:15px;padding-right:15px}
   .site-search-panel{width:calc(100% - 16px)!important;margin-top:58px!important;padding:15px!important;border-radius:16px!important;max-height:calc(100svh - 66px)}
