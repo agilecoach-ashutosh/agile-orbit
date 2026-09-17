@@ -1,4 +1,4 @@
-const SITE_CONFIG={name:"Agile Orbit",tagline:"Learn Agile. Think Better. Lead Differently.",email:"YOUR_EMAIL@example.com",linkedin:"YOUR_LINKEDIN_URL",coggle:"YOUR_COGGLE_URL",credly:"YOUR_CREDLY_URL",year:2026,githubRepo:"agilecoach-ashutosh/agile-orbit",githubBranch:"main",basePath:"",analytics:{enabled:true,provider:"ga4",measurementId:"G-135FX1WJEK"}};
+const SITE_CONFIG={name:"Agile Orbit",tagline:"Learn Agile. Think Better. Lead Differently.",email:"agilecoach.ashutosh@gmail.com",linkedin:"https://www.linkedin.com/in/ashutosh-mishra-1089/",coggle:"YOUR_COGGLE_URL",credly:"YOUR_CREDLY_URL",year:2026,githubRepo:"agilecoach-ashutosh/agile-orbit",githubBranch:"main",basePath:"",analytics:{enabled:true,provider:"ga4",measurementId:"G-135FX1WJEK"}};
 window.SITE_CONFIG=SITE_CONFIG;
 
 // Load one global analytics layer from the same /js directory regardless of page depth.
