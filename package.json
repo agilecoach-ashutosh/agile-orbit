@@ -1,0 +1,1 @@
+{"name":"agile-orbit","private":true,"scripts":{"test":"node tests/regression.cjs"},"devDependencies":{"jsdom":"26.1.0"}}

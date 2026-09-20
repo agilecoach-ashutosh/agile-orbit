@@ -43,9 +43,9 @@ window.AGILE_ORBIT_HERO_SCENES = {
       cta:'Start Practicing →', href:'practice/', edge:'PRACTICE BUILDS CONFIDENCE',
       type:'astronaut', image:'assets/hero/03-practice.webp', position:'center center',
       cards:[
-        ['Scrum Foundations','◉','practice/?theme=Scrum%20Foundations%2C%20Principles%20%26%20Empiricism','FOUNDATIONS'],
-        ['Product Ownership','◇','practice/?theme=Product%20Ownership%2C%20Backlog%20%26%20Value%20Management','PRODUCT'],
-        ['SAFe Delivery','◎','practice/?theme=SAFe%20Delivery%2C%20ART%2C%20PI%20Planning%20%26%20Flow','SCALED AGILE']
+        ['Scrum Foundations','◉','practice/quiz/?theme=Scrum%20Foundations%2C%20Principles%20%26%20Empiricism','FOUNDATIONS'],
+        ['Product Ownership','◇','practice/quiz/?theme=Product%20Ownership%2C%20Backlog%20%26%20Value%20Management','PRODUCT'],
+        ['SAFe Delivery','◎','practice/quiz/?theme=SAFe%20Delivery%2C%20ART%2C%20PI%20Planning%20%26%20Flow','SCALED AGILE']
       ]
     },
     {

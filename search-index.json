@@ -1,83 +1,1022 @@
 [
-  {"title":"Learn","url":"learn/","keywords":"Agile learning product management product lifecycle quadrants behavioural psychology facilitation science behind agile case studies real decisions leadership knowledge"},
-  {"title":"Case Studies","url":"learn/case-studies/","keywords":"23 case studies real organizations decisions transformation failure pivot turnaround recovery product bets market signals operating model flow capacity resilience risk controls compliance economic impact ING Kodak DBS Akbank GOV.UK FBI Sentinel HealthCare.gov Toyota Microsoft Knight Capital Intralinks Mahindra XUV700 Flipkart Tata Nano Credit Suisse Archegos UBS Citi Revlon Paytm Maggi Ola Electric Go First India banking"},
-  {"title":"ING Agile Transformation Case Study","url":"learn/case-studies/ing-agile-transformation.html","keywords":"ING bank agile transformation Netherlands squads tribes chapters multidisciplinary teams end to end customer value handoffs autonomy alignment governance QBR operating model digital banking organization design coaching questions case study"},
-  {"title":"Kodak Digital Disruption Case Study","url":"learn/case-studies/kodak-digital-disruption.html","keywords":"Kodak digital camera disruption strategy business model innovation film photography strategic inertia cannibalization customer job adapt decline empiricism portfolio agility case study"},
-  {"title":"FBI Sentinel Agile Recovery Case Study","url":"learn/case-studies/fbi-sentinel-recovery.html","keywords":"FBI Sentinel agile recovery Scrum two week sprints government program turnaround working software user stories architecture stories direct management Lockheed Martin feedback loop case study"},
-  {"title":"Knight Capital Deployment Failure Case Study","url":"learn/case-studies/knight-capital-deployment-failure.html","keywords":"Knight Capital deployment failure DevOps risk controls Power Peg SMARS dormant code server drift alerts kill switch blast radius engineering safety SEC 460 million 45 minutes case study"},
-  {"title":"Startup Pivots Case Study","url":"learn/case-studies/startup-pivots.html","keywords":"startup pivots Slack Glitch Instagram Burbn Netflix DVD streaming pivot persevere stop product strategy experiments feedback product market fit evidence sunk cost learning case study"},
-  {"title":"HealthCare.gov Recovery Case Study","url":"learn/case-studies/healthcare-gov-recovery.html","keywords":"HealthCare.gov CMS USDS recovery site reliability observability monitoring ruthless prioritization badgeless one team government digital service conversion uptime iterative agile case study"},
-  {"title":"Toyota Production System Case Study","url":"learn/case-studies/toyota-production-system.html","keywords":"Toyota Production System TPS Lean Jidoka Just in Time JIT Kanban pull flow Andon quality at source stop the line WIP kaizen waste software analogy case study"},
-  {"title":"DBS Managing Through Journeys Case Study","url":"learn/case-studies/dbs-managing-through-journeys.html","keywords":"DBS bank Managing Through Journeys MtJ customer journeys cross functional squads data driven control towers experiments digital transformation banking human centered design case study"},
-  {"title":"Akbank Agile Transformation Case Study","url":"learn/case-studies/akbank-agile-transformation.html","keywords":"Akbank agile transformation 100 teams 143 Scrum Teams Spotlight monthly planning internal agile coaches Scrum Master Product Owner communities scaling banking case study"},
-  {"title":"GOV.UK Scaling Agile Case Study","url":"learn/case-studies/govuk-scaling-agile.html","keywords":"GOV.UK GDS scaling agile missions three month missions WIP technical debt firebreak sustainable building objectives autonomy direction government digital service case study"},
-  {"title":"Microsoft DevOps Delivery Case Study","url":"learn/case-studies/microsoft-devops-delivery.html","keywords":"Microsoft DevOps trunk based development short lived branches pull requests main branch automated tests branch policies feature flags continuous delivery team ownership production feedback case study"},
-  {"title":"Intralinks Scrum Reboot Case Study","url":"learn/case-studies/intralinks-scrum-reboot.html","keywords":"Intralinks Scrum reboot mechanical Scrum Professional Scrum values empiricism transparency inspection adaptation trust cargo cult agile case study"},
-  {"title":"Mahindra XUV700 Demand and Capacity Case Study","url":"learn/case-studies/mahindra-xuv700-demand-capacity.html","keywords":"Mahindra XUV700 India automotive bookings 25000 57 minutes six months production semiconductor chip shortage capacity constraints queue waiting period AX7 product success Theory of Constraints flow customer demand case study"},
-  {"title":"Flipkart Big Billion Day Case Study","url":"learn/case-studies/flipkart-big-billion-day.html","keywords":"Flipkart Big Billion Day India ecommerce 2014 100 million GMV 600 crore 10 hours 5000 servers 20x traffic outage stockout overbooking cancellations resilience capacity customer experience case study"},
-  {"title":"Tata Nano Positioning Case Study","url":"learn/case-studies/tata-nano-positioning.html","keywords":"Tata Nano India automotive one lakh cheapest car positioning product strategy affordability aspiration 203000 bookings product market fit demand decline capacity customer value hypothesis case study"},
-  {"title":"Credit Suisse Archegos Case Study","url":"learn/case-studies/credit-suisse-archegos.html","keywords":"Credit Suisse Archegos 2021 banking counterparty risk concentration warnings limit breaches escalation 5.5 billion loss 24 billion exposure controls governance case study"},
-  {"title":"UBS Unauthorized Trading Case Study","url":"learn/case-studies/ubs-unauthorized-trading.html","keywords":"UBS unauthorized trading 2011 rogue trader operational risk controls unexplained activity alerts detection response 2.23 billion loss case study"},
-  {"title":"Citi Revlon Payment Error Case Study","url":"learn/case-studies/citi-revlon-payment-error.html","keywords":"Citi Citibank Revlon 2020 payment error 894 million wire transfer human factors maker checker workflow operational risk vendor system controls case study"},
-  {"title":"Citi Risk and Data Transformation Case Study","url":"learn/case-studies/citi-risk-data-transformation.html","keywords":"Citi Citibank 2020 2024 transformation data governance risk management internal controls remediation OCC 400 million penalty 75 million Federal Reserve 60.6 million sustainable progress case study"},
-  {"title":"Paytm Payments Bank Compliance Case Study","url":"learn/case-studies/paytm-payments-bank-compliance.html","keywords":"Paytm Payments Bank PPBL India fintech RBI 2024 compliance regulatory restrictions KYC deposits wallets FASTag market value 234 billion 2.8 billion case study"},
-  {"title":"Nestle Maggi Crisis Case Study","url":"learn/case-studies/nestle-maggi-crisis.html","keywords":"Nestle Nestlé Maggi India 2015 noodles crisis withdrawal recall quality trust regulation 500.84 crore exceptional charge sales profit recovery case study"},
-  {"title":"Ola Electric Service Capacity Case Study","url":"learn/case-studies/ola-electric-service-capacity.html","keywords":"Ola Electric India EV service capacity complaints 10000 customer service backlog quality debt 110 crore corrective cost after sales queue resilience case study"},
-  {"title":"Go First Supplier Dependency Case Study","url":"learn/case-studies/go-first-supplier-dependency.html","keywords":"Go First GoAir India airline 2023 Pratt Whitney engines grounded aircraft half fleet supplier dependency insolvency 10800 crore claimed lost revenue 65.21 billion creditors resilience case study"},
-  {"title":"The Product Management Landscape","url":"learn/product-management.html","keywords":"product management project vs product product lifecycle discovery launch growth maturity decline retire four quadrants internal strategy market external operations Q1 Q2 Q3 Q4 Agile Scrum project manager product owner developers scrum master incremental delivery stakeholder power interest banking investment suitability compliance"},
-  {"title":"Behavioural Psychology for Leaders","url":"learn/behavioural-psychology/","keywords":"psychology human behaviour leadership mindset decision making communication cognitive load individual behaviour team group behaviour change resistance leadership growth psychological safety motivation bias Tuckman Ringelmann conflict"},
-  {"title":"Science Behind Agile","url":"learn/science-behind-agile/","keywords":"science Agile Scrum empiricism flow queueing theory Little's Law feedback control forecasting teams psychology metrics systems complexity Miller law Conway law Parkinson law WIP throughput lead time"},
-  {"title":"Cobra Effect","url":"learn/science-behind-agile/","keywords":"Cobra Effect Agile metric perverse incentive unintended consequences gaming targets defect closure speed utilization decision making Steven Kerr"},
-  {"title":"Knowledge-Worker Productivity","url":"learn/science-behind-agile/","keywords":"Peter Drucker knowledge worker productivity outcomes quality impact hours logged time utilization busyness manual work expertise judgment developer value metrics decision making"},
-  {"title":"A Stale Board Is a Broken Sensor","url":"learn/science-behind-agile/board-data-quality.html","keywords":"data quality Jira GitLab board stale status WIP cycle time aging throughput blocker dependency forecast metrics decisions garbage in garbage out French train SNCF RFF 2014 platform data management"},
-  {"title":"Empiricism and Process Control Theory","url":"learn/science-behind-agile/empirical-process-control.html","keywords":"empiricism empirical process control theory chemical engineering sensors feedback loop transparency inspection adaptation complex problems Scrum evidence short feedback loop"},
-  {"title":"Facilitation","url":"learn/facilitation/","keywords":"facilitation collective intelligence participatory healthy transparency process purposeful meetings decisions outcomes Agile Scrum"},
-  {"title":"Scrum Event Facilitation","url":"learn/facilitation/scrum-event.html","keywords":"Sprint Planning Daily Scrum Sprint Review Retrospective Refinement facilitation video Scrum events questions anti-patterns"},
-  {"title":"Facilitation Techniques","url":"learn/facilitation/techniques.html","keywords":"1-2-4-All Roman Voting Dot Voting Fist of Five Affinity Mapping Gallery Walk White Elephant Diverge Converge TRIZ Team Agreement Thirty-Five Buy a Feature facilitation techniques"},
-  {"title":"Tools","url":"tools/","keywords":"Agile calculators planning forecasting flow prioritisation team collaboration tools"},
-  {"title":"Sprint Capacity","url":"tools/sprint-capacity.html","keywords":"sprint capacity calculator last three sprint velocity availability capacity factor points commit sprint planning"},
-  {"title":"PBI Health Calculator","url":"tools/pbi-health.html","keywords":"PBI product backlog health calculator ready story points average velocity 2x 3x refined backlog sprint runway refinement"},
-  {"title":"PI Planning Capacity","url":"tools/pi-planning-capacity.html","keywords":"PI planning capacity SAFe ART teams iterations holidays leave focus factor planning interval"},
-  {"title":"Release Forecast","url":"tools/release-forecast.html","keywords":"release forecast calculator backlog velocity optimistic likely conservative scenario sprint forecast"},
-  {"title":"Value Stream Flow Efficiency","url":"tools/flow-efficiency.html","keywords":"flow efficiency value stream active time waiting time lead time queue handoff bottleneck Kanban"},
-  {"title":"WSJF Calculator","url":"tools/wsjf-calculator.html","keywords":"WSJF weighted shortest job first business value time criticality risk reduction opportunity enablement job size prioritisation SAFe"},
-  {"title":"WSJF Cost of Delay Score","url":"tools/cost-of-delay.html","keywords":"cost of delay WSJF business value time criticality risk reduction opportunity enablement prioritisation relative score"},
-  {"title":"Meeting Cost","url":"tools/meeting-cost.html","keywords":"meeting cost calculator people participants hourly rate duration recurring annual cost productivity"},
-  {"title":"Team Health Check","url":"tools/team-health-check.html","keywords":"team health psychological safety collaboration clarity autonomy quality delivery continuous improvement stakeholder alignment reflection"},
-  {"title":"Practice","url":"practice/","keywords":"practice quizzes Agile Scrum SAFe Product Backlog refinement MCQ questions assessments learning games simulation Kanban"},
-  {"title":"Kanban Flow Lab","url":"practice/kanban-flow-lab/","keywords":"Kanban Flow Lab interactive simulation WIP limits pull flow bottleneck constraint Test swarming blockers expedite cycle time work item age cumulative flow diagram CFD throughput value delivery"},
-  {"title":"Resources","url":"resources/","keywords":"Agile resources templates retrospectives books JQL Jira practical tools"},
-  {"title":"Retrospectives","url":"resources/retrospectives/","keywords":"retrospective formats facilitation runner sprint retro activities team improvement"},
-  {"title":"Templates","url":"resources/templates/","keywords":"Agile templates planning team agreements user stories stakeholder tools downloadable resources"},
-  {"title":"AI Prompt Library","url":"resources/prompts/","keywords":"12 ready to use prompts Product Owner Scrum Master Agile Coach Development Team backlog refinement sprint planning sprint review retrospective copy ready"},
-  {"title":"User Story Splitting Coach","url":"resources/prompts/story-splitting-pattern.html","keywords":"prompt user story splitting oversized stories smaller sprint ready vertical slices patterns backlog refinement product owner agile coach"},
-  {"title":"Sprint Goal Generator","url":"resources/prompts/sprint-goal-generator.html","keywords":"prompt sprint goal generator outcome focused sprint goal selected stories product owner scrum master sprint planning"},
-  {"title":"Sprint Scope Reality Check","url":"resources/prompts/sprint-scope-reality-check.html","keywords":"prompt sprint scope challenge risk uncertainty assumptions dependencies scrum master agile delivery coach sprint planning"},
-  {"title":"Sprint Review Stakeholder Question Generator","url":"resources/prompts/sprint-review-stakeholder-questions.html","keywords":"prompt sprint review stakeholder questions preparation product owner scrum master"},
-  {"title":"AI Task Decomposition","url":"resources/prompts/task-decomposition.html","keywords":"prompt task decomposition user story technical tasks implementation sprint planning development team technical lead"},
-  {"title":"User Story Generator","url":"resources/prompts/user-story-generator.html","keywords":"prompt user story generator product owner notes INVEST backlog refinement business analyst sprint ready"},
-  {"title":"AI Story Quality Checker","url":"resources/prompts/story-quality-checker.html","keywords":"prompt story quality checker user story assess improve rewrite sprint ready backlog refinement INVEST"},
-  {"title":"BRD to Sprint-Ready User Stories","url":"resources/prompts/brd-to-user-stories.html","keywords":"prompt BRD business requirements document user stories granular independently deliverable backlog refinement product owner business analyst"},
-  {"title":"Effort Estimation Preparation","url":"resources/prompts/effort-estimation-preparation.html","keywords":"prompt effort estimation planning poker complexity unknowns dependencies development team scrum master sprint planning"},
-  {"title":"Backlog Prioritization + Story Point Context","url":"resources/prompts/backlog-prioritization-story-points.html","keywords":"prompt backlog prioritization story points MoSCoW relative estimation product owner agile business analyst"},
-  {"title":"AI Retrospective Theme Generator","url":"resources/prompts/retrospective-theme-generator.html","keywords":"prompt retrospective theme generator metaphor character movie game sport journey creative sprint retrospective agile coach scrum master"},
-  {"title":"Definition of Done Generator","url":"resources/prompts/definition-of-done-generator.html","keywords":"prompt Definition of Done DoD product technology architecture testing release context development team scrum master agile coach"},
-  {"title":"Recommended Books","url":"resources/books/","keywords":"35 Agile books reading guide Scrum Kanban leadership psychology product coaching organisational behaviour recommended books"},
-  {"title":"Advanced JQL Cookbook","url":"resources/jql/","keywords":"JQL Jira Query Language 40 recipes Scrum backlog sprint health dependencies release readiness reporting hygiene project status assignee sprint openSprints closedSprints startOfMonth operators functions"},
-  {"title":"AI","url":"ai/","keywords":"artificial intelligence AI product delivery Agile engineering coaching prompts skills plugins agents MCP connectors tools responsible AI learning path"},
-  {"title":"AI Learning Path","url":"ai/learning-path/","keywords":"AI fluency learning path use AI extend AI skills connectors build agents workflows transform work human AI operating model"},
-  {"title":"Prompt Library","url":"ai/prompt-library/","keywords":"AI prompts Agile product Scrum discover learn use prompt library prompting frameworks Scrum event use cases Product Owner Scrum Master Agile Coach"},
-  {"title":"Scrum Event AI Use Cases","url":"ai/prompt-library/scrum-use-cases/","keywords":"30 AI use cases backlog refinement sprint planning daily scrum sprint review retrospective artificial intelligence Scrum"},
-  {"title":"Prompting Frameworks","url":"ai/prompt-library/prompting-frameworks/","keywords":"18 prompting techniques COSTAR RICE CRISPE APE chain of thought tree of thoughts ReAct TAG BAB PAS RTF CARE IDEA few shot zero shot meta prompting skeleton self consistency"},
-  {"title":"AI Skills & Plugins","url":"ai/skills/","keywords":"AI agent skills plugins SKILL.md product lifecycle role filters Claude Codex Cursor Gemini GitHub Copilot Product Manager Product Owner Business Analyst UX Developer QA DevOps SRE Agile Coach install repositories"},
-  {"title":"AI Agents","url":"ai/agents/","keywords":"AI agents agentic workflows agent blueprint agent specification run agent starter instruction reusable instructions operating contract autonomy human checkpoint permissions guardrails tools context skills Product Discovery Product Owner Scrum Master Agile Coach engineering change incident SRE"},
-  {"title":"MCP & Connectors","url":"ai/mcp-connectors/","keywords":"MCP Model Context Protocol connectors GitHub Jira Slack files APIs databases AI tools permissions agent integration"},
-  {"title":"AI Tools","url":"ai/tools/","keywords":"AI tools Discover Define Design Plan Build Test Release Measure Improve Codex GitHub Copilot Claude Code Cursor product lifecycle"},
-  {"title":"Responsible AI","url":"ai/responsible-ai/","keywords":"responsible AI safety privacy hallucination verification prompt injection permissions human accountability secrets PII governance guardrails NIST ISO OWASP regulation security"},
-  {"title":"AI Governance, Risk & Security Frameworks","url":"ai/responsible-ai/frameworks/","keywords":"NIST AI RMF NIST GenAI Profile ISO IEC 42001 ISO IEC 23894 EU AI Act OECD AI Principles OWASP GenAI LLM Top 10 2026 OWASP Agentic Top 10 MITRE ATLAS Google SAIF Microsoft Responsible AI governance risk management regulation security threat modelling trustworthy AI"},
-  {"title":"Coaching","url":"coaching/","keywords":"Agile coaching professional coaching teams leaders systems learning change"},
-  {"title":"Agile Coaching","url":"coaching/agile-coaching.html","keywords":"Agile coaching teams systems flow leadership change coaching stances interventions experiments questions"},
-  {"title":"Dependency & Constraint Coaching","url":"coaching/dependency-coaching.html","keywords":"dependencies constraints waiting blocked WIP handoffs approvals architecture skills authorization external teams vendors environments flow pressure heroics control influence escalate accept manage heatmap coaching canvas powerful questions"},
-  {"title":"Professional Coaching","url":"coaching/professional-coaching.html","keywords":"professional coaching client led contracting listening awareness questions action ICF coaching"},
-  {"title":"About Agile Orbit","url":"about/","keywords":"about Agile Orbit Agile Coach author experience certifications journey"}
+  {
+    "title": "Certifications & Credentials | Agile Orbit",
+    "url": "about/credly.html",
+    "keywords": "Explore Ashutosh Mishra’s published credentials on Credly. Certifications & Credentials"
+  },
+  {
+    "title": "About Ashutosh Mishra | Agile Orbit",
+    "url": "about/",
+    "keywords": "Meet Ashutosh Mishra — Agile Coach, technology leader and ICF-ACC — and explore the thinking and purpose behind Agile Orbit. Helping teams navigate complexity without turning Agile into process theatre. Agile coaching beyond frameworks. Delivery & Flow People & Coaching Systems & Change Experience measured in systems, not titles. From delivering work to improving the system of work. Technology & Delivery Scrum & Agile Transformation Coaching & Leadership Agile Orbit Four principles that shape my approach. Ask before prescribing Outcomes over activity Evidence over assumptions Adapt over copy-paste Connect, explore and verify. LinkedIn Agile Coach Skills Map Certifications"
+  },
+  {
+    "title": "My Agile Journey | Agile Orbit",
+    "url": "about/journey.html",
+    "keywords": "Explore the connected roles and learning themes in my Agile journey. My Agile Journey Technology / Engineering Agile Practitioner Scrum Master Agile Coach Transformation / Leadership Agile Orbit"
+  },
+  {
+    "title": "LinkedIn | Agile Orbit",
+    "url": "about/linkedin.html",
+    "keywords": "Connect with Ashutosh Mishra on LinkedIn. LinkedIn"
+  },
+  {
+    "title": "Agile Mindmap | Agile Orbit",
+    "url": "about/mindmap.html",
+    "keywords": "Explore the connected skills of Scrum Masters and Agile Coaches. Agile Mindmap"
+  },
+  {
+    "title": "AI Agents | Agile Orbit",
+    "url": "ai/agents/",
+    "keywords": "Learn what an AI agent is, design an agent blueprint, understand permissions and human checkpoints, then turn it into a runnable starter instruction or reusable operating contract. Design the agent. Then turn the blueprint into something you can actually use. What is an AI Agent? More than a long prompt A simple agent loop Prompt → Skill → Tool → Agent What do you want? How should it work? What can it do? How does work progress? Do you actually need an agent? Agent Blueprint Builder Operating contract You generated the blueprint. What do you want to do with it? Agent Blueprint Blueprint + Task + Context + Tools Paste this into an AI workspace, then add today's task. Start from a practical pattern Sprint Readiness Agent Example inputs What a useful agent should surface Autonomy should match consequence What belongs inside a robust agent design? Outcome Evidence Know-how Capabilities Permissions Boundaries Progress Evidence Reuse the rest of Agile Orbit Agent readiness scorecard"
+  },
+  {
+    "title": "AI | Agile Orbit",
+    "url": "ai/",
+    "keywords": "Practical AI for product delivery, Agile, engineering and coaching: prompts, skills, agents, MCP, tools and responsible AI. AI for Product Delivery, Agile & Knowledge Work AI Learning Path Prompt Library AI Skills & Plugins AI Agents MCP & Connectors AI Tools Responsible AI"
+  },
+  {
+    "title": "AI Learning Path | Agile Orbit",
+    "url": "ai/learning-path/",
+    "keywords": "A practical AI fluency learning path for product, Agile, engineering and coaching professionals. Build AI fluency in four levels. Prompt, provide context, verify Skills, plugins and connectors Agents and workflows Human + AI operating model Do not measure AI maturity by the number of tools you use."
+  },
+  {
+    "title": "MCP & Connectors | Agile Orbit",
+    "url": "ai/mcp-connectors/",
+    "keywords": "Practical MCP connectors mapped to the product and software delivery lifecycle: Jira, Confluence, Linear, Figma, GitHub, GitLab, Postman, Sentry, Datadog, Amplitude, Notion and Slack. Connect AI to the systems where product work actually happens. Where MCP fits How should the AI work? What live systems can it reach? What does the underlying software expose? Who orchestrates the work? Choose a lifecycle stage, then choose the connector. Official MCPs for product and engineering work What connected product delivery can look like Turn behaviour into a backlog hypothesis Carry intent through implementation Shorten the evidence loop Delivery Health Agent Connect in layers, not all at once 🟢 Read context 🟡 Draft / update 🔴 Execute / change Six questions before enabling any MCP server Is it the official server? What can it read? What can it write? What can it execute? Can the scope be reduced? Where is human approval?"
+  },
+  {
+    "title": "Prompt Library | Agile Orbit",
+    "url": "ai/prompt-library/",
+    "keywords": "Prompting frameworks, Scrum AI use cases and copy-ready prompts for Agile and product teams. DISCOVER → LEARN → USE Scrum Event AI Use Cases Prompting Frameworks Copy-ready Prompts AI should improve the conversation — not replace it."
+  },
+  {
+    "title": "Prompting Frameworks | Agile Orbit",
+    "url": "ai/prompt-library/prompting-frameworks/",
+    "keywords": "Learn 18 prompting techniques from the Agile Orbit Prompt Library. Learn the structure behind better prompts. COSTAR RICE CRISPE APE Chain of Thought Tree of Thoughts ReAct TAG BAB PAS RTF CARE IDEA Few-Shot Prompting Zero-Shot Prompting Meta Prompting Skeleton-of-Thought Self-Consistency Now connect the technique to a Scrum situation."
+  },
+  {
+    "title": "Scrum Event AI Use Cases | Agile Orbit",
+    "url": "ai/prompt-library/scrum-use-cases/",
+    "keywords": "Explore AI use cases across Scrum events and connect them to Agile Orbit prompts and prompting frameworks. Where can AI help during Scrum? Backlog Refinement Story decomposition Acceptance criteria generation INVEST analysis Dependency detection Complexity analysis Similar-story comparison MoSCoW prioritization Risk/assumption identification Sprint Planning Sprint Goal generation Capacity analysis Sprint scope suggestions Task generation Sprint risk analysis Daily Scrum Stand-up summarization Impediment detection Dependency tracking Work trend analysis Suggested follow-ups Sprint Review Demo preparation Increment summary Stakeholder question generation Feedback analysis Evidence-based review Retrospective Feedback clustering Pattern detection Root-cause exploration Action-item generation Action follow-up Don't stop at “use AI”. Learn why the prompt works."
+  },
+  {
+    "title": "AI Governance, Risk & Security Frameworks | Agile Orbit",
+    "url": "ai/responsible-ai/frameworks/",
+    "keywords": "Navigate NIST AI RMF, ISO 42001, EU AI Act, OWASP, MITRE ATLAS, SAIF and other responsible AI frameworks by goal and product lifecycle stage. AI Governance, Risk & Security Frameworks What are you trying to do? GOVERN → MAP → MEASURE → MANAGE Translate it into product delivery Framework vs standard vs regulation vs security guide Where governance belongs in delivery"
+  },
+  {
+    "title": "Responsible AI | Agile Orbit",
+    "url": "ai/responsible-ai/",
+    "keywords": "Practical responsible AI guardrails plus governance, risk and security frameworks for product, Agile, engineering and enterprise teams. Use AI with evidence, boundaries and human accountability. 🧭 AI Governance, Risk & Security Frameworks Responsible AI Essentials Think before you share or automate 🟢 Generally low risk 🟡 Check first 🔴 Do not share without approval AI confidence is not evidence. Hallucination Bias & framing Prompt injection Permissions Reversibility Human accountability Ask six questions"
+  },
+  {
+    "title": "AI Skills & Plugins | Agile Orbit",
+    "url": "ai/skills/",
+    "keywords": "Curated AI skills and plugin repositories across the product lifecycle, with role filters, tool compatibility and installation guidance. AI Skills & Plugins Start with where you work Skills & repositories How to install skills in different AI tools ⚠️ Inspect a third-party skill before installing it"
+  },
+  {
+    "title": "AI Tools | Agile Orbit",
+    "url": "ai/tools/",
+    "keywords": "A verified directory of real AI tools for product discovery, planning, design, engineering, testing, operations, analytics and continuous improvement. Real tools. Official links. Practical jobs. Where these tools can help Filter by the work you are doing Don't buy AI because the demo looks impressive 1 · Start with the job 2 · Check the evidence boundary 3 · Check action permissions"
+  },
+  {
+    "title": "Active & Deep Listening | Agile Orbit",
+    "url": "coaching/active-deep-listening.html",
+    "keywords": "A practical visual guide to Theory U listening levels and the Deep Listening Institute's five levels of attention for coaches. Listen beyond the words Two different questions about listening Where is my listening coming from? What am I listening for? Theory U — four levels of listening Downloading Factual Empathic Generative Deep Listening — five levels of attention Listening to self Listening to content Listening for context Listening for what's unsaid Listening for meaning The listening attention gap Use the spare attention differently Catch yourself Come back to the client Respond after listening Six questions for the coach"
+  },
+  {
+    "title": "Agile Coaching | Agile Orbit",
+    "url": "coaching/agile-coaching.html",
+    "keywords": "Explore Agile Coaching across People, Product, Technology and Process. Open practical topic cards for coaching questions, interventions, signals and experiments without leaving Agile Orbit. Coach the whole system Four areas. One system. People Coaching Stakeholder Coaching Psychological Safety Team Effectiveness Communication & Behaviour Conflict Coaching Mindset & Learning Culture Change Fatigue & Resistance Product Coaching Define the Product Product Role Clarity Outputs → Outcomes → Value Product Goals & Evidence MVP & Experimentation Product Discovery Prioritisation & Trade-offs Customer & Stakeholder Feedback Technology Coaching Technical Excellence Built-in Quality Architecture for Team Autonomy Small Batches & Continuous Integration Continuous Delivery & Observability AI-Assisted Engineering Human + AI Quality AI Agents & Safe Autonomy Knowledge & Hero Dependencies Process Coaching Dependency & Constraint Coaching Flow & Bottleneck Coaching WIP & Queue Coaching Empiricism & Feed"
+  },
+  {
+    "title": "Agile Transformation | Agile Orbit",
+    "url": "coaching/agile-transformation.html",
+    "keywords": "Treat transformation as a system of experiments rather than a rollout plan. Agile Transformation Explore Challenge Reflect Commit"
+  },
+  {
+    "title": "AI-augmented coaching | Agile Orbit",
+    "url": "coaching/ai-augmented-coaching.html",
+    "keywords": "Keep the client’s thinking and choice central when considering AI support. AI-augmented coaching Agree the boundary first Use AI for preparation and reflection Keep responsibility with people"
+  },
+  {
+    "title": "Coach the Person, Not the Problem | Agile Orbit",
+    "url": "coaching/book-coach-person-not-problem.html",
+    "keywords": "Practical reading notes for Marcia Reynolds' Coach the Person, Not the Problem, second edition. Coach the Person, Not the Problem Why start here? Practice ideas to take from the book Listen beyond the story Reflective inquiry Notice your urge to fix Let insight change the problem Before your next session"
+  },
+  {
+    "title": "Chemistry Meeting | Agile Orbit",
+    "url": "coaching/chemistry-meeting.html",
+    "keywords": "A practical chemistry meeting guide for professional coaching: mutual fit, rapport, readiness, coach role, process, AI transparency, boundaries and next steps. Chemistry Meeting What is a chemistry meeting really about? What is the client sensing? Capable without a pedestal Experience that serves the client Safe enough to be challenged Learning with context Genuine presence with boundaries Build rapport before explaining the process Explore readiness—not “score coachability” Coach questions during the chemistry conversation What role might I play as your coach? Soundboard Thinking Partner Mirror How might the work unfold? Start with self-perception Bring in observable context If AI will be part of the coaching journey Where? What data? Why? How are outputs treated? What choice does the client have? Who remains accountable? Six topics to cover before you close If both want to proceed"
+  },
+  {
+    "title": "Coaching Conversation | Agile Orbit",
+    "url": "coaching/coach-conversation-craft.html",
+    "keywords": "Professional coaching conversation skills: session agreement, listening, questions, dialogic orientation, metaphor and deliberate practice. Coaching Conversation Session Agreement & Outcome Active & Deep Listening Powerful Questions Lab Metaphor in Coaching Dialogic Orientation Quadrant Coaching Session Lab"
+  },
+  {
+    "title": "Foundations & Mindset | Agile Orbit",
+    "url": "coaching/coach-mindset-foundations.html",
+    "keywords": "Professional coaching fundamentals, mindset, reflective stories and coaching theories. Foundations & Mindset Coaching Fundamentals Coaching Mindset The Empty Cup Coaching Theories"
+  },
+  {
+    "title": "Models & Tools | Agile Orbit",
+    "url": "coaching/coach-models-approaches.html",
+    "keywords": "Professional coaching models and interactive tools used as optional scaffolding for client thinking. Models & Tools Structure without forcing the conversation Core Coaching Models MGSSC Make thinking visible Wheel of Life Perspective Value Alignment Future Self Explorer Decision Canvas"
+  },
+  {
+    "title": "Professional Practice | Agile Orbit",
+    "url": "coaching/coach-practice-standards.html",
+    "keywords": "Professional coaching engagement setup, agreements, ethics and impact measurement. Professional Practice Chemistry Meeting Coaching Agreements Ethics Lab Measuring Coaching Impact"
+  },
+  {
+    "title": "Interactive Coaching Tools | Agile Orbit",
+    "url": "coaching/coach-tools-canvases.html",
+    "keywords": "Interactive professional coaching tools for self-awareness, perspective, values alignment, future-focused reflection and decisions. Interactive Coaching Tools Choose the lightest structure that serves the conversation Wheel of Life Perspective Value Alignment Future Self Explorer Decision Canvas"
+  },
+  {
+    "title": "What is Coaching? | Agile Orbit",
+    "url": "coaching/coachee-coaching-basics.html",
+    "keywords": "A simple guide for coachees to understand professional coaching, its purpose and what to expect in a session. What is coaching? What happens in coaching? Purpose of coaching Think clearly Be a soundboard Choose consciously Hold the mirror Break limitations Find their answers Act decisively You do not need to... Coaching vs other support"
+  },
+  {
+    "title": "Your Coaching Journey | Agile Orbit",
+    "url": "coaching/coachee-journey.html",
+    "keywords": "Understand how a coaching engagement can unfold across multiple sessions, experiments, review and closure. Your coaching journey Between sessions matters Signs coaching may be working"
+  },
+  {
+    "title": "Prepare for Coaching | Agile Orbit",
+    "url": "coaching/coachee-session-prep.html",
+    "keywords": "A simple coachee preparation page to shape a coaching topic without over-preparing the session. Prepare without scripting yourself 60-second preparation Shape my topic What not to do before coaching"
+  },
+  {
+    "title": "What Can I Bring to Coaching? | Agile Orbit",
+    "url": "coaching/coachee-topics.html",
+    "keywords": "Explore practical coaching topics for career, leadership, confidence, decisions, relationships, priorities and change. What can I bring to coaching? Career & Direction Leadership Decision & Dilemma Confidence Difficult Conversations Relationships Goals & Accountability Beliefs & Assumptions Purpose & Values Change & Transition Boundaries & Priorities I Don't Know Yet"
+  },
+  {
+    "title": "Coaching Agreement Builder | Agile Orbit",
+    "url": "coaching/coaching-agreement.html",
+    "keywords": "Build a practical coaching working agreement covering purpose, confidentiality, roles, logistics, technology and closure. Coaching Agreement Builder Co-create the working agreement Your working agreement Before you begin Does the client know what coaching is? Is confidentiality explicit? Can the agreement change?"
+  },
+  {
+    "title": "Coaching Agreements | Agile Orbit",
+    "url": "coaching/coaching-agreements.html",
+    "keywords": "Choose between a relational coaching working agreement and a professional services agreement checklist. Coaching Agreements Coaching Working Agreement Professional Coaching Agreement"
+  },
+  {
+    "title": "Coaching Approach | Agile Orbit",
+    "url": "coaching/coaching-approach.html",
+    "keywords": "Choose a stance deliberately: teaching, mentoring, facilitating or coaching. Coaching Approach Explore Challenge Reflect Commit"
+  },
+  {
+    "title": "Coaching Canvas | Agile Orbit",
+    "url": "coaching/coaching-canvas.html",
+    "keywords": "A lightweight reflection canvas for a coaching conversation. Coaching Canvas Explore Challenge Reflect Commit"
+  },
+  {
+    "title": "Coaching Fundamentals | Agile Orbit",
+    "url": "coaching/coaching-fundamentals.html",
+    "keywords": "Coach-focused fundamentals: what coaching is, how it differs from adjacent helping roles, and what coach and client each own. What are we actually doing when we coach? Create better thinking Work with a capable person From fixing → enabling Awareness → choice → learning Coaching and adjacent helping roles Who owns what? The quality of the process The life, meaning and decisions Am I helping this person think—or helping myself feel useful?"
+  },
+  {
+    "title": "Coaching journal | Agile Orbit",
+    "url": "coaching/coaching-journal.html",
+    "keywords": "Capture your thinking and chosen next steps. Download your notes before leaving this page. Coaching journal"
+  },
+  {
+    "title": "Coaching Library | Agile Orbit",
+    "url": "coaching/coaching-library.html",
+    "keywords": "A searchable professional coaching reading guide covering mindset, questions, listening, behaviour change, language and professional practice. Books that change how you coach. Find the book that fits your next practice edge. Read → practise → reflect."
+  },
+  {
+    "title": "Coaching Mindset | Agile Orbit",
+    "url": "coaching/coaching-mindset.html",
+    "keywords": "Coaching mindset principles for professional coaches: client-centred presence, curiosity, self-awareness, reflective practice and space for reflection. How the coach shows up matters How I meet the person Unconditional Positive Regard Client Centricity Congruence Space for Reflection How I manage myself as a coach Curiosity over Certainty Self-Awareness & Self-Management Reflective Practice & Continuous Learning What changes in the conversation? Professional references"
+  },
+  {
+    "title": "Coaching Models | Agile Orbit",
+    "url": "coaching/coaching-models.html",
+    "keywords": "Practical coaching models for professional coaches: GROW, TGROW, CLEAR, OSKAR, Solution-Focused Coaching and Appreciative Inquiry, with questions, use cases and cautions. Frameworks that support—not control—the conversation Choose by the client's need, not your favourite acronym GROW What each stage is doing Questions that keep ownership with the client TGROW The extra value of “Topic” Questions to establish the topic CLEAR What each stage is doing Useful questions OSKAR What each stage is doing Questions that uncover capability Solution-Focused Coaching Core moves Questions that change the direction of attention Appreciative Inquiry The 4-D cycle Questions for appreciative exploration Listen first. Orient second. Professional references"
+  },
+  {
+    "title": "Professional Coaching Agreement Checklist | Agile Orbit",
+    "url": "coaching/coaching-professional-agreement.html",
+    "keywords": "Educational checklist for professional coaching agreement terms, including explicit AI and digital-tool contracting considerations. Professional Coaching Agreement 1. Coaching relationship 2. Scope & logistics 3. Responsibilities 4. Confidentiality 5. Fees & payment 6. Termination 7. Dispute handling 8. Ethics commitment If AI or digital tools are used Tool / service Purpose Data used Storage & access Consent Opt-out / alternative Also check before signing"
+  },
+  {
+    "title": "Coaching Theories | Agile Orbit",
+    "url": "coaching/coaching-psychology-foundations.html",
+    "keywords": "Coaching theories that inform coaching practice and learning: Humanistic Psychology, Cognitive Behavioural, Adult Learning, Solution Focused, Transformative Learning, Positive Psychology and Systems Theory. Coaching Theories Growth, autonomy and the person-centred relationship What this means for coaching Techniques named in the handout Thinking mediates emotion and action Techniques named in the handout Useful coaching stance Adults learn through ownership, relevance and experience Self-direction Experience-based Goal-oriented Relevance Problem-centred Internal motivation How the handout applies this to coaching Client Ownership Experience as a Resource Build from resources, strengths and the preferred future Goal-Centred Coaching Amplifying Strengths Scaling Questions Named in the handout; not elaborated there Strengths, well-being and optimal functioning Techniques named Coaching orientation Look beyond the individual to the whole system Shift the unit of attention Notice temporary "
+  },
+  {
+    "title": "Coaching Questions | Agile Orbit",
+    "url": "coaching/coaching-questions.html",
+    "keywords": "Random coaching prompts. Coaching Questions What are you noticing that you have not yet said out loud?"
+  },
+  {
+    "title": "Decision Canvas | Agile Orbit",
+    "url": "coaching/decision-canvas.html",
+    "keywords": "Interactive Decision Canvas coaching tool for comparing possibilities without calculating a winner. Decision Canvas"
+  },
+  {
+    "title": "Dependency & Constraint Coaching | Agile Orbit",
+    "url": "coaching/dependency-coaching.html",
+    "keywords": "A practical Agile coaching intervention to surface dependencies, expose waiting and pressure, and decide what teams can control, influence, escalate or consciously accept. Dependency & Constraint Coaching From hidden chaos to visible system constraints Surface Understand Classify Prioritise Experiment What kind of dependency is this? Competency / Skill Architecture / System Process / Workflow Decision / Approval Rights / Authorization External Team Vendor / Third Party Environment / Tooling / Data Dependency Investigation Canvas Control · Influence · Escalate · Accept / Manage We can change this ourselves We need another team, but can improve the relationship The system needs management attention This constraint is legitimate—for now Questions that make the invisible visible Surface the hidden system Understand the impact Challenge the system Move toward action Expose the pressure behind the chaos Dependency Heatmap 60–90 minute coaching session Set the purpose Generate dependencies Ex"
+  },
+  {
+    "title": "Dialogic Orientation Quadrant | Agile Orbit",
+    "url": "coaching/dialogic-orientation-quadrant.html",
+    "keywords": "A practical, attributed introduction to Haesun Moon's Dialogic Orientation Quadrant for noticing how coaching language shapes conversational direction. Dialogic Orientation Quadrant (DOQ) Your next response selects a direction A practical way to see the four orientations What has been difficult? What evidence already exists? What do you want to prevent or leave behind? What would preferred change look like? Four disciplines for using the lens Use DOQ as a review tool Review your transcript Try an alternative response Coach watch-outs Pause on one line of transcript"
+  },
+  {
+    "title": "The Empty Cup | Agile Orbit",
+    "url": "coaching/empty-cup-coaching-mindset.html",
+    "keywords": "A Zen reflection story for coaches about approaching learning and conversation with an open mind. The Empty Cup The coaching metaphor Notice the temptation What might I need to empty?"
+  },
+  {
+    "title": "Coaching Ethics Lab | Agile Orbit",
+    "url": "coaching/ethics-lab.html",
+    "keywords": "Explore realistic professional coaching ethics dilemmas involving agreements, confidentiality, sponsors, conflicts, technology, referral, consent and professional integrity. Coaching Ethics Lab Five areas to keep visible. Before deciding, slow the dilemma down. Use this before clicking an option. Signals that deserve a deliberate ethics check."
+  },
+  {
+    "title": "Evidence-Based Coaching | Agile Orbit",
+    "url": "coaching/evidence-based-coaching.html",
+    "keywords": "A practical evidence-based coaching lens for professional coaches. Evidence-Based Coaching What counts as useful evidence? Research evidence Professional expertise Client context Observed outcomes The Evidence Lens Common traps Before using a model or tool"
+  },
+  {
+    "title": "Future Self | Agile Orbit",
+    "url": "coaching/future-self.html",
+    "keywords": "Explore a meaningful future perspective and bring one behaviour back to today. Future Self Explorer Do not turn this into fantasy or forecasting."
+  },
+  {
+    "title": "Goal–Obstacle–Plan | Agile Orbit",
+    "url": "coaching/goal-obstacle-plan.html",
+    "keywords": "Turn a coaching goal into a realistic if–then plan by surfacing the desired outcome and inner obstacle. Goal → Obstacle → Plan Keep the obstacle close to the client's influence."
+  },
+  {
+    "title": "Hawkins Five Disciplines | Agile Orbit",
+    "url": "coaching/hawkins-five-disciplines.html",
+    "keywords": "An attributed overview of Peter Hawkins' Five Disciplines for effective teams. Hawkins Five Disciplines Use it as a diagnostic conversation—not a scorecard Commissioning Clarifying Co-Creating Connecting Core Learning Team coaching prompt"
+  },
+  {
+    "title": "Coaching practice reflection | Agile Orbit",
+    "url": "coaching/icf-reflection.html",
+    "keywords": "Reflect on a session using observable evidence and your next learning step. Coaching practice reflection"
+  },
+  {
+    "title": "Coaching | Agile Orbit",
+    "url": "coaching/",
+    "keywords": "Practical Agile Coaching and Professional Coaching resources for learning, change and stronger conversations. Coaching Agile Coaching Professional Coaching"
+  },
+  {
+    "title": "Ladder of Inference in Coaching | Agile Orbit",
+    "url": "coaching/ladder-of-inference-coaching.html",
+    "keywords": "Interactive coaching use of the Ladder of Inference to separate observable facts, meaning, assumptions and action. Ladder of Inference Example Come back down the ladder"
+  },
+  {
+    "title": "Leadership Coaching | Agile Orbit",
+    "url": "coaching/leadership-coaching.html",
+    "keywords": "Help leaders inspect impact, choices, context and learning. Leadership Coaching Explore Challenge Reflect Commit"
+  },
+  {
+    "title": "Measuring Coaching Impact | Agile Orbit",
+    "url": "coaching/measuring-coaching-impact.html",
+    "keywords": "Measure coaching impact using evaluation levels, coaching scorecard thinking and multiple evidence sources. Measuring Coaching Impact Kirkpatrick's model as an evaluation lens Leedham Pyramid Model — Coaching Scorecard Tools to measure impact Before–After self-assessments 360-degree feedback Behavioural observation Pulse surveys Manager & stakeholder interviews Coaching logs & journals Daily Conscious Behaviours Impact variables to consider Measurement principle"
+  },
+  {
+    "title": "Metaphor in Coaching | Agile Orbit",
+    "url": "coaching/metaphor-in-coaching.html",
+    "keywords": "A practical guide to noticing, exploring and working with client metaphors in professional coaching without imposing the coach's interpretation. Metaphor in Coaching Stay with the client's image before translating it Notice Explore Return ownership Interpretation vs exploration Client Coach interprets Coach explores Question library for exploring a metaphor Describe the image Position & relationship Movement & change Choice & meaning Mini practice: stay in their language Explore Explore Explore Explore Explore Explore carefully Coach watch-outs Offer lightly—and let the client reject it"
+  },
+  {
+    "title": "MGSSC | Agile Orbit",
+    "url": "coaching/mgssc.html",
+    "keywords": "Marshall Goldsmith Stakeholder Centered Coaching cycle: stakeholder input, feedforward, observable behaviour change and follow-up. Marshall Goldsmith Stakeholder Centered Coaching Change is not observed only inside the coaching room Seven moves that keep change connected to stakeholders Ask Listen Thank Think Respond Change Follow Up Three ideas at the centre of the model Involve Stakeholders Emphasise Feedforward Change Behaviour & Perceptions The coach is not the only judge of progress"
+  },
+  {
+    "title": "Perspective | Agile Orbit",
+    "url": "coaching/perspective.html",
+    "keywords": "Interactive Perspective coaching tool for exploring one situation through multiple lenses. Perspective"
+  },
+  {
+    "title": "For Coaches | Professional Coaching | Agile Orbit",
+    "url": "coaching/professional-coaching-coach.html",
+    "keywords": "Professional coaching workspace organised into four learning themes: foundations, conversation, models and tools, and professional practice, with a supporting coaching library. Practise the craft A clearer path through professional coaching Foundations & Mindset Coaching Conversation Models & Tools Professional Practice Coaching Library"
+  },
+  {
+    "title": "For Coachees | Professional Coaching | Agile Orbit",
+    "url": "coaching/professional-coaching-coachee.html",
+    "keywords": "A practical coachee space for understanding coaching, choosing a topic, preparing for sessions and reflecting between sessions. Make coaching useful for you What is Coaching? What Can I Bring? Prepare for Coaching Reflection Tools Your Coaching Journey"
+  },
+  {
+    "title": "Powerful Questions Lab | Agile Orbit",
+    "url": "coaching/professional-coaching-questions.html",
+    "keywords": "An interactive professional coaching question lab with 23 question functions, 7 conversation stages, 184 original questions, practice scenarios, favorites and coaching guidance. One question. Then listen. Ask by where the conversation is Where is the conversation right now? Choose what the question needs to do Search, filter and save questions Build a small personal set What could you ask next? Before asking After asking If the question misses When a good-looking question stops being coaching"
+  },
+  {
+    "title": "Wheel of Life | Agile Orbit",
+    "url": "coaching/professional-coaching-tools.html",
+    "keywords": "Interactive Wheel of Life coaching tool for current-vs-desired gap reflection. Wheel of Life"
+  },
+  {
+    "title": "Professional Coaching | Agile Orbit",
+    "url": "coaching/professional-coaching.html",
+    "keywords": "Choose your Professional Coaching path in Agile Orbit: understand and use coaching as a coachee, or strengthen your craft and professional coaching practice as a coach. One conversation. Two very different perspectives. What brings you here? Make coaching work for you Practise the craft Good coaching becomes clearer when you understand both experiences."
+  },
+  {
+    "title": "Progress Ladder | Agile Orbit",
+    "url": "coaching/progress-ladder.html",
+    "keywords": "Use a 1–10 coaching scale to surface progress, resources and the next observable step. Progress Ladder Do not use the scale as a scorecard."
+  },
+  {
+    "title": "Session Agreement & Outcome | Agile Orbit",
+    "url": "coaching/session-agreement.html",
+    "keywords": "A practical guide for contracting the coaching session: purpose, outcome, value, re-contracting and closure. Agreement before exploration Questions that create a usable agreement Clarify the purpose Make value observable Stay with the agreement Close the loop Do not confuse the topic with the agreement. Relationship agreement vs session agreement Relationship / engagement agreement Session agreement"
+  },
+  {
+    "title": "Coaching Session Lab | Agile Orbit",
+    "url": "coaching/session-lab.html",
+    "keywords": "Practise professional coaching conversations with realistic client scenarios, reflective feedback and deliberate-practice drills. Coaching Session Lab What are you trying to practise? Pause before selecting. Turn a simulated conversation into deliberate practice. Practise one skill at a time."
+  },
+  {
+    "title": "Coacharya SPEED | Agile Orbit",
+    "url": "coaching/speed-team-coaching.html",
+    "keywords": "An attributed overview of Coacharya's SPEED systemic team coaching framework and Sona Comstar case. SPEED in Systemic Team Coaching What the Sona Comstar case illustrates Systemic context Emotional connection Constructive conflict Collective ownership Use as a learning lens"
+  },
+  {
+    "title": "Team Coaching Fundamentals | Agile Orbit",
+    "url": "coaching/team-coaching-fundamentals.html",
+    "keywords": "Practical foundations for coaching teams as systems. Team Coaching Fundamentals Shift the unit of attention From person → pattern From team → system From harmony → effectiveness From event → learning cycle Questions for the team coach"
+  },
+  {
+    "title": "Team & Systemic Coaching | Agile Orbit",
+    "url": "coaching/team-coaching.html",
+    "keywords": "Explore the team’s shared purpose, relationships and wider system. Team & Systemic Coaching Team coaching fundamentals Five disciplines Speed team coaching"
+  },
+  {
+    "title": "ADKAR | Agile Orbit",
+    "url": "coaching/techniques/adkar.html",
+    "keywords": "A model of individual change built around Awareness, Desire, Knowledge, Ability and Reinforcement. Prosci ADKAR Model Understand the method first Awareness Desire Knowledge Ability Reinforcement How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "Change Saturation | Agile Orbit",
+    "url": "coaching/techniques/change-saturation.html",
+    "keywords": "Change saturation occurs when change disruption exceeds the capacity of people or the organisation to absorb it. Prosci Change Saturation Model Understand the method first Change disruption Change capacity How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "Conway's Law | Agile Orbit",
+    "url": "coaching/techniques/conways-law.html",
+    "keywords": "System designs tend to mirror the communication structures of the organisations that create them. Conway's Law Understand the method first Communication structure System structure Reinforcing loop How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "Dependency Response Framework | Agile Orbit",
+    "url": "coaching/techniques/dependency-response-framework.html",
+    "keywords": "Classify a dependency response as Control, Influence, Escalate or Accept / Manage. Dependency Response Framework Understand the method first Control Influence Escalate Accept / Manage How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "DiSC | Agile Orbit",
+    "url": "coaching/techniques/disc.html",
+    "keywords": "A behavioural model built around Dominance, influence, Steadiness and Conscientiousness. DiSC Understand the method first D — Dominance i — influence S — Steadiness C — Conscientiousness How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "Evidence-Based Management | Agile Orbit",
+    "url": "coaching/techniques/evidence-based-management.html",
+    "keywords": "A Scrum.org framework for improving value delivery under uncertainty through goals, evidence and experimentation. Evidence-Based Management (EBM) Understand the method first Current Value (CV) Unrealized Value (UV) Time-to-Market (T2M) Ability-to-Innovate (A2I) How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "Five Levels of Conflict | Agile Orbit",
+    "url": "coaching/techniques/five-levels-of-conflict.html",
+    "keywords": "Detailed Agile Orbit guide to the Five Levels of Conflict: Problem to Solve, Disagreement, Contest, Crusade and World War. Five Levels of Conflict The five levels — as the conflict escalates Problem to Solve What the coach may hear Best coaching response Disagreement What the coach may hear Best coaching response Contest What the coach may hear Best coaching response Crusade What the coach may hear Best coaching response World War What the coach may observe Best coaching response How the conflict changes How an Agile Coach can use the model Agile team example Architecture choice Contest Crusade Common mistakes Calling every disagreement “conflict”. Forcing collaboration too early. Labelling individuals. Trying to coach beyond your remit."
+  },
+  {
+    "title": "Four Types of Resistors | Agile Orbit",
+    "url": "coaching/techniques/four-types-of-resistors.html",
+    "keywords": "Mike Cohn’s Agile-transition lens differentiates resistance using two dimensions: active vs passive resistance and liking the status quo vs disliking Agile/Scrum. Four Types of Resistors Understand the method first Follower Diehard Skeptic Saboteur How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "Growth Mindset | Agile Orbit",
+    "url": "coaching/techniques/growth-mindset.html",
+    "keywords": "A belief that human capabilities can develop over time rather than being permanently fixed. Growth Mindset Understand the method first Fixed mindset Growth mindset How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "Lean Startup MVP | Agile Orbit",
+    "url": "coaching/techniques/lean-startup-mvp.html",
+    "keywords": "Use the smallest credible product experiment to maximise validated learning, then iterate through Build → Measure → Learn. Lean Startup MVP & Build-Measure-Learn Understand the method first Minimum Viable Product / experiment How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "Media Richness Theory | Agile Orbit",
+    "url": "coaching/techniques/media-richness-theory.html",
+    "keywords": "A communication theory proposing that channels differ in richness and should be matched to the ambiguity or equivocality of the task. Media Richness Theory Understand the method first Lower ambiguity Higher ambiguity How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "NIST AI Risk Management Framework | Agile Orbit",
+    "url": "coaching/techniques/nist-ai-rmf.html",
+    "keywords": "A voluntary framework for managing AI risk through the functions Govern, Map, Measure and Manage, with trustworthiness considered across the AI lifecycle. NIST AI Risk Management Framework Understand the method first Govern Map Measure Manage How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "Opportunity Solution Tree | Agile Orbit",
+    "url": "coaching/techniques/opportunity-solution-tree.html",
+    "keywords": "A visual structure connecting a desired outcome to customer opportunities, candidate solutions and assumption tests. Opportunity Solution Tree Understand the method first Desired Outcome Opportunity Space Solution Space Assumption Tests How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "PDSA Cycle | Agile Orbit",
+    "url": "coaching/techniques/pdsa-cycle.html",
+    "keywords": "Plan → Do → Study → Act is a learning cycle for testing a theory, studying the result and adapting the next action. PDSA Cycle Understand the method first Plan Do Study Act How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "Principled Negotiation | Agile Orbit",
+    "url": "coaching/techniques/principled-negotiation.html",
+    "keywords": "Resolve disagreement by separating people from the problem, focusing on interests rather than positions, creating options for mutual gain, and using objective criteria. Principled Negotiation Understand the method first Separate people from the problem Focus on interests, not positions Invent options for mutual gain Use objective criteria How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "Product Management Quadrant | Agile Orbit",
+    "url": "coaching/techniques/product-quadrant.html",
+    "keywords": "Detailed Agile Orbit guide to the Product Management Quadrant for coaching product role clarity. Product Management Quadrant The four areas of the quadrant Market & Product Strategy Organisational Alignment Customer & Market Feedback Product Delivery & Backlog How roles often appear around the quadrant How an Agile Coach uses the quadrant Powerful questions Example Watch for Using the quadrant as an org chart Equating Product Owner with Project Manager Backlog-only product ownership More roles = more clarity"
+  },
+  {
+    "title": "Scrum Empiricism | Agile Orbit",
+    "url": "coaching/techniques/scrum-empiricism.html",
+    "keywords": "Scrum is founded on empiricism: make relevant reality transparent, inspect it frequently, and adapt when evidence shows a change is needed. Scrum Empiricism — Transparency, Inspection, Adaptation Understand the method first Transparency Inspection Adaptation How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "Stakeholder Map | Agile Orbit",
+    "url": "coaching/techniques/stakeholder-map.html",
+    "keywords": "Map stakeholders by their stake in the product and their influence over it, then choose an intentional engagement strategy. Stakeholder Map Understand the method first Promoters Defenders Latents Audience How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "Test-Driven Development | Agile Orbit",
+    "url": "coaching/techniques/test-driven-development.html",
+    "keywords": "A development technique that repeatedly cycles through a failing test, the simplest passing implementation and refactoring. Test-Driven Development (TDD) Understand the method first How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "Test Pyramid | Agile Orbit",
+    "url": "coaching/techniques/test-pyramid.html",
+    "keywords": "A testing heuristic that favours many fast lower-level automated tests and fewer slower broad-stack or UI tests. Test Pyramid Understand the method first Unit tests Service / integration tests UI / end-to-end tests How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "Theory of Constraints | Agile Orbit",
+    "url": "coaching/techniques/theory-of-constraints.html",
+    "keywords": "Improve the whole system by identifying the constraint that currently limits throughput and focusing improvement there. Theory of Constraints — Five Focusing Steps Understand the method first Identify Exploit Subordinate Elevate Repeat How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "Thomas-Kilmann Conflict Modes | Agile Orbit",
+    "url": "coaching/techniques/thomas-kilmann-conflict-modes.html",
+    "keywords": "Detailed Agile Orbit guide to the Thomas-Kilmann conflict model: competing, collaborating, compromising, avoiding and accommodating. Thomas-Kilmann Conflict Modes The two dimensions Assertiveness Cooperativeness The Thomas-Kilmann map The five modes — in detail How do you choose a mode? Importance Time Complexity Trust Stress Relationship How an Agile Coach can use the model Useful coaching questions Common mistakes “Collaborating is always best.” “This is my personality.” “Avoiding is weak.” “Competing is always aggressive.”"
+  },
+  {
+    "title": "Trunk-Based Development | Agile Orbit",
+    "url": "coaching/techniques/trunk-based-development.html",
+    "keywords": "Developers integrate small changes into a shared mainline frequently, typically at least daily, using very short-lived branches where branches are used. Trunk-Based Development Understand the method first How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "WIP Limits | Agile Orbit",
+    "url": "coaching/techniques/wip-limits.html",
+    "keywords": "Set explicit limits on work in progress so new work is pulled only when capacity is available. WIP Limits Understand the method first How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "WSJF | Agile Orbit",
+    "url": "coaching/techniques/wsjf.html",
+    "keywords": "A SAFe prioritisation model that sequences work using relative Cost of Delay divided by relative job duration/size. Weighted Shortest Job First (WSJF) Understand the method first User / Business Value Time Criticality Risk Reduction / Opportunity Enablement Job Duration / Size How to use it Coach with it Agile example Watch for Watch for Watch for"
+  },
+  {
+    "title": "Values Alignment | Agile Orbit",
+    "url": "coaching/values-alignment.html",
+    "keywords": "Compare how important a value is with how fully you are living it, then reflect on the largest alignment gaps. Values Alignment What matters most right now? Largest gaps"
+  },
+  {
+    "title": "Contact | Agile Orbit",
+    "url": "connect/contact.html",
+    "keywords": "Connect with Ashutosh Mishra for Agile coaching, professional coaching, transformation conversations, collaboration and Agile Orbit feedback. Let’s connect. Email me Connect on LinkedIn What can we talk about?"
+  },
+  {
+    "title": "Feedback | Agile Orbit",
+    "url": "connect/feedback.html",
+    "keywords": "Share an idea, report an issue, or suggest a practical improvement. Feedback"
+  },
+  {
+    "title": "Connect with Agile Orbit | Agile Orbit",
+    "url": "connect/",
+    "keywords": "Get in touch, connect on LinkedIn, or share feedback on Agile Orbit. Connect with Agile Orbit Contact LinkedIn Feedback"
+  },
+  {
+    "title": "LinkedIn | Agile Orbit",
+    "url": "connect/linkedin.html",
+    "keywords": "Professional profile link. LinkedIn"
+  },
+  {
+    "title": "Privacy & Analytics | Agile Orbit",
+    "url": "connect/privacy.html",
+    "keywords": "How Agile Orbit uses lightweight website analytics and handles contact interactions. Privacy & Analytics Website analytics Contact Third-party services Questions"
+  },
+  {
+    "title": "Agile Orbit | Practical Tools for Better Delivery",
+    "url": "",
+    "keywords": "Agile Orbit is a practical universe of Agile knowledge, tools, practice, coaching and leadership ideas. "
+  },
+  {
+    "title": "Why Agile transformations fail | Agile Orbit",
+    "url": "insights/agile-in-practice.html",
+    "keywords": "Turn a broad transformation ambition into one testable change. Why Agile transformations fail Start with the friction Run one experiment Review the system"
+  },
+  {
+    "title": "Velocity is not productivity | Agile Orbit",
+    "url": "insights/behaviour-psychology.html",
+    "keywords": "Use delivery history for planning without turning it into a performance target. Velocity is not productivity Separate planning from performance Inspect a balanced picture Use a forecast honestly"
+  },
+  {
+    "title": "Five Dysfunctions: team reflection | Agile Orbit",
+    "url": "insights/five-dysfunctions-team.html",
+    "keywords": "A practical reflection inspired by Patrick Lencioni’s team model; use it as a conversation aid, not a diagnostic score. Five Dysfunctions: team reflection Trust and productive disagreement Commitment and accountability Collective results"
+  },
+  {
+    "title": "Insights | Agile Orbit",
+    "url": "insights/",
+    "keywords": "Practical reflections to improve delivery, leadership and team conversations. Insights Why Agile transformations fail Context beats control Velocity is not productivity Five Dysfunctions: team reflection"
+  },
+  {
+    "title": "Context beats control | Agile Orbit",
+    "url": "insights/leadership.html",
+    "keywords": "Make decisions easier by clarifying outcomes and boundaries. Context beats control Make the decision visible Provide context Agree a review point"
+  },
+  {
+    "title": "Agile Fundamentals | Agile Orbit",
+    "url": "learn/agile-fundamentals.html",
+    "keywords": "Turn Agile principles into a small learning loop. Agile Fundamentals Connect the ideas to real work Try this with your team Review what changed"
+  },
+  {
+    "title": "Behaviour Change | Agile Orbit",
+    "url": "learn/behavioural-psychology/behaviour-change.html",
+    "keywords": "Turn desired behaviours into small, observable experiments supported by context. Behaviour Change What it means What to look for From → To Try this"
+  },
+  {
+    "title": "Human Behaviour | Agile Orbit",
+    "url": "learn/behavioural-psychology/human-behaviour.html",
+    "keywords": "Behaviour emerges from people interacting with context, incentives and norms. Human Behaviour What it means What to look for From → To Try this"
+  },
+  {
+    "title": "Behavioural Psychology for Leaders | Agile Orbit",
+    "url": "learn/behavioural-psychology/",
+    "keywords": "Practical behavioural psychology for leaders: understand people, navigate teams and lead change through observable workplace behaviour. Behavioural Psychology for Leaders Observe Understand Navigate Choose the leadership situation you want to understand   👀 What you may observe 🧠 What may be happening 🎯 Why a leader should care 🛠️ What a leader can do"
+  },
+  {
+    "title": "Motivation | Agile Orbit",
+    "url": "learn/behavioural-psychology/motivation.html",
+    "keywords": "Explore autonomy, mastery, purpose and the context around motivation. Motivation What it means What to look for From → To Try this"
+  },
+  {
+    "title": "Psychological Safety | Agile Orbit",
+    "url": "learn/behavioural-psychology/psychological-safety.html",
+    "keywords": "Create conditions where people can raise concerns, questions and mistakes without unnecessary interpersonal risk. Psychological Safety What it means What to look for From → To Try this"
+  },
+  {
+    "title": "Akbank Agile Transformation Case Study | Agile Orbit",
+    "url": "learn/case-studies/akbank-agile-transformation.html",
+    "keywords": "A decision-first Akbank case study about scaling Scrum to 100+ teams, replacing annual planning with a shorter focus rhythm, building internal coaching capability and sustaining communities of practice. Akbank: scaling Scrum means scaling the learning system A few Agile teams are one problem. An Agile organisation is another. Your pilot worked. Leadership wants 100 teams. What do you scale first? Akbank's reported pattern is closest to Option C. The transformation infrastructure became part of the product What to transfer without copying Akbank Questions for a large transformation Practitioner source"
+  },
+  {
+    "title": "Citi Revlon Payment Error Case Study | Agile Orbit",
+    "url": "learn/case-studies/citi-revlon-payment-error.html",
+    "keywords": "A decision-first case study on Citi's 2020 Revlon wire-transfer error, human factors, workflow design, maker-checker controls and operational resilience. Citi & Revlon: how a routine payment became an $894M transfer error A high-value transaction depended on people, process and software lining up Your system allows a high-value transaction, but the workflow is unintuitive. What control do you strengthen first? Citi's response combined additional controls with infrastructure change. Multiple reasonable steps can still produce an unreasonable outcome The transfer was ~$894M; that is not the same as a final permanent loss Design the system so the safe action is the easy action Questions for teams designing high-risk workflows Citi's own disclosures"
+  },
+  {
+    "title": "Citi Risk & Data Transformation Case Study | Agile Orbit",
+    "url": "learn/case-studies/citi-risk-data-transformation.html",
+    "keywords": "A decision-first case study on Citigroup's 2020–2024 risk, data governance and internal-control remediation, regulatory penalties and transformation execution. Citi: when the transformation itself must prove it is working Longstanding weaknesses became a transformation mandate Your transformation has hundreds of workstreams. Regulators say progress is still not sustainable. What changes? Regulators pushed toward the logic of B. Activity can hide the absence of durable capability $400M in 2020, then another ~$135.6M in 2024 Transform outcomes, not only structures Questions for large transformation portfolios Regulatory evidence"
+  },
+  {
+    "title": "Credit Suisse Archegos Case Study | Agile Orbit",
+    "url": "learn/case-studies/credit-suisse-archegos.html",
+    "keywords": "A decision-first case study on Credit Suisse, Archegos, counterparty concentration, repeated risk warnings and the $5.5B loss in 2021. Credit Suisse & Archegos: when risk signals exist but nobody stops the system A profitable client became a concentrated system risk A valuable client keeps breaching risk limits. What do you do? The system behaved much closer to A than C. The warning system was not the same as a control system Approximately $5.5B was lost after warnings failed to become action Transparency without response is theatre Questions for teams where warnings keep repeating Regulatory findings first"
+  },
+  {
+    "title": "DBS Managing Through Journeys Case Study | Agile Orbit",
+    "url": "learn/case-studies/dbs-managing-through-journeys.html",
+    "keywords": "A decision-first DBS case study about customer journeys, experiments, cross-functional squads, data-driven control towers and becoming a more agile bank without treating agility as an IT-only programme. DBS: from product silos to customer journeys Digital transformation was not just about digitising transactions You want faster customer outcomes. What do you change first? DBS moved progressively toward Option C. From departmental delivery to a journey-management system What transfers beyond banking? Questions to take back to your organisation Primary and first-party sources"
+  },
+  {
+    "title": "FBI Sentinel Agile Recovery Case Study | Agile Orbit",
+    "url": "learn/case-studies/fbi-sentinel-recovery.html",
+    "keywords": "A decision-first FBI Sentinel case study about recovering a troubled government technology program through direct ownership, two-week sprints, user collaboration and shorter feedback loops. FBI Sentinel: recovering by shortening the learning loop Modernizing after an earlier failure You inherit a late, high-visibility program with limited budget remaining. What changes first? The FBI moved closest to Option B. The recovery altered ownership, team shape and the unit of progress A turnaround—without pretending the journey became easy “They switched to Scrum and everything worked” is the wrong lesson What this teaches about recovering troubled work Patterns for a program already under pressure Questions for a troubled program Primary oversight records first Compare the recovery pattern When adaptation is strategic When feedback arrives too late Public digital recovery"
+  },
+  {
+    "title": "Flipkart Big Billion Day Case Study | Agile Orbit",
+    "url": "learn/case-studies/flipkart-big-billion-day.html",
+    "keywords": "A decision-first Flipkart Big Billion Day case study about extreme demand, capacity planning, inventory, overbooking, site outages and why resilience must be end-to-end. Flipkart Big Billion Day: when a successful campaign overloads the system Marketing created a load test for the whole company You are preparing for the biggest sale your platform has ever attempted. Where do you invest first? The event showed why Option B matters. A commercial win can still produce a poor system outcome $100M in GMV—and an apology the next day Resilience is an end-to-end property Questions before your next high-demand event Contemporary reporting and the founders' apology Compare high-demand systems When demand becomes a physical-capacity queue Fast systems need containment Recovering a high-visibility digital service"
+  },
+  {
+    "title": "Go First Supplier Dependency Case Study | Agile Orbit",
+    "url": "learn/case-studies/go-first-supplier-dependency.html",
+    "keywords": "A decision-first Go First airline case study about critical supplier dependency, grounded aircraft, lost revenue, insolvency and resilience. Go First: when a critical supplier dependency grounds the business A core asset could not operate without one constrained component Your critical supplier cannot restore enough capacity quickly. What do you optimize for? The historical system could not restore sufficient capacity before cash pressure became critical. A dependency becomes existential when there is no practical substitute The airline stopped flying and entered insolvency Map dependencies before they become emergencies Questions for dependency-heavy systems Claims and counterclaims labelled clearly"
+  },
+  {
+    "title": "GOV.UK Scaling Agile Case Study | Agile Orbit",
+    "url": "learn/case-studies/govuk-scaling-agile.html",
+    "keywords": "A decision-first GOV.UK case study about scaling agile, technical debt, limiting mission length, reducing work in progress, sustainable building and balancing team autonomy with clear direction. GOV.UK: staying agile after the successful launch Agile delivery can still create an overloaded system The platform is successful, but delivery is getting harder. What do you change? GOV.UK moved closest to Option C. They changed constraints, not just ceremonies The case is really about flow and governance Questions for overloaded programmes First-party retrospectives"
+  },
+  {
+    "title": "HealthCare.gov Recovery Case Study | Agile Orbit",
+    "url": "learn/case-studies/healthcare-gov-recovery.html",
+    "keywords": "A decision-first HealthCare.gov recovery case study about leadership, observability, ruthless prioritization, one-team operations and iterative delivery. HealthCare.gov: recover the service by seeing the system clearly A complex service launched with weak end-to-end control The launch has failed publicly. What becomes the first recovery priority? The recovery moved closest to Option B. Recovery changed the operating system around the technology Measure the service, not the recovery activity Recovery principles that generalize Questions for a team under delivery pressure Sources behind the case"
+  },
+  {
+    "title": "Case Studies | Agile Orbit",
+    "url": "learn/case-studies/",
+    "keywords": "Learn from 23 real organizational decisions, transformations, failures, pivots and recoveries through an Agile, Product, Lean, Flow, risk and systems-thinking lens. Real situations. Real decisions. Browse by learning theme ING — redesigning a bank around end-to-end value Can a traditional bank become faster without simply “doing Agile in IT”? Seeing change is not the same as responding to it Knowing about digital wasn't enough When evidence changes the product hypothesis Pivot, persevere—or stop? When lowest price is not the whole value proposition Change the system, not only the program Redesigning a bank around end-to-end value Managing through customer journeys Scaling the learning system beyond 100 teams Staying agile after the successful launch Mechanical Scrum vs empirical Scrum When the transformation itself must prove it is working Recover control, service or trust From troubled program to incremental delivery Recovering after a high-profile failed launch When a quality crisis "
+  },
+  {
+    "title": "ING Agile Transformation Case Study | Agile Orbit",
+    "url": "learn/case-studies/ing-agile-transformation.html",
+    "keywords": "A decision-first case study of ING Netherlands: digital pressure, end-to-end squads, governance, autonomy, alignment and the deeper lessons behind the famous agile operating model. ING: changing the operating model , not just the ceremonies A successful bank facing a different kind of competitor You're leading the transformation. How far do you change the system? ING moved closest to Option C. The visible structure was only one part of the transformation Useful improvements—and new tensions What is actually transferable? Translate ING's pattern into your environment Questions for an Agile Coach or transformation leader Sources behind this case Don't stop with one success story Kodak FBI Sentinel Microsoft DevOps"
+  },
+  {
+    "title": "Intralinks Scrum Reboot Case Study | Agile Orbit",
+    "url": "learn/case-studies/intralinks-scrum-reboot.html",
+    "keywords": "A decision-first Intralinks case study about mechanical Scrum, empiricism, Scrum Values, trust, inspection and adaptation, and why framework compliance alone does not create agility. Intralinks: doing Scrum can still produce very little agility Perfect ceremonies can hide a weak learning system Your Scrum implementation looks correct—but outcomes are not improving. What do you do? The Intralinks reboot aligned closest to Option C. The reboot shifted attention from “doing Scrum” to learning through Scrum How to detect Cargo Cult Scrum Questions when Scrum looks busy but feels stuck Practitioner sources"
+  },
+  {
+    "title": "Knight Capital Deployment Failure Case Study | Agile Orbit",
+    "url": "learn/case-studies/knight-capital-deployment-failure.html",
+    "keywords": "A decision-first Knight Capital case study about deployment controls, dormant code, warning signals, blast radius and why speed without engineered safety is not agility. Knight Capital: when deployment speed meets no safety net A small deployment inconsistency inside a machine-speed system You run engineering for a high-speed trading platform. Where do you invest first? The incident exposed why Option B matters in high-consequence systems. The deploy did not fail alone—the system allowed it to become catastrophic “A technician forgot one server” is technically true—and operationally incomplete Speed without safety is not agility Engineering guardrails for any high-consequence system Questions for engineering leaders Primary regulatory findings Compare the failure pattern Shorter feedback in a slow system Strategic rather than technical inertia Continuous delivery with engineered discipline"
+  },
+  {
+    "title": "Kodak Digital Disruption Case Study | Agile Orbit",
+    "url": "learn/case-studies/kodak-digital-disruption.html",
+    "keywords": "A decision-first Kodak case study about digital disruption, strategic inertia, business-model change and the difference between seeing technology and adapting the system around it. Kodak: seeing the disruption was not enough The company that invented a future it struggled to inhabit You're leading Kodak while film is still profitable. What do you optimize for? Kodak did not simply ignore digital—it invested in it, but the transition did not create a durable replacement business model. Each individual decision can look rational while the whole system becomes fragile The wrong lesson creates the wrong transformation What this teaches beyond photography Use the principle in your own organization Questions worth taking back to a leadership team Read beyond the folklore Compare the pattern Recovering by changing the delivery system Fast systems need engineered safety When evidence changes direction"
+  },
+  {
+    "title": "Mahindra XUV700 Demand & Capacity Case Study | Agile Orbit",
+    "url": "learn/case-studies/mahindra-xuv700-demand-capacity.html",
+    "keywords": "A decision-first Mahindra XUV700 case study about product success, semiconductor constraints, capacity, customer waiting time and how a constraint moves when demand explodes. Mahindra XUV700: when product success becomes a capacity problem A desirable product launched into a constrained supply system You know demand is strong, but chips and production are constrained. What do you optimize for? Mahindra moved closest to Option B. The constraint moved after the product found the market Success created a new form of customer pain Success moves the constraint Questions for any team whose success is creating queues Primary company evidence first Compare the constraint pattern Flow improves when the system exposes constraints When demand outruns digital and inventory capacity Manage the journey, not only the function"
+  },
+  {
+    "title": "Microsoft DevOps Delivery Case Study | Agile Orbit",
+    "url": "learn/case-studies/microsoft-devops-delivery.html",
+    "keywords": "A decision-first Microsoft case study about trunk-based development, short-lived branches, pull request policies, automated tests, team ownership, frequent delivery and engineering feedback loops. Microsoft: speed came from engineering the feedback loop Large-scale software development creates an integration tax Your releases are painful. How do you reduce risk? Microsoft's documented practices align closest to Option C. Delivery safety became a property of the system Engineering practices are flow policies Questions for an engineering system Microsoft engineering documentation"
+  },
+  {
+    "title": "Nestlé Maggi Crisis Case Study | Agile Orbit",
+    "url": "learn/case-studies/nestle-maggi-crisis.html",
+    "keywords": "A decision-first Nestlé India Maggi 2015 case study about quality, regulatory uncertainty, product withdrawal, customer trust and a ₹500.84 crore exceptional charge. Nestlé Maggi: when a quality crisis becomes a business crisis Internal evidence and external trust moved in opposite directions Your evidence says the product is safe, but trust and regulatory confidence are collapsing. What do you do? Nestlé ultimately moved closest to B. The cost was larger than the product sitting on shelves ₹500.84 crore of exceptional crisis cost was recorded Quality failures propagate beyond the defect Questions for quality-sensitive products Company financial evidence"
+  },
+  {
+    "title": "Ola Electric Service Capacity Case Study | Agile Orbit",
+    "url": "learn/case-studies/ola-electric-service-capacity.html",
+    "keywords": "A decision-first Ola Electric case study about service capacity, 10,000+ complaints, quality debt and the ₹110 crore corrective-service cost reported in 2025. Ola Electric: when sales scale faster than service capacity Growth created a queue after the sale Demand is strong, but service queues are growing. Where do you move capacity? The later corrective action moved toward B. The backlog itself becomes demand 10,000+ complaints became a regulatory and financial signal Optimize customer throughput, not sales throughput Questions for any growing product-service system Customer and financial signals"
+  },
+  {
+    "title": "Paytm Payments Bank Compliance Case Study | Agile Orbit",
+    "url": "learn/case-studies/paytm-payments-bank-compliance.html",
+    "keywords": "A decision-first Paytm Payments Bank case study about regulatory restrictions, compliance as product capability, customer migration and market-value impact in 2024. Paytm Payments Bank: when compliance becomes a product constraint A digital product can be fast and popular yet still be operationally non-viable Growth is strong, but regulators keep finding persistent control issues. What becomes the priority? The regulatory outcome shows why B must eventually dominate. Compliance debt compounds like technical debt A regulatory constraint became a market and customer event Treat regulatory feedback as production feedback Questions for regulated product teams Regulator first"
+  },
+  {
+    "title": "Startup Pivots Case Study | Agile Orbit",
+    "url": "learn/case-studies/startup-pivots.html",
+    "keywords": "A comparative decision-first case study of startup pivots using Slack, Instagram and Netflix to explore evidence, focus, pivoting and product learning. Pivot, persevere—or stop? Follow the evidence. Adaptation can happen at different levels Your original product is struggling, but one behaviour is surprisingly strong. What do you do? Option B is usually the most evidence-driven move. Evidence that a pivot may be warranted What transfers beyond startups? Questions for product teams and leaders Sources behind the case"
+  },
+  {
+    "title": "Tata Nano Positioning Case Study | Agile Orbit",
+    "url": "learn/case-studies/tata-nano-positioning.html",
+    "keywords": "A decision-first Tata Nano case study about low-cost innovation, positioning, target customers, production capacity, aspiration and what happens when a strong value proposition does not translate into durable demand. Tata Nano: when the lowest price is not the same as the strongest value proposition A breakthrough cost target created enormous attention Demand softens after a highly publicized launch. What would you change first? Tata Motors later moved toward repositioning and product refreshes rather than relying on the original “cheap car” framing alone. Early bookings were evidence—but not the only evidence “People rejected a cheap car” is too simplistic Affordability is a feature; customer value is a system Questions for product teams with strong attention but weak conversion Primary company evidence plus published teaching cases Compare product evidence Technology capability is not a business model What evidence deserves a change in direction? When the market signal is stronger th"
+  },
+  {
+    "title": "Toyota Production System Case Study | Agile Orbit",
+    "url": "learn/case-studies/toyota-production-system.html",
+    "keywords": "A decision-first Toyota Production System case study about Jidoka, Just-in-Time, pull, flow, quality at source and why stopping can make a system faster. Toyota: why a fast system must be able to stop Efficiency is not the same as keeping every resource busy A defect appears and stopping the line will hurt today's output. What do you do? TPS logic aligns most closely with Option B. Flow and built-in quality reinforce each other What does Toyota teach a digital team? The system should reveal pain, not hide it Questions for teams struggling with flow Sources behind the case"
+  },
+  {
+    "title": "UBS Unauthorized Trading Case Study | Agile Orbit",
+    "url": "learn/case-studies/ubs-unauthorized-trading.html",
+    "keywords": "A decision-first UBS case study about the 2011 unauthorized trading loss, ignored warning signals and why detection without action is not control. UBS: when the dashboard is red but nobody acts Controls existed. The exposure still escaped. An unexplained trading signal appears, but reported P&L still looks attractive. What next? The historical system failed to enforce B or C strongly enough. A warning can die at several handoffs $2.229B lost in a failure of control response Detection is not control Questions for any control-heavy environment Primary sources"
+  },
+  {
+    "title": "Facilitation | Agile Orbit",
+    "url": "learn/facilitation/",
+    "keywords": "Practical facilitation principles, Scrum event guidance and techniques for Agile teams. Facilitation The Crux Facilitation is not about running a meeting. A group does not automatically create collective intelligence. Own the process. Don't own the answer. Good facilitation makes the difficult discussable. The real measure is not a great meeting. It is a better outcome. Five Facilitation Principles Participatory Healthy Transparency Process Purposeful Choose where you need help Scrum Event Facilitation Facilitation Techniques"
+  },
+  {
+    "title": "Scrum Event Facilitation | Agile Orbit",
+    "url": "learn/facilitation/scrum-event.html",
+    "keywords": "Practical Scrum event facilitation guidance with purpose, flow, questions, anti-patterns and videos. Scrum Event Facilitation Sprint Planning Facilitator focus Before the event Suggested flow Powerful questions Watch out for Success looks like Video session Daily Scrum Facilitator focus Before the event Suggested flow Powerful questions Watch out for Success looks like Video session Sprint Review Facilitator focus Before the event Suggested flow Powerful questions Watch out for Success looks like Video session Sprint Retrospective Facilitator focus Before the event Suggested flow Powerful questions Watch out for Success looks like Video session Product Backlog Refinement Facilitator focus Before the activity Suggested flow Powerful questions Watch out for Success looks like Video session"
+  },
+  {
+    "title": "Facilitation Techniques | Agile Orbit",
+    "url": "learn/facilitation/techniques.html",
+    "keywords": "Purpose-driven facilitation techniques with timing, group size, examples and facilitator tips. Facilitation Techniques"
+  },
+  {
+    "title": "Explore the Orbit of knowledge | Agile Orbit",
+    "url": "learn/",
+    "keywords": "Build a strong mental model across Agile, product, behaviour, facilitation, science and real-world case studies. Explore the Orbit of knowledge Agile Fundamentals Scrum Kanban SAFe Lean & Flow Product Management Behavioural Psychology Facilitation Science Behind Agile Real Situations. Real Decisions."
+  },
+  {
+    "title": "Kanban | Agile Orbit",
+    "url": "learn/kanban.html",
+    "keywords": "Make work visible and actively manage its flow. Kanban Connect the ideas to real work Try this with your team Review what changed"
+  },
+  {
+    "title": "Coaching Leadership | Agile Orbit",
+    "url": "learn/leadership-mindset/coaching-leadership.html",
+    "keywords": "Use questions and reflection to increase ownership and learning. Coaching Leadership What it means What to look for From → To Try this"
+  },
+  {
+    "title": "Decision Making | Agile Orbit",
+    "url": "learn/leadership-mindset/decision-making.html",
+    "keywords": "Match decision speed and authority to the cost of delay, reversibility and available evidence. Decision Making What it means What to look for From → To Try this"
+  },
+  {
+    "title": "Growth Mindset | Agile Orbit",
+    "url": "learn/leadership-mindset/growth-mindset.html",
+    "keywords": "Treat capability as developable while keeping expectations and evidence explicit. Growth Mindset What it means What to look for From → To Try this"
+  },
+  {
+    "title": "Leading Change | Agile Orbit",
+    "url": "learn/leadership-mindset/leading-change.html",
+    "keywords": "Create clarity, participation and feedback while the system moves through change. Leading Change What it means What to look for From → To Try this"
+  },
+  {
+    "title": "Servant Leadership | Agile Orbit",
+    "url": "learn/leadership-mindset/servant-leadership.html",
+    "keywords": "Lead by enabling people and systems rather than by controlling every action. Servant Leadership What it means What to look for From → To Try this"
+  },
+  {
+    "title": "Systems Thinking | Agile Orbit",
+    "url": "learn/leadership-mindset/systems-thinking.html",
+    "keywords": "Look at relationships, feedback loops, constraints and unintended consequences. Systems Thinking What it means What to look for From → To Try this"
+  },
+  {
+    "title": "Lean & Flow | Agile Orbit",
+    "url": "learn/lean-flow.html",
+    "keywords": "Improve the journey from request to useful outcome. Lean & Flow Connect the ideas to real work Try this with your team Review what changed"
+  },
+  {
+    "title": "The Product Management Landscape | Agile Orbit",
+    "url": "learn/product-management.html",
+    "keywords": "An interactive visual guide to product lifecycle, the four product quadrants, and what Agile actually changed inside Internal x Operations. The Product Management Landscape: What Agile Actually Changed Project or Product? Finish the committed thing Improve value over time Product Management is bigger than Product Development Discovery One product. Four kinds of work. Delivery machinery Agile did not delete Q3. It redistributed Q3. Q3 work is redistributed — not deleted Product Owner ≠ Project Manager renamed Connect the loops, not just the backlog. From relay race to learning loop Stakeholder systems, not just backlog systems Click a stakeholder group Banking product: suitability & compliance Help advisors and clients complete suitability checks with less friction and stronger evidence. Why this shift happened Are you running a product system or just an Agile project? Do not confuse the delivery quadrant with the product."
+  },
+  {
+    "title": "SAFe | Agile Orbit",
+    "url": "learn/safe.html",
+    "keywords": "Connect team planning to shared outcomes and dependencies. SAFe Connect the ideas to real work Try this with your team Review what changed"
+  },
+  {
+    "title": "A Stale Board Is a Broken Sensor | Agile Orbit",
+    "url": "learn/science-behind-agile/board-data-quality.html",
+    "keywords": "A practical data-quality case study connecting the French train platform incident to trustworthy Jira and GitLab delivery data. A Stale Board Is a Broken Sensor Your delivery board is a measurement system. From bad infrastructure data to bad delivery data French train case study Jira or GitLab is also a model of reality. What breaks when the board is stale? Maintain only the data that helps the team see and decide. Our Board = Our Shared Reality Don't maintain the tool for the tool."
+  },
+  {
+    "title": "Empiricism and Process Control Theory | Agile Orbit",
+    "url": "learn/science-behind-agile/empirical-process-control.html",
+    "keywords": "Understand empiricism and process control theory through the chemical-engineering feedback-loop story and its connection to Scrum. Empiricism and Process Control Theory Complex problems rarely stay simple Chemical engineers face the same problem Transparency → Inspection → Adaptation A practical product example Why the feedback loop matters What this is not Questions to carry into practice"
+  },
+  {
+    "title": "The Science Behind Agile | Agile Orbit",
+    "url": "learn/science-behind-agile/",
+    "keywords": "Explore the science behind the practices and frameworks used across the Agile ecosystem. The Science Behind Agile Understand the mechanism. Then use the practice with intent. Empiricism and Process Control Theory Where do you want to start? Don't memorize the practice. Understand why it can work."
+  },
+  {
+    "title": "Scrum | Agile Orbit",
+    "url": "learn/scrum.html",
+    "keywords": "Connect goals, usable outcomes and inspection. Scrum Connect the ideas to real work Try this with your team Review what changed"
+  },
+  {
+    "title": "Bottleneck Challenge | Agile Orbit",
+    "url": "practice/games/bottleneck-challenge.html",
+    "keywords": "Play a flow game: move 24 work items from Work Queue through Analysis, Develop and Test into Done, spot the bottleneck, improve it, and compare throughput. 🚧 Bottleneck Challenge Get as many of the 24 work items to Done as possible 📥 Work Queue 🧠 Analysis 💻 Develop 🧪 Test ✅ Done Did your improvement help the whole system?"
+  },
+  {
+    "title": "Dependency Maze | Agile Orbit",
+    "url": "practice/games/dependency-maze.html",
+    "keywords": "Navigate a dependency network by completing prerequisite work in the right order until customer value becomes available. 🧩 Dependency Maze Reach Customer Value without creating blocked work 1 · Foundation 2 · Parallel Work 3 · Integration 4 · Customer Value Dependency path completed"
+  },
+  {
+    "title": "Flow Factory — Batch Size Challenge | Agile Orbit",
+    "url": "practice/games/flow-factory.html",
+    "keywords": "Play an interactive Agile flow game to experience how batch size affects time to first value, queues and feedback. 🏭 Flow Factory Deliver 20 products to the customer Batch size 5 Round scoreboard Smaller batches change when feedback becomes possible."
+  },
+  {
+    "title": "Agile Games | Agile Orbit",
+    "url": "practice/games/",
+    "keywords": "Learn Agile and flow concepts through short interactive browser games. Learn Agile by playing Maximizing Flow Visualize & limit WIP Address bottlenecks Reduce handoffs & dependencies Shorten feedback loops Work in smaller batches Manage queues & aging work Optimize “time in the zone” Remove policies that obstruct flow Flow Factory Bottleneck Challenge WIP Limit Challenge Multitasking Trap Sprint Planning Challenge Kanban Aging Work Dependency Maze"
+  },
+  {
+    "title": "Kanban Aging Work Game | Agile Orbit",
+    "url": "practice/games/kanban-aging.html",
+    "keywords": "Play an intuitive Kanban aging WIP game using a visible Service Level Expectation to spot flow risk before work becomes late. ⏳ Kanban Aging Work Game Which card should the team discuss first? 💻 Development 🔎 Review 🧪 Test —"
+  },
+  {
+    "title": "Multitasking Trap | Agile Orbit",
+    "url": "practice/games/multitasking-trap.html",
+    "keywords": "Experience the cost of context switching by comparing an automatic multitasking run with focused sequential work. 🎯 Multitasking Trap Deliver Feature A, B and C Run the same work with focus What did context switching cost? Multitasking Focused Work"
+  },
+  {
+    "title": "Sprint Planning Challenge | Agile Orbit",
+    "url": "practice/games/sprint-planning-challenge.html",
+    "keywords": "Build a goal-focused Sprint plan, run it, and see how capacity and dependencies affect what actually finishes. 🧭 Sprint Planning Challenge Enable secure customer profile updates Result"
+  },
+  {
+    "title": "WIP Limit Challenge | Agile Orbit",
+    "url": "practice/games/wip-limit.html",
+    "keywords": "Play an autorun WIP limit game and compare how limiting work in progress affects queues, aging and delivery flow. 🚦 WIP Limit Challenge Deliver 20 work items through the system 📥 Ready 💻 Doing 🔎 Review ✅ Done Choose a WIP limit What changed when you limited WIP? No WIP Limit WIP Limit"
+  },
+  {
+    "title": "Practice | Agile Orbit",
+    "url": "practice/",
+    "keywords": "Practice Agile through scenario-based quizzes, interactive games and the Kanban Flow Lab simulation. Practice by answering and experiencing Agile Quiz Agile Games Kanban Flow Lab"
+  },
+  {
+    "title": "Kanban Flow Lab | Agile Orbit",
+    "url": "practice/kanban-flow-lab/",
+    "keywords": "Run a guided Kanban delivery simulation, make flow decisions, and discover WIP, bottlenecks, blockers, swarming, expedite, replenishment and forecasting. 🏭 Kanban Flow Lab Improve delivery without adding people Mostly autorun 📥 Ready 🧠 Analysis 💻 Development 🧪 Test ✅ Done Decision Cumulative Flow Decision Log What did your delivery system become?"
+  },
+  {
+    "title": "Agile Quiz | Agile Orbit",
+    "url": "practice/quiz/",
+    "keywords": "Build Agile knowledge with 452 scenario-based practice questions across nine themes. Put your Agile knowledge into practice"
+  },
+  {
+    "title": "Recommended Agile Books | Agile Orbit",
+    "url": "resources/books/",
+    "keywords": "A curated, role-based reading guide of 35 books for Scrum Masters, Agile Coaches, Product Owners, leaders, testers, developers and transformation practitioners. Books that shape better Agile thinking. Find your next book. Read with intent."
+  },
+  {
+    "title": "Practical resources | Agile Orbit",
+    "url": "resources/",
+    "keywords": "Templates, retrospectives, recommended books and Jira resources for Agile practitioners. Practical resources Retrospectives Templates Recommended Books Advanced JQL"
+  },
+  {
+    "title": "Advanced JQL Cookbook | Agile Orbit",
+    "url": "resources/jql/",
+    "keywords": "A practical Advanced JQL cookbook with 40 Jira query examples, Scrum usage guidance and a quick JQL syntax reference. Advanced JQL. Query Jira like a pro. What is JQL? 40 practical JQL recipes. JQL for Agile activities. JQL syntax at a glance. Copy a query. Adapt it. Validate it."
+  },
+  {
+    "title": "Backlog Prioritization + Story Point Context | Agile Orbit",
+    "url": "resources/prompts/backlog-prioritization-story-points.html",
+    "keywords": "Create a first-pass MoSCoW view and relative Story Point context while keeping final decisions with the team. Backlog Prioritization + Story Point Context Why use this prompt? Prompt"
+  },
+  {
+    "title": "BRD to Sprint-Ready User Stories | Agile Orbit",
+    "url": "resources/prompts/brd-to-user-stories.html",
+    "keywords": "Transform a Business Requirements Document into granular, independently deliverable Agile user stories. BRD to Sprint-Ready User Stories Why use this prompt? Prompt"
+  },
+  {
+    "title": "Definition of Done Generator | Agile Orbit",
+    "url": "resources/prompts/definition-of-done-generator.html",
+    "keywords": "Generate a practical, team-specific Definition of Done from your team's product, technology, flow, testing, release and delivery context. Definition of Done Generator Why use this prompt? What good inputs can look like Prompt"
+  },
+  {
+    "title": "Effort Estimation Preparation | Agile Orbit",
+    "url": "resources/prompts/effort-estimation-preparation.html",
+    "keywords": "Prepare the team for Planning Poker by identifying complexity drivers, unknowns and dependencies—without estimating for them. Effort Estimation Preparation Why use this prompt? Prompt"
+  },
+  {
+    "title": "AI Prompt Library | Agile Orbit",
+    "url": "resources/prompts/",
+    "keywords": "Ready-to-use AI prompts for Agile practitioners. Your Agile AI Prompt Library. Find a prompt for the work in front of you. User Story Splitting Coach Sprint Goal Generator Sprint Scope Reality Check Sprint Review Stakeholder Question Generator AI Task Decomposition User Story Generator AI Story Quality Checker BRD to Sprint-Ready User Stories Effort Estimation Preparation Backlog Prioritization + Story Point Context AI Retrospective Theme Generator Definition of Done Generator"
+  },
+  {
+    "title": "AI Retrospective Theme Generator | Agile Orbit",
+    "url": "resources/prompts/retrospective-theme-generator.html",
+    "keywords": "Create a creative, metaphor-driven Sprint Retrospective theme from a metaphor provided by the user. AI Retrospective Theme Generator Why use this prompt? Prompt"
+  },
+  {
+    "title": "Sprint Goal Generator | Agile Orbit",
+    "url": "resources/prompts/sprint-goal-generator.html",
+    "keywords": "Turn a set of selected stories into outcome-focused Sprint Goal options. Sprint Goal Generator Why use this prompt? Prompt"
+  },
+  {
+    "title": "Sprint Review Stakeholder Question Generator | Agile Orbit",
+    "url": "resources/prompts/sprint-review-stakeholder-questions.html",
+    "keywords": "Prepare for realistic stakeholder questions before a Sprint Review. Sprint Review Stakeholder Question Generator Why use this prompt? Prompt"
+  },
+  {
+    "title": "Sprint Scope Reality Check | Agile Orbit",
+    "url": "resources/prompts/sprint-scope-reality-check.html",
+    "keywords": "Challenge a proposed Sprint scope by surfacing risk, uncertainty, assumptions and dependencies. Sprint Scope Reality Check Why use this prompt? Prompt"
+  },
+  {
+    "title": "AI Story Quality Checker | Agile Orbit",
+    "url": "resources/prompts/story-quality-checker.html",
+    "keywords": "Rate a user story, explain the weaknesses, and rewrite it into a stronger sprint-ready version. AI Story Quality Checker Why use this prompt? Prompt"
+  },
+  {
+    "title": "User Story Splitting Coach | Agile Orbit",
+    "url": "resources/prompts/story-splitting-pattern.html",
+    "keywords": "Split oversized stories into smaller, sprint-ready vertical slices using proven splitting patterns. User Story Splitting Coach Why use this prompt? Prompt"
+  },
+  {
+    "title": "AI Task Decomposition | Agile Orbit",
+    "url": "resources/prompts/task-decomposition.html",
+    "keywords": "Turn a user story into a structured set of implementation-ready technical tasks for sprint planning. AI Task Decomposition Why use this prompt? Prompt"
+  },
+  {
+    "title": "User Story Generator | Agile Orbit",
+    "url": "resources/prompts/user-story-generator.html",
+    "keywords": "Convert rough Product Owner notes into one sprint-ready user story that follows INVEST. User Story Generator Why use this prompt? Prompt"
+  },
+  {
+    "title": "Sprint Retrospective Templates | Agile Orbit",
+    "url": "resources/retrospectives/",
+    "keywords": "79 practical sprint retrospective templates organised by theme, with set-the-stage guidance, powerful team questions and when-to-use advice. Sprint Retrospective Templates Make reflection feel fresh"
+  },
+  {
+    "title": "Capacity Planning Template | Agile Orbit",
+    "url": "resources/templates/capacity-planning.html",
+    "keywords": "Download the Agile Orbit Capacity Planning Excel template for sprint capacity, team availability and predictable velocity planning. Capacity Planning Excel Template Sprint Predictability & Capacity Calculator"
+  },
+  {
+    "title": "Definition of Done | Agile Orbit",
+    "url": "resources/templates/definition-of-done.html",
+    "keywords": "Edit, copy or download this starting template for your team’s conversation. Definition of Done Make it specific to your context"
+  },
+  {
+    "title": "Templates | Agile Orbit",
+    "url": "resources/templates/",
+    "keywords": "Practical templates ready to customise. Templates Capacity Planning Working Agreements Requirement Template"
+  },
+  {
+    "title": "PI Planning | Agile Orbit",
+    "url": "resources/templates/pi-planning.html",
+    "keywords": "Edit, copy or download this starting template for your team’s conversation. PI Planning Make it specific to your context"
+  },
+  {
+    "title": "Requirement Template | Agile Orbit",
+    "url": "resources/templates/requirement.html",
+    "keywords": "Practical requirement templates: User Story with examples and powerful questions, INVEST guidance, plus a SAFe-aligned Epic template. Requirement Template User Story Template The Story Password Reset Make the story stronger Use these in refinement Use INVEST as a refinement lens Independent Negotiable Valuable Estimable Small Testable SAFe Epic Template Epic Hypothesis Statement From initiative to testable hypothesis Ask before funding the work Don't turn an Epic into a project plan Outcome → Evidence → Value"
+  },
+  {
+    "title": "Stakeholder Map | Agile Orbit",
+    "url": "resources/templates/stakeholder-map.html",
+    "keywords": "Edit, copy or download this starting template for your team’s conversation. Stakeholder Map Make it specific to your context"
+  },
+  {
+    "title": "Team Charter | Agile Orbit",
+    "url": "resources/templates/team-charter.html",
+    "keywords": "Edit, copy or download this starting template for your team’s conversation. Team Charter Make it specific to your context"
+  },
+  {
+    "title": "Working Agreement | Agile Orbit",
+    "url": "resources/templates/working-agreement.html",
+    "keywords": "Edit, copy or download this starting template for your team’s conversation. Working Agreement Make it specific to your context"
+  },
+  {
+    "title": "Working Agreements | Agile Orbit",
+    "url": "resources/templates/working-agreements.html",
+    "keywords": "A practical Agile Team Working Agreements and social contract toolkit for Scrum and product engineering teams. How we agree to work together. Living team policies, not compliance checklists. One-page team working agreement 13 ways a team agrees to work Core Agreement Run your next working agreement workshop."
+  },
+  {
+    "title": "WSJF Cost of Delay Score | Agile Orbit",
+    "url": "tools/cost-of-delay.html",
+    "keywords": "Calculate the relative Cost of Delay score used in WSJF from Business Value, Time Criticality and Risk Reduction / Opportunity Enablement. WSJF Cost of Delay Score A relative prioritisation input."
+  },
+  {
+    "title": "Value Stream Flow Efficiency Calculator | Agile Orbit",
+    "url": "tools/flow-efficiency.html",
+    "keywords": "Map a development value stream, capture active and waiting time at each step, and calculate end-to-end flow efficiency. Value Stream Flow Efficiency Calculator Follow the work from idea to delivered value. Build the flow with inputs inside each stage. End-to-end flow efficiency"
+  },
+  {
+    "title": "Practical tools for better decisions | Agile Orbit",
+    "url": "tools/",
+    "keywords": "Browser-based Agile calculators and decision tools for planning, flow, prioritisation and team conversations. No account, backend or cloud storage required. Practical tools for better decisions Turn evidence into a planning conversation Sprint Capacity PBI Health Calculator PI Planning Capacity Release Forecast Find where work is really spending time Value Stream Flow Efficiency Throughput Calculator Make economic trade-offs visible WSJF Calculator WSJF Cost of Delay Score Support better team conversations Meeting Cost Team Health Check"
+  },
+  {
+    "title": "Little's Law Flow Calculator | Agile Orbit",
+    "url": "tools/littles-law.html",
+    "keywords": "Explore the relationship between Work in Progress, Cycle Time and Throughput using Little's Law, with practical what-if flow scenarios. Little's Law Flow Calculator Three flow measures. One simple law. Choose the flow measure you want to find What the relationship says Explore a different flow scenario Use consistent workflow boundaries and historical averages Average WIP Average Cycle Time Average Throughput Little's Law also appears in the world of Java Executors Use it to improve flow conversations"
+  },
+  {
+    "title": "Meeting Cost Calculator | Agile Orbit",
+    "url": "tools/meeting-cost.html",
+    "keywords": "Estimate the direct people-cost of one meeting and the annual impact of recurring meetings. Meeting Cost Calculator Make the trade-off visible."
+  },
+  {
+    "title": "PBI Health Calculator | Agile Orbit",
+    "url": "tools/pbi-health.html",
+    "keywords": "Compare ready-state Product Backlog story points with the average of the last three Sprint velocities to see whether the team has a practical 2–3 Sprint ready-work runway. PBI Health Calculator Compare ready work with recent delivery pace. Enter the last three Sprint velocities What should the team do? Read the ratio as backlog runway, not performance."
+  },
+  {
+    "title": "PI Planning Capacity Calculator | Agile Orbit",
+    "url": "tools/pi-planning-capacity.html",
+    "keywords": "Plan ART and team capacity for PI Planning using team members, PI weeks, holidays, leave and focus factor. PI Planning Capacity Calculator Capacity before commitment. Set the planning horizon Build your ART capacity Capacity at a glance"
+  },
+  {
+    "title": "Release Forecast Calculator | Agile Orbit",
+    "url": "tools/release-forecast.html",
+    "keywords": "Forecast release timing from backlog size, historical velocity and capacity adjustment. Release Forecast Calculator Forecast a range, not a date promise. Set the forecast context Enter recent Sprint velocities Three planning scenarios"
+  },
+  {
+    "title": "Sprint Capacity | Agile Orbit",
+    "url": "tools/sprint-capacity.html",
+    "keywords": "Plan realistic Sprint capacity using historical velocity and current team availability. Sprint Capacity Yesterday's Weather, Tomorrow's Forecast Velocity + Capacity → Prediction What did the team deliver? What capacity do we have? How many points to commit? A forecast is not a commitment Use history as evidence Adjust for today's capacity Let the team decide"
+  },
+  {
+    "title": "Team Health Check | Agile Orbit",
+    "url": "tools/team-health-check.html",
+    "keywords": "Reflect across eight dimensions of team health and surface the strongest and weakest signals for discussion. Team Health Check Discuss the pattern, not the score."
+  },
+  {
+    "title": "WSJF Calculator | Agile Orbit",
+    "url": "tools/wsjf-calculator.html",
+    "keywords": "Rank features using Weighted Shortest Job First: Cost of Delay divided by Job Size. WSJF Calculator Make the economic trade-off visible. Enter feature inputs Powerful questions before you score Sorted features by rank"
+  }
 ]

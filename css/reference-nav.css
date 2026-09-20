@@ -5,7 +5,7 @@
   top:0;
   z-index:100;
   width:100%;
-  background:linear-gradient(180deg,rgba(1,5,13,.72) 0%,rgba(1,5,13,.32) 68%,rgba(1,5,13,0) 100%);
+  background:linear-gradient(180deg,var(--ao-color-791) 0%,var(--ao-color-792) 68%,var(--ao-color-793) 100%);
   border-bottom:1px solid transparent;
   box-shadow:none;
   backdrop-filter:blur(10px);
@@ -13,9 +13,9 @@
   transition:background .3s ease,border-color .3s ease,box-shadow .3s ease;
 }
 .site-header.scrolled{
-  background:rgba(2,6,13,.78);
-  border-bottom-color:rgba(84,221,255,.10);
-  box-shadow:0 10px 34px rgba(0,0,0,.22);
+  background:var(--ao-color-794);
+  border-bottom-color:var(--ao-color-795);
+  box-shadow:0 10px 34px var(--ao-color-25);
 }
 .site-header .nav{
   height:74px;
@@ -29,21 +29,21 @@
   display:flex;
   align-items:center;
   gap:11px;
-  color:#f5f8ff;
+  color:var(--ao-color-267);
   font-size:.82rem;
   font-weight:850;
   letter-spacing:.13em;
   white-space:nowrap;
-  text-shadow:0 0 22px rgba(84,221,255,.12);
+  text-shadow:0 0 22px var(--ao-color-796);
 }
 .site-header .brand-mark{
   width:34px;
   height:34px;
-  border:1.5px solid rgba(115,182,255,.9);
-  border-right-color:#54ddff;
+  border:1.5px solid var(--ao-color-797);
+  border-right-color:var(--ao-color-798);
   border-radius:50%;
   position:relative;
-  box-shadow:0 0 18px rgba(84,221,255,.20),inset 0 0 10px rgba(84,221,255,.05);
+  box-shadow:0 0 18px var(--ao-color-799),inset 0 0 10px var(--ao-color-800);
   flex:0 0 auto;
 }
 .site-header .brand-mark:before{
@@ -54,14 +54,14 @@
   border-radius:50%;
   right:-4px;
   top:5px;
-  background:#e8fbff;
-  box-shadow:0 0 12px rgba(232,251,255,.95);
+  background:var(--ao-color-801);
+  box-shadow:0 0 12px var(--ao-color-802);
 }
 .site-header .brand-mark:after{
   content:"";
   position:absolute;
   inset:-6px 4px;
-  border:1px solid rgba(84,221,255,.76);
+  border:1px solid var(--ao-color-803);
   border-radius:50%;
   transform:rotate(-24deg);
   opacity:.55;
@@ -79,7 +79,7 @@
   border:0;
   border-radius:0;
   background:none;
-  color:rgba(220,232,244,.70);
+  color:var(--ao-color-804);
   display:inline-flex;
   align-items:center;
   font-size:.67rem;
@@ -95,16 +95,16 @@
   right:0;
   bottom:4px;
   height:1px;
-  background:linear-gradient(90deg,transparent,#54ddff,transparent);
-  box-shadow:0 0 9px rgba(84,221,255,.7);
+  background:linear-gradient(90deg,transparent,var(--ao-color-798),transparent);
+  box-shadow:0 0 9px var(--ao-color-805);
   transform:scaleX(0);
   transform-origin:center;
   transition:transform .25s ease;
 }
 .site-header .nav-link:hover,
 .site-header .nav-link.active{
-  color:#f5fbff;
-  text-shadow:0 0 16px rgba(84,221,255,.28);
+  color:var(--ao-color-806);
+  text-shadow:0 0 16px var(--ao-color-807);
 }
 .site-header .nav-link:hover::after,
 .site-header .nav-link.active::after{
@@ -119,20 +119,20 @@
 .site-header .icon-btn{
   width:38px;
   height:38px;
-  border:1px solid rgba(164,211,236,.16);
+  border:1px solid var(--ao-color-808);
   border-radius:50%;
   display:grid;
   place-items:center;
   line-height:1;
-  background:rgba(255,255,255,.025);
-  color:#dcefff;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+  background:var(--ao-color-142);
+  color:var(--ao-color-809);
+  box-shadow:inset 0 1px 0 var(--ao-color-357);
   transition:border-color .2s ease,background .2s ease,box-shadow .2s ease,transform .2s ease;
 }
 .site-header .icon-btn:hover{
-  border-color:rgba(84,221,255,.48);
-  background:rgba(84,221,255,.07);
-  box-shadow:0 0 18px rgba(84,221,255,.12),inset 0 1px 0 rgba(255,255,255,.07);
+  border-color:var(--ao-color-810);
+  background:var(--ao-color-811);
+  box-shadow:0 0 18px var(--ao-color-796),inset 0 1px 0 var(--ao-color-231);
   transform:translateY(-1px);
 }
 .site-header .nav-orbit-btn{
@@ -144,11 +144,11 @@
   gap:10px;
   min-height:42px;
   padding:11px 17px;
-  border:1px solid rgba(157,234,255,.72);
+  border:1px solid var(--ao-color-812);
   border-radius:999px;
-  background:linear-gradient(105deg,rgba(17,48,83,.84),rgba(19,112,174,.66) 58%,rgba(48,181,224,.74));
-  box-shadow:0 0 22px rgba(49,190,255,.18),inset 0 1px 0 rgba(255,255,255,.16);
-  color:#effcff;
+  background:linear-gradient(105deg,var(--ao-color-813),var(--ao-color-814) 58%,var(--ao-color-815));
+  box-shadow:0 0 22px var(--ao-color-816),inset 0 1px 0 var(--ao-color-552);
+  color:var(--ao-color-817);
   font-size:.67rem;
   font-weight:850;
   letter-spacing:.06em;
@@ -161,39 +161,39 @@
   position:absolute;
   inset:1px;
   border-radius:inherit;
-  background:linear-gradient(105deg,rgba(255,255,255,.10),transparent 48%,rgba(255,255,255,.07));
+  background:linear-gradient(105deg,var(--ao-color-818),transparent 48%,var(--ao-color-231));
   pointer-events:none;
 }
 .site-header .nav-orbit-btn:hover{
   transform:translateY(-1px);
-  border-color:rgba(192,243,255,.95);
-  background:linear-gradient(105deg,rgba(28,69,114,.92),rgba(20,132,194,.76) 58%,rgba(71,203,239,.82));
-  box-shadow:0 0 30px rgba(49,190,255,.30),inset 0 1px 0 rgba(255,255,255,.22);
+  border-color:var(--ao-color-819);
+  background:linear-gradient(105deg,var(--ao-color-820),var(--ao-color-821) 58%,var(--ao-color-822));
+  box-shadow:0 0 30px var(--ao-color-823),inset 0 1px 0 var(--ao-color-824);
 }
-.site-header .nav-orbit-btn span{filter:drop-shadow(0 0 7px rgba(141,235,255,.55))}
-.site-header .mobile-toggle{display:none}
+.site-header .nav-orbit-btn span{filter:drop-shadow(0 0 7px var(--ao-color-825));}
+.site-header .mobile-toggle{display:none;}
 @media(max-width:1100px){
-  .site-header .nav{padding:0 22px;gap:14px}
-  .site-header .nav-links{gap:15px}
-  .site-header .nav-link{font-size:.61rem;letter-spacing:.12em}
-  .site-header .nav-orbit-btn{padding:10px 14px}
+  .site-header .nav{padding:0 22px;gap:14px;}
+  .site-header .nav-links{gap:15px;}
+  .site-header .nav-link{font-size:.61rem;letter-spacing:.12em;}
+  .site-header .nav-orbit-btn{padding:10px 14px;}
 }
 @media(max-width:900px){
-  .site-header .nav{height:70px;padding:0 18px}
-  .site-header .nav-links{display:none}
-  .site-header .brand{font-size:.76rem}
-  .site-header .brand-mark{width:32px;height:32px}
-  .site-header .nav-actions .search-icon,.site-header .nav-actions .theme-icon{display:none}
-  .site-header .mobile-toggle{display:grid}
+  .site-header .nav{height:70px;padding:0 18px;}
+  .site-header .nav-links{display:none;}
+  .site-header .brand{font-size:.76rem;}
+  .site-header .brand-mark{width:32px;height:32px;}
+  .site-header .nav-actions .search-icon,.site-header .nav-actions .theme-icon{display:none;}
+  .site-header .mobile-toggle{display:grid;}
 }
 @media(max-width:620px){
-  .site-header .nav{height:66px;padding:0 15px}
-  .site-header .brand{font-size:.70rem;letter-spacing:.10em}
-  .site-header .brand-mark{width:30px;height:30px}
-  .site-header .nav-orbit-btn{display:none}
+  .site-header .nav{height:66px;padding:0 15px;}
+  .site-header .brand{font-size:.70rem;letter-spacing:.10em;}
+  .site-header .brand-mark{width:30px;height:30px;}
+  .site-header .nav-orbit-btn{display:none;}
 }
 @media(prefers-reduced-motion:reduce){
-  .site-header,.site-header .nav-link,.site-header .nav-link::after,.site-header .nav-orbit-btn,.site-header .icon-btn{transition:none!important}
+  .site-header,.site-header .nav-link,.site-header .nav-link::after,.site-header .nav-orbit-btn,.site-header .icon-btn{transition:none!important;}
 }
 
 /* Facilitation Techniques — fresh illustrated visuals. Use each uploaded PNG directly. */
@@ -201,29 +201,29 @@
   min-height:320px;
   padding:0;
   border:0;
-  background-color:#fbfaf6;
+  background-color:var(--ao-color-826);
   background-repeat:no-repeat;
   background-position:center;
   background-size:contain;
-  box-shadow:inset 0 0 0 1px rgba(36,52,74,.08),0 12px 32px rgba(0,0,0,.15);
+  box-shadow:inset 0 0 0 1px var(--ao-color-827),0 12px 32px var(--ao-color-85);
   overflow:hidden;
 }
-.tech-stage .tech-slide .tech-visual > *{display:none!important}
-.tech-stage .tech-slide:nth-of-type(1) .tech-visual{background-image:url('/agile-orbit/assets/images/facilitation/01-1-2-4-All.png')}
-.tech-stage .tech-slide:nth-of-type(2) .tech-visual{background-image:url('/agile-orbit/assets/images/facilitation/02-Roman-Voting.png')}
-.tech-stage .tech-slide:nth-of-type(3) .tech-visual{background-image:url('/agile-orbit/assets/images/facilitation/03-Dot-Voting.png')}
-.tech-stage .tech-slide:nth-of-type(4) .tech-visual{background-image:url('/agile-orbit/assets/images/facilitation/04-Fist-of-Five.png')}
-.tech-stage .tech-slide:nth-of-type(5) .tech-visual{background-image:url('/agile-orbit/assets/images/facilitation/05-Affinity-Mapping.png')}
-.tech-stage .tech-slide:nth-of-type(6) .tech-visual{background-image:url('/agile-orbit/assets/images/facilitation/06-Gallery-Walk.png')}
-.tech-stage .tech-slide:nth-of-type(7) .tech-visual{background-image:url('/agile-orbit/assets/images/facilitation/07-White-Elephant.png')}
-.tech-stage .tech-slide:nth-of-type(8) .tech-visual{background-image:url('/agile-orbit/assets/images/facilitation/08-Diverge-Converge.png')}
-.tech-stage .tech-slide:nth-of-type(9) .tech-visual{background-image:url('/agile-orbit/assets/images/facilitation/09-TRIZ.png')}
-.tech-stage .tech-slide:nth-of-type(10) .tech-visual{background-image:url('/agile-orbit/assets/images/facilitation/10-Team-Agreement.png')}
-.tech-stage .tech-slide:nth-of-type(11) .tech-visual{background-image:url('/agile-orbit/assets/images/facilitation/11-Thirty-Five.png')}
-.tech-stage .tech-slide:nth-of-type(12) .tech-visual{background-image:url('/agile-orbit/assets/images/facilitation/12-Buy-a-Feature.png')}
+.tech-stage .tech-slide .tech-visual > *{display:none!important;}
+.tech-stage .tech-slide:nth-of-type(1) .tech-visual{background-image:url("/agile-orbit/assets/images/facilitation/01-1-2-4-All.png");}
+.tech-stage .tech-slide:nth-of-type(2) .tech-visual{background-image:url("/agile-orbit/assets/images/facilitation/02-Roman-Voting.png");}
+.tech-stage .tech-slide:nth-of-type(3) .tech-visual{background-image:url("/agile-orbit/assets/images/facilitation/03-Dot-Voting.png");}
+.tech-stage .tech-slide:nth-of-type(4) .tech-visual{background-image:url("/agile-orbit/assets/images/facilitation/04-Fist-of-Five.png");}
+.tech-stage .tech-slide:nth-of-type(5) .tech-visual{background-image:url("/agile-orbit/assets/images/facilitation/05-Affinity-Mapping.png");}
+.tech-stage .tech-slide:nth-of-type(6) .tech-visual{background-image:url("/agile-orbit/assets/images/facilitation/06-Gallery-Walk.png");}
+.tech-stage .tech-slide:nth-of-type(7) .tech-visual{background-image:url("/agile-orbit/assets/images/facilitation/07-White-Elephant.png");}
+.tech-stage .tech-slide:nth-of-type(8) .tech-visual{background-image:url("/agile-orbit/assets/images/facilitation/08-Diverge-Converge.png");}
+.tech-stage .tech-slide:nth-of-type(9) .tech-visual{background-image:url("/agile-orbit/assets/images/facilitation/09-TRIZ.png");}
+.tech-stage .tech-slide:nth-of-type(10) .tech-visual{background-image:url("/agile-orbit/assets/images/facilitation/10-Team-Agreement.png");}
+.tech-stage .tech-slide:nth-of-type(11) .tech-visual{background-image:url("/agile-orbit/assets/images/facilitation/11-Thirty-Five.png");}
+.tech-stage .tech-slide:nth-of-type(12) .tech-visual{background-image:url("/agile-orbit/assets/images/facilitation/12-Buy-a-Feature.png");}
 @media(max-width:800px){
-  .tech-stage .tech-slide .tech-visual{min-height:270px}
+  .tech-stage .tech-slide .tech-visual{min-height:270px;}
 }
 @media(max-width:520px){
-  .tech-stage .tech-slide .tech-visual{min-height:240px}
+  .tech-stage .tech-slide .tech-visual{min-height:240px;}
 }

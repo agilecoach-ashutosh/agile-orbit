@@ -128,7 +128,7 @@
       if(!visible)return;
       links.forEach(a=>a.classList.remove('active'));
       const active=map.get(visible.target.id);
-      if(active){active.classList.add('active');active.scrollIntoView({block:'nearest',inline:'nearest'})}
+      if(active){active.classList.add('active');active.closest('.coach-subnav')?.scrollTo({left:Math.max(0,active.offsetLeft-(active.parentElement.clientWidth-active.offsetWidth)/2),behavior:'auto'})}
     },{rootMargin:'-30% 0px -58% 0px',threshold:[0,.15,.35,.55]});
     sections.forEach(section=>observer.observe(section));
   }

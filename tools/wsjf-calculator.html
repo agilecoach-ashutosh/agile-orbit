@@ -1,101 +1,97 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"/><script src="/agile-orbit/js/theme.js"></script><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>WSJF Calculator | Agile Orbit</title>
-<meta name="description" content="Rank features using Weighted Shortest Job First: Cost of Delay divided by Job Size.">
-<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/responsive.css">
-<link rel="stylesheet" href="../css/universe-pages.css"><link rel="stylesheet" href="../css/reference-nav.css"><link rel="stylesheet" href="../css/wsjf.css">
-</head>
-<body class="universe-inner">
-<div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div>
-<main>
-<section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="../">Home</a><span>/</span><a href="../tools/">Tools</a><span>/</span><span>WSJF</span></div><span class="eyebrow">PRIORITISATION TOOL</span><h1>WSJF Calculator</h1><p class="muted" style="max-width:760px;font-size:1.08rem">Compare features using Weighted Shortest Job First: Cost of Delay ÷ Job Size.</p></div></section>
+<meta content="Rank features using Weighted Shortest Job First: Cost of Delay divided by Job Size." name="description"/>
+<link href="../assets/icons/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../css/style.css" rel="stylesheet"/><link href="../css/components.css" rel="stylesheet"/><link href="../css/animations.css" rel="stylesheet"/><link href="../css/responsive.css" rel="stylesheet"/>
+<link href="../css/universe-pages.css" rel="stylesheet"/><link href="../css/reference-nav.css" rel="stylesheet"/><link href="../css/wsjf.css" rel="stylesheet"/>
+<link href="https://agilecoach-ashutosh.github.io/agile-orbit/tools/wsjf-calculator.html" rel="canonical"/><meta content="WSJF Calculator | Agile Orbit" property="og:title"/><meta content="Rank features using Weighted Shortest Job First: Cost of Delay divided by Job Size." property="og:description"/><meta content="website" property="og:type"/><meta content="https://agilecoach-ashutosh.github.io/agile-orbit/tools/wsjf-calculator.html" property="og:url"/><meta content="https://agilecoach-ashutosh.github.io/agile-orbit/assets/hero/hero-ai-agile.webp" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="/agile-orbit/css/audit-fixes.css" rel="stylesheet"/><link href="/agile-orbit/css/theme-tokens.css" rel="stylesheet"/></head>
+<body class="universe-inner"><a class="skip-link" href="#main-content">Skip to main content</a>
+<div id="site-nav"><nav aria-label="Primary" class="fallback-nav container"><a href="/agile-orbit/">Agile Orbit</a><a href="/agile-orbit/learn/">Learn</a><a href="/agile-orbit/practice/">Practice</a><a href="/agile-orbit/tools/">Tools</a><a href="/agile-orbit/resources/">Resources</a><a href="/agile-orbit/insights/">Insights</a><a href="/agile-orbit/coaching/">Coaching</a><a href="/agile-orbit/ai/">AI</a><a href="/agile-orbit/about/">About</a><a href="/agile-orbit/connect/">Connect</a></nav></div><div class="mobile-drawer" id="mobile-drawer"></div>
+<main id="main-content" tabindex="-1">
+<section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="/agile-orbit/">Home</a><span>/</span><a href="../tools/">Tools</a><span>/</span><span>WSJF</span></div><span class="eyebrow">PRIORITISATION TOOL</span><h1>WSJF Calculator</h1><p class="muted" style="max-width:760px;font-size:1.08rem">Compare features using Weighted Shortest Job First: Cost of Delay ÷ Job Size.</p></div></section>
 <section class="section"><div class="container wsjf-stack">
-  <div class="panel wsjf-how">
-    <div class="wsjf-section-heading"><div><span class="eyebrow">HOW IT WORKS</span><h2>Make the economic trade-off visible.</h2></div><span class="wsjf-formula">WSJF = Cost of Delay ÷ Job Size</span></div>
-    <p class="muted">WSJF helps compare the relative economic value of delivering work sooner against the size required. Use one consistent relative scoring scale across all features.</p>
-    <div class="callout wsjf-scale-guidance" role="note"><strong>Use the modified Fibonacci-style relative scale [1, 2, 3, 5, 8, 13, 20].</strong><br>Use the same scale for Business Value, Time Criticality, Risk Reduction / Opportunity Enablement, and Job Size. Scores are relative to the other features being assessed—not absolute measurements.</div>
-    <div class="callout wsjf-tie-guidance" role="note"><strong>If two features have the same WSJF:</strong> first check whether the relative scores still make sense. If the tie is genuine, use secondary considerations such as dependencies, sequencing, strategic fit, learning value or risk instead of forcing an artificial difference.</div>
-    <div class="wsjf-how-grid">
-      <div class="callout"><strong>Cost of Delay</strong><br>Business Value + Time Criticality + Risk Reduction / Opportunity Enablement</div>
-      <div class="callout"><strong>WSJF</strong><br>Cost of Delay ÷ Job Size</div>
-      <div class="callout"><strong>Interpretation</strong><br>Higher WSJF indicates work that may deserve earlier consideration.</div>
-    </div>
-  </div>
-
-  <div class="panel wsjf-input-panel">
-    <div class="wsjf-section-heading"><div><span class="eyebrow">1 · INPUT</span><h2>Enter feature inputs</h2></div><div class="actions"><button type="button" class="btn btn-primary" id="addWsjf">+ Add feature</button><button type="button" class="btn btn-secondary" id="resetWsjf">Reset</button></div></div>
-    <p class="note">Use only values from [1, 2, 3, 5, 8, 13, 20]. Invalid entries are flagged rather than silently changed. Cost of Delay, WSJF Score and Rank are calculated automatically.</p>
-
-    <div class="wsjf-question-guide" aria-labelledby="wsjfQuestionsTitle">
-      <div class="wsjf-question-guide-head">
-        <div><span class="eyebrow">SCORING GUIDANCE</span><h3 id="wsjfQuestionsTitle">Powerful questions before you score</h3></div>
-        <p>Discuss the questions comparatively across features. The goal is shared understanding—not false precision.</p>
-      </div>
-      <div class="wsjf-question-grid">
-        <article class="wsjf-question-card">
-          <div class="wsjf-question-label"><span class="wsjf-question-icon" aria-hidden="true">📈</span><span>User / Business Value</span></div>
-          <ul>
-            <li>Which customer or business outcome improves if we deliver this?</li>
-            <li>What revenue, cost, adoption or customer-satisfaction impact could this create?</li>
-            <li>What negative consequence or penalty occurs if we delay or never do it?</li>
-          </ul>
-          <small>Think relative value compared with the other items being scored.</small>
-        </article>
-        <article class="wsjf-question-card">
-          <div class="wsjf-question-label"><span class="wsjf-question-icon" aria-hidden="true">⏱️</span><span>Time Criticality</span></div>
-          <ul>
-            <li>Is there a fixed date, regulatory window, market event or opportunity deadline?</li>
-            <li>How quickly does the value decay if we wait?</li>
-            <li>What becomes more costly, risky or less useful if delivery is delayed?</li>
-          </ul>
-          <small>High time criticality means the economic impact of waiting rises quickly.</small>
-        </article>
-        <article class="wsjf-question-card">
-          <div class="wsjf-question-label"><span class="wsjf-question-icon" aria-hidden="true">🛡️</span><span>Risk Reduction / Opportunity Enablement</span></div>
-          <ul>
-            <li>Which current or future risk does this reduce?</li>
-            <li>What learning, information or uncertainty reduction will this create?</li>
-            <li>What future capability, dependency or business opportunity does this unlock?</li>
-          </ul>
-          <small>Include enablers whose value comes from reducing uncertainty or enabling later work.</small>
-        </article>
-        <article class="wsjf-question-card">
-          <div class="wsjf-question-label"><span class="wsjf-question-icon" aria-hidden="true">⚙️</span><span>Job Size</span></div>
-          <ul>
-            <li>How much total effort is required end-to-end relative to the other features?</li>
-            <li>Where are the major complexity, uncertainty or dependency drivers?</li>
-            <li>Do testing, integration, compliance, migration or rollout materially increase the size?</li>
-          </ul>
-          <small>Estimate the whole job, not only development effort.</small>
-        </article>
-      </div>
-      <div class="wsjf-question-tip" role="note"><strong>Facilitation tip:</strong> score one reference feature first, then compare the others against it. If the team debates whether something is a 5 or an 8, the conversation about assumptions is often more valuable than the number itself.</div>
-    </div>
-
-    <div class="wsjf-table-shell">
-      <table class="data-table wsjf-table wsjf-input-table"><thead><tr>
-        <th>Feature</th><th>Business Value</th><th>Time Criticality</th><th>Risk Reduction / Opportunity Enablement</th><th>Job Size</th><th>Cost of Delay</th><th>WSJF Score</th><th>Rank</th>
-      </tr></thead><tbody id="wsjfRows"></tbody></table>
-    </div>
-    <div id="wsjfError" class="callout wsjf-error" role="alert" aria-live="polite" style="display:none"></div>
-  </div>
-
-  <div class="panel wsjf-results-panel">
-    <div class="wsjf-section-heading"><div><span class="eyebrow">2 · RANKING</span><h2>Sorted features by rank</h2></div></div>
-    <p class="note">This is a separate ranked view. Your input rows above stay in the order you entered them.</p>
-    <div class="wsjf-table-shell">
-      <table class="data-table wsjf-table wsjf-results-table"><thead><tr>
-        <th>Rank</th><th>Feature</th><th>Business Value</th><th>Time Criticality</th><th>Risk Reduction / Opportunity Enablement</th><th>Job Size</th><th>Cost of Delay</th><th>WSJF Score</th>
-      </tr></thead><tbody id="wsjfRankedRows"></tbody></table>
-    </div>
-  </div>
-
-  <div class="actions wsjf-actions"><button type="button" class="btn btn-secondary" id="exportWsjf">Export CSV</button><button type="button" class="btn btn-secondary" id="printWsjf">Print</button></div>
+<div class="panel wsjf-how">
+<div class="wsjf-section-heading"><div><span class="eyebrow">HOW IT WORKS</span><h2>Make the economic trade-off visible.</h2></div><span class="wsjf-formula">WSJF = Cost of Delay ÷ Job Size</span></div>
+<p class="muted">WSJF helps compare the relative economic value of delivering work sooner against the size required. Use one consistent relative scoring scale across all features.</p>
+<div class="callout wsjf-scale-guidance" role="note"><strong>Use the modified Fibonacci-style relative scale [1, 2, 3, 5, 8, 13, 20].</strong><br/>Use the same scale for Business Value, Time Criticality, Risk Reduction / Opportunity Enablement, and Job Size. Scores are relative to the other features being assessed—not absolute measurements.</div>
+<div class="callout wsjf-tie-guidance" role="note"><strong>If two features have the same WSJF:</strong> first check whether the relative scores still make sense. If the tie is genuine, use secondary considerations such as dependencies, sequencing, strategic fit, learning value or risk instead of forcing an artificial difference.</div>
+<div class="wsjf-how-grid">
+<div class="callout"><strong>Cost of Delay</strong><br/>Business Value + Time Criticality + Risk Reduction / Opportunity Enablement</div>
+<div class="callout"><strong>WSJF</strong><br/>Cost of Delay ÷ Job Size</div>
+<div class="callout"><strong>Interpretation</strong><br/>Higher WSJF indicates work that may deserve earlier consideration.</div>
+</div>
+</div>
+<div class="panel wsjf-input-panel">
+<div class="wsjf-section-heading"><div><span class="eyebrow">1 · INPUT</span><h2>Enter feature inputs</h2></div><div class="actions"><button class="btn btn-primary" id="addWsjf" type="button">+ Add feature</button><button class="btn btn-secondary" id="resetWsjf" type="button">Reset</button></div></div>
+<p class="note">Use only values from [1, 2, 3, 5, 8, 13, 20]. Invalid entries are flagged rather than silently changed. Cost of Delay, WSJF Score and Rank are calculated automatically.</p>
+<div aria-labelledby="wsjfQuestionsTitle" class="wsjf-question-guide">
+<div class="wsjf-question-guide-head">
+<div><span class="eyebrow">SCORING GUIDANCE</span><h3 id="wsjfQuestionsTitle">Powerful questions before you score</h3></div>
+<p>Discuss the questions comparatively across features. The goal is shared understanding—not false precision.</p>
+</div>
+<div class="wsjf-question-grid">
+<article class="wsjf-question-card">
+<div class="wsjf-question-label"><span aria-hidden="true" class="wsjf-question-icon">📈</span><span>User / Business Value</span></div>
+<ul>
+<li>Which customer or business outcome improves if we deliver this?</li>
+<li>What revenue, cost, adoption or customer-satisfaction impact could this create?</li>
+<li>What negative consequence or penalty occurs if we delay or never do it?</li>
+</ul>
+<small>Think relative value compared with the other items being scored.</small>
+</article>
+<article class="wsjf-question-card">
+<div class="wsjf-question-label"><span aria-hidden="true" class="wsjf-question-icon">⏱️</span><span>Time Criticality</span></div>
+<ul>
+<li>Is there a fixed date, regulatory window, market event or opportunity deadline?</li>
+<li>How quickly does the value decay if we wait?</li>
+<li>What becomes more costly, risky or less useful if delivery is delayed?</li>
+</ul>
+<small>High time criticality means the economic impact of waiting rises quickly.</small>
+</article>
+<article class="wsjf-question-card">
+<div class="wsjf-question-label"><span aria-hidden="true" class="wsjf-question-icon">🛡️</span><span>Risk Reduction / Opportunity Enablement</span></div>
+<ul>
+<li>Which current or future risk does this reduce?</li>
+<li>What learning, information or uncertainty reduction will this create?</li>
+<li>What future capability, dependency or business opportunity does this unlock?</li>
+</ul>
+<small>Include enablers whose value comes from reducing uncertainty or enabling later work.</small>
+</article>
+<article class="wsjf-question-card">
+<div class="wsjf-question-label"><span aria-hidden="true" class="wsjf-question-icon">⚙️</span><span>Job Size</span></div>
+<ul>
+<li>How much total effort is required end-to-end relative to the other features?</li>
+<li>Where are the major complexity, uncertainty or dependency drivers?</li>
+<li>Do testing, integration, compliance, migration or rollout materially increase the size?</li>
+</ul>
+<small>Estimate the whole job, not only development effort.</small>
+</article>
+</div>
+<div class="wsjf-question-tip" role="note"><strong>Facilitation tip:</strong> score one reference feature first, then compare the others against it. If the team debates whether something is a 5 or an 8, the conversation about assumptions is often more valuable than the number itself.</div>
+</div>
+<div class="wsjf-table-shell">
+<table class="data-table wsjf-table wsjf-input-table"><thead><tr>
+<th>Feature</th><th>Business Value</th><th>Time Criticality</th><th>Risk Reduction / Opportunity Enablement</th><th>Job Size</th><th>Cost of Delay</th><th>WSJF Score</th><th>Rank</th>
+</tr></thead><tbody id="wsjfRows"></tbody></table>
+</div>
+<div aria-live="polite" class="callout wsjf-error" id="wsjfError" role="alert" style="display:none"></div>
+</div>
+<div class="panel wsjf-results-panel">
+<div class="wsjf-section-heading"><div><span class="eyebrow">2 · RANKING</span><h2>Sorted features by rank</h2></div></div>
+<p class="note">This is a separate ranked view. Your input rows above stay in the order you entered them.</p>
+<div class="wsjf-table-shell">
+<table class="data-table wsjf-table wsjf-results-table"><thead><tr>
+<th>Rank</th><th>Feature</th><th>Business Value</th><th>Time Criticality</th><th>Risk Reduction / Opportunity Enablement</th><th>Job Size</th><th>Cost of Delay</th><th>WSJF Score</th>
+</tr></thead><tbody id="wsjfRankedRows"></tbody></table>
+</div>
+</div>
+<div class="actions wsjf-actions"><button class="btn btn-secondary" id="exportWsjf" type="button">Export CSV</button><button class="btn btn-secondary" id="printWsjf" type="button">Print</button></div>
 </div></section>
-</main><div id="site-footer"></div>
+</main><div id="site-footer"><footer class="site-footer"><a href="/agile-orbit/connect/">Contact &amp; feedback</a></footer></div>
 <script src="../js/config.js"></script><script src="../js/utilities.js"></script><script src="../js/navigation.js"></script><script src="../js/main.js"></script><script src="../js/tools.js"></script><script src="../js/calculators.js"></script>
 <script>
 (function(){
@@ -166,7 +162,7 @@
     calculate();
   }
   function reset(){ rows.innerHTML=''; addRow(); addRow(); addRow(); }
-  function csvEscape(value){ return '"'+String(value).replace(/"/g,'""')+'"'; }
+  function csvEscape(value){ if(typeof value==='string'&&/^[\s]*[=+@-]|^[\t\r\n]/.test(value))value="'"+value; return '"'+String(value).replace(/"/g,'""')+'"'; }
   function exportCsv(){
     const data=collectData();
     const ranked=data.filter(function(item){return item.valid;}).sort(function(a,b){return b.score-a.score || a.index-b.index;});

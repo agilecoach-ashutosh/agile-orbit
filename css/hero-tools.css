@@ -20,13 +20,13 @@ body.universe-home .hero-feature-links .hero-card{
   justify-content:flex-start;
   gap:14px;
   overflow:hidden;
-  border:1px solid rgba(84,221,255,.30);
+  border:1px solid var(--ao-color-1173);
   border-radius:12px;
-  background:linear-gradient(135deg,rgba(7,25,41,.50),rgba(3,11,23,.30));
+  background:linear-gradient(135deg,var(--ao-color-1359),var(--ao-color-1360));
   backdrop-filter:blur(10px);
   -webkit-backdrop-filter:blur(10px);
-  box-shadow:0 0 26px rgba(49,190,255,.08),inset 0 1px 0 rgba(255,255,255,.07);
-  color:#effcff;
+  box-shadow:0 0 26px var(--ao-color-1361),inset 0 1px 0 var(--ao-color-231);
+  color:var(--ao-color-817);
   text-decoration:none;
   transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease,background .25s ease;
 }
@@ -34,7 +34,7 @@ body.universe-home .hero-feature-links .hero-card::before{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(110deg,rgba(84,221,255,.05),transparent 38%,rgba(84,221,255,.04));
+  background:linear-gradient(110deg,var(--ao-color-800),transparent 38%,var(--ao-color-1362));
   pointer-events:none;
 }
 body.universe-home .hero-feature-links .hero-card::after{
@@ -44,15 +44,15 @@ body.universe-home .hero-feature-links .hero-card::after{
   top:12px;
   bottom:12px;
   width:2px;
-  background:linear-gradient(180deg,transparent,#54ddff,transparent);
-  box-shadow:0 0 12px rgba(84,221,255,.7);
+  background:linear-gradient(180deg,transparent,var(--ao-color-798),transparent);
+  box-shadow:0 0 12px var(--ao-color-805);
   opacity:.75;
 }
 body.universe-home .hero-feature-links .hero-card:hover{
   transform:translateX(-5px) translateY(-1px);
-  border-color:rgba(84,221,255,.72);
-  background:linear-gradient(135deg,rgba(9,37,59,.62),rgba(4,15,29,.40));
-  box-shadow:0 0 30px rgba(49,190,255,.18),inset 0 1px 0 rgba(255,255,255,.10);
+  border-color:var(--ao-color-1363);
+  background:linear-gradient(135deg,var(--ao-color-1364),var(--ao-color-1365));
+  box-shadow:0 0 30px var(--ao-color-816),inset 0 1px 0 var(--ao-color-818);
 }
 body.universe-home .hero-feature-links .hero-card-icon{
   width:38px;
@@ -60,18 +60,18 @@ body.universe-home .hero-feature-links .hero-card-icon{
   flex:0 0 38px;
   display:grid;
   place-items:center;
-  border:1px solid rgba(84,221,255,.28);
+  border:1px solid var(--ao-color-807);
   border-radius:10px;
-  background:rgba(84,221,255,.06);
-  color:#b9f4ff;
+  background:var(--ao-color-1366);
+  color:var(--ao-color-1367);
   font-size:1.05rem;
-  box-shadow:0 0 18px rgba(84,221,255,.07),inset 0 0 12px rgba(84,221,255,.04);
+  box-shadow:0 0 18px var(--ao-color-811),inset 0 0 12px var(--ao-color-1362);
 }
 body.universe-home .hero-feature-links .hero-card-tag{
   position:absolute;
   top:12px;
   left:70px;
-  color:#69ddff;
+  color:var(--ao-color-1368);
   font-size:.47rem;
   font-weight:800;
   letter-spacing:.19em;
@@ -81,7 +81,7 @@ body.universe-home .hero-feature-links .hero-card strong{
   display:block;
   margin-left:4px;
   padding-top:3px;
-  color:#f1fbff;
+  color:var(--ao-color-1057);
   font-size:.80rem;
   font-weight:800;
   line-height:1.15;
@@ -90,20 +90,20 @@ body.universe-home .hero-feature-links .hero-card strong{
 body.universe-home .hero-feature-links .hero-card-arrow{
   margin-left:auto;
   flex:0 0 auto;
-  color:#70e5ff;
+  color:var(--ao-color-1369);
   font-size:1rem;
   opacity:.72;
-  text-shadow:0 0 12px rgba(84,221,255,.5);
+  text-shadow:0 0 12px var(--ao-color-1370);
 }
 @media(max-width:900px){
-  body.universe-home .hero-feature-links{right:7vw;width:40vw}
+  body.universe-home .hero-feature-links{right:7vw;width:40vw;}
 }
 @media(max-width:760px){
-  body.universe-home .hero-feature-links{position:relative;right:auto;top:auto;width:100%;margin-top:26px;transform:none}
-  body.universe-home .hero-feature-links .hero-card{min-height:78px;padding:14px 15px}
-  body.universe-home .hero-feature-links .hero-card-tag{left:63px}
-  body.universe-home .hero-feature-links .hero-card strong{font-size:.76rem}
+  body.universe-home .hero-feature-links{position:relative;right:auto;top:auto;width:100%;margin-top:26px;transform:none;}
+  body.universe-home .hero-feature-links .hero-card{min-height:78px;padding:14px 15px;}
+  body.universe-home .hero-feature-links .hero-card-tag{left:63px;}
+  body.universe-home .hero-feature-links .hero-card strong{font-size:.76rem;}
 }
 @media(prefers-reduced-motion:reduce){
-  body.universe-home .hero-feature-links .hero-card{transition:none!important}
+  body.universe-home .hero-feature-links .hero-card{transition:none!important;}
 }

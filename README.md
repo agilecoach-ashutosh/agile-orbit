@@ -85,3 +85,23 @@ The project avoids framework bundles and large media. The visual system is CSS-f
 ## 3D Hero — CDN-safe implementation
 
 The homepage 3D hero loads Three.js as an ES module from jsDelivr at runtime. This avoids the legacy `three.min.js` global build path that can disappear between Three.js releases. If the CDN is unavailable or WebGL cannot start, the homepage automatically switches to a lightweight orbital navigation fallback instead of displaying a startup error.
+
+## Maintenance and regression checks
+
+The site remains static HTML, CSS and JavaScript; deployment requires no build step.
+For local regression tests, run `npm install` and `npm test`. Tests cover calculator
+edge cases, theme persistence and navigation focus restoration.
+
+After adding or renaming a page, run `python scripts/refresh-indexes.py` with
+Beautiful Soup installed to refresh navigation, search and the sitemap. Add a
+unique description, canonical URL, favicon and main-content skip link to new pages.
+
+The current visual system uses Manrope headings, Inter body text and gold accents.
+`css/theme-tokens.css` pairs existing dark colors with light colors; the theme
+button persists the preference locally and otherwise follows the system setting.
+Keep common styles in shared stylesheets. Extracted page-specific styles live in
+`css/pages/`. Avoid inline CSS and global overrides of native DOM methods.
+
+`robots.txt` is included for deployments at an origin root. GitHub Pages project
+sites share the owner's origin-level robots policy; submit `sitemap.xml` directly
+when configuring search indexing.

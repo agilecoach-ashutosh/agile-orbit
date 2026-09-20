@@ -10,6 +10,7 @@ function add(name){
   const tr=document.createElement('tr');
   tr.innerHTML='<td><input class="name" value="'+(name||'Team '+(rows.children.length+1))+'"></td><td><input class="members" type="number" min="1" step="1" value="7"></td><td><input class="holidays" type="number" min="0" step="0.5" value="0"></td><td><input class="leave" type="number" min="0" step="0.5" value="0"></td><td><input class="focus" type="number" min="0" max="100" step="1" value="'+$('focusDefault').value+'" data-overridden="false"></td><td class="avail">0</td><td class="cap">0</td><td><input class="velocity" type="number" min="0" step="0.1" placeholder="Optional"></td><td><button class="calc-delete" title="Remove team" aria-label="Remove team" type="button">×</button></td>';
   rows.appendChild(tr);
+  tr.querySelectorAll('input').forEach(input=>input.setAttribute('aria-label',(name||'Team '+rows.children.length)+' '+({name:'name',members:'members',holidays:'holidays per person',leave:'leave days per person',focus:'focus percentage',velocity:'historical velocity'}[input.className]||input.className)));
   tr.querySelectorAll('input').forEach(x=>x.addEventListener('input',calc));
   tr.querySelector('.focus').addEventListener('input',e=>{e.target.dataset.overridden='true';});
   tr.querySelector('.calc-delete').onclick=()=>{tr.remove();calc();};
@@ -17,6 +18,9 @@ function add(name){
 }
 function calc(){
   const weeks=n($('piWeeks').value),days=n($('daysWeek').value),base=weeks*days;
+  const inputs=[...rows.querySelectorAll('input[type=number]')];
+  const invalid=!Number.isInteger(weeks)||weeks<1||!Number.isInteger(days)||days<1||days>7||$('focusDefault').value===''||n($('focusDefault').value)<0||n($('focusDefault').value)>100||inputs.some(x=>(x.value===''&&!x.classList.contains('velocity'))||!Number.isFinite(Number(x.value))||Number(x.value)<0||(x.classList.contains('members')&&(!Number.isInteger(Number(x.value))||Number(x.value)<1))||(x.classList.contains('focus')&&Number(x.value)>100))||[...rows.children].some(tr=>n(tr.querySelector('.holidays').value)+n(tr.querySelector('.leave').value)>base);
+  if(invalid){summary.replaceChildren();rows.querySelectorAll('.avail,.cap').forEach(el=>el.textContent='—');['kPeople','kAvailable','kCapacity'].forEach(id=>$(id).textContent='—');$('artInsight').textContent='Check inputs: whole positive weeks and members; 1–7 working days per week; focus 0–100%; holidays plus leave cannot exceed working days per person. All values must be non-negative.';return;}
   let people=0,avail=0,cap=0;
   summary.innerHTML='';
   Array.from(rows.children).forEach(tr=>{
@@ -39,6 +43,7 @@ $('focusDefault').addEventListener('input',()=>{
   calc();
 });
 $('addTeam').onclick=()=>add();
-$('resetTeams').onclick=()=>{rows.innerHTML='';add('Team 1');add('Team 2');add('Team 3');};
+$('resetTeams').onclick=()=>{$('piWeeks').value='10';$('daysWeek').value='5';$('focusDefault').value='80';rows.innerHTML='';add('Team 1');add('Team 2');add('Team 3');};
+$('artInsight').setAttribute('role','status');
 add('Team 1');add('Team 2');add('Team 3');
 })();

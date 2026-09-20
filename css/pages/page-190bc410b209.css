@@ -1,0 +1,7 @@
+
+    .privacy-page .page-hero{padding-bottom:30px;}
+    .privacy-page .article{max-width:860px;}
+    .privacy-page .privacy-card{margin:18px 0;padding:24px;border:1px solid var(--border);border-radius:20px;background:var(--surface-soft);}
+    .privacy-page .privacy-card h2{margin-top:0;}
+    .privacy-page .privacy-card p:last-child{margin-bottom:0;}
+  

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://agilecoach-ashutosh.github.io/agile-orbit/sitemap.xml

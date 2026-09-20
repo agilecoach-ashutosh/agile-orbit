@@ -1,34 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"/><script src="/agile-orbit/js/theme.js"></script><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Requirement Template | Agile Orbit</title>
-<meta name="description" content="Practical requirement templates: User Story with examples and powerful questions, INVEST guidance, plus a SAFe-aligned Epic template.">
-<meta name="theme-color" content="#071019"><link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../css/style.css"><link rel="stylesheet" href="../../css/components.css"><link rel="stylesheet" href="../../css/animations.css"><link rel="stylesheet" href="../../css/responsive.css"><link rel="stylesheet" href="../../css/universe-pages.css"><link rel="stylesheet" href="../../css/reference-nav.css"><link rel="stylesheet" href="../../css/requirement-template.css">
-</head>
-<body class="universe-inner">
-<div id="site-nav"></div><div id="mobile-drawer" class="mobile-drawer"></div>
-<main>
+<meta content="Practical requirement templates: User Story with examples and powerful questions, INVEST guidance, plus a SAFe-aligned Epic template." name="description"/>
+<meta content="#071019" name="theme-color"/><link href="../../assets/icons/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../../css/style.css" rel="stylesheet"/><link href="../../css/components.css" rel="stylesheet"/><link href="../../css/animations.css" rel="stylesheet"/><link href="../../css/responsive.css" rel="stylesheet"/><link href="../../css/universe-pages.css" rel="stylesheet"/><link href="../../css/reference-nav.css" rel="stylesheet"/><link href="../../css/requirement-template.css" rel="stylesheet"/>
+<link href="https://agilecoach-ashutosh.github.io/agile-orbit/resources/templates/requirement.html" rel="canonical"/><meta content="Requirement Template | Agile Orbit" property="og:title"/><meta content="Practical requirement templates: User Story with examples and powerful questions, INVEST guidance, plus a SAFe-aligned Epic template." property="og:description"/><meta content="website" property="og:type"/><meta content="https://agilecoach-ashutosh.github.io/agile-orbit/resources/templates/requirement.html" property="og:url"/><meta content="https://agilecoach-ashutosh.github.io/agile-orbit/assets/hero/hero-ai-agile.webp" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="/agile-orbit/css/audit-fixes.css" rel="stylesheet"/><link href="/agile-orbit/css/theme-tokens.css" rel="stylesheet"/></head>
+<body class="universe-inner"><a class="skip-link" href="#main-content">Skip to main content</a>
+<div id="site-nav"><nav aria-label="Primary" class="fallback-nav container"><a href="/agile-orbit/">Agile Orbit</a><a href="/agile-orbit/learn/">Learn</a><a href="/agile-orbit/practice/">Practice</a><a href="/agile-orbit/tools/">Tools</a><a href="/agile-orbit/resources/">Resources</a><a href="/agile-orbit/insights/">Insights</a><a href="/agile-orbit/coaching/">Coaching</a><a href="/agile-orbit/ai/">AI</a><a href="/agile-orbit/about/">About</a><a href="/agile-orbit/connect/">Connect</a></nav></div><div class="mobile-drawer" id="mobile-drawer"></div>
+<main id="main-content" tabindex="-1">
 <section class="page-hero requirement-hero"><div class="container">
-<div class="breadcrumbs"><a href="./">Home</a><span>/</span><span>Resources / Templates</span></div>
+<div class="breadcrumbs"><a href="/agile-orbit/">Home</a><span>/</span><span>Resources / Templates</span></div>
 <span class="eyebrow">TEMPLATE · REQUIREMENTS</span>
 <h1>Requirement Template</h1>
 <p class="muted requirement-lead">From a customer outcome at story level to a strategic investment hypothesis at Epic level.</p>
 <div class="req-hero-actions"><a class="btn btn-primary" href="#user-story">Start with User Story ↓</a><a class="btn btn-secondary" href="#safe-epic">Jump to SAFe Epic ↓</a></div>
 </div></section>
-
 <section class="section req-overview"><div class="container"><div class="req-levels">
 <div class="req-level"><span class="req-number">01</span><div><strong>User Story</strong><span>Small, valuable, testable slice of user outcome</span></div></div>
 <div class="req-connector">→</div>
 <div class="req-level"><span class="req-number">02</span><div><strong>Epic</strong><span>Significant initiative expressed as a hypothesis</span></div></div>
 </div><div class="callout req-callout"><strong>Think at the right altitude.</strong> A User Story helps a team decide what can be delivered in a Sprint. An Epic helps the organisation decide whether a significant investment is worth pursuing and how it will be validated.</div></div></section>
-
 <section class="section" id="user-story"><div class="container">
 <div class="section-heading"><span class="eyebrow">01 · USER STORY</span><h2>User Story Template</h2><p class="muted">Capture a user outcome, the value behind it, and observable acceptance criteria. Use the template as a conversation starter—not as a substitute for collaboration.</p></div>
 <div class="req-grid">
 <article class="req-card"><div class="req-card-head"><div><span class="tag">TEMPLATE</span><h3>The Story</h3></div><button class="copy-btn" data-copy-target="story-template">Copy template</button></div>
-<pre id="story-template" class="template-code">## [Short, outcome-focused title]
+<pre class="template-code" id="story-template">## [Short, outcome-focused title]
 
 As a &lt;real user / persona&gt;
 I want to &lt;goal / outcome&gt;
@@ -44,73 +43,60 @@ So that I can &lt;benefit / value&gt;
 - Dependencies: &lt;if known&gt;
 - Out of scope: &lt;what this story does not cover&gt;
 - Open questions: &lt;TBD if unresolved&gt;</pre></article>
-
 <article class="req-card example-card"><div class="req-card-head"><div><span class="tag">EXAMPLE</span><h3>Password Reset</h3></div></div>
 <div class="story-example"><p><strong>As a</strong> customer</p><p><strong>I want to</strong> reset my forgotten password</p><p><strong>So that I can</strong> regain access to my account without contacting support</p><h4>Acceptance Criteria</h4><ul class="check-list"><li>The system sends a password-reset email when a registered email address is submitted.</li><li>The system rejects an invalid or expired reset token.</li><li>The system prevents a reset token from being reused after a successful password change.</li><li>The system confirms successful password reset without exposing the user's password.</li></ul></div></article>
 </div>
-
 <div class="req-two-col">
 <article class="insight-panel"><span class="panel-label">💡 TIPS</span><h3>Make the story stronger</h3><ul><li><strong>Start with the user.</strong> Name a real persona or stakeholder who receives the value.</li><li><strong>Describe an outcome.</strong> Avoid turning “I want to” into a technical solution.</li><li><strong>Keep it small.</strong> If the story needs several independent outcomes, split it.</li><li><strong>Make acceptance criteria observable.</strong> Describe what the system does, permits, prevents, calculates, stores, or displays.</li><li><strong>Keep process items out.</strong> Code review, testing completed, and deployment tasks are not acceptance criteria.</li><li><strong>Use TBD deliberately.</strong> Surface an unknown instead of inventing a requirement.</li></ul></article>
 <article class="insight-panel question-panel"><span class="panel-label">🧠 POWERFUL QUESTIONS</span><h3>Use these in refinement</h3><ol><li><strong>Who actually benefits from this?</strong></li><li><strong>What outcome changes for that person?</strong></li><li><strong>What problem are we solving—not what feature are we building?</strong></li><li><strong>How would we know the story works?</strong></li><li><strong>What is the smallest valuable slice?</strong></li><li><strong>What could make this story fail or behave differently?</strong></li><li><strong>What assumption are we making that we should make visible?</strong></li></ol></article>
 </div>
-
 <div class="invest-strip"><span>INVEST</span><div><b>Independent</b><b>Negotiable</b><b>Valuable</b><b>Estimable</b><b>Small</b><b>Testable</b></div></div>
-
 <section class="invest-guide" id="invest">
 <div class="invest-intro">
 <div><span class="eyebrow">STORY QUALITY · INVEST</span><h2>Use INVEST as a refinement lens</h2><p>INVEST is a practical heuristic for improving the quality of a User Story conversation. It is not a compliance checklist or a rigid “ready” gate. When one dimension is weak, use it as a signal to clarify, slice, explore uncertainty or make a dependency visible.</p></div>
 <div class="invest-domain-note"><span>BANKING</span><span>ASSET MANAGEMENT</span><span>COMPLIANCE</span><p>The examples below deliberately use enterprise financial-services scenarios where regulation, controls, data and dependencies make requirement quality especially important.</p></div>
 </div>
-
 <div class="invest-cards">
 <article class="invest-card">
 <div class="invest-card-head"><span class="invest-letter">I</span><div><span class="invest-domain">Sanctions Screening</span><h3>Independent</h3><p class="invest-question">Can this story deliver meaningful value with minimal dependency on another story?</p></div></div>
 <div class="invest-explain-grid"><div><span>WHAT IT MEANS</span><p>The story can be delivered with minimal dependency on other stories.</p></div><div><span>WHY IT MATTERS</span><p>Heavy dependencies restrict prioritisation, create sequencing problems and increase delivery risk.</p></div><div><span>HOW TO IMPROVE</span><p>Slice vertically around a usable business outcome. Reduce technical sequencing and make unavoidable dependencies explicit.</p></div></div>
 <div class="story-compare"><div class="story-state needs-work"><span>⚠ NEEDS REFINEMENT</span><p>“Complete sanctions screening UI after the sanctions engine integration story is finished.”</p><small>The story cannot deliver anything useful until another story is completed.</small></div><div class="story-state stronger"><span>✓ STRONGER STORY</span><p>“As a Compliance Analyst, I want a newly onboarded customer to be automatically screened against the configured sanctions list so that I can identify potential sanctions matches before the account is activated.”</p><small><strong>What improved?</strong> The slice includes the minimum integration and result needed to provide usable compliance value.</small></div></div>
 </article>
-
 <article class="invest-card">
 <div class="invest-card-head"><span class="invest-letter">N</span><div><span class="invest-domain">Portfolio Compliance</span><h3>Negotiable</h3><p class="invest-question">Does the story preserve the business need without unnecessarily prescribing the solution?</p></div></div>
 <div class="invest-explain-grid"><div><span>WHAT IT MEANS</span><p>The story describes the need and outcome rather than becoming a fixed implementation contract.</p></div><div><span>WHY IT MATTERS</span><p>Over-specified stories prevent the team from exploring simpler, safer or more effective solutions.</p></div><div><span>HOW TO IMPROVE</span><p>State the user need, outcome and genuine constraints. Keep implementation choices open unless they are mandatory regulatory or architectural constraints.</p></div></div>
 <div class="story-compare"><div class="story-state needs-work"><span>⚠ NEEDS REFINEMENT</span><p>“The portfolio compliance report must be generated as a PDF using JasperReports, stored in S3 and emailed every day at 6 PM.”</p><small>The story mixes the business need with several predetermined implementation decisions.</small></div><div class="story-state stronger"><span>✓ STRONGER STORY</span><p>“As a Portfolio Compliance Officer, I want to receive a daily record of portfolio breaches in a non-editable format so that I can review, evidence and escalate breaches before the start of the trading day.”</p><small><strong>What improved?</strong> The user, outcome and audit constraint remain clear while the delivery team retains solution flexibility.</small></div></div>
 </article>
-
 <article class="invest-card">
 <div class="invest-card-head"><span class="invest-letter">V</span><div><span class="invest-domain">AML Transaction Monitoring</span><h3>Valuable</h3><p class="invest-question">Can we explain who benefits and what meaningful outcome changes?</p></div></div>
 <div class="invest-explain-grid"><div><span>WHAT IT MEANS</span><p>The story produces a meaningful outcome for a customer, business stakeholder or control function.</p></div><div><span>WHY IT MATTERS</span><p>Technical activity alone does not explain why the organisation should invest in the work.</p></div><div><span>HOW TO IMPROVE</span><p>Connect technical work to a customer, operational, risk, regulatory or business outcome.</p></div></div>
 <div class="story-compare"><div class="story-state needs-work"><span>⚠ NEEDS REFINEMENT</span><p>“As a developer, I want to create an API for transaction monitoring.”</p><small>The technical output has no explicit user or business outcome.</small></div><div class="story-state stronger"><span>✓ STRONGER STORY</span><p>“As an AML Investigator, I want high-risk transactions to be evaluated against configured monitoring rules within five minutes of posting so that potentially suspicious activity can be investigated before further funds movement occurs.”</p><small><strong>What improved?</strong> The story ties the capability to an investigator, a time-sensitive control outcome and a clear reason for the investment.</small></div></div>
 </article>
-
 <article class="invest-card">
 <div class="invest-card-head"><span class="invest-letter">E</span><div><span class="invest-domain">MiFID II · Suitability</span><h3>Estimable</h3><p class="invest-question">Does the team understand the behaviour and uncertainty well enough to size it meaningfully?</p></div></div>
 <div class="invest-explain-grid"><div><span>WHAT IT MEANS</span><p>The team understands the scope, behaviour and uncertainty well enough to estimate the story relatively.</p></div><div><span>WHY IT MATTERS</span><p>Large estimation differences often reveal hidden assumptions, unclear rules, unknown dependencies or excessive scope.</p></div><div><span>HOW TO IMPROVE</span><p>Clarify business rules, data sources, edge cases and dependencies. Run a spike when uncertainty cannot reasonably be removed through discussion.</p></div></div>
 <div class="story-compare"><div class="story-state needs-work"><span>⚠ NEEDS REFINEMENT</span><p>“Implement MiFID II suitability validation for investment products.”</p><small>One developer estimates 3 points and another 21 because product rules, customer classifications and exception scenarios are unclear.</small></div><div class="story-state stronger"><span>✓ STRONGER STORY</span><p>“As an Investment Advisor, I want the order screen to block the purchase of a product whose risk rating exceeds the client's approved risk profile so that unsuitable transactions cannot be submitted without an authorised override.”</p><small><strong>What improved?</strong> Product-risk mapping, client-risk data source and override behaviour can now be clarified explicitly, allowing the team to estimate within a reasonable range.</small></div></div>
 </article>
-
 <article class="invest-card">
 <div class="invest-card-head"><span class="invest-letter">S</span><div><span class="invest-domain">Digital KYC</span><h3>Small</h3><p class="invest-question">Is this small enough to complete, validate and learn from within the team's normal delivery cycle?</p></div></div>
 <div class="invest-explain-grid"><div><span>WHAT IT MEANS</span><p>The story is small enough to complete, validate and learn from within the team's normal delivery cycle.</p></div><div><span>WHY IT MATTERS</span><p>Large stories hide complexity, delay feedback and make progress difficult to inspect.</p></div><div><span>HOW TO IMPROVE</span><p>Slice by workflow step, business rule, customer segment, product type, transaction type, happy path or risk scenario.</p></div></div>
 <div class="story-compare"><div class="story-state needs-work"><span>⚠ NEEDS REFINEMENT</span><p>“Build the entire digital KYC onboarding process including identity verification, sanctions screening, PEP checks, document validation, risk scoring and compliance approval.”</p><small>Multiple independently valuable behaviours and control stages are bundled into one large story.</small></div><div class="story-state stronger"><span>✓ STRONGER STORY</span><p>“As a Retail Banking Customer, I want my submitted identity document to be validated for document type, expiry date and mandatory information so that an invalid document is identified before my onboarding request proceeds to compliance screening.”</p><small><strong>What improved?</strong> One observable step of the onboarding journey is isolated while still delivering a meaningful customer and control outcome.</small></div></div>
 </article>
-
 <article class="invest-card">
 <div class="invest-card-head"><span class="invest-letter">T</span><div><span class="invest-domain">Transaction Monitoring</span><h3>Testable</h3><p class="invest-question">Can we objectively determine whether the expected behaviour works?</p></div></div>
 <div class="invest-explain-grid"><div><span>WHAT IT MEANS</span><p>The expected behaviour can be verified objectively using observable conditions.</p></div><div><span>WHY IT MATTERS</span><p>Without testable behaviour, different people may have different interpretations of whether the requirement is complete.</p></div><div><span>HOW TO IMPROVE</span><p>Define observable acceptance criteria using business rules, thresholds, states and expected outcomes.</p></div></div>
 <div class="story-compare"><div class="story-state needs-work"><span>⚠ NEEDS REFINEMENT</span><p>“The system should detect suspicious transactions and prevent money laundering.”</p><small>There is no objective condition for determining whether the behaviour works.</small></div><div class="story-state stronger"><span>✓ STRONGER STORY</span><p>“Given a customer's cumulative outgoing transfers exceed ₹10 lakh within 24 hours and the customer is classified as high risk, when another qualifying transfer is posted, then the transaction-monitoring service creates a high-priority alert containing the customer ID, triggering transactions, rule ID and timestamp for investigator review.”</p><small><strong>What improved?</strong> Trigger conditions, threshold, system response and evidence required by the investigator are observable and testable.</small></div></div>
 </article>
 </div>
-
 <div class="callout invest-reminder"><strong>Refinement reminder:</strong> INVEST is not about forcing every story to look perfect. Use it to expose the conversation you still need to have: dependency, solution flexibility, value, uncertainty, size or testability.</div>
 </section>
 </div></section>
-
 <section class="section section-alt" id="safe-epic"><div class="container">
 <div class="section-heading"><span class="eyebrow">02 · SAFE</span><h2>SAFe Epic Template</h2><p class="muted">Use an Epic Hypothesis Statement and Lean Business Case thinking to frame a significant initiative as a testable investment—not simply a large User Story.</p></div>
 <div class="safe-note"><strong>SAFe alignment:</strong> SAFe describes an Epic as a significant solution development initiative. The Epic Hypothesis Statement captures critical information and assumptions; the Epic Owner guides the Epic through the Portfolio Kanban lifecycle, and the MVP is used to test the hypothesis with evidence.</div>
-
 <article class="epic-template">
 <div class="epic-header"><div><span class="tag">SAFe-ALIGNED TEMPLATE</span><h3>Epic Hypothesis Statement</h3></div><button class="copy-btn" data-copy-target="epic-template">Copy template</button></div>
-<pre id="epic-template" class="template-code">EPIC TITLE
+<pre class="template-code" id="epic-template">EPIC TITLE
 &lt;Clear outcome-oriented name&gt;
 
 EPIC OWNER
@@ -177,17 +163,14 @@ VALIDATED LEARNING / STATUS
 PORTFOLIO DECISION
 &lt;Decision, date, decision maker / forum, next action&gt;</pre>
 </article>
-
 <div class="epic-example"><div class="example-label">EXAMPLE · DIGITAL CLAIMS PORTAL</div><h3>From initiative to testable hypothesis</h3><div class="hypothesis-box"><p><strong>We believe</strong> a mobile-first claims portal will reduce claim-processing time and improve customer experience for customers submitting simple claims.</p><p><strong>We will know we are moving in the right direction when</strong> the MVP shows the agreed leading indicators crossing their defined thresholds for the target customer segment.</p></div><div class="mvp-grid"><div><span>MVP</span><p>Simple mobile claim submission for a defined claim type.</p></div><div><span>LEADING INDICATOR</span><p>Submission completion rate, processing-time trend and customer feedback.</p></div><div><span>DECISION</span><p>Use evidence to decide whether to persevere, pivot or stop further investment.</p></div></div></div>
-
 <div class="req-two-col epic-guidance">
 <article class="insight-panel"><span class="panel-label">🔭 EPIC THINKING</span><h3>Ask before funding the work</h3><ul><li>What problem or opportunity is important enough to justify an Epic?</li><li>What do we believe will change for customers or the business?</li><li>What is the riskiest assumption?</li><li>What is the smallest MVP that can test it?</li><li>Which leading indicator would tell us early that we are on the right track?</li><li>What evidence would cause us to pivot, persevere or stop?</li></ul></article>
 <article class="insight-panel"><span class="panel-label">⚠️ AVOID</span><h3>Don't turn an Epic into a project plan</h3><ul><li>Don't define the entire solution before testing the core hypothesis.</li><li>Don't confuse an Epic with a collection of unrelated Stories.</li><li>Don't rely only on output measures or vanity metrics.</li><li>Don't treat the Lean Business Case as a one-time document.</li><li>Don't keep investing simply because work has already started.</li></ul></article>
 </div>
 </div></section>
-
 <section class="section"><div class="container"><div class="closing-card"><span class="eyebrow">THE REQUIREMENT LADDER</span><h2>Outcome → Evidence → Value</h2><p>A good requirement makes the conversation clearer. A strong Epic makes the investment hypothesis testable.</p><div class="ladder"><span>USER NEED</span><b>→</b><span>USER STORY</span><b>→</b><span>FEATURE / SOLUTION</span><b>→</b><span>EPIC HYPOTHESIS</span><b>→</b><span>VALIDATED OUTCOME</span></div></div></div></section>
 </main>
-<div id="site-footer"></div>
+<div id="site-footer"><footer class="site-footer"><a href="/agile-orbit/connect/">Contact &amp; feedback</a></footer></div>
 <script src="../../js/config.js"></script><script src="../../js/utilities.js"></script><script src="../../js/navigation.js"></script><script src="../../js/main.js"></script><script src="../../js/tools.js"></script><script src="../../js/universe-pages.js"></script><script src="../../js/requirement-template.js"></script>
 </body></html>

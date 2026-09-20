@@ -31,7 +31,7 @@ function render(){
         <label><span>Active time</span><input class="vs-active" type="number" min="0" step="0.1" value="${stage.active}"></label>
         <label><span>Waiting time</span><input class="vs-waiting" type="number" min="0" step="0.1" value="${stage.waiting}"></label>
       </div>
-      <div class="vs-stage-total">Stage lead time <strong>${fmt(stage.active+stage.waiting)}</strong></div>
+      <div class="vs-stage-total">Stage lead time <strong>${fmt(stage.active+stage.waiting)} ${unit}</strong></div>
     </article>`;
     flowMap.appendChild(wrap);
     if(index<stages.length-1){const arrow=document.createElement('div');arrow.className='vs-arrow';arrow.innerHTML='<span>→</span>';flowMap.appendChild(arrow);}

@@ -1,0 +1,26 @@
+
+/* Top-of-page refinement: scoped here to avoid disturbing the topic library. */
+.agile-coaching-page .coach-hero .container,.agile-coaching-page .definition-section .container,.agile-coaching-page #coaching-lens>.container{max-width:1180px;}
+.agile-coaching-page .coach-hero{padding-top:48px;padding-bottom:64px;}
+.agile-coaching-page .coach-hero .breadcrumbs{font-size:.78rem;margin-bottom:24px;}
+.agile-coaching-page .coach-hero .eyebrow,.agile-coaching-page .system-copy .eyebrow{font-size:.74rem;letter-spacing:.15em;}
+.coach-hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(390px,.92fr);gap:62px;align-items:center;}
+.coach-hero-copy h1{max-width:690px;}
+.coach-lead-note{max-width:760px!important;font-size:1.08rem!important;line-height:1.78!important;}
+.hero-outcome-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:23px;color:var(--ao-color-1017);font-size:.69rem;font-weight:850;letter-spacing:.08em;}
+.hero-outcome-line span{padding:6px 8px;border:1px solid var(--ao-color-13);border-radius:999px;background:var(--ao-color-16);}
+.hero-outcome-line b{color:var(--ao-color-1962);}.hero-outcome-line strong{color:var(--ao-color-1963);letter-spacing:.1em;}
+.hero-system-mini{position:relative;min-height:420px;display:grid;place-items:center;isolation:isolate;}
+.hero-system-mini:before,.hero-system-mini:after{content:"";position:absolute;border-radius:50%;border:1px solid var(--ao-color-141);box-shadow:0 0 36px var(--ao-color-16);}
+.hero-system-mini:before{width:330px;height:330px;}.hero-system-mini:after{width:230px;height:230px;border-style:dashed;border-color:var(--ao-color-41);}
+.hero-mini-core{position:relative;z-index:2;width:148px;height:148px;border-radius:50%;display:grid;place-content:center;text-align:center;border:1px solid var(--ao-color-87);background:radial-gradient(circle at 35% 28%,var(--ao-color-42),var(--ao-color-1964) 63%);box-shadow:0 0 52px var(--ao-color-45);}
+.hero-mini-core strong{color:var(--ao-color-1965);font:850 .98rem/1.1 Manrope,Inter,sans-serif;letter-spacing:.1em;}.hero-mini-core span{margin-top:7px;color:var(--ao-color-1966);font-size:.66rem;font-weight:850;letter-spacing:.09em;}
+.hero-mini-node{position:absolute;z-index:3;width:130px;padding:12px 10px;border:1px solid var(--ao-color-36);border-radius:14px;background:linear-gradient(145deg,var(--ao-color-1967),var(--ao-color-1968));text-align:center;box-shadow:0 14px 34px var(--ao-color-462);}
+.hero-mini-node b{display:block;color:var(--ao-color-103);font-size:.72rem;letter-spacing:.06em;}.hero-mini-node small{display:block;margin-top:4px;color:var(--ao-color-1969);font-size:.59rem;}
+.hero-mini-node.people{transform:translateY(-168px);border-top-color:var(--ao-color-1970);}.hero-mini-node.product{transform:translateX(168px);border-top-color:var(--ao-color-1971);}.hero-mini-node.technology{transform:translateY(168px);border-top-color:var(--ao-color-1972);}.hero-mini-node.process{transform:translateX(-168px);border-top-color:var(--ao-color-1973);}
+.hero-mini-caption{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:100%;text-align:center;color:var(--ao-color-1974);font-size:.7rem;line-height:1.5;}
+.gold-definition{padding:38px 42px!important;}.gold-definition blockquote{font-weight:600!important;line-height:1.68!important;max-width:970px!important;}.definition-source{display:inline-flex;align-items:center;gap:8px;margin-top:2px;font-size:.79rem!important;}.definition-source:before{content:"";width:22px;height:1px;background:var(--ao-color-1846);}
+.symptom-example{border-color:var(--ao-color-22)!important;box-shadow:0 0 0 1px var(--ao-color-16) inset,0 16px 44px var(--ao-color-328),0 0 34px var(--ao-color-724)!important;}
+.system-lens{grid-template-columns:minmax(0,1fr) minmax(470px,1fr)!important;gap:66px!important;}.system-map{min-height:520px!important;}.system-map:before{width:430px!important;height:430px!important;}.system-map:after{width:295px!important;height:295px!important;}.system-core{width:182px!important;height:182px!important;}.pillar-node{width:148px!important;padding:15px 12px!important;}.pillar-node.people{transform:translateY(-218px)!important;}.pillar-node.product{transform:translateX(220px)!important;}.pillar-node.technology{transform:translateY(218px)!important;}.pillar-node.process{transform:translateX(-220px)!important;}
+@media(max-width:980px){.coach-hero-grid{grid-template-columns:1fr;gap:28px;}.hero-system-mini{min-height:365px;max-width:620px;width:100%;margin:0 auto;}.system-lens{grid-template-columns:1fr!important;}.system-map{min-height:470px!important;}}
+@media(max-width:620px){.agile-coaching-page .coach-hero{padding-top:34px;}.coach-lead-note{font-size:.98rem!important;}.hero-outcome-line{display:none;}.hero-system-mini{min-height:315px;transform:scale(.82);margin-block:-18px;}.gold-definition{padding:26px 22px!important;}.system-map{min-height:350px!important;transform:scale(.76);margin-inline:-58px;}}

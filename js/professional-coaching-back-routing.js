@@ -1,5 +1,5 @@
 /* Keep Professional Coaching back navigation aligned to the current information architecture. */
-(function(){document.addEventListener('DOMContentLoaded',()=>{
+(function(){function init(){
  if(!location.pathname.includes('/coaching/'))return;
  const file=(location.pathname.split('/').pop()||'').replace(/\/$/,'');
  const map={
@@ -35,4 +35,4 @@
  if(file==='coaching-journal.html')route=new URLSearchParams(location.search).get('view')==='coachee'?['professional-coaching-coachee.html','← Back to Coachee Menu']:['coach-practice-standards.html','← Back to Practice & Standards'];
  if(!route)return;
  const candidates=[...document.querySelectorAll('.pc-back,.pc-backbar a')];const back=candidates.find(a=>a.textContent.includes('←'))||candidates[0];if(back){back.href=route[0];back.textContent=route[1]}
-})})();
+}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();})();

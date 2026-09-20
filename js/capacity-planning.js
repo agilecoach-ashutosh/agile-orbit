@@ -1,9 +1,12 @@
 (function () {
   'use strict';
+  if(!document.getElementById('capacity-calculator'))return;
   const byId = (id) => document.getElementById(id);
   const n = (id) => Math.max(0, Number.parseFloat(byId(id).value) || 0);
 
   function calculate() {
+    const invalid=[...document.querySelectorAll('#capacity-calculator input:not([readonly])')].some(input=>input.value!==''&&(!Number.isFinite(Number(input.value))||Number(input.value)<0));
+    if(invalid){byId('capacity-validation').textContent='Enter non-negative numbers. Negative values cannot be used in a forecast.';byId('prediction-number').textContent='—';byId('prediction-raw').textContent='—';return;}
     const velocityN = n('velocity-n');
     const velocityN1 = n('velocity-n1');
     const velocityN2 = n('velocity-n2');
@@ -12,7 +15,7 @@
     const availableDays = n('available-days');
     const validation = byId('capacity-validation');
 
-    const values = [velocityN, velocityN1, velocityN2].filter((v) => v > 0);
+    const values = ['velocity-n','velocity-n1','velocity-n2'].filter(id=>byId(id).value.trim()!=='').map(n);
     const average = values.length ? values.reduce((a, b) => a + b, 0) / values.length : 0;
     const allocatedDays = sprintDays * developers;
     const availableHeadcount = sprintDays > 0 ? availableDays / sprintDays : 0;
