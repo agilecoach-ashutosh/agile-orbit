@@ -16,6 +16,7 @@
   ];
 
   function ensureNavStyles(){
+    if(document.querySelector('link[data-includes-nav="true"]'))return;
     const href=b+'css/hero-nav.css';
     const absolute=new URL(href,location.href).href;
     if(!Array.from(document.querySelectorAll('link[rel="stylesheet"]')).some(link=>link.href===absolute)){

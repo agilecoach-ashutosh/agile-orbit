@@ -4116,3 +4116,6 @@ html[data-theme="light"]{
   --gold:#8a5b00;--gold-bright:#704900;--gold-soft:rgba(138,91,0,.1);
   --gold-panel-1:#fff;--gold-panel-2:#f4f8f5;
 }
+
+/* Headings use the shared display face even in dynamically rendered views. */
+h1,h2,h3,h4,h5,h6{font-family:"Space Grotesk",Inter,sans-serif!important}
