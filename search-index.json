@@ -540,11 +540,6 @@
     "keywords": "Make decisions easier by clarifying outcomes and boundaries. Context beats control Make the decision visible Provide context Agree a review point"
   },
   {
-    "title": "Agile Fundamentals | Agile Orbit",
-    "url": "learn/agile-fundamentals.html",
-    "keywords": "Turn Agile principles into a small learning loop. Agile Fundamentals Connect the ideas to real work Try this with your team Review what changed"
-  },
-  {
     "title": "Behaviour Change | Agile Orbit",
     "url": "learn/behavioural-psychology/behaviour-change.html",
     "keywords": "Turn desired behaviours into small, observable experiments supported by context. Behaviour Change What it means What to look for From → To Try this"
@@ -710,11 +705,6 @@
     "keywords": "Build a strong mental model across Agile, product, behaviour, facilitation, science and real-world case studies. Explore the Orbit of knowledge Agile Fundamentals Scrum Kanban SAFe Lean & Flow Product Management Behavioural Psychology Facilitation Science Behind Agile Real Situations. Real Decisions."
   },
   {
-    "title": "Kanban | Agile Orbit",
-    "url": "learn/kanban.html",
-    "keywords": "Make work visible and actively manage its flow. Kanban Connect the ideas to real work Try this with your team Review what changed"
-  },
-  {
     "title": "Coaching Leadership | Agile Orbit",
     "url": "learn/leadership-mindset/coaching-leadership.html",
     "keywords": "Use questions and reflection to increase ownership and learning. Coaching Leadership What it means What to look for From → To Try this"
@@ -745,19 +735,9 @@
     "keywords": "Look at relationships, feedback loops, constraints and unintended consequences. Systems Thinking What it means What to look for From → To Try this"
   },
   {
-    "title": "Lean & Flow | Agile Orbit",
-    "url": "learn/lean-flow.html",
-    "keywords": "Improve the journey from request to useful outcome. Lean & Flow Connect the ideas to real work Try this with your team Review what changed"
-  },
-  {
     "title": "The Product Management Landscape | Agile Orbit",
     "url": "learn/product-management.html",
     "keywords": "An interactive visual guide to product lifecycle, the four product quadrants, and what Agile actually changed inside Internal x Operations. The Product Management Landscape: What Agile Actually Changed Project or Product? Finish the committed thing Improve value over time Product Management is bigger than Product Development Discovery One product. Four kinds of work. Delivery machinery Agile did not delete Q3. It redistributed Q3. Q3 work is redistributed — not deleted Product Owner ≠ Project Manager renamed Connect the loops, not just the backlog. From relay race to learning loop Stakeholder systems, not just backlog systems Click a stakeholder group Banking product: suitability & compliance Help advisors and clients complete suitability checks with less friction and stronger evidence. Why this shift happened Are you running a product system or just an Agile project? Do not confuse the delivery quadrant with the product."
-  },
-  {
-    "title": "SAFe | Agile Orbit",
-    "url": "learn/safe.html",
-    "keywords": "Connect team planning to shared outcomes and dependencies. SAFe Connect the ideas to real work Try this with your team Review what changed"
   },
   {
     "title": "A Stale Board Is a Broken Sensor | Agile Orbit",
@@ -773,11 +753,6 @@
     "title": "The Science Behind Agile | Agile Orbit",
     "url": "learn/science-behind-agile/",
     "keywords": "Explore the science behind the practices and frameworks used across the Agile ecosystem. The Science Behind Agile Understand the mechanism. Then use the practice with intent. Empiricism and Process Control Theory Where do you want to start? Don't memorize the practice. Understand why it can work."
-  },
-  {
-    "title": "Scrum | Agile Orbit",
-    "url": "learn/scrum.html",
-    "keywords": "Connect goals, usable outcomes and inspection. Scrum Connect the ideas to real work Try this with your team Review what changed"
   },
   {
     "title": "Bottleneck Challenge | Agile Orbit",
