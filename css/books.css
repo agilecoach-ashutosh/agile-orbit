@@ -4,7 +4,7 @@
 .books-hero-copy{font-size:1.08rem;line-height:1.8;color:var(--ao-color-264);max-width:760px;}
 .books-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px;max-width:620px;}
 .books-stat{padding:14px 16px;border:1px solid var(--ao-color-286);border-radius:15px;background:var(--ao-color-1577);}
-.books-stat strong{display:block;font:800 1.4rem/1.1 Manrope;color:var(--ao-color-267);}
+.books-stat strong{display:block;font:800 1.4rem/1.1 "Space Grotesk";color:var(--ao-color-267);}
 .books-stat span{display:block;margin-top:5px;color:var(--ao-color-147);font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;}
 .books-controls{position:sticky;top:72px;z-index:15;margin:12px 0 34px;padding:14px;border:1px solid var(--ao-color-286);border-radius:20px;background:var(--ao-color-1578);backdrop-filter:blur(18px);box-shadow:0 16px 45px var(--ao-color-328);}
 .books-search{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;}
@@ -16,8 +16,8 @@
 .book-cover-frame{width:min(100%,190px);aspect-ratio:2/3;display:grid;place-items:center;border-radius:14px;overflow:hidden;border:1px solid var(--ao-color-1581);background:linear-gradient(145deg,var(--ao-color-1582),var(--ao-color-1583));box-shadow:0 22px 55px var(--ao-color-716),0 0 35px var(--ao-color-297);}
 .book-cover{width:100%;height:100%;object-fit:contain;display:block;}
 .book-body{padding:6px 22px 22px;}
-.book-number{color:var(--ao-color-1378);font:800 .7rem/1 Manrope;letter-spacing:.12em;}
-.book-title{font:800 1.18rem/1.2 Manrope;margin:8px 0 7px;letter-spacing:-.02em;}
+.book-number{color:var(--ao-color-1378);font:800 .7rem/1 "Space Grotesk";letter-spacing:.12em;}
+.book-title{font:800 1.18rem/1.2 "Space Grotesk";margin:8px 0 7px;letter-spacing:-.02em;}
 .book-author{color:var(--ao-color-1584);font-size:.9rem;}
 .book-roles,.book-topics{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px;}
 .book-role,.book-topic{display:inline-flex;padding:5px 8px;border-radius:999px;font-size:.67rem;font-weight:800;border:1px solid var(--ao-color-707);background:var(--ao-color-651);color:var(--ao-color-1585);}
@@ -29,14 +29,14 @@
 .book-details>summary:after{content:"+";color:var(--u-cyan);font-size:1.05rem;}
 .book-details[open]>summary:after{content:"−";}
 .book-details-content{padding-top:16px;color:var(--ao-color-93);font-size:.88rem;line-height:1.75;}
-.book-details-content h4{margin:18px 0 7px;color:var(--ao-color-975);font:800 .74rem/1 Manrope;letter-spacing:.12em;text-transform:uppercase;}
+.book-details-content h4{margin:18px 0 7px;color:var(--ao-color-975);font:800 .74rem/1 "Space Grotesk";letter-spacing:.12em;text-transform:uppercase;}
 .book-details-content p{margin:0 0 10px;}
 .book-details-content ul{margin:8px 0 0;padding-left:18px;}
 .book-details-content li{margin:6px 0;}
 .book-fit{margin-top:14px;padding:12px 13px;border-left:2px solid var(--u-cyan);border-radius:0 12px 12px 0;background:linear-gradient(135deg,var(--ao-color-217),var(--ao-color-1588));color:var(--ao-color-1589);}
 .book-empty{display:none;text-align:center;padding:70px 20px;border:1px dashed var(--ao-color-203);border-radius:18px;color:var(--ao-color-1395);}
 .books-cta{margin-top:54px;text-align:center;padding:30px;border:1px solid var(--ao-color-286);border-radius:22px;background:linear-gradient(135deg,var(--ao-color-277),var(--ao-color-1385));}
-.books-cta h3{margin:0 0 8px;font:800 1.5rem Manrope;}
+.books-cta h3{margin:0 0 8px;font:800 1.5rem "Space Grotesk";}
 .books-cta p{margin:0;color:var(--ao-color-270);}
 @media(max-width:1050px){.books-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.books-controls{top:66px;}}
 @media(max-width:700px){.books-grid{grid-template-columns:1fr;}.books-stats{grid-template-columns:1fr;}.books-controls{position:relative;top:auto;}.book-visual{padding-inline:28px;}.book-cover-frame{width:min(100%,220px);}}

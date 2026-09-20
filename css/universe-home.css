@@ -1,5 +1,6 @@
 /* AGILE ORBIT — Universe Homepage Visual System */
 :root{--u-bg:var(--ao-color-408);--u-text:var(--ao-color-409);--u-muted:var(--ao-color-410);--u-line:var(--ao-color-159);--u-cyan:var(--ao-color-411);--u-violet:var(--ao-color-412);--u-gold:var(--ao-color-413);--u-pink:var(--ao-color-414);}
+.hero-fallback{min-height:100svh;display:grid;place-content:center;gap:16px;padding:80px 20px;text-align:center;background:var(--bg-primary);color:var(--text-primary)}.hero-fallback h1{max-width:900px;margin:0;font:800 clamp(3rem,8vw,6.5rem)/.96 "Space Grotesk",sans-serif;letter-spacing:-.055em}.hero-fallback p{margin:0;color:var(--text-secondary);font-size:1.1rem}
 body.universe-home{background:var(--ao-color-408);color:var(--u-text);overflow-x:hidden;}
 body.universe-home:before{display:none;}
 .universe-shell{position:relative;isolation:isolate;background:radial-gradient(ellipse at 50% 20%,var(--ao-color-415),transparent 42%),radial-gradient(ellipse at 80% 65%,var(--ao-color-416),transparent 36%),var(--ao-color-408);overflow:hidden;}

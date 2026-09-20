@@ -4087,5 +4087,32 @@
 }
 [data-theme=light]{--u-space:#f9f8f5;--u-space-2:#f2f0ea;--u-panel:#fff;--u-panel-2:#f6f3eb;--u-text:#15202c;--u-muted:#465667;--gold-panel-1:#fff;--gold-panel-2:#f5f1e7}
 
-/* Gold labels and links meet AA contrast on the light page surfaces. */
-html[data-theme=light]{--gold:#805600;--gold-bright:#704a00;--accent:#805600!important;--accent-2:#805600!important;--u-cyan:#805600!important;--u-gold:#704a00!important}
+
+
+/* Agile Orbit design system: teal primary, amber secondary, dark by default. */
+:root,[data-theme="dark"]{
+  --bg-primary:#061419;--bg-secondary:#081b20;--surface:#0d252a;
+  --surface-hover:#123238;--surface-soft:rgba(205,250,244,.055);
+  --text-primary:#f2fbfa;--text-secondary:#a9c5c3;
+  --accent:#2dd4bf!important;--accent-2:#f4b942!important;
+  --success:#5ee0a0;--warning:#f4b942;--danger:#ff7b86;
+  --border:rgba(157,222,214,.18);--shadow:0 24px 70px rgba(0,8,10,.48);
+  --u-space:#061419;--u-space-2:#081b20;--u-panel:#0d252a;--u-panel-2:#102d32;
+  --u-text:#f2fbfa;--u-muted:#a9c5c3;--u-line:rgba(157,222,214,.18);
+  --u-cyan:#2dd4bf!important;--u-gold:#f4b942!important;
+  --gold:#f4b942;--gold-bright:#ffd277;--gold-soft:rgba(244,185,66,.14);
+  --gold-panel-1:#0d252a;--gold-panel-2:#102d32;
+}
+html[data-theme="light"]{
+  --bg-primary:#f5fbfa;--bg-secondary:#eaf5f3;--surface:#fff;
+  --surface-hover:#e9f7f5;--surface-soft:rgba(7,92,84,.055);
+  --text-primary:#092a2d;--text-secondary:#3f6263;
+  --accent:#087f75!important;--accent-2:#9b6500!important;
+  --success:#147a50;--warning:#915e00;--danger:#b42331;
+  --border:rgba(9,69,66,.16);--shadow:0 24px 60px rgba(13,72,70,.12);
+  --u-space:#f5fbfa;--u-space-2:#eaf5f3;--u-panel:#fff;--u-panel-2:#eff8f6;
+  --u-text:#092a2d;--u-muted:#3f6263;--u-line:rgba(9,69,66,.16);
+  --u-cyan:#087f75!important;--u-gold:#8a5b00!important;
+  --gold:#8a5b00;--gold-bright:#704900;--gold-soft:rgba(138,91,0,.1);
+  --gold-panel-1:#fff;--gold-panel-2:#f4f8f5;
+}

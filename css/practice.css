@@ -61,7 +61,7 @@
 .practice-feedback p{margin-bottom:0;color:var(--practice-muted);}
 .practice-feedback p b{color:var(--text-primary);}
 .practice-results{max-width:900px;margin-inline:auto;}
-.practice-score{font:800 clamp(2.5rem,7vw,4.5rem)/1 Manrope,sans-serif;color:var(--accent);margin:14px 0;text-shadow:0 0 24px color-mix(in srgb,var(--accent) 20%,transparent);}
+.practice-score{font:800 clamp(2.5rem,7vw,4.5rem)/1 "Space Grotesk",sans-serif;color:var(--accent);margin:14px 0;text-shadow:0 0 24px color-mix(in srgb,var(--accent) 20%,transparent);}
 .practice-results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0;}
 .practice-results-grid .result{background:var(--practice-surface-raised);border-color:var(--practice-border);}
 .practice-results-grid .result small{color:var(--practice-muted);}
