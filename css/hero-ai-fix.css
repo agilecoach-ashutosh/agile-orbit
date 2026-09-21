@@ -1,7 +1,14 @@
 /* Agile Orbit — AI-era composition guardrails */
 body.universe-home .hero-type-ai::before,
 body.universe-home .hero-type-ai::after{display:none!important;}
-body.universe-home .hero-type-ai .hero-scene-inner::after{display:none!important;}
+body.universe-home .hero-type-ai .hero-scene-inner::after{
+  display:block!important;
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,transparent 76%,rgba(2,8,20,.26) 89%,rgba(2,8,20,.86) 100%);
+  pointer-events:none;
+}
 
 body.universe-home .hero-type-ai .ai-visual-label,
 body.universe-home .hero-type-ai .ai-callout-art,
@@ -24,7 +31,7 @@ body.universe-home .hero-type-ai .ai-benefits{z-index:9;}
 @media (min-width:761px){
   body.universe-home .hero-type-ai .hero-layer-main{
     object-fit:cover;
-    object-position:right center!important;
+    object-position:center center!important;
     transform:scale(1.01)!important;
   }
 
