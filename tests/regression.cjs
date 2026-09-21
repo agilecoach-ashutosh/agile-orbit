@@ -1,8 +1,8 @@
 const {JSDOM}=require('jsdom');const fs=require('fs'),assert=require('assert');const root=require('path').resolve(__dirname,'..')+'/';
-const heroMobileCss=fs.readFileSync(root+'css/hero-mobile.css','utf8'),heroScrollCss=fs.readFileSync(root+'css/hero-scroll.css','utf8'),heroScript=fs.readFileSync(root+'js/hero-scroll.js','utf8'),homeHtml=fs.readFileSync(root+'index.html','utf8');
+const heroMobileCss=fs.readFileSync(root+'css/hero-mobile.css','utf8'),heroAiCss=fs.readFileSync(root+'css/hero-ai-fix.css','utf8'),heroScrollCss=fs.readFileSync(root+'css/hero-scroll.css','utf8'),heroScript=fs.readFileSync(root+'js/hero-scroll.js','utf8'),homeHtml=fs.readFileSync(root+'index.html','utf8');
 assert(!heroMobileCss.includes('font-size:.29rem'),'Hero mobile copy must remain legible');
 assert(heroMobileCss.includes('min-height:44px!important;height:44px!important'),'Hero CTA must retain a 44px touch target');
-assert(!heroScrollCss.includes('hero-var('),'Hero title color token must be valid');
+assert(!heroScrollCss.includes('hero-var('),'Hero title color token must be valid');\nassert(heroAiCss.includes('translate3d(-7vw,0,0)'),'Desktop AI artwork must retain its right-edge safe area');\nassert(heroAiCss.includes('ai-panel-body{font-size:.74rem'),'Desktop AI panel copy must remain legible');
 assert(heroScript.includes('warmNext(base)'),'The next hero scene must be prepared before its transition');
 assert(!homeHtml.includes('src="js/tools.js"'),'Homepage must not load the page-specific tools bundle');
 assert.equal((homeHtml.match(/rel="preload"/g)||[]).length,1,'Homepage should preload only the LCP hero image');
