@@ -1340,7 +1340,7 @@ body.universe-home .hero-scenes{position:absolute;inset:0;overflow:hidden;}
 body.universe-home .hero-scene{position:absolute;inset:0;width:100%;height:100svh;min-height:640px;overflow:hidden;isolation:isolate;background:var(--ao-color-287);}
 body.universe-home .hero-scene-inner{position:absolute;inset:0;overflow:hidden;background:var(--ao-color-287);}
 body.universe-home .hero-layer-main{position:absolute;inset:-3%;width:106%;height:106%;object-fit:cover;object-position:center;will-change:transform;pointer-events:none;user-select:none;display:block;image-rendering:auto;}
-body.universe-home .hero-scene-1 .hero-layer-main{object-position:right center!important;}
+body.universe-home .hero-scene-1 .hero-layer-main{object-position:center center!important;}
 body.universe-home .hero-scene-2 .hero-layer-main{object-position:62% center;filter:saturate(1.05) contrast(1.04) brightness(.9);}
 body.universe-home .hero-scene-3 .hero-layer-main{object-position:50% 58%;filter:saturate(1.12) contrast(1.06) brightness(.86);}
 body.universe-home .hero-scene-4 .hero-layer-main{object-position:42% center;filter:saturate(1.08) contrast(1.05) brightness(.9);}
@@ -1408,7 +1408,7 @@ body.universe-home .hero-closing-content{position:relative;z-index:2;max-width:6
   body.universe-home .hero-edge{right:10px;font-size:.45rem;}.hero-quote,.hero-scroll-hint{display:none;}
   body.universe-home .hero-visual-decor .ring-a{width:82vw;height:42vw;right:-10vw;top:13%;}.hero-visual-decor .ring-b{width:64vw;height:32vw;right:1vw;top:27%;}.hero-visual-decor .ring-c{width:46vw;height:23vw;right:12vw;top:40%;}.hero-visual-decor .orb-a{width:58px;height:58px;right:17%;top:20%;}.hero-visual-decor .orb-b{width:24px;height:24px;right:32%;top:58%;}
   body.universe-home .hero-type-ai .hero-scene-inner{inset:-4%;width:108%;height:108%;}
-  body.universe-home .hero-type-ai .hero-layer-main{inset:-4%;width:108%;height:108%;object-fit:cover;object-position:right center!important;}
+  body.universe-home .hero-type-ai .hero-layer-main{inset:-4%;width:108%;height:108%;object-fit:cover;object-position:center center!important;}
   body.universe-home .hero-closing{min-height:100svh;margin-top:0;padding:92px 25px 70px;display:flex;align-items:flex-end;}
   body.universe-home .hero-closing-image{inset:-2%;width:104%;height:104%;filter:saturate(.92) contrast(1.04) brightness(.86);}
   body.universe-home .hero-closing-content{max-width:none;width:100%;}
@@ -1582,7 +1582,14 @@ body.universe-home .hero-type-ai .hero-edge,.hero-type-ai .hero-stats,.hero-type
 /* Agile Orbit — AI-era composition guardrails */
 body.universe-home .hero-type-ai::before,
 body.universe-home .hero-type-ai::after{display:none!important;}
-body.universe-home .hero-type-ai .hero-scene-inner::after{display:none!important;}
+body.universe-home .hero-type-ai .hero-scene-inner::after{
+  display:block!important;
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,transparent 76%,rgba(2,8,20,.26) 89%,rgba(2,8,20,.86) 100%);
+  pointer-events:none;
+}
 
 body.universe-home .hero-type-ai .ai-visual-label,
 body.universe-home .hero-type-ai .ai-callout-art,
@@ -1605,7 +1612,7 @@ body.universe-home .hero-type-ai .ai-benefits{z-index:9;}
 @media (min-width:761px){
   body.universe-home .hero-type-ai .hero-layer-main{
     object-fit:cover;
-    object-position:right center!important;
+    object-position:center center!important;
     transform:scale(1.01)!important;
   }
 
