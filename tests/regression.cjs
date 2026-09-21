@@ -1,4 +1,12 @@
 const {JSDOM}=require('jsdom');const fs=require('fs'),assert=require('assert');const root=require('path').resolve(__dirname,'..')+'/';
+const heroMobileCss=fs.readFileSync(root+'css/hero-mobile.css','utf8'),heroScrollCss=fs.readFileSync(root+'css/hero-scroll.css','utf8'),heroScript=fs.readFileSync(root+'js/hero-scroll.js','utf8'),homeHtml=fs.readFileSync(root+'index.html','utf8');
+assert(!heroMobileCss.includes('font-size:.29rem'),'Hero mobile copy must remain legible');
+assert(heroMobileCss.includes('min-height:44px!important;height:44px!important'),'Hero CTA must retain a 44px touch target');
+assert(!heroScrollCss.includes('hero-var('),'Hero title color token must be valid');
+assert(heroScript.includes('warmNext(base)'),'The next hero scene must be prepared before its transition');
+assert(!homeHtml.includes('src="js/tools.js"'),'Homepage must not load the page-specific tools bundle');
+assert.equal((homeHtml.match(/rel="preload"/g)||[]).length,1,'Homepage should preload only the LCP hero image');
+console.log('Hero readability, touch-target, media-warming and payload regression checks passed.');
 function setup(page,script){const dom=new JSDOM(fs.readFileSync(root+page,'utf8'),{url:'https://agilecoach-ashutosh.github.io/agile-orbit/'+page,runScripts:'outside-only'});dom.window.eval(fs.readFileSync(root+script,'utf8'));const d=dom.window.document;return {dom,d,set(id,value){const el=d.getElementById(id);el.value=String(value);el.dispatchEvent(new dom.window.Event('input',{bubbles:true}));},text(id){return d.getElementById(id).textContent}};}
 let t=setup('tools/sprint-capacity.html','js/capacity-planning.js');t.set('velocity-n',0);t.set('velocity-n1',30);t.set('velocity-n2',60);t.set('available-days',70);assert.equal(t.text('prediction-number'),'30');t.set('velocity-n','');assert.equal(t.text('prediction-number'),'45');t.set('velocity-n1',-1);assert.equal(t.text('prediction-number'),'—');t.dom.window.close();
 t=setup('resources/templates/capacity-planning.html','js/capacity-planning.js');t.dom.window.close();
