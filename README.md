@@ -105,3 +105,19 @@ Keep common styles in shared stylesheets. Extracted page-specific styles live in
 `robots.txt` is included for deployments at an origin root. GitHub Pages project
 sites share the owner's origin-level robots policy; submit `sitemap.xml` directly
 when configuring search indexing.
+
+
+## Content rights and AI use
+
+Agile Orbit is publicly viewable, but public access is not a grant to reproduce the
+site substantially or in full. Original Agile Orbit material is © 2026 Ashutosh Mishra,
+all rights reserved, except for third-party material under its own rights and terms.
+
+The human-readable policy is published at `connect/content-use.html` and the
+machine-readable publisher preference at `ai-policy.txt`. The shared `js/config.js`
+also adds ownership and AI-use metadata plus a visible policy link across the site.
+
+The repository's `robots.txt` opts out named model-training crawlers while preserving
+ordinary discovery. Because the production URL is a GitHub Pages project site under
+`/agile-orbit/`, crawler operators that only consult the host-root `/robots.txt`
+may not apply repository-level rules until the site is served from a domain root.
