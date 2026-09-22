@@ -1,3 +1,31 @@
+# Agile Orbit crawler policy
+# Note: on GitHub Pages project sites, host-root robots.txt controls crawler behavior.
+# These rules become directly effective if Agile Orbit is deployed at a domain root.
+
 User-agent: *
 Allow: /
+
+# Keep OpenAI search discovery available while opting out of model-training crawling.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Disallow: /
+
+# Google Search remains available; Google-Extended controls Gemini/Vertex generative use.
+User-agent: Google-Extended
+Disallow: /
+
+# Apple search remains available; Applebot-Extended controls foundation-model training use.
+User-agent: Applebot-Extended
+Disallow: /
+
+# Anthropic model-development crawler.
+User-agent: ClaudeBot
+Disallow: /
+
+# Common Crawl is frequently used as a source for large training datasets.
+User-agent: CCBot
+Disallow: /
+
 Sitemap: https://agilecoach-ashutosh.github.io/agile-orbit/sitemap.xml
