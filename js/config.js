@@ -79,3 +79,57 @@ window.SITE_CONFIG=SITE_CONFIG;
     observer.observe(document.documentElement,{childList:true,subtree:true});
   }
 })();
+
+// Publisher ownership and AI-use signals shared across Agile Orbit pages.
+(function(){
+  const applyPublisherPolicy=()=>{
+    const head=document.head;
+    if(head){
+      const ensureMeta=(name,content)=>{
+        let el=head.querySelector(`meta[name="${name}"]`);
+        if(!el){
+          el=document.createElement('meta');
+          el.setAttribute('name',name);
+          head.appendChild(el);
+        }
+        el.setAttribute('content',content);
+      };
+      ensureMeta('author','Ashutosh Mishra');
+      ensureMeta('copyright','Copyright © 2026 Ashutosh Mishra. All rights reserved.');
+      ensureMeta('ai-content-policy','Indexing, linking and limited attributed summaries are permitted. Substantial reproduction, cloning, bulk extraction, model training and dataset creation are not authorized without prior written permission.');
+
+      if(!head.querySelector('link[data-agile-orbit-content-policy]')){
+        const link=document.createElement('link');
+        link.rel='help';
+        link.href='/agile-orbit/connect/content-use.html';
+        link.setAttribute('data-agile-orbit-content-policy','true');
+        head.appendChild(link);
+      }
+
+      if(!head.querySelector('link[data-agile-orbit-ai-policy]')){
+        const link=document.createElement('link');
+        link.rel='alternate';
+        link.type='text/plain';
+        link.href='/agile-orbit/ai-policy.txt';
+        link.title='Agile Orbit AI & Automated Use Policy';
+        link.setAttribute('data-agile-orbit-ai-policy','true');
+        head.appendChild(link);
+      }
+    }
+
+    const footer=document.querySelector('#site-footer .site-footer');
+    if(footer && !footer.querySelector('[data-content-rights]')){
+      const rights=document.createElement('span');
+      rights.setAttribute('data-content-rights','true');
+      rights.style.marginLeft='12px';
+      rights.innerHTML=' · © 2026 Ashutosh Mishra · <a href="/agile-orbit/connect/content-use.html">Content &amp; AI Use</a>';
+      footer.appendChild(rights);
+    }
+  };
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',applyPublisherPolicy,{once:true});
+  }else{
+    applyPublisherPolicy();
+  }
+})();
