@@ -993,5 +993,10 @@
     "title": "WSJF Calculator | Agile Orbit",
     "url": "tools/wsjf-calculator.html",
     "keywords": "Rank features using Weighted Shortest Job First: Cost of Delay divided by Job Size. WSJF Calculator Make the economic trade-off visible. Enter feature inputs Powerful questions before you score Sorted features by rank"
+  },
+  {
+    "title": "Story → Visual Flow | Agile Orbit",
+    "url": "resources/prompts/story-visual-flow.html",
+    "keywords": "Mermaid flowchart user story use case acceptance criteria Business Analyst Product Owner Scrum Master Backlog Refinement decisions exceptions visual flow"
   }
 ]

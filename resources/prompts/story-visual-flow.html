@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><script src="/agile-orbit/js/theme.js?v=20260920"></script><title>Story → Visual Flow | Agile Orbit</title><meta content="Turn requirements into Mermaid diagrams for faster backlog refinement." name="description"/><meta content="#061419" name="theme-color"/><link href="../../assets/icons/favicon.svg" rel="icon" type="image/svg+xml"/><link href="/agile-orbit/css/bundles/core-3a228c4c5254.css" rel="stylesheet"/><link href="../../css/ai-prompts.css" rel="stylesheet"/><link href="https://agilecoach-ashutosh.github.io/agile-orbit/resources/prompts/story-visual-flow.html" rel="canonical"/><meta content="Story → Visual Flow | Agile Orbit" property="og:title"/><meta content="Turn requirements into Mermaid diagrams for faster backlog refinement." property="og:description"/><meta content="website" property="og:type"/><meta content="https://agilecoach-ashutosh.github.io/agile-orbit/resources/prompts/story-visual-flow.html" property="og:url"/><meta content="https://agilecoach-ashutosh.github.io/agile-orbit/assets/hero/hero-ai-agile.webp" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link data-includes-nav="true" href="/agile-orbit/css/bundles/theme-af8f16ca3622.css" rel="stylesheet"/></head><body class="universe-inner"><a class="skip-link" href="#main-content">Skip to main content</a><div id="site-nav"><nav aria-label="Primary" class="fallback-nav container"><a href="/agile-orbit/">Agile Orbit</a><a href="/agile-orbit/learn/">Learn</a><a href="/agile-orbit/practice/">Practice</a><a href="/agile-orbit/tools/">Tools</a><a href="/agile-orbit/resources/">Resources</a><a href="/agile-orbit/insights/">Insights</a><a href="/agile-orbit/coaching/">Coaching</a><a href="/agile-orbit/ai/">AI</a><a href="/agile-orbit/about/">About</a><a href="/agile-orbit/connect/">Connect</a></nav></div><div class="mobile-drawer" id="mobile-drawer"></div><main class="prompt-detail" id="main-content" tabindex="-1"><section class="page-hero prompt-detail-hero"><div class="container"><div class="breadcrumbs"><a href="/agile-orbit/">Home</a><span>/</span><a href="../">Resources</a><span>/</span><a href="index.html">AI Prompt Library</a><span>/</span><span>Story → Visual Flow</span></div><span class="eyebrow">AI PROMPT • Analyze + Visualize</span><h1>Story → Visual Flow</h1><p class="prompt-lead">Turn requirements into Mermaid diagrams for faster backlog refinement.</p><div class="prompt-tags"><span class="tag">Business Analyst / Product Owner / Scrum Master</span><span class="tag">Backlog Refinement</span><span class="tag">Analyze + Visualize</span></div></div></section><section class="section prompt-detail-section"><div class="container prompt-detail-layout"><article><section class="prompt-info-card reveal"><span class="section-kicker">PURPOSE</span><h2>Why use this prompt?</h2><p>Turn a user story, use case, or acceptance criteria into a discussion-ready flow that shows user actions, system responses, decisions and stated exceptions. Surface gaps without inventing requirements.</p></section><section class="prompt-code-section reveal"><div class="prompt-section-head"><div><span class="section-kicker">COPY-READY PROMPT</span><h2>Prompt</h2></div><button class="copy-prompt" data-copy-target="promptCode" type="button"><span>▣</span> Copy Prompt</button></div><div class="prompt-code-wrap"><div class="code-bar"><span class="traffic-dot"></span><span class="traffic-dot"></span><span class="traffic-dot"></span><span class="code-label">AGILE ORBIT / PROMPT</span></div><pre id="promptCode" tabindex="0"><code>Act as an experienced Business Analyst supporting a backlog refinement session.
+
+I will provide a user story, use case, requirement, acceptance criteria, or feature description.
+
+Convert the requirement into a clear Mermaid flowchart that I can paste into a Mermaid editor and use to explain the story visually to the delivery team.
+
+INPUT:
+[PASTE USER STORY / USE CASE / ACCEPTANCE CRITERIA HERE]
+
+ANALYZE:
+Identify, where stated, the actor, trigger, user actions, system actions, business rules, validations, decision points, happy path, alternate paths, exception paths, end states, and external-system interactions.
+
+RULES:
+1. Do not invent requirements, actors, business rules, validations, or failure paths.
+2. If something important is unclear, flag it as "TBD / Clarification Needed" in Refinement Questions. Add a TBD node only where the supplied flow cannot proceed without that clarification; do not guess its branches.
+3. Focus on behavior and flow. Include implementation details only when explicitly provided.
+4. Distinguish actions with short labels such as "User: Submit request" and "System: Display confirmation". Use the actual actor name where available.
+5. Combine related steps; do not create one node for every sentence. Keep labels short and understandable to business and technical team members.
+6. Use decision diamonds only when the requirement genuinely branches. Label each branch with Yes / No or the stated outcome.
+7. Include alternate and failure paths only when supplied. Raise missing exception behavior as a refinement question.
+8. Use simple, widely supported Mermaid syntax: flowchart TD, rectangles, decision diamonds, and labeled arrows.
+9. Use simple unique node IDs and double-quoted labels. Avoid experimental syntax, icons, plugins, HTML labels, and custom styling.
+10. Check that every edge references a defined node and that the diagram matches the input. Split a large flow into smaller named diagrams if readability requires it.
+
+SYNTAX EXAMPLE (illustrates syntax only; do not add these requirements to my story):
+flowchart TD
+    A["User: Submit request"] --&gt; B{"System: Request valid?"}
+    B --&gt;|Yes| C["System: Confirm request"]
+    B --&gt;|No| D["System: Show validation errors"]
+
+OUTPUT FORMAT:
+
+Story Flow Summary:
+A maximum of 5 short bullets explaining the journey.
+
+Mermaid Diagram:
+Provide the diagram in a fenced mermaid code block, starting with flowchart TD.
+
+Refinement Questions:
+List only important gaps, ambiguities, edge cases, or decisions to clarify. If none are identified, say "No clarification gaps identified in the supplied requirement."
+
+The diagram should help a BA or Product Owner walk the team through the requirement from start to finish during backlog refinement.</code></pre></div><p class="copy-note">Copy the prompt as-is, then replace the input placeholders with your own context.</p></section><section class="prompt-info-card reveal"><span class="section-kicker">HOW TO USE</span><h2>From story to team conversation</h2><ol><li>Copy the prompt into your AI assistant and replace the input placeholder with your story and acceptance criteria.</li><li>Copy only the generated Mermaid code, without the code fences, into <a href="https://mermaid.live/" target="_blank" rel="noopener noreferrer">Mermaid Live Editor</a>.</li><li>Review the flow against the requirement, then share or export the diagram for refinement.</li></ol></section><section class="prompt-final-card reveal"><div class="final-orbit">✦</div><div><span class="section-kicker">Facilitation Tip</span><p>Walk the team through the happy path, then the decisions and exceptions. Resolve the refinement questions together before treating the diagram as agreed behavior.</p></div></section></article><aside class="prompt-side"><div class="prompt-side-card reveal"><span class="section-kicker">PROMPT AT A GLANCE</span><div class="side-row"><span>Role</span><strong>Business Analyst / Product Owner / Scrum Master</strong></div><div class="side-row"><span>Use in</span><strong>Backlog Refinement</strong></div><div class="side-row"><span>AI task</span><strong>Analyze + Visualize</strong></div></div><a class="prompt-side-link" href="index.html">← Back to AI Prompt Library</a></aside></div></section></main><div id="site-footer"><footer class="site-footer"><a href="/agile-orbit/connect/">Contact &amp; feedback</a></footer></div><script src="../../js/config.js"></script><script src="../../js/utilities.js"></script><script src="../../js/navigation.js?v=20260920"></script><script src="../../js/main.js"></script><script src="../../js/universe-pages.js"></script><script src="../../js/ai-prompts.js"></script></body></html>
