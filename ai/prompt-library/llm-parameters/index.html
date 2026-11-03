@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<script src="/agile-orbit/js/theme.js?v=20260920"></script>
+<title>LLM Parameters Explained | Agile Orbit</title>
+<meta name="description" content="A beginner-friendly guide to temperature, top-p, context window, penalties, stop sequences and token limits, explained with simple analogies and practical examples."/>
+<meta name="theme-color" content="#061419"/>
+<link href="../../../assets/icons/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/agile-orbit/css/bundles/core-3a228c4c5254.css" rel="stylesheet"/>
+<link href="../../../css/ai-prompts.css" rel="stylesheet"/>
+<link href="../../../css/ai-agile.css" rel="stylesheet"/>
+<link href="https://agilecoach-ashutosh.github.io/agile-orbit/ai/prompt-library/llm-parameters/" rel="canonical"/>
+<link data-includes-nav="true" href="/agile-orbit/css/bundles/theme-af8f16ca3622.css" rel="stylesheet"/>
+<style>
+.parameter-lesson{max-width:1000px;margin:auto}.parameter-lesson .intro{font-size:1.12rem;max-width:760px;line-height:1.75}.parameter-card{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:clamp(18px,3vw,28px);margin:22px 0}.parameter-card h2{margin:.25rem 0 .6rem}.parameter-card p,.parameter-card li{line-height:1.75}.analogy{border-left:3px solid #4ed6b0;padding:12px 16px;background:rgba(78,214,176,.07);border-radius:0 10px 10px 0;margin:16px 0}.analogy strong{display:block;margin-bottom:4px}.parameter-meta{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.parameter-meta span{font-size:.78rem;padding:5px 10px;border:1px solid rgba(255,255,255,.16);border-radius:30px;color:var(--muted,#9fb1b5)}.parameter-example{background:#071216;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px;overflow:auto;white-space:pre-wrap;font: .92rem/1.65 ui-monospace,SFMono-Regular,Consolas,monospace}.parameter-table-wrap{overflow-x:auto}.parameter-table{width:100%;border-collapse:collapse;min-width:560px}.parameter-table th,.parameter-table td{text-align:left;padding:12px;border-bottom:1px solid rgba(255,255,255,.12);vertical-align:top}.parameter-table th{color:#75dfc0}.parameter-callout{padding:16px;border:1px solid rgba(112,177,255,.25);background:rgba(112,177,255,.07);border-radius:12px;margin:16px 0}.parameter-nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.parameter-nav a{padding:9px 13px;border:1px solid rgba(255,255,255,.15);border-radius:30px;text-decoration:none}.parameter-lesson details{margin-top:12px}.parameter-lesson summary{cursor:pointer;font-weight:650}.parameter-lesson a{color:#75dfc0}
+</style>
+</head>
+<body class="universe-inner">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div id="site-nav"><nav aria-label="Primary" class="fallback-nav container"><a href="/agile-orbit/">Agile Orbit</a><a href="/agile-orbit/learn/">Learn</a><a href="/agile-orbit/practice/">Practice</a><a href="/agile-orbit/tools/">Tools</a><a href="/agile-orbit/resources/">Resources</a><a href="/agile-orbit/insights/">Insights</a><a href="/agile-orbit/coaching/">Coaching</a><a href="/agile-orbit/ai/">AI</a><a href="/agile-orbit/about/">About</a><a href="/agile-orbit/connect/">Connect</a></nav></div>
+<div class="mobile-drawer" id="mobile-drawer"></div>
+<main id="main-content" tabindex="-1">
+<section class="page-hero"><div class="container">
+<div class="breadcrumbs"><a href="/agile-orbit/">Home</a><span>/</span><a href="../../">AI</a><span>/</span><a href="../">Prompt Library</a><span>/</span><span>LLM Parameters</span></div>
+<span class="eyebrow">LEARN • LLM PARAMETERS</span>
+<h1>Think of these as the AI's control panel.</h1>
+<p class="prompt-lead intro">A prompt tells an AI what job to do. Model parameters influence how it carries out that job: how adventurous it is with words, how much it can take in, and when it should stop.</p>
+<div class="parameter-nav"><a href="#temperature">Temperature</a><a href="#top-p">Top-P</a><a href="#context">Context window</a><a href="#penalties">Penalties</a><a href="#stop">Stop sequence</a><a href="#tokens">Max tokens</a></div>
+</div></section>
+<section class="section"><div class="container parameter-lesson">
+<div class="parameter-card"><span class="tag">START HERE</span><h2>One simple analogy: directing a restaurant kitchen</h2>
+<p>Imagine an AI is a chef preparing an answer. Your prompt is the recipe and the model parameters are the kitchen controls.</p>
+<div class="analogy"><strong>Temperature is the chef's adventurousness.</strong> Does the chef stick to a familiar dish or experiment with unexpected ingredients?</div>
+<div class="analogy"><strong>Top-P is the ingredient shortlist.</strong> Does the chef choose from only the most likely ingredients or consider a wider selection?</div>
+<div class="analogy"><strong>Context window is the kitchen counter.</strong> How many ingredients, recipe notes and orders can fit in the working space at once?</div>
+<div class="analogy"><strong>Frequency penalty is the anti-repeat reminder.</strong> Don't use the same ingredient or phrase again and again.</div>
+<div class="analogy"><strong>Presence penalty is the variety reminder.</strong> Once an idea has appeared, consider bringing a new idea into the dish.</div>
+<div class="analogy"><strong>Stop sequence is the kitchen bell.</strong> When the specified signal appears, stop preparing the response.</div>
+<div class="analogy"><strong>Max output tokens is the serving-size limit.</strong> The chef cannot serve more than the allowed amount.</div>
+</div>
+
+<article class="parameter-card" id="temperature"><span class="tag">01 • CREATIVITY DIAL</span><h2>Temperature</h2>
+<p>Temperature controls how much variation the model allows when choosing its next token. Lower values make outputs more focused and predictable; higher values make them more varied and adventurous.</p>
+<div class="analogy"><strong>Think of ordering pizza.</strong> At low temperature, you get the usual Margherita. At higher temperature, the chef may suggest an unusual topping combination.</div>
+<div class="parameter-table-wrap"><table class="parameter-table"><thead><tr><th>Illustrative setting</th><th>Likely feel</th><th>Good starting use</th></tr></thead><tbody>
+<tr><td>0.1–0.3</td><td>Steady, focused, less variation</td><td>Classification, extraction, consistent formats</td></tr>
+<tr><td>0.4–0.7</td><td>Balanced and natural</td><td>Business writing, explanations, coaching dialogue</td></tr>
+<tr><td>0.8–1.2</td><td>More exploratory</td><td>Brainstorming, campaign ideas, creative writing</td></tr>
+</tbody></table></div>
+<p><strong>Example task:</strong> “Suggest ways to improve employee engagement in an Agile organization.”</p>
+<ul><li>At 0.2, expect safer and more conventional suggestions.</li><li>At 0.9, expect more varied angles and combinations.</li></ul>
+<p><strong>Try this:</strong> Start at 0.7 for a general assistant. Lower it when consistency matters; raise it when exploring ideas. A higher value does not mean a more intelligent answer.</p>
+</article>
+
+<article class="parameter-card" id="top-p"><span class="tag">02 • CHOICE FILTER</span><h2>Top-P (nucleus sampling)</h2>
+<p>Top-P limits the pool of likely next-token candidates. The model keeps the smallest group of candidates whose combined probability reaches the selected P threshold, then samples from that group.</p>
+<div class="analogy"><strong>Think of a shortlist for a team lunch.</strong> Top-P = 0.2 is a very small shortlist of obvious choices. Top-P = 0.95 lets many more plausible restaurants into the shortlist.</div>
+<p><strong>Example:</strong> The model is completing “The sprint review was…” and its possible next words have probabilities:</p>
+<div class="parameter-table-wrap"><table class="parameter-table"><thead><tr><th>Candidate</th><th>Probability</th></tr></thead><tbody><tr><td>Useful</td><td>45%</td></tr><tr><td>Constructive</td><td>30%</td></tr><tr><td>Engaging</td><td>15%</td></tr><tr><td>Unexpected</td><td>10%</td></tr></tbody></table></div>
+<p>With Top-P = 0.75, the pool includes “Useful” and “Constructive” (together 75%). With Top-P = 1.0, all candidates remain eligible.</p>
+<p><strong>Try this:</strong> Leave Top-P at 1.0 initially and tune temperature first. Avoid aggressively changing both together because it becomes harder to tell which setting caused the difference.</p>
+</article>
+
+<article class="parameter-card" id="context"><span class="tag">03 • WORKING SPACE</span><h2>Context window</h2>
+<p>The context window is the amount of tokenized information a model can work with in one request or conversation turn. It can include instructions, chat history, supplied documents and the space needed for the response, depending on the model and API.</p>
+<div class="analogy"><strong>Think of a desk while preparing a project report.</strong> A small desk fits a few papers. A large desk lets you spread out the brief, research, meeting notes and reports at once.</div>
+<p><strong>Example:</strong> You provide a 40-page product strategy, customer feedback, delivery metrics and ask for a joined-up executive summary. A model with an appropriate context window may process more of that material together.</p>
+<div class="parameter-callout"><strong>Remember:</strong> A larger context window is not permanent memory and does not guarantee perfect recall. Long inputs still need good structure, relevant retrieval and clear instructions.</div>
+<p><strong>Do I set it?</strong> Usually you select a model that supports the capacity you need. The available context limit is model-specific.</p>
+</article>
+
+<article class="parameter-card" id="penalties"><span class="tag">04 • REPETITION & VARIETY</span><h2>Frequency penalty vs presence penalty</h2>
+<p>Both can reduce repetitive output, but they work differently. In APIs that support them, these penalties adjust token selection based on what has already appeared.</p>
+<div class="analogy"><strong>Imagine a meeting facilitator.</strong> Frequency penalty says, “You have used the word ‘alignment’ six times. Vary your language.” Presence penalty says, “We have already covered alignment. Bring in another subject.”</div>
+<h3>Frequency penalty: how often?</h3>
+<p>It applies more pressure against tokens that have appeared repeatedly. The more often a token has appeared, the stronger the frequency-based adjustment.</p>
+<h3>Presence penalty: has it appeared?</h3>
+<p>It applies a one-time presence-based adjustment when a token has appeared, encouraging the model to introduce different tokens and potentially new ideas.</p>
+<div class="parameter-table-wrap"><table class="parameter-table"><thead><tr><th>Setting</th><th>Illustrative effect</th></tr></thead><tbody>
+<tr><td>0</td><td>No penalty adjustment</td></tr><tr><td>Positive</td><td>Discourages repeated tokens / encourages variety</td></tr><tr><td>Negative</td><td>Can make repeated tokens more likely</td></tr>
+</tbody></table></div>
+<p><strong>Example:</strong> The draft says: “Agile improves collaboration. Agile improves delivery. Agile improves transparency.”</p>
+<ul><li>Frequency penalty may encourage less repeated use of “Agile” and “improves”.</li><li>Presence penalty can encourage moving on from already-used terms or ideas.</li></ul>
+<p><strong>Try this:</strong> Start at 0.0. Test a modest positive value such as 0.2–0.5 only when repetition is a real problem. Too much penalty can make technical terms or important concepts disappear awkwardly.</p>
+</article>
+
+<article class="parameter-card" id="stop"><span class="tag">05 • END SIGNAL</span><h2>Stop sequence</h2>
+<p>A stop sequence is a text marker that tells a compatible generation API to stop when that marker is produced. It is useful when an application expects a clear boundary.</p>
+<div class="analogy"><strong>Think of a radio host hearing the closing music.</strong> Once the agreed signal plays, the show ends. The stop marker is that signal.</div>
+<p><strong>Example:</strong> A simple coaching transcript format might be:</p>
+<pre class="parameter-example">Coach: What would make this conversation useful?
+Client: I want to understand why the team is stuck.
+END_TURN</pre>
+<p>If <code>END_TURN</code> is configured as a supported stop sequence, generation stops when it reaches that marker. The marker is typically omitted from the returned text.</p>
+<p><strong>Useful for:</strong> transcript boundaries, legacy completion formats, structured multi-part generation and simple agent pipelines.</p>
+<div class="parameter-callout"><strong>Important:</strong> Not every model or endpoint supports stop sequences. Check the exact API and model documentation. Do not use a stop marker that might occur naturally inside the answer.</div>
+</article>
+
+<article class="parameter-card" id="tokens"><span class="tag">06 • RESPONSE SIZE</span><h2>Max output tokens</h2>
+<p>This sets the maximum number of tokens the model may generate in its response. It is a ceiling, not a promise that the model will use all of them.</p>
+<div class="analogy"><strong>Think of a word limit in an exam.</strong> You may write a short answer, but you cannot exceed the allowed space.</div>
+<p><strong>Example starting points:</strong></p>
+<div class="parameter-table-wrap"><table class="parameter-table"><thead><tr><th>Output token budget</th><th>Typical use</th></tr></thead><tbody><tr><td>100–200</td><td>Short answer or label</td></tr><tr><td>500</td><td>Concise explanation</td></tr><tr><td>1,500–2,000</td><td>Detailed response or report section</td></tr><tr><td>4,000+</td><td>Long-form generation, when supported</td></tr></tbody></table></div>
+<p>Tokens are not words. A token may be a whole word, part of a word, punctuation or another text unit. The ratio varies by language and content.</p>
+<div class="parameter-callout"><strong>Context window ≠ max output tokens.</strong> Context window is the total working space for input and output. Max output tokens limits how much the model can generate.</div>
+</article>
+
+<div class="parameter-card"><span class="tag">PUT IT TOGETHER</span><h2>A practical starting setup</h2>
+<p>Imagine you're building an Agile Coach assistant that explains delivery metrics and suggests improvement experiments. A sensible first experiment might look like this, for a model/API that supports these fields:</p>
+<pre class="parameter-example">{
+  "temperature": 0.4,
+  "top_p": 1.0,
+  "frequency_penalty": 0,
+  "presence_penalty": 0,
+  "max_output_tokens": 1200
+}</pre>
+<p>Keep the system instructions clear: define the coach's role, the audience, the evidence it should use, and the response format. Tune model parameters only after you have a repeatable test prompt.</p>
+<h3>Quick cheat sheet</h3>
+<div class="parameter-table-wrap"><table class="parameter-table"><thead><tr><th>Parameter</th><th>Plain-English question</th></tr></thead><tbody>
+<tr><td>Temperature</td><td>How adventurous should the AI be?</td></tr><tr><td>Top-P</td><td>How wide is the shortlist of next-token choices?</td></tr><tr><td>Context window</td><td>How much can fit on the working desk?</td></tr><tr><td>Frequency penalty</td><td>How strongly should repeated tokens be discouraged?</td></tr><tr><td>Presence penalty</td><td>Should already-mentioned tokens be discouraged from appearing again?</td></tr><tr><td>Stop sequence</td><td>What signal tells generation to stop?</td></tr><tr><td>Max output tokens</td><td>How large can the answer be?</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="parameter-card"><span class="tag">A NOTE ON MODEL DIFFERENCES</span><h2>These controls are not universal</h2>
+<p>Names, ranges, defaults and availability vary by provider, model and API endpoint. Some reasoning-oriented models do not expose sampling controls such as temperature, Top-P or penalties. Some APIs use <code>max_output_tokens</code> while others use a different field name. Context limits are model-specific too.</p>
+<p>Always check the documentation for the exact model you are calling. Treat the values in this guide as learning examples, not universal settings or guaranteed optimal configurations.</p>
+<p><a href="https://platform.openai.com/docs/api-reference/responses" target="_blank" rel="noopener">OpenAI Responses API reference ↗</a> · <a href="https://platform.openai.com/docs/guides/text?api-mode=responses" target="_blank" rel="noopener">OpenAI text generation guide ↗</a></p>
+</div>
+<div class="ai-next"><div><span class="eyebrow">CONTINUE LEARNING</span><h2>Understand prompts before tuning parameters.</h2><p class="muted">Explore reusable prompting techniques and see how structure changes the quality of an instruction.</p></div><a class="btn btn-primary" href="../prompting-frameworks/">Explore prompting frameworks →</a></div>
+</div></section>
+</main>
+<div id="site-footer"><footer class="site-footer"><a href="/agile-orbit/connect/">Contact &amp; feedback</a></footer></div>
+<script src="../../../js/config.js"></script><script src="../../../js/utilities.js"></script><script src="../../../js/navigation.js?v=20260920"></script><script src="../../../js/main.js"></script><script src="../../../js/universe-pages.js"></script><script src="../../../js/ai-agile.js"></script>
+</body></html>
