@@ -27,7 +27,7 @@
 <span class="eyebrow">LEARN • LLM PARAMETERS</span>
 <h1>Think of these as the AI's control panel.</h1>
 <p class="prompt-lead intro">A prompt tells an AI what job to do. Model parameters influence how it carries out that job: how adventurous it is with words, how much it can take in, and when it should stop.</p>
-<div class="parameter-nav"><a href="#temperature">Temperature</a><a href="#top-p">Top-P</a><a href="#context">Context window</a><a href="#penalties">Penalties</a><a href="#stop">Stop sequence</a><a href="#tokens">Max tokens</a></div>
+<div class="parameter-nav"><a href="#temperature">Temperature</a><a href="#top-p">Top-P</a><a href="#context">Context window</a><a href="#penalties">Penalties</a><a href="#stop">Stop sequence</a><a href="#tokens">Max tokens</a><a href="#combine">Combine settings</a></div>
 </div></section>
 <section class="section"><div class="container parameter-lesson">
 <div class="parameter-card"><span class="tag">START HERE</span><h2>The important parameters at a glance</h2>
@@ -109,21 +109,41 @@ END_TURN</pre>
 <div class="parameter-callout"><strong>Context window ≠ max output tokens.</strong> Context window is the total working space for input and output. Max output tokens limits how much the model can generate.</div>
 </article>
 
-<div class="parameter-card"><span class="tag">PUT IT TOGETHER</span><h2>A practical starting setup</h2>
-<p>Imagine you're building an Agile Coach assistant that explains delivery metrics and suggests improvement experiments. A sensible first experiment might look like this, for a model/API that supports these fields:</p>
-<pre class="parameter-example">{
-  "temperature": 0.4,
-  "top_p": 1.0,
-  "frequency_penalty": 0,
-  "presence_penalty": 0,
-  "max_output_tokens": 1200
-}</pre>
-<p>Keep the system instructions clear: define the coach's role, the audience, the evidence it should use, and the response format. Tune model parameters only after you have a repeatable test prompt.</p>
+<section class="parameter-card" id="combine">
+<span class="tag">09 • PRACTICAL CONFIGURATION</span>
+<h2>How to combine these parameters</h2>
+<p>Think of the parameters as a team of controls, not seven independent magic switches. Start with the job you want the AI to do, choose a model with enough working memory, then tune the creativity and repetition controls to suit the task.</p>
+<div class="parameter-callout"><strong>A useful rule:</strong> Start with a simple baseline. Keep Top-P at 1.0, leave repetition penalties at 0, and adjust temperature first. Change one setting at a time so you can tell what actually improved the answer.</div>
+<article class="parameter-card"><span class="tag">SCENARIO A • ACCURACY & CONSISTENCY</span><h3>Enterprise Agile Coach</h3>
+<p><strong>Use it for:</strong> analyzing delivery metrics, summarizing project updates, preparing management reports and explaining Agile practices.</p>
+<div class="parameter-table-wrap"><table class="parameter-table"><thead><tr><th>Parameter</th><th>Starting point</th><th>Why?</th></tr></thead><tbody>
+<tr><td>Temperature</td><td><strong>0.2</strong></td><td>Keep responses focused and predictable.</td></tr><tr><td>Top-P</td><td><strong>1.0</strong></td><td>Leave the candidate pool unrestricted while tuning temperature.</td></tr><tr><td>Frequency penalty</td><td><strong>0</strong></td><td>Preserve important terms such as cycle time, throughput and predictability.</td></tr><tr><td>Presence penalty</td><td><strong>0</strong></td><td>Stay focused on the evidence and question.</td></tr><tr><td>Max output tokens</td><td><strong>2,000</strong></td><td>Allow room for a structured analysis or report.</td></tr><tr><td>Stop sequence</td><td><strong>None</strong></td><td>Usually unnecessary for a normal report.</td></tr><tr><td>Context window</td><td><strong>Choose a model with enough capacity</strong></td><td>Fit the instructions, metrics, relevant history and response.</td></tr></tbody></table></div>
+<div class="analogy"><strong>Creativity dial low, vocabulary filter open.</strong> You want a dependable analyst, not a report that invents a new style every time.</div></article>
+<article class="parameter-card"><span class="tag">SCENARIO B • IDEAS & VARIETY</span><h3>Creative Content Assistant</h3>
+<p><strong>Use it for:</strong> LinkedIn posts, campaign concepts, photography ideas, headlines and brainstorming.</p>
+<div class="parameter-table-wrap"><table class="parameter-table"><thead><tr><th>Parameter</th><th>Starting point</th><th>Why?</th></tr></thead><tbody>
+<tr><td>Temperature</td><td><strong>0.9</strong></td><td>Invite more varied and unexpected ideas.</td></tr><tr><td>Top-P</td><td><strong>1.0</strong></td><td>Keep the candidate pool unrestricted initially.</td></tr><tr><td>Frequency penalty</td><td><strong>0.3</strong></td><td>Discourage repeated wording in longer drafts.</td></tr><tr><td>Presence penalty</td><td><strong>0.3</strong></td><td>Encourage fresh angles rather than circling one idea.</td></tr><tr><td>Max output tokens</td><td><strong>1,500</strong></td><td>Allow several ideas or a complete content draft.</td></tr><tr><td>Stop sequence</td><td><strong>None</strong></td><td>Usually unnecessary for open-ended creative work.</td></tr><tr><td>Context window</td><td><strong>Choose a model with enough capacity</strong></td><td>Include the brief, brand voice, examples and output.</td></tr></tbody></table></div>
+<div class="analogy"><strong>Creativity dial higher, exploration dial gently on.</strong> Encourage fresh ideas, but keep the brief and audience clear so variety does not become randomness.</div></article>
+<article class="parameter-card"><span class="tag">SCENARIO C • NATURAL CONVERSATION</span><h3>AI Coaching Simulator</h3>
+<p><strong>Use it for:</strong> a voice or chat-based coach that listens, responds naturally and asks useful follow-up questions without sounding repetitive.</p>
+<div class="parameter-table-wrap"><table class="parameter-table"><thead><tr><th>Parameter</th><th>Starting point</th><th>Why?</th></tr></thead><tbody>
+<tr><td>Temperature</td><td><strong>0.7</strong></td><td>Keep language natural while allowing conversational flexibility.</td></tr><tr><td>Top-P</td><td><strong>1.0</strong></td><td>Leave the candidate pool unrestricted initially.</td></tr><tr><td>Frequency penalty</td><td><strong>0.3</strong></td><td>Help avoid asking the same question in nearly identical words.</td></tr><tr><td>Presence penalty</td><td><strong>0.2</strong></td><td>Allow some exploration without pushing the conversation off-topic.</td></tr><tr><td>Max output tokens</td><td><strong>500</strong></td><td>Encourage short, turn-by-turn responses.</td></tr><tr><td>Stop sequence</td><td><strong>Only if needed</strong></td><td>Use a marker only when your conversation pipeline needs a defined boundary.</td></tr><tr><td>Context window</td><td><strong>Choose a model with enough capacity</strong></td><td>Keep relevant conversation history and coaching instructions available.</td></tr></tbody></table></div>
+<div class="analogy"><strong>Creativity dial balanced, anti-repetition dial gently on.</strong> The coach should sound human and curious, not like a script that repeats the same question.</div></article>
+<h3>How to choose your combination</h3>
+<ol>
+<li><strong>Start with the task.</strong> Accuracy, creativity or natural conversation call for different starting points.</li>
+<li><strong>Choose the model and context window.</strong> Make sure the instructions, source material, conversation history and expected response can fit. Context window is generally a model capability, not a slider you tune in the prompt.</li>
+<li><strong>Set the response length.</strong> Use a smaller output budget for short chat turns and a larger one for reports or detailed analysis.</li>
+<li><strong>Set temperature first.</strong> Keep Top-P at 1.0 while you test. Temperature and Top-P both affect token selection, so changing both at once makes results harder to interpret.</li>
+<li><strong>Add penalties only when needed.</strong> Begin at 0. If the output repeats itself, try a small positive frequency penalty. Use presence penalty carefully when you want more topic variety.</li>
+<li><strong>Add a stop sequence only for a reason.</strong> It is useful for a defined output boundary, not normally needed for ordinary chat.</li>
+<li><strong>Test with real examples.</strong> Run the same prompts against a small test set, compare quality and consistency, and change one parameter at a time.</li>
+</ol>
+<div class="parameter-callout"><strong>These are starting presets, not universal best settings.</strong> Parameter ranges and support vary by provider, model and API endpoint. Some models do not support temperature, Top-P or repetition penalties. Use only settings supported by the model you selected.</div>
 <h3>Quick cheat sheet</h3>
-<div class="parameter-table-wrap"><table class="parameter-table"><thead><tr><th>Parameter</th><th>Plain-English question</th></tr></thead><tbody>
-<tr><td>Temperature</td><td><strong>Creativity dial</strong></td></tr><tr><td>Top-P</td><td><strong>Vocabulary filter</strong></td></tr><tr><td>Context window</td><td><strong>Working memory</strong></td></tr><tr><td>Frequency penalty</td><td><strong>Anti-repetition dial</strong></td></tr><tr><td>Presence penalty</td><td><strong>Exploration dial</strong></td></tr><tr><td>Stop sequence</td><td><strong>Emergency brake</strong></td></tr><tr><td>Max output tokens</td><td><strong>Response length limit</strong></td></tr>
-</tbody></table></div>
-</div>
+<div class="parameter-table-wrap"><table class="parameter-table"><thead><tr><th>Parameter</th><th>Plain-English analogy</th><th>Usually adjust when…</th></tr></thead><tbody>
+<tr><td>Temperature</td><td><strong>Creativity dial</strong></td><td>You need more predictable or more varied wording.</td></tr><tr><td>Top-P</td><td><strong>Vocabulary filter</strong></td><td>You need to constrain or broaden plausible next-word choices.</td></tr><tr><td>Context window</td><td><strong>Working memory</strong></td><td>You need to handle more instructions, history or source material.</td></tr><tr><td>Frequency penalty</td><td><strong>Anti-repetition dial</strong></td><td>The same words or phrases are recurring too often.</td></tr><tr><td>Presence penalty</td><td><strong>Exploration dial</strong></td><td>You want the model to explore different wording or topics.</td></tr><tr><td>Stop sequence</td><td><strong>Emergency brake</strong></td><td>Your application needs generation to end at a specific marker.</td></tr><tr><td>Max output tokens</td><td><strong>Response length limit</strong></td><td>You need to cap the size of the response.</td></tr></tbody></table></div>
+</section>
 
 <div class="parameter-card"><span class="tag">A NOTE ON MODEL DIFFERENCES</span><h2>These controls are not universal</h2>
 <p>Names, ranges, defaults and availability vary by provider, model and API endpoint. Some reasoning-oriented models do not expose sampling controls such as temperature, Top-P or penalties. Some APIs use <code>max_output_tokens</code> while others use a different field name. Context limits are model-specific too.</p>
